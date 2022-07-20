@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #1758a7;
+      }
+
+      .cls-2 {
+        fill: #f8f8f8;
+      }
+
+      .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="Group_109" data-name="Group 109" transform="translate(-236 -1051)">
+    <rect id="Rectangle_84" data-name="Rectangle 84" class="cls-1" width="96" height="96" rx="8" transform="translate(236 1051)"/>
+    <g id="Group_110" data-name="Group 110" transform="translate(-2.135 -3.991)">
+      <g id="_294692_css3_icon" data-name="294692_css3_icon" transform="translate(262.809 1064.007)">
+        <g id="形状_1_19_" transform="translate(0 12.984)">
+          <g id="形状_1" transform="translate(0)">
+            <g id="Group_98" data-name="Group 98">
+              <path id="Path_125" data-name="Path 125" class="cls-2" d="M91.809,117.07l4.373,47.381,18.953,5.1,18.952-5.1,4.374-47.381Z" transform="translate(-91.809 -117.07)"/>
+            </g>
+          </g>
+        </g>
+        <g id="形状_1_18_" transform="translate(23.326 16.705)">
+          <g id="形状_1_1_">
+            <g id="Group_99" data-name="Group 99">
+              <path id="Path_126" data-name="Path 126" class="cls-2" d="M256,144.084V188.66l.043.012,15.337-4.13,3.54-40.458Z" transform="translate(-255.997 -144.084)"/>
+            </g>
+          </g>
+        </g>
+        <g id="形状_1_17_" transform="translate(10.662 42.901)">
+          <g id="形状_1_2_" transform="translate(0)">
+            <g id="Group_100" data-name="Group 100">
+              <path id="Path_127" data-name="Path 127" class="cls-3" d="M179.471,334.738l-.01,0-6.332-1.614-.384-4.648h-5.884l.767,8.974,11.9,3.551v-6.28Z" transform="translate(-166.861 -328.479)"/>
+            </g>
+          </g>
+        </g>
+        <g id="形状_1_16_" transform="translate(23.326 34.136)">
+          <g id="形状_1_3_">
+            <g id="Group_101" data-name="Group 101">
+              <path id="Path_128" data-name="Path 128" class="cls-3" d="M256,266.782v5.7h.017l7.033.008-.451,7.452-6.581,1.854-.017,0v6.263l.017.005h0l11.928-3.484,1.548-17.806Z" transform="translate(-256.001 -266.782)"/>
+            </g>
+          </g>
+        </g>
+        <g id="形状_1_15_" transform="translate(9.83 34.136)">
+          <g id="形状_1_4_" transform="translate(0)">
+            <g id="Group_102" data-name="Group 102">
+              <path id="Path_129" data-name="Path 129" class="cls-3" d="M161,266.782l.448,5.7v.009H174.5v-5.7Z" transform="translate(-161.002 -266.782)"/>
+            </g>
+          </g>
+        </g>
+        <g id="形状_1_14_" transform="translate(9.831 28.43)">
+          <g id="形状_1_5_" transform="translate(0)">
+            <g id="Group_103" data-name="Group 103">
+              <path id="Path_130" data-name="Path 130" class="cls-3" d="M161.008,232.323H174.47l.033-.014v-5.692Z" transform="translate(-161.008 -226.617)"/>
+            </g>
+          </g>
+        </g>
+        <g id="形状_1_13_" transform="translate(23.326 28.153)">
+          <g id="形状_1_6_">
+            <g id="Group_104" data-name="Group 104">
+              <path id="Path_131" data-name="Path 131" class="cls-3" d="M256.79,224.667,256,225v5.652l13.916-5.982Z" transform="translate(-256.001 -224.667)"/>
+            </g>
+          </g>
+        </g>
+        <g id="形状_1_12_" transform="translate(8.579 22.449)">
+          <g id="形状_1_7_">
+            <g id="Group_105" data-name="Group 105">
+              <path id="Path_132" data-name="Path 132" class="cls-3" d="M152.2,184.515l.705,5.7h14.042v-5.7Z" transform="translate(-152.196 -184.515)"/>
+            </g>
+          </g>
+        </g>
+        <g id="形状_1_11_" transform="translate(23.326 22.449)">
+          <g id="形状_1_8_" transform="translate(0 0)">
+            <g id="Group_106" data-name="Group 106">
+              <path id="Path_133" data-name="Path 133" class="cls-3" d="M256,190.219l14.468-5.7H256Zm0,0h13.888l.576-5.7Z" transform="translate(-256.001 -184.515)"/>
+            </g>
+          </g>
+        </g>
+        <g id="形状_1_10_" transform="translate(9.484 0)">
+          <g id="形状_1_9_" transform="translate(0)">
+            <g id="Group_107" data-name="Group 107">
+              <path id="Path_134" data-name="Path 134" class="cls-2" d="M158.564,35.221h7.2V32.4H161.65v-2.82h4.114V26.5h-7.2Zm10.278-5.636c.963.963,1.466,1.424,2.859,2.818l-2.859,0v2.815h7.2V32.4l-2.876-2.82h2.876V26.5h-7.2ZM186.249,26.5h-7.2v3.086c.963.963,1.466,1.424,2.859,2.818l-2.859,0v2.815h7.2V32.4l-2.876-2.82h2.876Z" transform="translate(-158.564 -26.499)"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
