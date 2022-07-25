@@ -22,6 +22,20 @@ html, body {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
 }
+* 1. Change the font styles in all browsers.
+* 2. Remove the margin in Firefox and Safari.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+ font-family: inherit; /* 1 */
+ font-size: 100%; /* 1 */
+ line-height: 1.15; /* 1 */
+ margin: 0; /* 2 */
+}
 body, textarea {
   
   line-height: 1em;
@@ -37,5 +51,9 @@ h6 {
   margin: 0;
   line-height: 1em;
 }
+
+
+
+
 `;
 export default GlobalStyles;
