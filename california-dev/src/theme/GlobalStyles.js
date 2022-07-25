@@ -38,6 +38,7 @@ h6 {
   line-height: 1em;
 }
 `;
+
 export const NormalizeStyles = createGlobalStyle`
 * 1. Change the font styles in all browsers.
 * 2. Remove the margin in Firefox and Safari.
