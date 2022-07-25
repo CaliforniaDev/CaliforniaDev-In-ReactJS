@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import GlobalStyles from "theme/GlobalStyles";
 import theme from "theme/theme";
 import { ThemeProvider } from "styled-components";
 import reportWebVitals from "./reportWebVitals";
+import {GlobalStyles, NormalizeStyles} from "theme/GlobalStyles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      <NormalizeStyles />
       <GlobalStyles />
       <App />
     </ThemeProvider>
