@@ -16,4 +16,15 @@ export const NavContainer = styled.nav`
   background-color: ${({theme}) => theme.color.primary};
   box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
   transition: 0.3s;
+
+`
+
+export const NavLinks = styled.ul`
+margin-bottom: auto;
+margin-top: auto;
+padding-bottom: 8rem;
+list-style-type: none;
+display:flex;
+flex-direction: column;
+text-align: center;
 `
