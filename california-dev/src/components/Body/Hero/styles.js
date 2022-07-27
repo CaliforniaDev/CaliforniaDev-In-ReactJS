@@ -50,3 +50,7 @@ export const Content = styled.div`
     color: ${({theme}) => theme.color.primary}
   }
 `
+export const SocialLinks = styled.div`
+  display: flex;
+  padding: 1.6rem 0;
+`
