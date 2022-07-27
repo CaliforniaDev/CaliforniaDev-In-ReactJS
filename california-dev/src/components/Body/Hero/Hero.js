@@ -1,5 +1,8 @@
 import * as Styled from "./styles";
 import profileImg from "lib/assets/images/profile.JPG";
+import githubIcon from "lib/assets/images/github-icon-link.svg";
+import instagramIcon from "lib/assets/images/instagram-icon.svg";
+import mailIcon from "lib/assets/images/mail-icon.svg";
 export const Hero = () => {
   return (
     <Styled.Section id="hero">
@@ -31,13 +34,13 @@ const Content = () => {
         <a href="./resume.pdf" target="_blank" id="resume-btn" className="light-font" > Resumé </a>
         <div className="hero__link-container">
           <a href="https://github.com/CaliforniaDev" target="_blank" className="hero__link" >
-            <img src="images/github-icon-link.svg" />
+            <img src={githubIcon} />
           </a>
           <a href="https://www.instagram.com/leo.thedeveloper/" target="_blank" className="hero__link" >
-            <img src="images/instagram-icon.svg" />
+            <img src={instagramIcon} />
           </a>
           <a href="mailto:leodaniels365@gmail.com" className="hero__link">
-            <img src="images/mail-icon.svg" />
+            <img src= {mailIcon} />
           </a>
         </div>
       </div>
