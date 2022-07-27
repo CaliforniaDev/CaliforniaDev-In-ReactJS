@@ -18,7 +18,7 @@ const Content = () => {
     <Styled.Content>
       <p>👋🏽 HI THERE! I'M</p>
       <h2>
-        <span className="blue-highlight">LEO</span> DANIELS
+        <span className="blue-highlight" style={{fontSize: "4rem"}}>LEO</span> DANIELS
       </h2>
       <p>
         A <span className="blue-highlight">Front-end Developer </span> 
