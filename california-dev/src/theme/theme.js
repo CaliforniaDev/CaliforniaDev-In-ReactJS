@@ -7,6 +7,9 @@ const theme = {
     onSecondaryVarient: "#006699",
     tertiary: "#FF6666",
   },
+  shadow: {
+    button: "0px 3px 6px rgba(0, 0, 0, 0.16)"
+  }
 };
 
 export default theme;
