@@ -28,7 +28,11 @@ const theme = {
 
   shadow: {
     button: "0px 3px 6px rgba(0, 0, 0, 0.16)",
+    buttonHover: "0px 3px 6px rgba(0, 0, 0, .6)",
   },
+  transition: {
+    button: '0.3s'
+  }
 };
 
 export default theme;
