@@ -54,7 +54,7 @@ export const Content = styled.div`
     color: ${({ theme }) => theme.color.onSecondaryVarient};
   }
 `;
-export const SocialLinks = styled.div`
+export const LinksContainer = styled.div`
   display: flex;
   padding: 1.6rem 0;
   .flex-wrapper {
@@ -74,4 +74,20 @@ export const SocialLinks = styled.div`
     background-color: ${({ theme }) => theme.color.primary};
     color: ${({ theme }) => theme.color.onPrimary};
   }
+
+  .flex-wrapper {
+    display: flex;
+  }
+
+  .hero__social-link {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: ${({theme}) => theme.color.inverse.primary};
+    margin: 0 0.8rem;
+    border-radius: 0.8rem;
+    box-shadow: ${({theme}) => theme.shadow.button};
+    transition: 0.3s;
+    cursor: pointer;
+}
 `;
