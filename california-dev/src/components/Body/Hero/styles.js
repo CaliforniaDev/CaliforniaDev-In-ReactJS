@@ -1,6 +1,6 @@
 import styled from "styled-components";
 /**
- * ! HERO STYLED COMPONENTS 
+ * ! HERO STYLED COMPONENTS
  */
 export const Section = styled.section`
   display: flex;
@@ -10,7 +10,11 @@ export const Section = styled.section`
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
   max-width: 100vw;
-`
+
+  .blue-highlight {
+    color: ${({ theme }) => theme.color.primary};
+  }
+`;
 export const Header = styled.header`
   display: flex;
   justify-content: center;
@@ -18,7 +22,7 @@ export const Header = styled.header`
   margin: 0 1.6rem;
   padding: 0 1.6rem;
 
-  p,span {
+  p {
     font-size: 2.4rem;
     line-height: 3.2rem;
   }
@@ -41,16 +45,33 @@ export const Header = styled.header`
   .profile-img {
     height: 475px;
   }
-`
+`;
 export const Content = styled.div`
   margin: 1.6rem 0 0 5.6rem;
   max-width: 100%;
 
   .blue-highlight {
-    color: ${({theme}) => theme.color.primary}
+    color: ${({ theme }) => theme.color.onSecondaryVarient};
   }
-`
+`;
 export const SocialLinks = styled.div`
   display: flex;
   padding: 1.6rem 0;
-`
+  .flex-wrapper {
+    display: flex;
+  }
+
+  #resume-btn {
+    padding: 1.2rem 3.6rem;
+    margin-right: 3.2rem;
+    margin-bottom: 1.6rem;
+    border-radius: 2.4rem;
+    box-shadow: ${({ theme }) => theme.shadow.button};
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    background-color: ${({ theme }) => theme.color.primary};
+    color: ${({ theme }) => theme.color.onPrimary};
+  }
+`;
