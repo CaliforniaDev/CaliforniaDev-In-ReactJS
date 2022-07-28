@@ -34,28 +34,26 @@ const Content = () => {
         experiences. I possess the ability to learn new technologies rapidly due
         to my love of coffee. ☕
       </p>
-      <SocialLinks />
+      <LinksContainer />
     </Styled.Content>
   );
 };
 
-const SocialLinks = () => {
+const LinksContainer = () => {
   return (
-    <Styled.SocialLinks id="hero__styled-social-links">
-      <div id="hero__">
+    <Styled.LinksContainer id="hero__styled-links-container">
         <a href={resume} target="_blank" id="resume-btn" className="light-font" primary> Resumé </a>
         <div className="flex-wrapper">
-          <a href="https://github.com/CaliforniaDev" target="_blank" className="hero__link" >
+          <a href="https://github.com/CaliforniaDev" target="_blank" className="hero__social-link" >
             <img src={githubIcon} />
           </a>
-          <a href="https://www.instagram.com/leo.thedeveloper/" target="_blank" className="hero__link" >
+          <a href="https://www.instagram.com/leo.thedeveloper/" target="_blank" className="hero__social-link" >
             <img src={instagramIcon} />
           </a>
-          <a href="mailto:leodaniels365@gmail.com" className="hero__link">
+          <a href="mailto:leodaniels365@gmail.com" className="hero__social-link">
             <img src= {mailIcon} />
           </a>
         </div>
-      </div>
-    </Styled.SocialLinks>
+    </Styled.LinksContainer>
   )
 }
