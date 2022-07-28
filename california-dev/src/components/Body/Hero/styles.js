@@ -66,13 +66,19 @@ export const LinksContainer = styled.div`
     margin-right: 3.2rem;
     margin-bottom: 1.6rem;
     border-radius: 2.4rem;
-    box-shadow: ${({ theme }) => theme.shadow.button};
     border: none;
     cursor: pointer;
     transition: 0.3s;
     text-decoration: none;
-    background-color: ${({ theme }) => theme.color.primary};
     color: ${({ theme }) => theme.color.onPrimary};
+    background-color: ${({ theme }) => theme.color.primary};
+    box-shadow: ${({ theme }) => theme.shadow.button};
+    transition: ${({theme}) => theme.transition.button};
+
+    &:hover {
+      transition: ${({theme}) => theme.transition.button};
+      box-shadow: ${({theme}) => theme.shadow.buttonHover};
+    }
   }
 
   .flex-wrapper {
@@ -87,7 +93,12 @@ export const LinksContainer = styled.div`
     margin: 0 0.8rem;
     border-radius: 0.8rem;
     box-shadow: ${({theme}) => theme.shadow.button};
-    transition: 0.3s;
+    transition: ${({theme}) => theme.transition.button};
     cursor: pointer;
+
+    &:hover {
+      transition: ${({theme}) => theme.transition.button};
+      box-shadow: ${({theme}) => theme.shadow.buttonHover};
+    }
 }
 `;
