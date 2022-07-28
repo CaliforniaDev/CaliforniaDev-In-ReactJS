@@ -50,7 +50,7 @@ const LinksContainer = () => {
           <a href="https://www.instagram.com/leo.thedeveloper/" target="_blank" className="hero__social-link" >
             <img src={instagramIcon} />
           </a>
-          <a href="mailto:leodaniels365@gmail.com" className="hero__social-link">
+          <a href="mailto:leodaniels@californiaDev.com" className="hero__social-link">
             <img src= {mailIcon} />
           </a>
         </div>
