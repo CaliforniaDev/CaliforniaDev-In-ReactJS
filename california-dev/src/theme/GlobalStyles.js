@@ -3,7 +3,6 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap');
-
 html, body {
   font-size: 62.5%;
   line-height: 1.6;
@@ -18,6 +17,7 @@ html, body {
   scroll-behavior: smooth;
   font-family: 'Roboto', sans-serif;
   background-color: ${({theme}) => theme.color.secondary};
+  color: ${({theme}) => theme.color.onSecondary}
 }
 *, *::before, *::after {
   padding: 0;
@@ -71,7 +71,8 @@ h4 {
   line-height: 3.2rem;
 }
 span {
-  font-size: 1.6rem;
+  font-size: inherit
+  line-height: inherit;
 }
 `;
 
