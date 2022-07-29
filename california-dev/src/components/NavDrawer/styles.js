@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const NavContainer = styled.nav`
   z-index: 100;
-  margin: 0px;
-  padding: 0px;
   position: fixed;
   display: flex;
   width: 100px;
