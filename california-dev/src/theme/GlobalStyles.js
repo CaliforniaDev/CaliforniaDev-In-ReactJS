@@ -10,7 +10,7 @@ html, body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
   height: -webkit-fill-available;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -70,6 +70,7 @@ h4 {
   font-size: 2.4rem;
   line-height: 3.2rem;
 }
+
 span {
   font-size: inherit
   line-height: inherit;
