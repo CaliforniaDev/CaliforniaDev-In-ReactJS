@@ -5,7 +5,7 @@ export const GlobalStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 html, body {
   font-size: 62.5%;
-  line-height: 1.6;
+  line-height: 1.5;
   position: relative;
   min-height: 100vh;
   min-height: -webkit-fill-available;
@@ -27,19 +27,7 @@ html, body {
   -moz-box-sizing: inherit;
 }
 body, textarea {
-  
-  line-height: 1em;
   font-size: 1.6rem;
-  margin: 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  line-height: 1em;
 }
 
 span, label {
@@ -53,22 +41,21 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 5.6rem;
-  line-height: 7.2rem;
 }
 
 h2 {
   font-size: 4.0rem;
-  line-height: 5.2rem;
+
 }
 
 h3 {
   font-size: 3.2rem;
-  line-height: 4rem;
+
 }
 
 h4 {
   font-size: 2.4rem;
-  line-height: 3.2rem;
+
 }
 
 span {
