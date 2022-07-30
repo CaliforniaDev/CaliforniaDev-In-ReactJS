@@ -21,4 +21,22 @@ export const ElevatedCard = styled.div`
   width: 100%;
   background-color: ${({theme}) => theme.color.tertiary};
   box-shadow: ${({theme}) => theme.shadow.button};
+
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+    border: 1px solid cyan;
+    text-align: center;
+
+  }
+  .skills__col {
+    flex-basis: 50%;
+    border: 1px solid purple;
+    padding: 1.6rem;
+  }
+  .img-wrapper {
+    height: 6rem;
+  }
+
 `;
