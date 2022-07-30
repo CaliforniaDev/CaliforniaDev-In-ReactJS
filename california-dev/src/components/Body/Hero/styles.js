@@ -35,9 +35,9 @@ export const Header = styled.header`
     align-items: center;
     overflow: hidden;
     border-radius: 50%;
-    width: 350px;
-    min-width: 350px;
-    height: 350px;
+    width: 35rem;
+    min-width: 35rem;
+    height: 35rem;
   }
 
   .profile-img {
@@ -55,14 +55,14 @@ export const Content = styled.div`
 export const LinksContainer = styled.div`
   display: flex;
   padding: 1.6rem 0;
+  gap: 2.4rem;
+  align-items: center;
   .flex-wrapper {
     display: flex;
   }
 
   #resume-btn {
     padding: 1.2rem 3.6rem;
-    margin-right: 3.2rem;
-    margin-bottom: 1.6rem;
     border-radius: 2.4rem;
     border: none;
     cursor: pointer;
@@ -81,14 +81,15 @@ export const LinksContainer = styled.div`
 
   .flex-wrapper {
     display: flex;
+    gap: 1.6rem;
   }
 
   .hero__social-link {
     display: flex;
-    width: 40px;
-    height: 40px;
+    width: 4rem;
+    height: 4rem;
     background-color: ${({theme}) => theme.color.inverse.primary};
-    margin: 0 0.8rem;
+   
     border-radius: 0.8rem;
     box-shadow: ${({theme}) => theme.shadow.button};
     transition: ${({theme}) => theme.transition.button};
