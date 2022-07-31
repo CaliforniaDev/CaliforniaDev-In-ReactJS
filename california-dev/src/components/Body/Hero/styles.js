@@ -11,6 +11,11 @@ export const Section = styled.section`
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
   max-width: 100vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBG});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 
   .blue-highlight {
     color: ${({ theme }) => theme.color.primary};
@@ -19,9 +24,12 @@ export const Section = styled.section`
 export const Header = styled.header`
   display: flex;
   flex-basis: 100%;
+  height: ;
   gap: 3.2rem;
   align-items: center;
   padding: 0 1.6rem;
+  border: 1px solid green;
+
 
   p {
     font-size: 2.4rem;
