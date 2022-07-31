@@ -1,4 +1,4 @@
-
+import { useRef, useEffect } from "react";
 import * as Styled from "./styles";
 import profileImg from "lib/assets/images/profile.JPG";
 import githubIcon from "lib/assets/images/github-icon-link.svg";
@@ -10,6 +10,17 @@ import resume from "lib/assets/docs/resume.pdf";
  * TODO: Fix themeing around buttons and repetative styles
  */
 export const Hero = () => {
+  // const parallax = useRef(null);
+  // useEffect(() => {
+  //   function scrollHandler() {
+  //     const element = parallax.current;
+  //     if (element) {
+  //       let offset = window.pageYOffset;
+  //       console.log(offset);
+  //       element.style.backgroundPositionY = offset * .12 + "px";
+  //     }
+  //   }
+  // }, []) 
   return (
     <Styled.Section id="hero">
       <Styled.Header id="hero-header">
