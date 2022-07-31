@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import heroBG from "lib/assets/images/hero-bg.jpg";
 /**
  * ! HERO STYLED COMPONENTS
  */
@@ -17,17 +18,15 @@ export const Section = styled.section`
 `;
 export const Header = styled.header`
   display: flex;
-  justify-content: center;
+  flex-basis: 100%;
+  gap: 3.2rem;
   align-items: center;
   padding: 0 1.6rem;
-  
 
   p {
     font-size: 2.4rem;
     line-height: 3.2rem;
   }
-
- 
 
   .profile-img-container {
     display: flex;
@@ -45,8 +44,7 @@ export const Header = styled.header`
   }
 `;
 export const Content = styled.div`
-  margin: 1.6rem 0 0 5.6rem;
-  max-width: 100%;
+  // margin: 1.6rem 0 0 5.6rem;
 
   .blue-highlight {
     color: ${({ theme }) => theme.color.onSecondaryVarient};
@@ -71,11 +69,11 @@ export const LinksContainer = styled.div`
     color: ${({ theme }) => theme.color.onPrimary};
     background-color: ${({ theme }) => theme.color.primary};
     box-shadow: ${({ theme }) => theme.shadow.button};
-    transition: ${({theme}) => theme.transition.button};
+    transition: ${({ theme }) => theme.transition.button};
 
     &:hover {
-      transition: ${({theme}) => theme.transition.button};
-      box-shadow: ${({theme}) => theme.shadow.buttonHover};
+      transition: ${({ theme }) => theme.transition.button};
+      box-shadow: ${({ theme }) => theme.shadow.buttonHover};
     }
   }
 
@@ -88,16 +86,16 @@ export const LinksContainer = styled.div`
     display: flex;
     width: 4rem;
     height: 4rem;
-    background-color: ${({theme}) => theme.color.inverse.primary};
-   
+    background-color: ${({ theme }) => theme.color.inverse.primary};
+
     border-radius: 0.8rem;
-    box-shadow: ${({theme}) => theme.shadow.button};
-    transition: ${({theme}) => theme.transition.button};
+    box-shadow: ${({ theme }) => theme.shadow.button};
+    transition: ${({ theme }) => theme.transition.button};
     cursor: pointer;
 
     &:hover {
-      transition: ${({theme}) => theme.transition.button};
-      box-shadow: ${({theme}) => theme.shadow.buttonHover};
+      transition: ${({ theme }) => theme.transition.button};
+      box-shadow: ${({ theme }) => theme.shadow.buttonHover};
     }
-}
+  }
 `;
