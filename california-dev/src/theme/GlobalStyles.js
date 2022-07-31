@@ -62,6 +62,10 @@ span {
   font-size: inherit
   line-height: inherit;
 }
+
+p {
+  max-width: 75ch;
+}
 `;
 
 
