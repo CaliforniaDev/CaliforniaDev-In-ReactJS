@@ -25,7 +25,7 @@ export const Hero = () => {
     <Styled.Section id="hero">
       <Styled.Header id="hero-header">
         <div className="profile-img-container">
-          <img class="profile-img" src={profileImg} />
+          <img className="profile-img" src={profileImg} />
         </div>
         <Content />
       </Styled.Header>
@@ -54,7 +54,7 @@ const Content = () => {
 const LinksContainer = () => {
   return (
     <Styled.LinksContainer id="hero__styled-links-container">
-        <a href={resume} target="_blank" id="resume-btn" className="light-font" primary> Resumé </a>
+        <a href={resume} target="_blank" id="resume-btn" className="light-font"> Resumé </a>
         <div className="flex-wrapper">
           <a href="https://github.com/CaliforniaDev" target="_blank" className="hero__social-link" >
             <img src={githubIcon} />
@@ -69,3 +69,5 @@ const LinksContainer = () => {
     </Styled.LinksContainer>
   )
 }
+ 
+ 
