@@ -16,6 +16,7 @@ export const Section = styled.section`
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  background-attachment: fixed;
 
   .blue-highlight {
     color: ${({ theme }) => theme.color.primary};
