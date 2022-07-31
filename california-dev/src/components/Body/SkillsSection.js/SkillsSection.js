@@ -12,7 +12,7 @@ export const SkillsSection = () => {
                 <img style={{height: "58px"}} src={penToolImg} alt="Graphic design pen tool icon"/>
               </figure>
               <h3>UI / UX Designer</h3>
-              <p style={{fontSize: "2rem"}}>
+              <p>
                 During the inital design process. I create both a low fidelity
                 wireframe, then an interactive hi-fidelity prototype using Adobe
                 XD. Each design goes through exstensive user testing to ensure
