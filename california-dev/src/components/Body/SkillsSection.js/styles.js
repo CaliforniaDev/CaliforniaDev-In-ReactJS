@@ -39,4 +39,8 @@ export const ElevatedCard = styled.div`
     height: 6rem;
   }
 
+  p {
+    font-size: 2rem;
+  }
+
 `;
