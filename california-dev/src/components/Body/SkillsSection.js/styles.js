@@ -26,13 +26,12 @@ export const ElevatedCard = styled.div`
     display: flex;
     justify-content: center;
     gap: 1.6rem;
-    border: 1px solid cyan;
     text-align: center;
 
   }
   .skills__col {
     flex-basis: 50%;
-    border: 1px solid purple;
+   
     padding: 1.6rem;
   }
   .img-wrapper {

@@ -10,12 +10,13 @@ export const Section = styled.section`
   min-height: 100vh;
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
-  max-width: 100vw;
+  width: 100vw;
+  
+  padding: 1.6rem 1.6rem 1.6rem 10rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBG});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
   background-attachment: fixed;
 
   .blue-highlight {
@@ -29,7 +30,6 @@ export const Header = styled.header`
   gap: 3.2rem;
   align-items: center;
   padding: 0 1.6rem;
-  border: 1px solid green;
 
 
   p {
