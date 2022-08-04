@@ -10,18 +10,14 @@ export const Section = styled.section`
   min-height: 100vh;
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
-  width: 100vw;
-  
-  padding: 1.6rem 1.6rem 1.6rem 10rem;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBG});
+  max-width: 100%;
+  background-image: linear-gradient(rgba(255, 204, 102, 0.8), rgba(255, 204, 102, 0.8)), url(${heroBG});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 
-  .blue-highlight {
-    color: ${({ theme }) => theme.color.primary};
-  }
+
 `;
 export const Header = styled.header`
   display: flex;
@@ -29,7 +25,7 @@ export const Header = styled.header`
   height: ;
   gap: 3.2rem;
   align-items: center;
-  padding: 0 1.6rem;
+  padding: 1.6rem;
 
 
   p {
@@ -46,6 +42,7 @@ export const Header = styled.header`
     width: 35rem;
     min-width: 35rem;
     height: 35rem;
+    box-shadow: ${({theme}) => theme.shadow.primary};
   }
 
   .profile-img {
@@ -77,12 +74,12 @@ export const LinksContainer = styled.div`
     text-decoration: none;
     color: ${({ theme }) => theme.color.onPrimary};
     background-color: ${({ theme }) => theme.color.primary};
-    box-shadow: ${({ theme }) => theme.shadow.button};
-    transition: ${({ theme }) => theme.transition.button};
+    box-shadow: ${({ theme }) => theme.shadow.primary};
+    transition: ${({ theme }) => theme.transition.primary};
 
     &:hover {
-      transition: ${({ theme }) => theme.transition.button};
-      box-shadow: ${({ theme }) => theme.shadow.buttonHover};
+      transition: ${({ theme }) => theme.transition.primary};
+      box-shadow: ${({ theme }) => theme.shadow.primaryHover};
     }
   }
 
@@ -98,13 +95,13 @@ export const LinksContainer = styled.div`
     background-color: ${({ theme }) => theme.color.inverse.primary};
 
     border-radius: 0.8rem;
-    box-shadow: ${({ theme }) => theme.shadow.button};
-    transition: ${({ theme }) => theme.transition.button};
+    box-shadow: ${({ theme }) => theme.shadow.primary};
+    transition: ${({ theme }) => theme.transition.primary};
     cursor: pointer;
 
     &:hover {
-      transition: ${({ theme }) => theme.transition.button};
-      box-shadow: ${({ theme }) => theme.shadow.buttonHover};
+      transition: ${({ theme }) => theme.transition.primary};
+      box-shadow: ${({ theme }) => theme.shadow.primaryHover};
     }
   }
 `;

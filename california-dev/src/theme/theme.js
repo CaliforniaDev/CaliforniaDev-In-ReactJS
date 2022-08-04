@@ -1,14 +1,16 @@
 /**
  * * Change color swatches from these constants
  */
-const primary = "#006699";
+const primary = "#006699"; //BLUE
 const onPrimary = "#fff";
 
-const secondary = "#FFCC66";
-const onSecondary =  "#444444";
-const onSecondaryVarient = "#006699";
+const secondary = "#FFCC66"; // YELLOW
+const onSecondary = "#444444";
+const onSecondaryVarient = "#006699"; //RED
 
 const tertiary = "#FF6666";
+
+
 
 
 const theme = {
@@ -27,12 +29,12 @@ const theme = {
   },
 
   shadow: {
-    button: "0px 3px 6px rgba(0, 0, 0, 0.16)",
-    buttonHover: "0px 3px 6px rgba(0, 0, 0, .6)",
+    primary: "0px 6px 8px rgba(0, 0, 0, 0.30)",
+    primaryHover: "0px 3px 6px rgba(0, 0, 0, .6)",
   },
   transition: {
-    button: '0.3s'
-  }
+    primary: "0.3s",
+  },
 };
 
 export default theme;
