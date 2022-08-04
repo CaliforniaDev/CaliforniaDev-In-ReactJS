@@ -4,7 +4,7 @@ import { SkillsSection } from "./SkillsSection.js";
 
 export const Body = () => {
   return (
-    <main id="main">
+    <main style={{paddingLeft: "10rem"}} id="main">
       <Hero />
       <SkillsSection />
     </main>
