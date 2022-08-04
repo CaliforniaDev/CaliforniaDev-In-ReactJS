@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme from "theme/theme";
+
 
 export const NavContainer = styled.nav`
   z-index: 100;
@@ -12,7 +12,7 @@ export const NavContainer = styled.nav`
   flex-direction: column;
   padding: 1.6rem 0;
   max-width: 100%;
-  background-color: ${({theme, isVisible}) => isVisible ? theme.color.primary : undefined};
+  background-color: ${({theme}) =>theme.color.primary};
   box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
   transition: 0.2s;
   
