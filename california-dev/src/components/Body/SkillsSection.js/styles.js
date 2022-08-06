@@ -20,7 +20,7 @@ export const ElevatedCard = styled.div`
   height: auto;
   width: 100%;
   background-color: ${({theme}) => theme.color.tertiary};
-  box-shadow: ${({theme}) => theme.shadow.button};
+  box-shadow: ${({theme}) => theme.shadow.primary};
 
   .flex-container {
     display: flex;
