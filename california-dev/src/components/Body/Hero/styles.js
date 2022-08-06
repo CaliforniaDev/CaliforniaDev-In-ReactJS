@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import heroBG from "lib/assets/images/hero-bg.jpg";
+import heroBG from "lib/assets/images/background/hero-bg.jpg";
 /**
  * ! HERO STYLED COMPONENTS
  */

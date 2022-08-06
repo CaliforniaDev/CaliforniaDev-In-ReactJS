@@ -1,5 +1,5 @@
-import logoImg from "lib/assets/images/character.svg";
-import logoWordmark from "lib/assets/images/logo-wordmark.svg";
+import logoImg from "lib/assets/images/logo/character.svg";
+import logoWordmark from "lib/assets/images/logo/logo-wordmark.svg";
 
 const Logo = () => {
   return (

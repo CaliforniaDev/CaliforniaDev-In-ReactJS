@@ -1,6 +1,6 @@
 import * as Styled from "./styles";
-import penToolImg from "lib/assets/images/pen-tool.svg";
-import computerImg from "lib/assets/images/desktop-icon.svg";
+import penToolImg from "lib/assets/images/icons/pen-tool.svg";
+import computerImg from "lib/assets/images/icons/desktop-icon.svg";
 export const SkillsSection = () => {
   return (
     <Styled.Section id="skills">

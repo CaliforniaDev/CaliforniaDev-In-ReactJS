@@ -1,9 +1,9 @@
 import { useRef, useEffect } from "react";
 import * as Styled from "./styles";
 import profileImg from "lib/assets/images/profile.JPG";
-import githubIcon from "lib/assets/images/github-icon-link.svg";
-import instagramIcon from "lib/assets/images/instagram-icon.svg";
-import mailIcon from "lib/assets/images/mail-icon.svg";
+import githubIcon from "lib/assets/images/icons/github-icon-link.svg";
+import instagramIcon from "lib/assets/images/icons/instagram-icon.svg";
+import mailIcon from "lib/assets/images/icons/mail-icon.svg";
 import resume from "lib/assets/docs/resume.pdf";
 /**
  * 
