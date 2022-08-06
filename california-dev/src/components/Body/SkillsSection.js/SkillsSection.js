@@ -9,7 +9,11 @@ export const SkillsSection = () => {
           <div className="skills__col">
             <div className="col__content">
               <figure className="img-wrapper">
-                <img style={{height: "58px"}} src={penToolImg} alt="Graphic design pen tool icon"/>
+                <img
+                  style={{ height: "58px" }}
+                  src={penToolImg}
+                  alt="Graphic design pen tool icon"
+                />
               </figure>
               <h3>UI / UX Designer</h3>
               <p>
@@ -23,7 +27,7 @@ export const SkillsSection = () => {
           <div className="skills__col">
             <div className="col__content">
               <figure className="img-wrapper">
-                <img src={computerImg} alt="Desktop computer icon"/>
+                <img src={computerImg} alt="Desktop computer icon" />
               </figure>
               <h3>Front-end Developer</h3>
               <p>
@@ -35,6 +39,12 @@ export const SkillsSection = () => {
                 maintainability.
               </p>
             </div>
+          </div>
+        </div>
+        <div className="flex-container">
+          <h4>Skill-set & Tools</h4>
+          <div className="grid-container">
+            <p>HTML5</p>
           </div>
         </div>
       </Styled.ElevatedCard>
