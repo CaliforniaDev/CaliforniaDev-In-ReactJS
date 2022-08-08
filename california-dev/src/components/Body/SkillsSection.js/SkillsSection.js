@@ -1,13 +1,14 @@
 import * as Styled from "./styles";
+import { ToolItems } from "./ToolItems";
 import penToolImg from "lib/assets/images/icons/pen-tool.svg";
 import computerImg from "lib/assets/images/icons/desktop-icon.svg";
+import temp from "lib/assets/images/tools/html5-icon.svg";
 export const SkillsSection = () => {
   return (
     <Styled.Section id="skills">
       <Styled.ElevatedCard id="skills-card">
         <div className="flex-container">
           <div className="skills__col">
-            <div className="col__content">
               <figure className="img-wrapper">
                 <img
                   style={{ height: "58px" }}
@@ -22,10 +23,8 @@ export const SkillsSection = () => {
                 XD. Each design goes through exstensive user testing to ensure
                 the best possible user experience.
               </p>
-            </div>
           </div>
           <div className="skills__col">
-            <div className="col__content">
               <figure className="img-wrapper">
                 <img src={computerImg} alt="Desktop computer icon" />
               </figure>
@@ -38,14 +37,11 @@ export const SkillsSection = () => {
                 thoughtfully written to increase performance and
                 maintainability.
               </p>
-            </div>
           </div>
         </div>
-        <div className="flex-container">
-          <h4>Skill-set & Tools</h4>
-          <div className="grid-container">
-            <p>HTML5</p>
-          </div>
+        <div className="flex-container column">
+           <h3>Skill-set & Tools</h3>
+          <ToolItems />
         </div>
       </Styled.ElevatedCard>
     </Styled.Section>
