@@ -22,13 +22,15 @@ export const ElevatedCard = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.color.tertiary};
   box-shadow: ${({ theme }) => theme.shadow.primary};
+  padding: 2.4rem;
+  gap: 2.4rem;
 
   .flex-container {
     display: flex;
     position: relative;
     align-items: center;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: 2.4rem;
     text-align: center;
   }
   .column {
@@ -36,8 +38,6 @@ export const ElevatedCard = styled.div`
   }
   .skills__col {
     flex-basis: 100%;
-
-    padding: 1.6rem;
   }
   .img-wrapper {
     height: 6rem;
@@ -52,7 +52,7 @@ export const DevToolsContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.6rem;
+    gap: 2.4rem;
   .tool-item {
    
     background-color: #f7f7f7;
