@@ -44,10 +44,10 @@ export const ToolItems = () => {
     <Styled.DevToolsContainer id="tools-container">
       {tools.map((toolItem) => {
         return (
-          <div className="tool-item" key={uuid()} >
+          <figure className="tool-item" key={uuid()} >
             <img src={toolItem.icon} />
-            <p>{toolItem.title}</p>
-          </div>
+            <figcaption>{toolItem.title}</figcaption>
+          </figure>
         );
       })}
     </Styled.DevToolsContainer>
