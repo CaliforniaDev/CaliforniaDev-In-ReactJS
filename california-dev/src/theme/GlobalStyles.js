@@ -2,11 +2,20 @@ import { createGlobalStyle } from "styled-components";
 
 
 export const GlobalStyles = createGlobalStyle`
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 
 html, body {
   font-size: 62.5%;
   line-height: 1.5;
-  position: relative;
   min-height: 100vh;
   min-height: -webkit-fill-available;
   height: -webkit-fill-available;
@@ -19,13 +28,7 @@ html, body {
   background-color: ${({theme}) => theme.color.secondary};
   color: ${({theme}) => theme.color.onSecondary}
 }
-*, *::before, *::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: inherit;
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-}
+
 body, textarea {
   font-size: 1.6rem;
 }
@@ -33,7 +36,10 @@ body, textarea {
 span, label {
   font-family: 'Roboto', sans-serif;
 }
-
+ul {
+  margin-left: 1.6rem;
+  font-size: 1.6rem;
+}
 h1, h2, h3, h4 {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
