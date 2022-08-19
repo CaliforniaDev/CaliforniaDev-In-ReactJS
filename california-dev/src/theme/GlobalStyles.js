@@ -37,7 +37,7 @@ span, label {
   font-family: 'Roboto', sans-serif;
 }
 ul {
-  margin-left: 1.6rem;
+
   font-size: 1.6rem;
 }
 h1, h2, h3, h4 {
