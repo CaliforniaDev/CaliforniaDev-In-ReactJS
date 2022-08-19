@@ -2,13 +2,13 @@
  * * Change color swatches from these constants
  */
 const primary = "#006699"; //BLUE
-const onPrimary = "#fff";
+const onPrimary = "#f7f7f7";
 
 const secondary = "#FFCC66"; // YELLOW
 const onSecondary = "#444444";
-const onSecondaryVarient = "#006699"; //RED
+const onSecondaryVarient = "#006699"; //BLUE
 
-const tertiary = "#FF6666";
+const tertiary = "#FF6666"; //RED
 
 
 
