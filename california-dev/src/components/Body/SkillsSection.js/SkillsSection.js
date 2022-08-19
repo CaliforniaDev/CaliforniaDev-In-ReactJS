@@ -2,7 +2,6 @@ import * as Styled from "./styles";
 import { ToolItems } from "./ToolItems";
 import penToolImg from "lib/assets/images/icons/pen-tool.svg";
 import computerImg from "lib/assets/images/icons/desktop-icon.svg";
-import temp from "lib/assets/images/tools/html5-icon.svg";
 export const SkillsSection = () => {
   return (
     <Styled.Section id="skills">
