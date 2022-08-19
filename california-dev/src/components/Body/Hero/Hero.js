@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import { Parallax, useParallax } from "react-scroll-parallax";
 import * as Styled from "./styles";
 import profileImg from "lib/assets/images/profile.JPG";
 import githubIcon from "lib/assets/images/icons/github-icon-link.svg";
@@ -57,13 +58,13 @@ const LinksContainer = () => {
         <a href={resume} target="_blank" id="resume-btn" className="light-font"> Resumé </a>
         <div className="flex-wrapper">
           <a href="https://github.com/CaliforniaDev" target="_blank" className="hero__social-link" >
-            <img src={githubIcon} />
+            <img src={githubIcon} alt="github link icon" />
           </a>
           <a href="https://www.instagram.com/leo.thedeveloper/" target="_blank" className="hero__social-link" >
-            <img src={instagramIcon} />
+            <img src={instagramIcon} alt="instagram link icon" />
           </a>
           <a href="mailto:leodaniels@californiaDev.com" className="hero__social-link">
-            <img src= {mailIcon} />
+            <img src= {mailIcon} alt="mail link icon" />
           </a>
         </div>
     </Styled.LinksContainer>
