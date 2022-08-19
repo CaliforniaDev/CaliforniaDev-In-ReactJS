@@ -7,10 +7,10 @@ import emailIcon from "lib/assets/images/icons/email_white_24dp.svg";
 const NavLinks = () => {
   return (
     <Styled.NavLinks className='links'>
-        <li><img src={homeIcon} /></li>
-        <li><img src={skillsIcon} /></li>
-        <li><img src={projectIcon} /></li>
-        <li><img src={emailIcon} /> </li>
+        <li><img src={homeIcon} alt="home link icon" /></li>
+        <li><img src={skillsIcon} alt="skills section link icon" /></li>
+        <li><img src={projectIcon} alt="projects section link icon" /></li>
+        <li><img src={emailIcon} alt="email me section link icon" /> </li>
     </Styled.NavLinks>
   );
 }
