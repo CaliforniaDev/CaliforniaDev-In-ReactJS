@@ -41,15 +41,17 @@ export const ToolItems = () => {
     },
   ];
   return (
-    <Styled.DevToolsContainer id="tools-container">
-      {tools.map((toolItem) => {
-        return (
-          <figure className="tool-item" key={uuid()} >
-            <img src={toolItem.icon} />
-            <figcaption>{toolItem.title}</figcaption>
-          </figure>
-        );
-      })}
+      <Styled.DevToolsContainer id="tools-container">
+        {tools.map((toolItem) => {
+          return (
+            <li key={uuid()}>
+              <figure className="tool-item flex-wrapper">
+                <img src={toolItem.icon} />
+                <figcaption>{toolItem.title}</figcaption>
+              </figure>
+            </li>
+          );
+        })}
     </Styled.DevToolsContainer>
   );
 };
