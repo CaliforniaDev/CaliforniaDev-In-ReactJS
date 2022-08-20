@@ -1,5 +1,3 @@
-import { useRef, useEffect } from "react";
-import { Parallax, useParallax } from "react-scroll-parallax";
 import * as Styled from "./styles";
 import profileImg from "lib/assets/images/profile.JPG";
 import githubIcon from "lib/assets/images/icons/github-icon-link.svg";
@@ -24,7 +22,7 @@ export const Hero = () => {
   // }, []) 
   return (
     <Styled.Section id="hero">
-      <Styled.Header id="hero-header">
+      <Styled.Header  id="hero-header">
         <div className="profile-img-container">
           <img className="profile-img" src={profileImg} />
         </div>
