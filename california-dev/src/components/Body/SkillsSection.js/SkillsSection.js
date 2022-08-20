@@ -1,12 +1,21 @@
 import * as Styled from "./styles";
+import * as S from "./skillstyle";
 import { ToolItems } from "./ToolItems";
 import penToolImg from "lib/assets/images/icons/pen-tool.svg";
 import computerImg from "lib/assets/images/icons/desktop-icon.svg";
 export const SkillsSection = () => {
-  return (
+  return ( 
     <Styled.Section id="skills">
+      <S.FlexWrapper>
+        <S.SkillFigure>
+          <img src={penToolImg} alt="adobe pen tool" />
+        </S.SkillFigure>
+        <S.SkillCard>
+        
+        </S.SkillCard>
+      </S.FlexWrapper>
       <Styled.ElevatedCard id="skills-card">
-        <div className="flex-container">
+        {/* <div className="flex-container">
           <div className="skills__col">
             <figure className="img-wrapper">
               <img
@@ -36,7 +45,7 @@ export const SkillsSection = () => {
               written to increase performance and maintainability.
             </p>
           </div>
-        </div>
+        </div> */}
         <div className="flex-container column">
           <h3>Skill-set & Tools</h3>
           <ToolItems />
