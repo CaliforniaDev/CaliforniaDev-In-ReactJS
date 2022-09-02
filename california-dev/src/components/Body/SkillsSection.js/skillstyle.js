@@ -4,7 +4,7 @@ export const SkillFigure = styled.figure`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({theme}) => theme.color.tertiary};
+  background-color: ${({theme}) => theme.color.primary};
  
   width: 33.33%;
 
@@ -13,7 +13,7 @@ export const SkillFigure = styled.figure`
   }
 `
 export const SkillCard = styled.div`
-  background-color: ${({theme}) => theme.color.tertiary};
+  background-color: ${({theme}) => theme.color.primary};
   height: 300px;
   width: 100%;
 
