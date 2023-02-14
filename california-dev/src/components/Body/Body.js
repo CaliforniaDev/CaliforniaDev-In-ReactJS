@@ -1,5 +1,5 @@
 import { Hero } from "./Hero";
-import { SkillsSection } from "./SkillsSection.js";
+import { SkillsSection } from "./SkillsSection";
 import { Projects } from "./Projects";
 
 

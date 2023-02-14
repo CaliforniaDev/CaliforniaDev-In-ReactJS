@@ -11,11 +11,13 @@ export const Section = styled.section`
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
   max-width: 100%;
-  background-image: linear-gradient(rgba(255, 204, 102, 0.8), rgba(255, 204, 102, 0.8)), url(${heroBG});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background: #001f24;
+  // background: ${({theme}) => theme.color.secondary}
+  // background-image: linear-gradient(rgba(255, 204, 102, 0.8), rgba(255, 204, 102, 0.8)), url(${heroBG});
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
 
 
 `;

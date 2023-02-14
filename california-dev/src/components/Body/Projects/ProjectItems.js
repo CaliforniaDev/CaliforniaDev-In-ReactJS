@@ -2,14 +2,19 @@ import * as Styled from "./styles";
 import cupkayzCover from "lib/assets/images/projects/cupkayz-project.png";
 import battleShipCover from "lib/assets/images/projects/battleship-project.png";
 import nybbleBoxCover from "lib/assets/images/projects/nybblebox-project.png";
-import React from "react";
-export const ProjectItems = () => {
+import React, {useState, useEffect} from "react";
+/**
+ * 
+ * TODO: Fix ProjectItem list item key rendering. Only temporary fix is in place.
+ * 
+ */
 
+export const ProjectItems = () => {
   function Project(title, techUsed, coverImgSrc, descriptionList) {
     this.title = title;
-    this.techUsed = techUsed;
     this.coverImgSrc = coverImgSrc;
     this.descriptionList = descriptionList;
+    this.techUsed = techUsed;
     this.renderTech = () => {
       const lastItemIndex = techUsed.length - 1;
       const jsx = techUsed.map((item) => {
@@ -63,8 +68,9 @@ export const ProjectItems = () => {
   return (
     <React.Fragment>
       {allProjects.map((project) => {
+
         return (
-          <Styled.ProjectCard>
+          <Styled.ProjectCard key={project.title}>
             <div className="flex-wrapper">
               <h3>{project.title}</h3>
               <div className="project-card__img-container">
