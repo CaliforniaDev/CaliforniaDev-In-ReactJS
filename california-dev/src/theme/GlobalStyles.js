@@ -2,16 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 
 export const GlobalStyles = createGlobalStyle`
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-}
-*, *::before, *::after {
-  box-sizing: inherit;
-}
+
+
 
 html, body {
   font-size: 62.5%;
@@ -75,20 +67,35 @@ p {
 `;
 
 
-export const NormalizeStyles = createGlobalStyle`
-* 1. Change the font styles in all browsers.
-* 2. Remove the margin in Firefox and Safari.
-*/
+export const StylesReset = createGlobalStyle`
 
-button,
-input,
-optgroup,
-select,
-textarea {
- font-family: inherit; /* 1 */
- font-size: 100%; /* 1 */
- line-height: 1.15; /* 1 */
- margin: 0; /* 2 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%
+}
+
+input, textarea, button, select {
+  font: inherit;
 }
 ` 
 
