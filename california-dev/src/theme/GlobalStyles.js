@@ -17,8 +17,8 @@ html, body {
   -moz-box-sizing: border-box;
   scroll-behavior: smooth;
   font-family: 'Roboto', sans-serif;
-  background-color: ${({theme}) => theme.color.secondary};
-  color: ${({theme}) => theme.color.onSecondary}
+  background-color: ${({theme}) => theme.lightMode.palette.secondary};
+  color: ${({theme}) => theme.lightMode.palette.onSecondary}
 }
 
 body, textarea {
