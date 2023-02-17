@@ -1,40 +1,37 @@
-/**
- * * Change color swatches from these constants
- */
-const primary = "#006699"; //BLUE
-const onPrimary = "#f7f7f7";
-
-const secondary = "#FFCC66"; // YELLOW
-const onSecondary = "#444444";
-const onSecondaryVarient = "#006699"; //BLUE
-
-const tertiary = "#FF6666"; //RED
-
-
-
-
 const theme = {
-  color: {
-    primary: primary,
-    onPrimary: onPrimary,
-    secondary: secondary,
-    onSecondary: onSecondary,
-    onSecondaryVarient: onSecondaryVarient,
-    tertiary: tertiary,
+  lightMode: {
+    palette: {
+      primary: '#0061A5',
+      onPrimary: '#ffffff',
+      primaryContainer: '#D2E4FF',
+      onPrimaryContainer: '#001D36',
 
-    inverse: {
-      primary: onPrimary,
-      onPrimary: primary,
-    },
-  },
+      secondary: '#B8006D',
+      onSecondary: '#FFFFFF',
+      secondaryContainer: '#FFD9E4',
+      onSecondaryContainer: '#3E0021',
 
-  shadow: {
-    primary: "0px 6px 8px rgba(0, 0, 0, 0.30)",
-    primaryHover: "0px 3px 6px rgba(0, 0, 0, .6)",
-  },
-  transition: {
-    primary: "0.3s",
-  },
+      tertiary: '#6B5778',
+      onTertiary: '#FFFFFF',
+      tertiaryContainer: '#F3DAFF',
+      onTertiaryContainer: '#251431',
+      
+      error: '#BA1A1A',
+      onError: '#FFFFFF',
+      errorContainer: '#FFDAD6',
+      onErrorContainer: '#410002',
+
+      background: '#FDFCFF',
+      onBackground: '#1A1C1E',
+      surface: '#FDFCFF',
+      onSurface: '#1A1C1E',
+
+      surfaceVariant: '#DFE2EB',
+      onSurfaceVariant: '#43474E',
+      outline: '#43474E',
+    }
+  } 
 };
 
+console.log(theme);
 export default theme;
