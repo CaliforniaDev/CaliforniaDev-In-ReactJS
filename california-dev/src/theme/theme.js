@@ -1,5 +1,5 @@
 const theme = {
-  lightMode: {
+  light: {
     palette: {
       primary: "#0061A5",
       onPrimary: "#ffffff",
@@ -32,7 +32,7 @@ const theme = {
     },
   },
 
-  darkMode: {
+  dark: {
     palette: {
       primary: "#9FCAFF",
       onPrimary: "#003259",
@@ -59,6 +59,7 @@ const theme = {
       outline: "#8D9199",
     },
   },
+
 };
 
 export default theme;
