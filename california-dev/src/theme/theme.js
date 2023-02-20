@@ -1,3 +1,9 @@
+const SURFACE_LAYER_1 = `linear-gradient(0deg, rgba(0, 97, 165, 0.05), rgba(0, 97, 165, 0.05)),`; // Elevation lvl 1
+const SURFACE_LAYER_2 = `linear-gradient(0deg, rgba(0, 97, 165, 0.08), rgba(0, 97, 165, 0.08)),`; // Elevation lvl 2
+const SURFACE_LAYER_3 = `linear-gradient(0deg, rgba(0, 97, 165, 0.12), rgba(0, 97, 165, 0.11)),`; // Elevation lvl 3
+const SURFACE_LAYER_4 = `linear-gradient(0deg, rgba(0, 97, 165, 0.12), rgba(0, 97, 165, 0.12)),`; // Elevation lvl 4
+const SURFACE_LAYER_5 = `linear-gradient(0deg, rgba(0, 97, 165, 0.14), rgba(0, 97, 165, 0.14)),`; // Elevation lvl 5
+
 const theme = {
   light: {
     palette: {
@@ -60,6 +66,15 @@ const theme = {
     },
   },
 
+  surfaces: {
+    light: {
+      surface1: `${SURFACE_LAYER_1} #FDFCFF`,
+      surface2: `${SURFACE_LAYER_2} #FDFCFF`,
+      surface3: `${SURFACE_LAYER_3} #FDFCFF`,
+      surface4: `${SURFACE_LAYER_4} #FDFCFF`,
+      surface5: `${SURFACE_LAYER_5} #FDFCFF`
+    },
+  },
 };
-
+console.log(theme);
 export default theme;
