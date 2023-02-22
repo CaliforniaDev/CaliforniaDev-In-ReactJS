@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import theme from "themes/theme";
+// import theme from "./themes/light";
+import { lightTheme } from "./themes/light";
+import { darkTheme } from "./themes/dark";
 import { ThemeProvider } from "styled-components";
 import reportWebVitals from "./reportWebVitals";
-import {GlobalStyles, StylesReset} from "themes/GlobalStyles";
+import { GlobalStyles, StylesReset } from "themes/GlobalStyles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={lightTheme}>
+      {console.log(lightTheme)}
       <StylesReset />
       <GlobalStyles />
       <App />
