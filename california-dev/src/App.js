@@ -18,7 +18,7 @@ function App() {
 
   return (
     <Theme theme={theme}>
-      <Body />
+      <Body theme={theme} />
       <button onClick={toggleTheme}>Toggle Theme</button>
     </Theme>
   );
