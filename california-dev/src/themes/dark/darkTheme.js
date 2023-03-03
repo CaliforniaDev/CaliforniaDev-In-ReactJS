@@ -3,5 +3,5 @@ import { elevation } from "./elevation";
 
 export const darkTheme = {
   palette,
-  elevation,
+  elevation
 };

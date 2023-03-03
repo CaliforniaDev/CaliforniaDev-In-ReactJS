@@ -1,4 +1,4 @@
-import {createGradient} from "./createGradient";
+import {createGradient} from "../utils/createGradient";
 
 export const elevation = {
   level1: {
