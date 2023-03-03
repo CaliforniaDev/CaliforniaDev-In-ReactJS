@@ -1,7 +1,7 @@
 import {palette} from "./palette";
-import { surfaces } from "./surfaces";
+import { elevation } from "./elevation";
 
  export const lightTheme = {
   palette,
-  surfaces
+  elevation
 }
