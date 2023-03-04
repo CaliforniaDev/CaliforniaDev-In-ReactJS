@@ -2,16 +2,23 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./light/lightTheme";
 import { darkTheme } from "./dark/darkTheme";
 import { GlobalStyles, StylesReset } from "./GlobalStyles";
-
-
+import { useEffect, useState } from "react";
 
 export const ThemeContext = ({ children, theme }) => {
+  const [stylesloaded, setStylesloaded] = useState(false);
+  useEffect(() => {
+    setStylesloaded(true);
+  }, []);
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <GlobalStyles />
-      <StylesReset />
-      {children}
-    </ThemeProvider>
+    <>
+      {stylesloaded && (
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+          <GlobalStyles />
+          <StylesReset />
+          {children}
+        </ThemeProvider>
+      )}
+    </>
   );
 };
 
