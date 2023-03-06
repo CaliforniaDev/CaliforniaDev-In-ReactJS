@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle(({ theme: { palette } }) => {
-  const { secondary, onSecondary } = palette;
   return ` 
   html, body {
     font-size: 62.5%;
@@ -15,8 +14,8 @@ export const GlobalStyles = createGlobalStyle(({ theme: { palette } }) => {
     -moz-box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: 'Roboto', sans-serif;
-    background-color: ${secondary};
-    color: ${onSecondary};
+    background-color: ${palette.background};
+    color: ${palette.onBackground};
   }
   
   body, textarea {
