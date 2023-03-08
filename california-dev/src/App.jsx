@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ThemeContext, breakpoints } from "themes";
 import { Body } from "components/Body";
-import { NavBar } from "components/Navigation/Nav";
+import { Nav } from "components/Navigation/Nav";
 
 function App() {
   // Set the initial theme preference based on the value stored in local storage
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <ThemeContext theme={theme}>
-      <NavBar />
+      <Nav />
       <Body theme={theme} />
       <button onClick={toggleTheme}>Toggle Theme</button>
     </ThemeContext>
