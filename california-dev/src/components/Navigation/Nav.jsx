@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Styled from "./styles";
 import styled from "styled-components";
-export function NavBar() {
+export function Nav() {
   //  const [toggle, setToggle] = useState(false);
   return <Styled.Nav></Styled.Nav>;
 }
