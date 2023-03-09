@@ -12,6 +12,7 @@ const ButtonConfig = {
   ELEVATED: "elevated",
   TONAL: "tonal",
   OUTLINED: "outlined",
+  DEFAULT: "default",
 };
 
 // pass the configuration to the component to change the style
@@ -28,4 +29,9 @@ export function Button({ config, text }) {
     default:
       return <DefaultBtn>{text}</DefaultBtn>;
   }
+}
+
+Button.defaultProps = {
+  config: ButtonConfig.DEFAULT,
+  text: "Button",
 }
