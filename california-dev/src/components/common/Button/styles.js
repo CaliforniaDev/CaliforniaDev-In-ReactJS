@@ -13,6 +13,9 @@ export const DefaultBtn = styled.button`
   border-radius: 100px;
   color: ${({ theme: { palette } }) => palette.onTertiary};
   background: ${({ theme: { palette } }) => palette.tertiary};
+  
+  // Add typography styles to all buttons
+  ${({ theme: {typography} }) => typography.label.large};
 
   &:hover {
     cursor: pointer;
