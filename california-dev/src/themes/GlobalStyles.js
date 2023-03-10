@@ -79,7 +79,7 @@ export const StylesReset = createGlobalStyle`
 }
 
 html {
-  color-scheme: dark light;
+  color-scheme: ${props => props.theme};
 }
 
 body {
