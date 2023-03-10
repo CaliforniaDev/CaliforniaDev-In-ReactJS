@@ -13,7 +13,7 @@ export const ThemeContext = ({ children, theme }) => {
     <>
       {stylesloaded && (
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-          <GlobalStyles />
+          <GlobalStyles preferredColorScheme={theme} />
           <StylesReset />
           {children}
         </ThemeProvider>

@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyles = createGlobalStyle(({ theme: { palette } }) => {
+export const GlobalStyles = createGlobalStyle((props) => {
+  const { palette } = props.theme;
+  const {preferredColorScheme} = props;
   return ` 
   html, body {
     font-size: 62.5%;
@@ -16,6 +18,8 @@ export const GlobalStyles = createGlobalStyle(({ theme: { palette } }) => {
     font-family: 'Roboto', sans-serif;
     background-color: ${palette.background};
     color: ${palette.onBackground};
+    color-scheme: ${preferredColorScheme};
+    
   }
   
   body, textarea {
@@ -78,9 +82,7 @@ export const StylesReset = createGlobalStyle`
   font: inherit;
 }
 
-html {
-  color-scheme: ${props => props.theme};
-}
+
 
 body {
   min-height: 100vh;
