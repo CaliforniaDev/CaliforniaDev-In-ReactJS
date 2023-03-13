@@ -22,4 +22,6 @@ export const palette = {
   surfaceVariant: "#43474E",
   onSurfaceVariant: "#C3C6CF",
   outline: "#8D9199",
+
+  shadow: "#000000",
 };
