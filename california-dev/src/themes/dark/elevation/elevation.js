@@ -1,7 +1,7 @@
-import { css } from "styled-components";
 import { palette } from "../palette";
-import { hexToRgba } from "../utils/hexToRgba";
+import { generateElevationSurfaces } from "themes/utils/generateElevationSurfaces";
 
+// Defines different elevation levels and their corresponding opacity values
 const LEVELS = {
   LVL1: "level1",
   LVL2: "level2",
@@ -16,7 +16,7 @@ const OPACITY = {
   [LEVELS.LVL4]: 0.12,
   [LEVELS.LVL5]: 0.14,
 };
-
+// Defines different shadow values for each elevation level
 const SHADOW = {
   [LEVELS.LVL1]:
     "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
@@ -29,20 +29,4 @@ const SHADOW = {
   [LEVELS.LVL5]:
     "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
 };
-
-function generateElevationSurfaces({ surface, surfaceTint }) {
-  const elevations = {};
-  const elevationLevels = Object.values(LEVELS);
-
-  for (const level of elevationLevels) {
-    const opacity = OPACITY[level];
-    const rgbSurfaceTint = hexToRgba(surfaceTint, opacity);
-    elevations[level] = css`
-      background: linear-gradient(0deg, ${rgbSurfaceTint}, ${rgbSurfaceTint}),
-        ${surface};
-      box-shadow: ${SHADOW[level]};
-    `;
-  }
-  return elevations;
-}
-export const elevation = generateElevationSurfaces(palette);
+export const elevation = generateElevationSurfaces(palette, LEVELS, OPACITY, SHADOW);
