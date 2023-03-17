@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const DefaultBtn = styled.button(
-  ({ theme: { palette, typography } }) => {
+  ({ theme: { palette, typography, elevation } }) => {
     return css`
       display: flex;
       flex-direction: row;
@@ -29,31 +29,27 @@ export const DefaultBtn = styled.button(
 export const ElevatedBtn = styled(DefaultBtn)(
   ({ theme: { palette, elevation } }) => {
     return css`
+      ${elevation.level1};
       color: ${palette.onSurface};
-      background: ${elevation.level1.surfaceColor};
-      box-shadow: ${elevation.level1.shadow};
     `;
   }
 );
 
-export const FilledBtn = styled(DefaultBtn)(
-  ({ theme: { palette } }) => {
+export const FilledBtn = styled(DefaultBtn)(({ theme: { palette } }) => {
   return css`
     background: ${palette.primary};
     color: ${palette.onPrimary};
   `;
 });
 
-export const TonalBtn = styled(DefaultBtn)(
-  ({ theme: { palette } }) => {
+export const TonalBtn = styled(DefaultBtn)(({ theme: { palette } }) => {
   return css`
     background: ${palette.secondaryContainer};
     color: ${palette.onSecondaryContainer};
   `;
 });
 
-export const OutlinedBtn = styled(DefaultBtn)(
-  ({ theme: { palette } }) => {
+export const OutlinedBtn = styled(DefaultBtn)(({ theme: { palette } }) => {
   return css`
     background: transparent;
     border-width: 0.1rem;

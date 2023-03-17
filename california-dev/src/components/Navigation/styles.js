@@ -1,10 +1,11 @@
-import styled, {withTheme} from "styled-components"
+import styled, { css } from "styled-components";
 
-
-export const Nav = styled.nav`
-  display: flex;
-  height: 56px;
-  background: ${({theme: {elevation}}) => elevation.level1.surfaceColor};
-  box-shadow: ${({theme: {elevation}}) => elevation.level1.shadow};
-
-`
+export const Nav = styled.nav(
+  ({theme: { palette, elevation }}) => {
+  return css`
+    display: flex;
+    height: 56px;
+    ${elevation.level1}
+   
+  `;
+});
