@@ -23,6 +23,8 @@ export const palette = {
   onBackground: "#1A1C1E",
   surface: "#FDFCFF",
   onSurface: "#1A1C1E",
+  surfaceTint: "#0061A5",
+  surfaceTintColor: "#0061A5",
 
   surfaceVariant: "#DFE2EB",
   onSurfaceVariant: "#43474E",
