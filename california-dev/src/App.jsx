@@ -1,4 +1,4 @@
-import { ThemeContext, breakpoints } from "themes";
+import { ThemeContext, breakpoints } from "context/ThemeContext";
 import { Body } from "components/Body";
 import { Nav } from "components/Navigation/Nav";
 import {useTheme} from "./hooks/useTheme";

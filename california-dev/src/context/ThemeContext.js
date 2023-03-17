@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
-import { lightTheme } from "./light/lightTheme";
-import { darkTheme } from "./dark/darkTheme";
-import { GlobalStyles, StylesReset } from "./GlobalStyles";
+import { lightTheme } from "../themes/light/lightTheme";
+import { darkTheme } from "../themes/dark/darkTheme";
+import { GlobalStyles, StylesReset } from "../themes/GlobalStyles";
 import { useEffect, useState } from "react";
 
 export const ThemeContext = ({ children, themeMode }) => {
