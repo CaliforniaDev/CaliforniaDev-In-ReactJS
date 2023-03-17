@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 export const ThemeContext = ({ children, themeMode }) => {
   const [stylesloaded, setStylesloaded] = useState(false);
-  console.log(themeMode);
   useEffect(() => {
     setStylesloaded(true);
   }, []);
