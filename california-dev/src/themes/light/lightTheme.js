@@ -1,10 +1,11 @@
-import {palette} from "./palette";
+import { palette } from "./palette";
 import { elevation } from "./elevation";
 import { typography } from "./typography";
-import { stateLayers } from "./state-layers/state-layers";
+import { state } from "./state";
 
- export const lightTheme = {
+export const lightTheme = {
   palette,
   elevation,
   typography,
-}
+  state,
+};
