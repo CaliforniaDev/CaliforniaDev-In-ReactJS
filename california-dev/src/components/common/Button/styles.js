@@ -13,6 +13,7 @@ export const DefaultBtn = styled.button(
       outline-color: transparent;
       border: none;
       border-radius: 100px;
+      cursor: pointer;
       color: ${palette.onTertiary};
       background: ${palette.tertiary};
       transition: box-shadow 0.2s ease-out;
@@ -21,10 +22,6 @@ export const DefaultBtn = styled.button(
 
       // Add typography styles to all buttons
       ${typography.label.large}
-
-      &:hover {
-        cursor: pointer;
-      }
       &:focus-visible {
         outline: none;
       }
