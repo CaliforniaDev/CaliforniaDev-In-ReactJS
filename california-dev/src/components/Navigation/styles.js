@@ -5,7 +5,7 @@ export const Nav = styled.nav(
   return css`
     display: flex;
     height: 56px;
-    ${elevation.surface.level1};
+    background: ${palette.surface};
     ${elevation.shadow.level1};
    
   `;
