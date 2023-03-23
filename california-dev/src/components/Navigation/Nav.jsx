@@ -1,9 +1,10 @@
-import { useState } from "react";
 import * as Styled from "./styles";
-import styled from "styled-components";
+import {HamburgerMenu} from "../common/HamburgerMenu";
 export function Nav() {
   //  const [toggle, setToggle] = useState(false);
-  return <Styled.Nav></Styled.Nav>;
+  return <Styled.Nav>
+    <HamburgerMenu />
+  </Styled.Nav>;
 }
 
 // const Nav = styled.nav((props) => {
