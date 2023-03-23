@@ -32,6 +32,7 @@ export const generateCssOverlay = (stateLayerValue) => {
       background-color: ${stateLayerValue};
       border-radius: inherit;
       z-index: -1;
+      transition: background-color 0.2s ease-in-out;
     }
   `;
 };
