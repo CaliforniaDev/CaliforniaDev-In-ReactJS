@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const DefaultBtn = styled.button(
   ({ theme: { palette, typography } }) => {
     return css`
+    -webkit-tap-highlight-color: transparent;
       display: flex;
       flex-direction: row;
       justify-content: center;
