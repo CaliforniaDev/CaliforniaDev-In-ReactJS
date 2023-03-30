@@ -21,8 +21,8 @@
       <rect id="Rectangle_83" data-name="Rectangle 83" class="cls-1" width="96" height="96" rx="8" transform="translate(136 1050)"/>
     </clipPath>
     <radialGradient id="radial-gradient" cx="0.33" cy="0.224" r="0.781" gradientTransform="matrix(0.973, 0, 0, -0.968, -0.039, 2.633)" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#423325" stop-opacity="0.98"/>
-      <stop offset="1" stop-color="#1c0a00"/>
+      <stop offset="0" stopColor="#423325" stop-opacity="0.98"/>
+      <stop offset="1" stopColor="#1c0a00"/>
     </radialGradient>
   </defs>
   <g id="Mask_Group_3" data-name="Mask Group 3" class="cls-2" transform="translate(-136 -1050)">
