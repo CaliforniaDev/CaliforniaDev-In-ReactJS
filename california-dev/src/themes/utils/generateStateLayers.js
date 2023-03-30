@@ -10,6 +10,10 @@ import { hexToRgba } from "./hexToRgba";
  */
 
 function generateStateLayers(palette, stateTypes, opacity, cssOverlay) {
+  if (!palette || !stateTypes || !opacity || !cssOverlay) {
+    throw new Error("Missing parameters");
+  }
+
   // Get an array of the state types
   const stateTypeList = Object.values(stateTypes);
 
