@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
+import { createDynamicButton } from "../utils/buttonUtils";
 
-export const DefaultBtn = styled.button(
-  ({ theme: { palette, typography } }) => {
+export const DefaultBtn = createDynamicButton(
+  styled.button(({ theme: { palette, typography } }) => {
     return css`
-    -webkit-tap-highlight-color: transparent;
-      display: flex;
-      flex-direction: row;
+      display: inline-flex;
+      -webkit-tap-highlight-color: transparent;
       justify-content: center;
       align-items: center;
       padding: 1rem 2.4rem;
@@ -20,21 +20,17 @@ export const DefaultBtn = styled.button(
       transition: box-shadow 0.2s ease-out;
       position: relative;
       z-index: 1;
-
       // Add typography styles to all buttons
       ${typography.label.large}
       &:focus-visible {
         outline: none;
       }
-
-      margin-bottom: 1.6rem;
     `;
-  }
+  })
 );
 
 export const ElevatedBtn = styled(DefaultBtn)(
   ({ theme: { palette, elevation, state } }) => {
-    console.log(elevation);
     return css`
       color: ${palette.primary};
       ${elevation.surface.level1};
