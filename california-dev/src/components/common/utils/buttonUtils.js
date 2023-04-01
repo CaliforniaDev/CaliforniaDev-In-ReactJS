@@ -9,12 +9,20 @@ import styled from "styled-components";
  */
 
 function createDynamicButton(component) {
-  return styled(component).attrs((props) => ({
-    as: props.href ? "a" : "button",
-    href: props.href,
-    target: props.href ? "_blank" : undefined,
-    rel: props.href ? "noopener noreferrer" : undefined,
-  }))``;
+  const DynamicButton = styled(component).attrs((props) => {
+    const { href, target, rel, ...rest } = props;
+    return {
+      ...rest,
+      as: href ? "a" : "button",
+      href,
+      target: href ? target || "_blank" : undefined,
+      rel: href ? rel || "noopener noreferrer" : undefined,
+    };
+  })`
+    text-decoration: none;
+  `;
+
+  return DynamicButton;
 }
 
 export { createDynamicButton };
