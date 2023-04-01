@@ -16,18 +16,18 @@ const ButtonConfig = {
 };
 
 // pass the configuration to the component to change the style
-export function Button({ config, text }) {
+export function Button({ config, text, href }) {
   switch (config) {
     case ButtonConfig.FILLED:
-      return <FilledBtn>{text}</FilledBtn>;
+      return <FilledBtn href={href}>{text}</FilledBtn>;
     case ButtonConfig.ELEVATED:
-      return <ElevatedBtn>{text}</ElevatedBtn>;
+      return <ElevatedBtn href={href}>{text}</ElevatedBtn>;
     case ButtonConfig.TONAL:
-      return <TonalBtn>{text}</TonalBtn>;
+      return <TonalBtn href={href}>{text}</TonalBtn>;
     case ButtonConfig.OUTLINED:
-      return <OutlinedBtn>{text}</OutlinedBtn>;
+      return <OutlinedBtn href={href}>{text}</OutlinedBtn>;
     default:
-      return <DefaultBtn>{text}</DefaultBtn>;
+      return <DefaultBtn href={href}>{text}</DefaultBtn>;
   }
 }
 
