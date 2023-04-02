@@ -10,9 +10,8 @@ import styled from "styled-components";
 
 function createDynamicButton(component) {
   const DynamicButton = styled(component).attrs((props) => {
-    const { href, target, rel, ...rest } = props;
+    const { href, target, rel} = props;
     return {
-      ...rest,
       as: href ? "a" : "button",
       href,
       target: href ? target || "_blank" : undefined,
