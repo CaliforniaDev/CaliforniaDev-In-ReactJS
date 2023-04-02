@@ -15,23 +15,22 @@ const ButtonConfig = {
   DEFAULT: "default",
 };
 
-// pass the configuration to the component to change the style
-export function Button({ config, text, href }) {
+export function Button({ config, text, ...rest }) {
   switch (config) {
     case ButtonConfig.FILLED:
-      return <FilledBtn href={href}>{text}</FilledBtn>;
+      return <FilledBtn {...rest}>{text}</FilledBtn>;
     case ButtonConfig.ELEVATED:
-      return <ElevatedBtn href={href}>{text}</ElevatedBtn>;
+      return <ElevatedBtn {...rest}>{text}</ElevatedBtn>;
     case ButtonConfig.TONAL:
-      return <TonalBtn href={href}>{text}</TonalBtn>;
+      return <TonalBtn {...rest}>{text}</TonalBtn>;
     case ButtonConfig.OUTLINED:
-      return <OutlinedBtn href={href}>{text}</OutlinedBtn>;
+      return <OutlinedBtn {...rest}>{text}</OutlinedBtn>;
     default:
-      return <DefaultBtn href={href}>{text}</DefaultBtn>;
+      return <DefaultBtn {...rest}>{text}</DefaultBtn>;
   }
 }
 
 Button.defaultProps = {
   config: ButtonConfig.DEFAULT,
   text: "Button",
-}
+};
