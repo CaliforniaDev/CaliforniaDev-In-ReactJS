@@ -15,22 +15,24 @@ const ButtonConfig = {
   DEFAULT: "default",
 };
 
-export function Button({ config, text, ...rest }) {
+export function Button({ config, text, children, ...rest }) {
+  const buttonLabel = children || text;
+  console.log(buttonLabel);
   switch (config) {
     case ButtonConfig.FILLED:
-      return <FilledBtn {...rest}>{text}</FilledBtn>;
+      return <FilledBtn {...rest}>{buttonLabel}</FilledBtn>;
     case ButtonConfig.ELEVATED:
-      return <ElevatedBtn {...rest}>{text}</ElevatedBtn>;
+      return <ElevatedBtn {...rest}>{buttonLabel}</ElevatedBtn>;
     case ButtonConfig.TONAL:
-      return <TonalBtn {...rest}>{text}</TonalBtn>;
+      return <TonalBtn {...rest}>{buttonLabel}</TonalBtn>;
     case ButtonConfig.OUTLINED:
-      return <OutlinedBtn {...rest}>{text}</OutlinedBtn>;
+      return <OutlinedBtn {...rest}>{buttonLabel}</OutlinedBtn>;
     default:
-      return <DefaultBtn {...rest}>{text}</DefaultBtn>;
+      return <DefaultBtn {...rest}>{buttonLabel}</DefaultBtn>;
   }
 }
 
 Button.defaultProps = {
   config: ButtonConfig.DEFAULT,
-  text: "Button",
+  text: "button",
 };
