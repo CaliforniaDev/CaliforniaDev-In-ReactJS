@@ -46,6 +46,3 @@ export function Button({ variant, text, children, ...props }) {
 
   return <ButtonComponent {...props}>{buttonLabel}</ButtonComponent>;
 }
-Button.defaultProps = {
-  variant: ButtonVariants.DEFAULT,
-};
