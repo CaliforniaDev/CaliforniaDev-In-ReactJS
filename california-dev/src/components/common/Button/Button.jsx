@@ -7,7 +7,7 @@ import {
 } from "./styles";
 
 // ENUMS
-const ButtonConfig = {
+const ButtonVariants = {
   FILLED: "filled",
   ELEVATED: "elevated",
   TONAL: "tonal",
@@ -15,27 +15,25 @@ const ButtonConfig = {
   DEFAULT: "default",
 };
 
-export function Button({ config, text, children, ...props }) {
+const ButtonComponents = {
+  [ButtonVariants.FILLED]: FilledBtn,
+  [ButtonVariants.ELEVATED]: ElevatedBtn,
+  [ButtonVariants.TONAL]: TonalBtn,
+  [ButtonVariants.OUTLINED]: OutlinedBtn,
+  [ButtonVariants.DEFAULT]: DefaultBtn,
+};
+
+export function Button({ variant, text, children, ...props }) {
   const buttonLabel = children || text;
 
   if (!buttonLabel) {
     console.warn("Please provide a label for this Button component.");
   }
 
-  switch (config) {
-    case ButtonConfig.FILLED:
-      return <FilledBtn {...props}>{buttonLabel}</FilledBtn>;
-    case ButtonConfig.ELEVATED:
-      return <ElevatedBtn {...props}>{buttonLabel}</ElevatedBtn>;
-    case ButtonConfig.TONAL:
-      return <TonalBtn {...props}>{buttonLabel}</TonalBtn>;
-    case ButtonConfig.OUTLINED:
-      return <OutlinedBtn {...props}>{buttonLabel}</OutlinedBtn>;
-    default:
-      return <DefaultBtn {...props}>{buttonLabel}</DefaultBtn>;
-  }
-}
+  const ButtonComponent = ButtonComponents[variant] || DefaultBtn;
 
+  return <ButtonComponent {...props}>{buttonLabel}</ButtonComponent>;
+}
 Button.defaultProps = {
-  config: ButtonConfig.DEFAULT,
+  variant: ButtonVariants.DEFAULT,
 };
