@@ -17,6 +17,11 @@ const ButtonConfig = {
 
 export function Button({ config, text, children, ...props }) {
   const buttonLabel = children || text;
+
+  if (!buttonLabel) {
+    console.warn("Please provide a label for this Button component.");
+  }
+
   switch (config) {
     case ButtonConfig.FILLED:
       return <FilledBtn {...props}>{buttonLabel}</FilledBtn>;
@@ -33,5 +38,4 @@ export function Button({ config, text, children, ...props }) {
 
 Button.defaultProps = {
   config: ButtonConfig.DEFAULT,
-  text: "button",
 };
