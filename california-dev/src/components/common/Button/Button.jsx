@@ -17,7 +17,6 @@ const ButtonConfig = {
 
 export function Button({ config, text, children, ...rest }) {
   const buttonLabel = children || text;
-  console.log(buttonLabel);
   switch (config) {
     case ButtonConfig.FILLED:
       return <FilledBtn {...rest}>{buttonLabel}</FilledBtn>;
