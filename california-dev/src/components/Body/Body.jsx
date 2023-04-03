@@ -1,11 +1,11 @@
-export function Body({ theme }) {
-  const capitalizeThemeTitle = theme.replace(/^\w/, (firstChar) =>
-    firstChar.toUpperCase()
-  );
-
+import { Button } from "../common/Button";
+import { StyledBody } from "./styles";
+import { Home } from "../Section/Home";
+export function Body() {
   return (
-    <main style={{ paddingLeft: "10rem" }} id="main">
-      <h1>This is {capitalizeThemeTitle} Theme</h1>
-    </main>
+    <StyledBody id="main">
+      <Home />
+      <Button config="elevated" href="https://google.com" text="Elevated" />
+    </StyledBody>
   );
 }
