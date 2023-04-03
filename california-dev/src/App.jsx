@@ -9,8 +9,7 @@ function App() {
   return (
     <ThemeContext themeMode={themeMode}>
       <Nav />
-      {/* theme prop being passed is temporary test */}
-      <Body theme={themeMode} />
+      <Body />
       <button onClick={toggleTheme}>Toggle Theme</button>
     </ThemeContext>
   );
