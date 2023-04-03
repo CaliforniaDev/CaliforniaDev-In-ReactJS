@@ -5,7 +5,6 @@ export function Body() {
   return (
     <StyledBody id="main">
       <Home />
-      <Button variant="elevated" href="https://google.com" text="Elevated" />
     </StyledBody>
   );
 }
