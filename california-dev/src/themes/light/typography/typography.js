@@ -3,39 +3,44 @@ import { css } from "styled-components";
 export const typography = {
   display: {
     large: css`
+      font-family: "Josefin Sans", sans-serif;
       font-style: normal;
-      font-weight: 700;
+      font-weight: 450;
       font-size: 5.7rem;
       line-height: 6.4rem;
     `,
     medium: css`
+      font-family: "Josefin Sans", sans-serif;
       font-style: normal;
-      font-weight: 700;
+      font-weight: 450;
       font-size: 4.5rem;
       line-height: 5.2rem;
     `,
     small: css`
       font-style: normal;
-      font-weight: 700;
+      font-weight: 450;
       font-size: 3.6rem;
     `,
   },
   headline: {
     large: css`
+      font-family: "Josefin Sans", sans-serif;
       font-style: normal;
-      font-weight: 700;
+      font-weight: 450;
       font-size: 3.2rem;
       line-height: 4rem;
     `,
     medium: css`
+      font-family: "Josefin Sans", sans-serif;
       font-style: normal;
-      font-weight: 700;
+      font-weight: 450;
       font-size: 2.8rem;
       line-height: 3.6rem;
     `,
     small: css`
+      font-family: "Josefin Sans", sans-serif;
       font-style: normal;
-      font-weight: 700;
+      font-weight: 450;
       font-size: 2.4rem;
       line-height: 3.2rem;
     `,
