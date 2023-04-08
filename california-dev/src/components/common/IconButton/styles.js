@@ -5,7 +5,7 @@ export const DefaultIconBtn = createDynamicButton(
   styled.button(({ theme: { palette } }) => {
     return css`
       display: inline-flex;
-      -webkit-tap-highlight-color: transparent;
+      /* -webkit-tap-highlight-color: transparent; */
       justify-content: center;
       align-items: center;
       padding: 0.4rem;
@@ -14,6 +14,7 @@ export const DefaultIconBtn = createDynamicButton(
       outline-color: transparent;
       border: none;
       border-radius: 100px;
+      cursor: pointer;
       color: ${palette.onTertiary};
       background: ${palette.tertiary};
       transition: box-shadow 0.2s ease-out;
@@ -50,7 +51,7 @@ export const FilledBtn = styled(DefaultIconBtn)(
         ${state.onPrimary.hover};
         ${elevation.shadow.level1};
       }
-      &:focus-visible {
+      &:focus {
         ${state.onPrimary.focus};
         ${elevation.shadow.level0};
       }
@@ -75,7 +76,7 @@ export const TonalBtn = styled(DefaultIconBtn)(
         ${state.onSecondaryContainer.hover};
         ${elevation.shadow.level1};
       }
-      &:focus-visible {
+      &:focus {
         ${state.onSecondaryContainer.focus};
         ${elevation.shadow.level0};
       }
@@ -102,7 +103,7 @@ export const OutlinedBtn = styled(DefaultIconBtn)(
       &:hover {
         ${state.primary.hover}
       }
-      &:focus-visible {
+      &:focus {
         border-color: ${palette.primary};
         ${state.primary.focus}
       }
