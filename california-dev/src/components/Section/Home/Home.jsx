@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledSection } from "./styles";
-import { IconButton } from "components/common/IconButton";
-import { Button } from "components/common/Button";
+import { IconButton } from "components/ui/IconButton";
+import { Button } from "components/ui/Button";
 import { GitHubIcon } from "assets/images/icons/GitHubIcon";
 import { InstagramIcon } from "assets/images/icons/InstagramIcon";
 import { MailFavicon } from "assets/images/icons/MailIcon";

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ElevatedBtn } from 'components/common/Button/styles';
+import { ElevatedBtn } from 'components/ui/Button/styles';
 
 export const StyledSection = styled.section(({ theme: { palette, typography } }) => {
   return css`
@@ -20,12 +20,12 @@ export const StyledSection = styled.section(({ theme: { palette, typography } })
 
   .link-items-container {
     display: flex;
-    justify-content: space-between;
+    gap: 1.6rem;
     align-items: center;
   }
   .social-links {
     display: flex;
-    gap: 1.2rem;
+    gap: 1.6rem;
   }
   `
 });
