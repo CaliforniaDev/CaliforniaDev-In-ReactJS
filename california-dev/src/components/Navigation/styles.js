@@ -13,6 +13,11 @@ export const Nav = styled.nav(({ theme: { palette, elevation } }) => {
       height: 100%;
       justify-content: space-between;
       align-items: center;
+
+      .svg-container {
+        min-width: 3.8rem;
+        min-height: 4rem;
+      }
     }
   `;
 });
