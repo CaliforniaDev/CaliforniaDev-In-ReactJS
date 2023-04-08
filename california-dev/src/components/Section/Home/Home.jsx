@@ -9,27 +9,34 @@ import pdfResume from "assets/docs/resume.pdf";
 export const Home = () => {
   return (
     <StyledSection>
-      <h1>Home</h1>
-      <Button
-        variant="filled"
-        text="Resume"
-        href={pdfResume}
-      />
-      <IconButton
-        variant="tonal"
-        icon={<GitHubIcon />}
-        href="https://github.com/CaliforniaDev"
-      />
-      <IconButton
-        variant="tonal"
-        icon={<InstagramIcon />}
-        href="https://www.instagram.com/leo.thedeveloper/"
-      />
-      <IconButton
-        variant="tonal"
-        icon={<MailFavicon />}
-        href="mailto:leodaniels@californiadev.com"
-      />
+      <header>
+        <h2 className="headline">Hi There! Im,</h2>
+        <h1 className="display">LEO DANIELS</h1>
+        <p>
+          As a <span className="accent-color">Frontend Developer</span>, I am
+          dedicated to creating interactive and engaging web applications.
+        </p>
+      </header>
+      <div className="link-items-container">
+        <Button variant="elevated" text="Resume" href={pdfResume} />
+        <div className="social-links">
+          <IconButton
+            variant="filled"
+            icon={<GitHubIcon />}
+            href="https://github.com/CaliforniaDev"
+          />
+          <IconButton
+            variant="filled"
+            icon={<InstagramIcon />}
+            href="https://www.instagram.com/leo.thedeveloper/"
+          />
+          <IconButton
+            variant="filled"
+            icon={<MailFavicon />}
+            href="mailto:leodaniels@californiadev.com"
+          />
+        </div>
+      </div>
     </StyledSection>
   );
 };
