@@ -4,6 +4,7 @@ export const GlobalStyles = createGlobalStyle((props) => {
   const { palette } = props.theme;
   const { preferredColorScheme } = props;
   return css`
+    @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
     html,
     body {
       font-size: 62.5%;
@@ -75,12 +76,9 @@ export const StylesReset = createGlobalStyle`
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-}
-
-* {
+  font: inherit;
   margin: 0;
   padding: 0;
-  font: inherit;
 }
 
 
