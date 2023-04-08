@@ -6,7 +6,7 @@ export const Nav = styled.nav(({ theme: { palette, elevation } }) => {
     padding: 2rem 2.4rem;
     background: ${palette.surface};
     ${elevation.shadow.level1};
-    overflow: visible;
+
 
     #wrapper {
       display: flex;
