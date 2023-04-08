@@ -5,7 +5,7 @@ export const DefaultBtn = createDynamicButton(
   styled.button(({ theme: { palette, typography } }) => {
     return css`
       display: inline-flex;
-      -webkit-tap-highlight-color: transparent;
+      /* -webkit-tap-highlight-color: transparent; */
       justify-content: center;
       align-items: center;
       padding: 1rem 2.4rem;
