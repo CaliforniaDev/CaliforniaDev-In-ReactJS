@@ -24,7 +24,6 @@ const IconButtonComponents = {
 export function IconButton({ variant, icon, children, ...props }) {
 
   const buttonIcon = children || icon;
-  console.log("buttonIcon", buttonIcon);
 
   if (!buttonIcon) {
     console.warn("Please provide an icon for this IconButton component.");

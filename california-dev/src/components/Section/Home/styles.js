@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { ElevatedBtn } from 'components/ui/Button/styles';
 
 export const StyledSection = styled.section(({ theme: { palette, typography } }) => {
   return css`
