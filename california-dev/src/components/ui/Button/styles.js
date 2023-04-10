@@ -16,7 +16,7 @@ export const DefaultBtn = createDynamicButton(
       cursor: pointer;
       color: ${palette.onTertiary};
       background: ${palette.tertiary};
-      transition: box-shadow 0.2s ease-out;
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
       position: relative;
       z-index: 1;
       // Add typography styles to all buttons
