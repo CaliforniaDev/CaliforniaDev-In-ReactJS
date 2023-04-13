@@ -1,6 +1,5 @@
 import { ThemeContext, breakpoints } from "context/ThemeContext";
-import { Body } from "components/Body";
-import { Nav } from "components/Navigation/Nav";
+import { MainBody } from "components/Main";
 import {useTheme} from "./hooks/useTheme";
 import { FloatingActionButton } from "components/ui/FloatingActionButton/FloatingActionButton";
 
@@ -9,9 +8,8 @@ function App() {
 
   return (
     <ThemeContext themeMode={themeMode}>
-      <Nav />
-      <Body />
-      <FloatingActionButton onClick={toggleTheme} />
+      <MainBody />
+      <FloatingActionButton toggleTheme={toggleTheme} />
 
     </ThemeContext>
   );
