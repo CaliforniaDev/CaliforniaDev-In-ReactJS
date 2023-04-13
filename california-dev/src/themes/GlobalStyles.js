@@ -1,7 +1,7 @@
 import { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle((props) => {
-  const { palette } = props.theme;
+  const { palette, typography } = props.theme;
   const { preferredColorScheme } = props;
   return css`
     @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
@@ -9,9 +9,7 @@ export const GlobalStyles = createGlobalStyle((props) => {
     body {
       font-size: 62.5%;
       line-height: 1.5;
-      min-height: 100vh;
-      min-height: -webkit-fill-available;
-      height: -webkit-fill-available;
+      min-height: 100%;
       width: 100%;
       box-sizing: border-box;
       -webkit-box-sizing: border-box;
@@ -21,6 +19,10 @@ export const GlobalStyles = createGlobalStyle((props) => {
       background-color: ${palette.background};
       color: ${palette.onBackground};
       color-scheme: ${preferredColorScheme};
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body,
@@ -66,6 +68,7 @@ export const GlobalStyles = createGlobalStyle((props) => {
 
     p {
       max-width: 75ch;
+      ${typography.body.large};
     }
   `;
 });
@@ -79,6 +82,7 @@ export const StylesReset = createGlobalStyle`
   font: inherit;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s ease-in-out;
 }
 
 
