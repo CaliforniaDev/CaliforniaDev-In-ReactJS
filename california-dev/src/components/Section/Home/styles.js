@@ -6,10 +6,7 @@ export const StyledSection = styled.section(({ theme: { palette, typography } })
   flex-direction: column;
   gap: 1.4rem;
   height: calc(100vh - 80px - 40px);
-  padding: 8rem 2.4rem 0;
-
-
-
+  padding: 4rem 2.4rem 0;
 
   .display {
     ${typography.display.medium}
