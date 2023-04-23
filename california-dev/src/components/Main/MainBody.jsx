@@ -1,6 +1,7 @@
 import { MainContainer } from "./styles";
 import { Home } from "../Section/Home";
 import { Skills } from "../Section/Skills";
+import { Projects } from "../Section/Projects";
 import { Nav } from "components/Navigation/Nav";
 export function MainBody() {
   return (
@@ -8,6 +9,7 @@ export function MainBody() {
       <Nav />
       <Home />
       <Skills />
+      <Projects />
     </MainContainer>
   );
 }
