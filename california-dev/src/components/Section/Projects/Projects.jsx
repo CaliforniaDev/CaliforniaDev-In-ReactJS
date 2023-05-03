@@ -4,7 +4,7 @@ import { ProjectSection } from "./styles";
 import MemoryGameImage from "assets/images/projects/MemoryGame.png";
 import { DoubleArrowDown } from "assets/images/icons/DoubleArrowDown";
 
-const ProjectItems = {
+const projectItems = {
   MemoryGame: {
     title: "Memory Game",
     description: "A simple memory game built with React",
@@ -38,13 +38,15 @@ export const Projects = () => {
   return (
     <ProjectSection aria-label="Recent Projects">
       <h2>Recent Projects</h2>
-      {Object.values(ProjectItems).map((project, index) => (
-        <ProjectCard
-          key={index}
-          project={project}
-          isOpen={isOpen}
-          toggleOpen={toggleOpen}
-        />
+      {Object.values(projectItems).map((project, index) => (
+        <div className="items-wrapper">
+          <ProjectCard
+            key={index}
+            project={project}
+            isOpen={isOpen}
+            toggleOpen={toggleOpen}
+          />
+        </div>
       ))}
     </ProjectSection>
   );
