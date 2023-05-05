@@ -1,3 +1,5 @@
+import React, { isValidElement } from "react";
+import PropTypes from "prop-types";
 import {
   FilledBtn,
   TonalBtn,
@@ -5,8 +7,8 @@ import {
   DefaultIconBtn,
   TargetAreaWrapper,
 } from "./styles";
-//ENUMS
 
+//ENUMS
 const IconButtonVariants = {
   FILLED: "filled",
   TONAL: "tonal",
@@ -22,11 +24,13 @@ const IconButtonComponents = {
 };
 
 export function IconButton({ variant, icon, children, ...props }) {
-
   const buttonIcon = children || icon;
 
-  if (!buttonIcon) {
-    console.warn("Please provide an icon for this IconButton component.");
+  if (!buttonIcon || !isValidElement(buttonIcon)) {
+    console.warn(
+      "Please provide a valid SVG or image for this IconButton component."
+    );
+    return null;
   }
 
   const IconButtonComponent = IconButtonComponents[variant] || DefaultIconBtn;
@@ -37,3 +41,17 @@ export function IconButton({ variant, icon, children, ...props }) {
     </TargetAreaWrapper>
   );
 }
+IconButton.defaultProps = {
+  variant: IconButtonVariants.DEFAULT,
+};
+
+IconButton.propTypes = {
+  variant: PropTypes.oneOf([
+    IconButtonVariants.FILLED,
+    IconButtonVariants.TONAL,
+    IconButtonVariants.OUTLINED,
+    IconButtonVariants.DEFAULT,
+  ]).isRequired,
+  icon: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
