@@ -1,6 +1,6 @@
 export const CogIcon = () => {
   return (
-    <div>
+    <figure>
       <svg
         width="24"
         height="24"
@@ -16,6 +16,6 @@ export const CogIcon = () => {
           />
         </g>
       </svg>
-    </div>
+    </figure>
   );
 };
