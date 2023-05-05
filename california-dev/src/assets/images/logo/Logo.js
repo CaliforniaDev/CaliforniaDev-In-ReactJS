@@ -1,6 +1,6 @@
 export const Logo = () => {
   return (
-    <div className="svg-container">
+    <figure className="svg-container">
       <svg
         width="38"
         height="40"
@@ -178,6 +178,6 @@ export const Logo = () => {
           </linearGradient>
         </defs>
       </svg>
-    </div>
+    </figure>
   );
 };
