@@ -103,7 +103,7 @@ export const TonalBtn = styled(DefaultBtn)(
 export const OutlinedBtn = styled(DefaultBtn)(
   ({ theme: { palette, elevation, state } }) => {
     return css`
-      background: ${palette.surface};
+      background: transparent;
       border-width: 0.1rem;
       border-style: solid;
       color: ${palette.primary};
