@@ -1,7 +1,7 @@
 import MemoryGameImage from "assets/images/projects/MemoryGame.png";
 import CupKayzImage from "assets/images/projects/CupKayz.png";
 
-export const projectList = {
+export const projectData = {
   MemoryGame: {
     id: "memory-game-project",
     title: "Memory Game",
