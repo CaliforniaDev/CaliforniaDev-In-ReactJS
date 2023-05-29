@@ -41,7 +41,7 @@ export const CardContainer = styled.div(
         position: relative;
         background-color: ${palette.surfaceVariant};
 
-        #memory-game {
+        #memory-game-project {
           transform: translateX(5px);
           width: 216px;
         }
