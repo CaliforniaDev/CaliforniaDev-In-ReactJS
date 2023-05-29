@@ -3,7 +3,7 @@ import CupKayzImage from "assets/images/projects/CupKayz.png";
 
 export const projectList = {
   MemoryGame: {
-    id: "memory-game",
+    id: "memory-game-project",
     title: "Memory Game",
     imageSrc: MemoryGameImage,
     description: [`A simple memory game built with React`],
@@ -11,7 +11,7 @@ export const projectList = {
   },
 
   CupKayz: {
-    id: "cup-kayz",
+    id: "cup-kayz-project",
     title: "CupKayz",
     imageSrc: CupKayzImage,
     description: [
