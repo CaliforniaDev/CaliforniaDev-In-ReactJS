@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledSection } from "./styles";
+import { StyledSection } from "./HomeStyles";
 import { IconButton } from "components/ui/IconButton";
 import { Button } from "components/ui/Button";
 import { GitHubIcon } from "assets/images/icons/GitHubIcon";
@@ -17,7 +17,7 @@ export const Home = () => {
           As a <span className="accent-color">Frontend Developer</span>, I am
           dedicated to creating interactive and engaging web applications.
         </p>
-        <BackgroundSvg />
+        {/* <BackgroundSvg /> */}
       </header>
       <div className="link-items-container">
         <Button variant="elevated" text="Resume" href={pdfResume} />

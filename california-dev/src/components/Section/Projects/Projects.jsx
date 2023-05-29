@@ -7,7 +7,7 @@ import { Button } from "components/ui/Button";
 import { DoubleArrowDown } from "assets/images/icons/DoubleArrowDown";
 
 // Local imports
-import { CardContainer, ProjectSection } from "./styles";
+import { CardContainer, ProjectSection } from "./ProjectStyles";
 import { projectData } from "./data/projectData";
 
 const contentVariants = {
