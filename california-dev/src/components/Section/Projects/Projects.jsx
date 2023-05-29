@@ -41,7 +41,7 @@ const ProjectCard = ({ project, isOpen, toggleOpen }) => {
     >
       <article className="project-card__content-wrapper">
         <figure className="project-card__image-container">
-          <img src={project.imageSrc} alt={project.title} />
+          <img src={project.imageSrc} alt={project.title} id={project.id}/>
         </figure>
         <div className="project-card__info">
           <header className="project-card__header">
