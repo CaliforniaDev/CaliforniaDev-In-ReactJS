@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 export const ProjectSection = styled.section(
   ({ theme: { palette, typography } }) => {
     return css`
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(312px, 1fr));
       color: ${palette.onBackground};
       padding: 4rem 2.4rem;
       gap: 3.2rem;
@@ -28,7 +28,6 @@ export const CardContainer = styled.div(
       min-width: 312px;
       min-height: 272px;
       border-radius: 12px;
-      margin-bottom: 4rem;
       max-height: ${isOpen ? "1000px" : "272px"};
       transition: max-height 0.5s ease-in-out;
       overflow: hidden;
@@ -45,10 +44,10 @@ export const CardContainer = styled.div(
         position: relative;
         background-color: ${palette.surfaceVariant};
 
-        img {
-          transform: translateX(5px);
-          width: 216px;
-        }
+        #memory-game {
+         transform: translateX(5px);
+        width: 216px;
+     }
       }
 
       .project-card__header {
