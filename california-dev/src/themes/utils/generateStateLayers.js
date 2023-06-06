@@ -5,12 +5,11 @@ import { hexToRgba } from "./hexToRgba";
  * @param {Object} palette - The color palette object.
  * @param {Object} stateTypes - The object defining different state types.
  * @param {Object} opacity - The object defining opacity values for each state type.
- * @param {Function} cssOverlay - The CSS overlay generator function.
  * @returns {Object} - The state layers object containing state layers for each color in the palette.
  */
 
-function generateStateLayers(palette, stateTypes, opacity, cssOverlay) {
-  if (!palette || !stateTypes || !opacity || !cssOverlay) {
+function generateStateLayers(palette, stateTypes, opacity) {
+  if (!palette || !stateTypes || !opacity) {
     throw new Error("Missing parameters");
   }
 
@@ -28,10 +27,8 @@ function generateStateLayers(palette, stateTypes, opacity, cssOverlay) {
 
           // Generate the CSS overlay for this state layer value
           const stateLayerValue = hexToRgba(colorValue, stateTypeOpacity);
-          const cssRule = cssOverlay(stateLayerValue);
-
-          // Add the CSS rule to the state layers object
-          colorLayers[stateType] = cssRule;
+          // Add rgba value to the state layers object
+          colorLayers[stateType] = stateLayerValue;
           return colorLayers;
         },
         {}
