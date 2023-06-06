@@ -6,7 +6,6 @@ import { generateStateLayers } from "themes/utils/generateStateLayers";
 import {
   STATE_TYPE,
   OPACITY,
-  generateCssOverlay,
 } from "themes/utils/stateConfig";
 
 /**
@@ -18,7 +17,6 @@ const state = generateStateLayers(
   palette,
   STATE_TYPE,
   OPACITY,
-  generateCssOverlay
 );
 
 export { state };
