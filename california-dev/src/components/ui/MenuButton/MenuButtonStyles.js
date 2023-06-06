@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const HamburgerContainer = styled.button(({ theme: { palette } }) => {
+export const ButtonWrapper = styled.button(({ theme: { palette } }) => {
   return css`
     display: flex;
     flex-direction: column;

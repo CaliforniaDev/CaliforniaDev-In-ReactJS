@@ -1,12 +1,12 @@
-import * as Styled from "./styles";
+import * as Styled from "./NavStyles";
 import { Logo } from "assets/images/logo/Logo";
-import { HamburgerMenu } from "../ui/HamburgerMenu";
+import { MenuButton } from "../ui/MenuButton";
 export function Nav() {
   return (
     <Styled.Nav>
       <div id="wrapper">
         <Logo className="logo" alt="logo image"/>
-        <HamburgerMenu />
+        <MenuButton />
       </div>
     </Styled.Nav>
   );
