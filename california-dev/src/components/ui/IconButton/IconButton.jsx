@@ -34,7 +34,6 @@ export function IconButton({ variant, icon, children, ...props }) {
   }
 
   const IconButtonComponent = IconButtonComponents[variant] || DefaultIconBtn;
-  console.log(variant);
   return (
     <TargetAreaWrapper className="target-area">
       <IconButtonComponent {...props}>{buttonIcon}</IconButtonComponent>
