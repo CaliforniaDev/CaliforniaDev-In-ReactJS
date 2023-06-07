@@ -17,6 +17,7 @@ export const typography = {
       line-height: 5.2rem;
     `,
     small: css`
+      font-family: "Josefin Sans", sans-serif;
       font-style: normal;
       font-weight: 450;
       font-size: 3.6rem;
