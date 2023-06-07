@@ -7,6 +7,7 @@ export const TechnicalSection = styled.section(
       flex-direction: column;
       color: ${palette.onBackground};
       padding: 4rem 2.4rem;
+      gap: 1.6rem;
 
       h2 {
         ${typography.headline.small};

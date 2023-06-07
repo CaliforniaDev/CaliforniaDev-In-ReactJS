@@ -7,7 +7,7 @@ export const ProjectSection = styled.section(
       grid-template-columns: repeat(auto-fill, minmax(312px, 1fr));
       color: ${palette.onBackground};
       padding: 4rem 2.4rem;
-      gap: 3.2rem;
+      gap: 1.6rem;
 
       h2 {
         ${typography.headline.small};
