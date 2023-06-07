@@ -3,6 +3,7 @@ import { Home } from "../Section/Home";
 import { Skills } from "../Section/Skills";
 import { Projects } from "../Section/Projects";
 import { Technical } from "../Section/Technical";
+import { Contact } from "../Section/Contact";
 import { Nav } from "components/Navigation/Nav";
 export function MainBody() {
   return (
@@ -12,6 +13,7 @@ export function MainBody() {
       <Skills />
       <Projects />
       <Technical />
+      <Contact />
     </MainContainer>
   );
 }
