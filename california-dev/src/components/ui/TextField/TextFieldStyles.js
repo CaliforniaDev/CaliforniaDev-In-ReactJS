@@ -20,7 +20,6 @@ export const InputField = styled.div(({ theme: { state } }) => {
     position: relative;
     width: 100%;
     ${afterPseudoElementStyling}
-
     &:hover::after {
       background-color: ${state.onSurface.hover};
       opacity: 1;
@@ -42,7 +41,7 @@ export const Input = styled.input(
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
       border 0.3s ease-in-out;
     color: ${palette.onSurface};
-    cursor: pointer;
+   
     caret-color: ${palette.primary};
 
     ${typography.body.large}
