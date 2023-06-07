@@ -14,7 +14,7 @@ export const ContactSection = styled.section(
       }
       h3 {
         ${typography.title.small};
-        .span {
+        span {
           white-space: nowrap;
         }
       }
