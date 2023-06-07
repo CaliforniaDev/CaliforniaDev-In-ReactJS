@@ -10,10 +10,11 @@ export const ContactSection = styled.section(
       padding: 0 2.4rem;
 
       h2 {
-        ${typography.headline.small};
+        ${typography.display.small};
       }
       h3 {
         ${typography.title.small};
+
         span {
           white-space: nowrap;
         }
@@ -26,13 +27,22 @@ export const ContactSection = styled.section(
         gap: 1.6rem;
         margin: 1.6rem;
         height: auto;
-
       }
 
-    
       .submit-button {
-          border-radius: 4px;
-        }
+        border-radius: 4px;
+      }
     `;
   }
+);
+
+export const RadioButtonGroup = styled.div(
+  ({ theme: { typography } }) => css`
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+    ${typography.body.medium};
+  `
 );
