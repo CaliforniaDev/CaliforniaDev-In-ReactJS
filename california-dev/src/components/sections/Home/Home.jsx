@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledSection } from "./HomeStyles";
+import { StyledSection } from "./Home.styles";
 import { IconButton } from "components/ui/IconButton";
 import { Button } from "components/ui/Button";
 import { GitHubIcon } from "assets/images/icons/GitHubIcon";

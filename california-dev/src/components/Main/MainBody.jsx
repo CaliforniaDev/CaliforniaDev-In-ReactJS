@@ -1,9 +1,9 @@
 import { MainContainer } from "./styles";
-import { Home } from "../Section/Home";
-import { Skills } from "../Section/Skills";
-import { Projects } from "../Section/Projects";
-import { Technical } from "../Section/Technical";
-import { Contact } from "../Section/Contact";
+import { Home } from "../sections/Home";
+import { Skills } from "../sections/Skills";
+import { Projects } from "../sections/Projects";
+import { Technical } from "../sections/Technical";
+import { Contact } from "../sections/Contact";
 import { Nav } from "components/Navigation/Nav";
 export function MainBody() {
   return (
