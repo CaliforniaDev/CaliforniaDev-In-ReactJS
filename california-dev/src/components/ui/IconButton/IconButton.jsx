@@ -6,7 +6,7 @@ import {
   OutlinedBtn,
   DefaultIconBtn,
   TargetAreaWrapper,
-} from "./IconButtonStyles";
+} from "./IconButton.styles";
 
 //ENUMS
 const IconButtonVariants = {

@@ -1,4 +1,4 @@
-import { ContactSection, RadioButtonGroup } from "./ContactStyles";
+import { ContactSection, RadioButtonGroup } from "./Contact.styles";
 import { TextField } from "components/ui/TextField";
 import { Button } from "components/ui/Button";
 import { RadioButton } from "components/ui/RadioButton";

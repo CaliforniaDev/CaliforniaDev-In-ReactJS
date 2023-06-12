@@ -1,4 +1,4 @@
-import { Section, Article } from "./SkillStyles";
+import { Section, Article } from "./Skills.styles";
 
 export const Skills = () => {
   return (

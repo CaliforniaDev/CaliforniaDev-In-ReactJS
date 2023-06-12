@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input, InputField, Label } from "./TextFieldStyles";
+import { Input, InputField, Label } from "./TextField.styles";
 
 export const TextField = ({ label, type, multiline, ...props }) => {
   const [text, setText] = useState("");

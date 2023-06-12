@@ -4,7 +4,7 @@ import {
   FilledBtn,
   TonalBtn,
   OutlinedBtn,
-} from "./ButtonStyles";
+} from "./Button.styles";
 
 // ENUMS representing different button style variants
 const ButtonVariants = {

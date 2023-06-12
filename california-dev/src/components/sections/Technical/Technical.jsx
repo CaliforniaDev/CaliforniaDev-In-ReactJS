@@ -1,4 +1,4 @@
-import { TechnicalSection } from "./TechnicalStyles";
+import { TechnicalSection } from "./Technical.styles";
 import {
   HtmlIcon,
   CssIcon,
