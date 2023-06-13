@@ -74,7 +74,7 @@ export const StylesReset = createGlobalStyle`
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  font: inherit;
+  font-size: inherit;
   margin: 0;
   padding: 0;
   transition: background-color 0.3s ease-in-out;
