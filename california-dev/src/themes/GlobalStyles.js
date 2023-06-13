@@ -25,11 +25,6 @@ export const GlobalStyles = createGlobalStyle((props) => {
       -moz-osx-font-smoothing: grayscale;
     }
 
-    body,
-    textarea {
-      font-size: 1.6rem;
-    }
-
     span,
     label {
       font-family: "Roboto", sans-serif;
