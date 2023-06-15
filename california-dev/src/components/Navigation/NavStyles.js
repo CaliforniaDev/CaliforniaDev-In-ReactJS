@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const Nav = styled.nav(({ theme: { palette, elevation } }) => {
+export const Nav = styled.nav(({ theme: { palette, elevation, media } }) => {
   return css`
     height: 8rem;
     padding: 2rem 2.4rem;
@@ -19,5 +19,9 @@ export const Nav = styled.nav(({ theme: { palette, elevation } }) => {
         min-height: 4rem;
       }
     }
+
+    ${media.TABLET`
+      display: none;
+    `} 
   `;
 });
