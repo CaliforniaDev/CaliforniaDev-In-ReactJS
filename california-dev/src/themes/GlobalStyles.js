@@ -7,7 +7,17 @@ export const GlobalStyles = createGlobalStyle((props) => {
     :root {
       --nav-rail-width: 8rem;
     }
-    
+
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap; /* keep from collapsing into non-existent space */
+    }
+
     @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
     html,
     body {
