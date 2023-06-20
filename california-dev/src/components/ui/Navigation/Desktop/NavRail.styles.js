@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 
+
 export const Nav = styled.nav(({ theme: { palette, media } }) => {
   return css`
     display: none;
@@ -9,8 +10,8 @@ export const Nav = styled.nav(({ theme: { palette, media } }) => {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 8rem;
-      max-width: 8rem;
+      width: var(--nav-rail-width);
+      max-width: var(--nav-rail-width);
       height: 100vh;
       position: fixed;
       top: 0;

@@ -4,6 +4,10 @@ export const GlobalStyles = createGlobalStyle((props) => {
   const { palette, typography } = props.theme;
   const { preferredColorScheme } = props;
   return css`
+    :root {
+      --nav-rail-width: 8rem;
+    }
+    
     @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
     html,
     body {
