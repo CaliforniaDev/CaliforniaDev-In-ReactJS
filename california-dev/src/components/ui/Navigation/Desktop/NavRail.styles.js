@@ -3,21 +3,21 @@ import styled, { css } from "styled-components";
 export const Nav = styled.nav(({ theme: { palette, media } }) => {
   return css`
     display: none;
-    ${media.TABLET`
 
+    ${media.TABLET`
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 8rem;
-      width: 8rem;
-      height: 100vh;
       align-items: center;
+      width: 8rem;
+      max-width: 8rem;
+      height: 100vh;
       position: fixed;
       top: 0;
       left: 0;
       background-color: ${palette.surface};
-      z-index: 1;
       border: 1px solid ${palette.border};
+      z-index: 1;
     `}
   `;
 });
@@ -30,6 +30,7 @@ export const NavList = styled.ul(({ theme: { palette } }) => {
   `;
 });
 
+
 export const NavItem = styled.li(
   ({ theme: { palette, state }, isActive, isPressed }) => {
     return css`
@@ -41,22 +42,21 @@ export const NavItem = styled.li(
       align-items: center;
       outline: none;
 
-      .nav-icon {
-        transition: transform 0.2s ease-in-out;
-      }
-      .nav-icon path {
-        fill: ${isActive
-          ? palette.onSecondaryContainer
-          : palette.onSurfaceVariant};
-      }
-
       &:hover .nav-icon,
       &:focus-visible .nav-icon {
         transform: scale(1.1);
         ${isPressed && "transform: scale(0.9);"}
       }
 
+      .nav-icon {
+        transition: transform 0.2s ease-in-out;
+      }
 
+      .nav-icon path {
+        fill: ${isActive
+          ? palette.onSecondaryContainer
+          : palette.onSurfaceVariant};
+      }
 
       &::before,
       &::after {
@@ -70,21 +70,28 @@ export const NavItem = styled.li(
         transform: scale(0);
         transition: transform 0.2s, opacity 0.2s, background-color 0.2s;
       }
+
+      /* Hover */
       &:hover::before {
         z-index: -1;
         transform: scale(1);
         background-color: ${state.onSurfaceVariant.hover};
       }
+
+      /* Focus */
       &:focus-visible::before {
         transform: scale(1);
         border: 2px solid ${state.onSurfaceVariant.focus};
         background-color: ${state.onSurfaceVariant.focus};
       }
+
+      /* Press */
       &:active::before {
         transform: scale(1);
         background-color: ${state.onSurfaceVariant.pressed};
       }
 
+      /* Active Indicator */
       &::after {
         z-index: -2;
         background: ${isActive ? palette.secondaryContainer : "transparent"};
@@ -99,3 +106,4 @@ export const NavItem = styled.li(
     `;
   }
 );
+
