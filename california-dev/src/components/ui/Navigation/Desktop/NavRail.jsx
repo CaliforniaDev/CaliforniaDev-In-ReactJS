@@ -19,7 +19,6 @@ const navItems = [
 export const NavRail = () => {
   const [activeAnchor, setActiveAnchor] = useState(null);
   const [pressedAnchor, setPressedAnchor] = useState(null);
-  const [focusedAnchor, setFocusedAnchor] = useState(null);
 
   return (
     <Nav>
@@ -32,8 +31,6 @@ export const NavRail = () => {
             onMouseDown={() => setPressedAnchor(index)}
             onMouseUp={() => setPressedAnchor(null)}
             onClick={() => setActiveAnchor(index)}
-            onFocus={() => setFocusedAnchor(index)}
-            onBlur={() => setFocusedAnchor(null)}
             key={index}
           >
             <Icon className="nav-icon" />
