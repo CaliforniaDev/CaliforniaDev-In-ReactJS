@@ -30,7 +30,6 @@ export const NavList = styled.ul(({ theme: { palette } }) => {
   `;
 });
 
-
 export const NavItem = styled.li(
   ({ theme: { palette, state }, isActive, isPressed }) => {
     return css`
@@ -106,4 +105,3 @@ export const NavItem = styled.li(
     `;
   }
 );
-
