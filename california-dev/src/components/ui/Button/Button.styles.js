@@ -64,10 +64,10 @@ export const ElevatedBtn = styled(DefaultBtn)(
         }
       }
 
-      &:focus {
+      &:focus-visible {
         ${elevation.surface.level1};
         ${elevation.shadow.level1};
-        outline: none;
+        outline: 2px solid ${state.primary.focus};
 
         &::after {
           background-color: ${state.primary.focus};
@@ -103,7 +103,7 @@ export const FilledBtn = styled(DefaultBtn)(
           opacity: 1;
         }
       }
-      &:focus {
+      &:focus-visible {
         ${elevation.shadow.level0};
 
         &::after {
@@ -137,7 +137,7 @@ export const TonalBtn = styled(DefaultBtn)(
           opacity: 1;
         }
       }
-      &:focus {
+      &:focus-visible {
         ${elevation.shadow.level0};
 
         &::after {
@@ -170,7 +170,7 @@ export const OutlinedBtn = styled(DefaultBtn)(
         background-color: ${state.primary.hover};
         opacity: 1;
       }
-      &:focus {
+      &:focus-visible {
         border-color: ${palette.primary};
         &::after {
           background-color: ${state.primary.focus};
