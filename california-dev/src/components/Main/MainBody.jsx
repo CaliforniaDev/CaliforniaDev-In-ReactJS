@@ -5,12 +5,14 @@ import { Projects } from "../sections/Projects";
 import { Technical } from "../sections/Technical";
 import { Contact } from "../sections/Contact";
 import { Nav } from "components/Navigation/Nav";
-import {NavRail} from "components/ui/Navigation/Desktop/NavRail";
+import { NavRail } from "components/ui/Navigation/Desktop/NavRail";
+import { useMediaQuery } from "react-responsive";
+
 export function MainBody() {
+  const isTabletOrLarger = useMediaQuery({ query: `(min-width: ${768/16}em)` });
   return (
     <MainContainer>
-      <Nav />
-      <NavRail />
+      {isTabletOrLarger ? <NavRail /> : <Nav />}
       <Home />
       <Skills />
       <Projects />
