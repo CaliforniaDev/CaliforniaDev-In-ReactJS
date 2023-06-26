@@ -25,7 +25,7 @@ export const Skills = () => {
   ];
 
   return (
-    <Section>
+    <Section id="skills-section">
       <h2>Technical Proficiencies</h2>
       <div className="grid-wrapper">
         {iconComponents.map((icon, index) => (

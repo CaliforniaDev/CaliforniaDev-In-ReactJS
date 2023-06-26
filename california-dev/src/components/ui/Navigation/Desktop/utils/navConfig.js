@@ -6,10 +6,10 @@ import {
   EmailIcon,
 } from "assets/images/icons/navigation";
 
-export const navItems = [
-  { Icon: HomeIcon, name: "Home" },
-  { Icon: ChartIcon, name: "Workflow" },
-  { Icon: ImagesIcon, name: "Projects" },
-  { Icon: LightBulbIcon, name: "Skills" },
-  { Icon: EmailIcon, name: "Contact Us" },
+export const navItemsData = [
+  { Icon: HomeIcon, id: "home-section", name: "Home" },
+  { Icon: ChartIcon, id: "workflow-section", name: "Workflow" },
+  { Icon: ImagesIcon, id: "projects-section", name: "Projects" },
+  { Icon: LightBulbIcon, id: "skills-section", name: "Skills" },
+  { Icon: EmailIcon, id: "contact-us-section", name: "Contact Us" },
 ];

@@ -125,7 +125,7 @@ export const Projects = () => {
   }
 
   return (
-    <ProjectSection aria-label="Recent Projects">
+    <ProjectSection id="projects-section" aria-label="Recent Projects">
       <h2>Recent Projects</h2>
       {renderProjects()}
     </ProjectSection>

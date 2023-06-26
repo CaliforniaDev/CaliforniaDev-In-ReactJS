@@ -2,7 +2,7 @@ import { Section, Article } from "./Workflow.styles";
 
 export const Workflow = () => {
   return (
-    <Section>
+    <Section id="workflow-section">
       <Article>
         <h2>UI / UX Design</h2>
         <p>

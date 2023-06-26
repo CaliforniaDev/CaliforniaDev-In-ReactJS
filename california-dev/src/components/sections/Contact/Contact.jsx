@@ -9,7 +9,7 @@ export const Contact = () => {
     console.log("Form submitted!");
   }
   return (
-    <ContactSection>
+    <ContactSection id="contact-us-section">
       <h2>Contact Us</h2>
       <h3>
         Any question or remarks? <span>Just write us a message below!</span>

@@ -9,7 +9,7 @@ import { BackgroundSvg } from "assets/images/shapes/BackgroundSvg";
 import pdfResume from "assets/docs/resume.pdf";
 export const Home = () => {
   return (
-    <StyledSection>
+    <StyledSection id="home-section">
       <header>
         <h2 className="headline">Hi There! Im,</h2>
         <h1 className="display">LEO DANIELS</h1>
