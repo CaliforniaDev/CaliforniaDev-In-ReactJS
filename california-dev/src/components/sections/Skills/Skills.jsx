@@ -1,31 +1,40 @@
-import { Section, Article } from "./Skills.styles";
+import { Section } from "./Skills.styles";
+import {
+  HtmlIcon,
+  CssIcon,
+  FigmaIcon,
+  AdobeIllustrator,
+  GitIcon,
+  GithubIcon,
+  JavascriptIcon,
+  PhotoshopIcon,
+  ReactIcon,
+} from "assets/images/tools/";
 
 export const Skills = () => {
+  const iconComponents = [
+    { IconComponent: HtmlIcon, title: "HTML" },
+    { IconComponent: CssIcon, title: "CSS" },
+    { IconComponent: FigmaIcon, title: "Figma" },
+    { IconComponent: AdobeIllustrator, title: "Illustrator" },
+    { IconComponent: GitIcon, title: "Git" },
+    { IconComponent: GithubIcon, title: "GitHub" },
+    { IconComponent: JavascriptIcon, title: "JavaScript" },
+    { IconComponent: PhotoshopIcon, title: "Photoshop" },
+    { IconComponent: ReactIcon, title: "React" },
+  ];
+
   return (
     <Section>
-      <Article>
-        <h2>UI / UX Design</h2>
-        <p>
-          During the initial design process, both low-fidelity wire-frames and
-          interactive hi-fidelity prototypes are produced using Figma. Each
-          design undergoes extensive design research and development of specific
-          design patterns. All projects also undergo user/usability testing to
-          ensure the final build is effective, efficient, and enjoyable for all
-          users.
-        </p>
-      </Article>
-      <Article>
-        <h2>Engineering</h2>
-        <p>
-          After completing the prototype, the next step is to plan the optimal
-          software architecture for the project. All code is written with an
-          emphasis on cleanliness, responsiveness, and testing, to ensure that
-          the project looks and functions well on a wide range of devices and
-          screen sizes. Each line of code is carefully crafted for maximum
-          performance and maintainability, to provide an exceptional user
-          experience now and in the future.
-        </p>
-      </Article>
+      <h2>Technical Proficiencies</h2>
+      <div className="grid-wrapper">
+        {iconComponents.map((icon, index) => (
+          <div className="skills-card" key={index}>
+            <icon.IconComponent className="skills-card__icon" />
+            <p className="skills-card__text">{icon.title}</p>
+          </div>
+        ))}
+      </div>
     </Section>
   );
 };
