@@ -1,8 +1,8 @@
 import { MainContainer } from "./styles";
 import { Home } from "../sections/Home";
-import { Skills } from "../sections/Skills";
+import { Workflow } from "../sections/WorkFlow";
 import { Projects } from "../sections/Projects";
-import { Technical } from "../sections/Technical";
+import { Skills } from "../sections/Skills";
 import { Contact } from "../sections/Contact";
 import { Nav } from "components/Navigation/Nav";
 import { NavRail } from "components/ui/Navigation/Desktop/NavRail";
@@ -14,9 +14,9 @@ export function MainBody() {
     <MainContainer>
       {isTabletOrLarger ? <NavRail /> : <Nav />}
       <Home />
-      <Skills />
+      <Workflow />
       <Projects />
-      <Technical />
+      <Skills />
       <Contact />
     </MainContainer>
   );
