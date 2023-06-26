@@ -17,13 +17,17 @@ export const Nav = styled.nav(({ theme: { palette, media } }) => {
       top: 0;
       left: 0;
       background-color: ${palette.surface};
-      border: 1px solid ${palette.border};
-      z-index: 1;
+      z-index:  1;
+
+      .logo {
+        min-width: 3.8rem;
+        min-height: 4rem;
+      }
     `}
   `;
 });
 
-export const NavList = styled.ul(({ theme: { palette } }) => {
+export const NavLinksWrapper = styled.div(({ theme: { palette } }) => {
   return css`
     display: flex;
     flex-direction: column;
@@ -31,7 +35,7 @@ export const NavList = styled.ul(({ theme: { palette } }) => {
   `;
 });
 
-export const NavItem = styled.li(
+export const NavLink = styled.a(
   ({ theme: { palette, state }, isActive, isPressed }) => {
     return css`
       position: relative;
@@ -68,7 +72,7 @@ export const NavItem = styled.li(
         height: 100%;
         border-radius: 50%;
         transform: scale(0);
-        transition: transform 0.2s, opacity 0.2s, background-color 0.2s;
+        transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
       }
 
       /* Hover */
@@ -94,14 +98,9 @@ export const NavItem = styled.li(
       /* Active Indicator */
       &::after {
         z-index: -2;
-        background: ${isActive ? palette.secondaryContainer : "transparent"};
-        animation: ${isActive ? "pulse 0.3s forwards" : "none"};
-      }
-
-      @keyframes pulse {
-        to {
-          transform: scale(1);
-        }
+        background: ${palette.secondaryContainer};
+        transform: ${isActive ? 'scale(1)' : 'scale(0)'};
+        opacity: ${isActive ? 1 : 0};
       }
     `;
   }
