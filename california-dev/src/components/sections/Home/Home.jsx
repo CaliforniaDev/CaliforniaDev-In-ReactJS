@@ -2,9 +2,9 @@ import React from "react";
 import { StyledSection } from "./Home.styles";
 import { IconButton } from "components/ui/IconButton";
 import { Button } from "components/ui/Button";
-import { GitHubIcon } from "assets/images/icons/GitHubIcon";
-import { InstagramIcon } from "assets/images/icons/InstagramIcon";
-import { MailFavicon } from "assets/images/icons/MailIcon";
+import { GitHubIcon } from "assets/images/icons/social/GitHubIcon";
+import { InstagramIcon } from "assets/images/icons/social/InstagramIcon";
+import { MailFavicon } from "assets/images/icons/social/MailIcon";
 import { BackgroundSvg } from "assets/images/shapes/BackgroundSvg";
 import pdfResume from "assets/docs/resume.pdf";
 export const Home = () => {
