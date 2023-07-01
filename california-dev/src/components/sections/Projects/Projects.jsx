@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Components and assets
 import { Button } from "components/ui/Button";
-import { DoubleArrowDown } from "assets/images/icons/DoubleArrowDown";
+import { DoubleArrowDown } from "assets/images/icons/misc/DoubleArrowDown";
 
 // Local imports
 import { CardContainer, ProjectSection } from "./Projects.styles";
