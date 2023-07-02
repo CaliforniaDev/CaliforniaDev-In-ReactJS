@@ -5,3 +5,4 @@ export { MonitorIcon } from "./MonitorIcon";
 export { EmailIcon } from "./EmailIcon";
 export {ImagesIcon} from "./ImagesIcon";
 export {ChartIcon} from "./ChartIcon";
+export {ThemeIcon} from "./ThemeIcon";
