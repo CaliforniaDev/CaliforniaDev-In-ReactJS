@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
 
-export const MainContainer = styled.main(({ theme: { palette } }) => {
+export const MainContainer = styled.main(({ theme: { palette, media } }) => {
   return css`
-  margin-bottom: 5rem;
+    ${media.TABLET`
+      margin-left: var(--nav-rail-width);
+    `}
   `;
 });
-
