@@ -9,7 +9,10 @@ import { NavRail } from "components/ui/Navigation/Desktop/NavRail";
 import { useMediaQuery } from "react-responsive";
 
 export function MainBody() {
-  const isTabletOrLarger = useMediaQuery({ query: `(min-width: ${768/16}em)` });
+  const isTabletOrLarger = useMediaQuery({
+    query: `(min-width: ${768 / 16}em)`,
+  });
+
   return (
     <MainContainer>
       {isTabletOrLarger ? <NavRail /> : <Nav />}
