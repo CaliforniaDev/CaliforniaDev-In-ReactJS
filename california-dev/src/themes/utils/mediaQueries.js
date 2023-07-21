@@ -15,9 +15,9 @@ const BREAKPOINTS = {
 };
 
 const PADDING_SIZES = {
-  SMALL: "24px",
-  MEDIUM: "104px",
-  LARGE: "208px",
+  SMALL: "2.4rem", //24px
+  MEDIUM: "10.4rem", //104px
+  LARGE: "12.8rem", //128px
 };
 
 // 3. Create a media object
