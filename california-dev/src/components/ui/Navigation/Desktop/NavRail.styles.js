@@ -1,29 +1,25 @@
 import styled, { css } from "styled-components";
 
-
 export const Nav = styled.nav(({ theme: { palette, media } }) => {
   return css`
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--nav-rail-width);
+    max-width: var(--nav-rail-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: ${palette.surface};
+    z-index: 1;
+    padding: 1.6rem;
 
-    ${media.TABLET`
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: var(--nav-rail-width);
-      max-width: var(--nav-rail-width);
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: ${palette.surface};
-      z-index:  1;
-
-      .logo {
-        min-width: 3.8rem;
-        min-height: 4rem;
-      }
-    `}
+    .logo {
+      position: relative;
+      width: 3.8rem;
+      height: 4rem;
+    }
   `;
 });
 
@@ -31,6 +27,9 @@ export const NavLinksWrapper = styled.div(({ theme: { palette } }) => {
   return css`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    position: relative;
     gap: 0.8rem;
   `;
 });
@@ -42,6 +41,7 @@ export const NavLink = styled.a(
       display: flex;
       width: 4.8rem;
       height: 4.8rem;
+      padding: 4px ;
       justify-content: center;
       align-items: center;
       outline: none;
@@ -67,9 +67,10 @@ export const NavLink = styled.a(
         content: "";
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        bottom: 0;
+        margin: auto;
+        width: 4rem;
+        height: 4rem;
         border-radius: 50%;
         transform: scale(0);
         transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
@@ -99,9 +100,27 @@ export const NavLink = styled.a(
       &::after {
         z-index: -2;
         background: ${palette.secondaryContainer};
-        transform: ${isActive ? 'scale(1)' : 'scale(0)'};
+        transform: ${isActive ? "scale(1)" : "scale(0)"};
         opacity: ${isActive ? 1 : 0};
       }
     `;
   }
 );
+
+export const ThemeIconContainer = styled.div(({ theme: { palette } }) => {
+  return css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid ${palette.outline};
+    border-radius: 100%;
+    min-width: 4.8rem;
+    min-height: 4.8rem;
+
+    .theme-icon {
+      path {
+        fill: ${palette.onSurfaceVariant};
+      }
+    }
+  `;
+});
