@@ -18,18 +18,15 @@ export const GlobalStyles = createGlobalStyle((props) => {
       white-space: nowrap; /* keep from collapsing into non-existent space */
     }
 
-    @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
     html,
     body {
       font-size: 62.5%;
-      line-height: 1.5;
       min-height: 100%;
       width: 100%;
       box-sizing: border-box;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       scroll-behavior: smooth;
-      font-family: "Roboto", sans-serif;
       background-color: ${palette.background};
       color: ${palette.onBackground};
       color-scheme: ${preferredColorScheme};
@@ -43,15 +40,9 @@ export const GlobalStyles = createGlobalStyle((props) => {
     label {
       font-family: "Roboto", sans-serif;
     }
+    
     ul {
       font-size: 1.6rem;
-    }
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-family: "Lato", sans-serif;
-      font-weight: 400;
     }
 
     h1 {
@@ -72,6 +63,8 @@ export const GlobalStyles = createGlobalStyle((props) => {
 
     span {
       font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
       line-height: inherit;
     }
 
