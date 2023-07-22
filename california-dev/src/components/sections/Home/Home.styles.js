@@ -26,9 +26,11 @@ export const StyledSection = styled.section(
         display: flex;
         align-items: center;
         gap: 1.6rem;
+    
       }
       .social-links {
         display: flex;
+        position: relative;
         gap: 1.6rem;
       }
 
@@ -116,15 +118,26 @@ export const StyledSection = styled.section(
             position: absolute;
           }
           .zigzag-svg.secondary {
-            left: -200px;
-            top: 200px;
+ 
+            left: 756px;
+            top: 340px;
             path { stroke: ${palette.secondary};}
           }
           .zigzag-svg.primary {
-            top: 24px;
-            right: -52px;
+            top: 150px;
+            right: 70px;
             transform: rotate(-45deg);
             path {stroke: ${palette.primary};}
+            z-index: 1;
+          }
+
+          .zigzag-svg.small {
+            transform: rotate(-45deg);
+            top: 24px;
+            left: 4px;
+
+            path {stroke: ${palette.secondary};}
+            
           }
          
       `}

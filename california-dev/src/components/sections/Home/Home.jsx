@@ -12,10 +12,12 @@ import pdfResume from "assets/docs/resume.pdf";
 
 import { DotPattern } from "assets/images/shapes/DotPattern";
 import { ZigZagPattern } from "assets/images/shapes/ZigZagPattern";
+import { SmallZigZagSvg } from "assets/images/shapes/SmallZigZagSvg";
 
 export const Home = () => {
   return (
     <StyledSection id="home-section">
+
       <article>
         <header>
           <h2 className="headline">Hi There! Im,</h2>
@@ -72,17 +74,25 @@ export const Home = () => {
           </div>
         </div>
       </article>
+      <div className="zigzag-container">
+        <ZigZagPattern className="zigzag-svg primary" />
+        <ZigZagPattern className="zigzag-svg secondary" />
+      </div>
 
       <figure id="photo-wrapper">
         <DotPattern className="corner-svg top-left" id="topRightPattern" />
-        <DotPattern className="corner-svg bottom-right" id="bottomRightPattern" />
-        <ZigZagPattern className="zigzag-svg primary" />
-        <ZigZagPattern className="zigzag-svg secondary" />
-        <span aria-label="Photo of Leo." role="img" className="profile-img"></span>
+        <DotPattern
+          className="corner-svg bottom-right"
+          id="bottomRightPattern"
+        />
+        <span
+          aria-label="Photo of Leo."
+          role="img"
+          className="profile-img"
+        ></span>
         <span className="outline-frame"></span>
         <span className="filled-frame"></span>
       </figure>
-      
     </StyledSection>
   );
 };
