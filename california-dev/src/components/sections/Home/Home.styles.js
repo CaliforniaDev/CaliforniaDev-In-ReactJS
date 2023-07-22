@@ -81,6 +81,8 @@ export const StyledSection = styled.section(
             position: absolute;
             width: inherit;
             height: inherit;
+            opacity: 0.8;
+            backdrop-filter: blur(100px);
 
             background-color: ${palette.secondary};
             right: -20px;
@@ -94,13 +96,13 @@ export const StyledSection = styled.section(
           }
 
           .top-left {
-            top: -64px;
-            left: -64px;
+            top: -55px;
+            left: -55px;
           }
 
           .bottom-right {
-            bottom: -64px;
-            right: -64px;
+            bottom: -55px;
+            right: -55px;
           }
 
            #topRightPattern circle {
@@ -109,6 +111,22 @@ export const StyledSection = styled.section(
           #bottomRightPattern circle {
             fill: ${palette.primary};
           }
+
+          .zigzag-svg {
+            position: absolute;
+          }
+          .zigzag-svg.secondary {
+            left: -200px;
+            top: 200px;
+            path { stroke: ${palette.secondary};}
+          }
+          .zigzag-svg.primary {
+            top: 24px;
+            right: -52px;
+            transform: rotate(-45deg);
+            path {stroke: ${palette.primary};}
+          }
+         
       `}
     `;
   }

@@ -11,6 +11,7 @@ import MediaQuery from "react-responsive";
 import pdfResume from "assets/docs/resume.pdf";
 
 import { DotPattern } from "assets/images/shapes/DotPattern";
+import { ZigZagPattern } from "assets/images/shapes/ZigZagPattern";
 
 export const Home = () => {
   return (
@@ -75,6 +76,8 @@ export const Home = () => {
       <figure id="photo-wrapper">
         <DotPattern className="corner-svg top-left" id="topRightPattern" />
         <DotPattern className="corner-svg bottom-right" id="bottomRightPattern" />
+        <ZigZagPattern className="zigzag-svg primary" />
+        <ZigZagPattern className="zigzag-svg secondary" />
         <span aria-label="Photo of Leo." role="img" className="profile-img"></span>
         <span className="outline-frame"></span>
         <span className="filled-frame"></span>
