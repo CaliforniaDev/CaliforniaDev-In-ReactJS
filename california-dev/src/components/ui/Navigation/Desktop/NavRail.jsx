@@ -9,6 +9,8 @@ import { Logo } from "assets/images/logo";
 import { ThemeIcon } from "assets/images/icons/navigation";
 import { useNavRail } from "./hooks/useNavRail";
 
+import { useEffect } from "react";
+
 export const NavRail = () => {
   const {
     activeAnchor,
@@ -18,6 +20,15 @@ export const NavRail = () => {
     handleMouseUp,
     handleNavLinkClick,
   } = useNavRail();
+
+  useEffect(() => {
+    // Home is Active by default on page load
+    const homeIndex = navItemsData.findIndex(({ id }) => id === "home-section");
+    if (homeIndex !== -1) {
+      handleNavLinkClick("home-section", homeIndex);
+    }
+  }, []);
+
   return (
     <Nav>
       <Logo className="logo" />
