@@ -1,4 +1,4 @@
-import React, { isValidElement } from "react";
+import React, { forwardRef, isValidElement } from "react";
 import PropTypes from "prop-types";
 import {
   FilledBtn,
@@ -23,23 +23,25 @@ const IconButtonComponents = {
   [IconButtonVariants.DEFAULT]: DefaultIconBtn,
 };
 
-export function IconButton({ variant, icon, children, ...props }) {
-  const buttonIcon = children || icon;
+export const IconButton = forwardRef(
+  ({ variant, icon, children, ...props }, ref) => {
+    const buttonIcon = children || icon;
 
-  if (!buttonIcon || !isValidElement(buttonIcon)) {
-    console.warn(
-      "Please provide a valid SVG or image for this IconButton component."
+    if (!buttonIcon || !isValidElement(buttonIcon)) {
+      console.warn(
+        "Please provide a valid SVG or image for this IconButton component."
+      );
+      return null;
+    }
+
+    const IconButtonComponent = IconButtonComponents[variant] || DefaultIconBtn;
+    return (
+      <TargetAreaWrapper className="target-area" ref={ref}>
+        <IconButtonComponent {...props}>{buttonIcon}</IconButtonComponent>
+      </TargetAreaWrapper>
     );
-    return null;
   }
-
-  const IconButtonComponent = IconButtonComponents[variant] || DefaultIconBtn;
-  return (
-    <TargetAreaWrapper className="target-area">
-      <IconButtonComponent {...props}>{buttonIcon}</IconButtonComponent>
-    </TargetAreaWrapper>
-  );
-}
+);
 IconButton.defaultProps = {
   variant: IconButtonVariants.DEFAULT,
 };
