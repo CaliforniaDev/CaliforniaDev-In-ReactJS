@@ -1,8 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section(
-  ({ theme: { palette, elevation, typography, media, profileImg } }) => {
-    console.log(media.padding.SMALL);
+  ({ theme: { palette, elevation, typography, media, profileImg }, svgPosition }) => {
     return css`
       display: flex;
       flex-direction: column;
@@ -132,11 +131,9 @@ export const StyledSection = styled.section(
           }
 
           .zigzag-svg.small {
-            transform: rotate(-45deg);
             top: 24px;
-            left: 4px;
-
             path {stroke: ${palette.secondary};}
+            pointer-events: none;
             
           }
          
