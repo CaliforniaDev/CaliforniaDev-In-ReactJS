@@ -3,7 +3,7 @@ export const ZigZagPattern = ({className}) => (
     <path
       fill="none"
       stroke="red"
-      stroke-width="1.5"
+      strokeWidth="1.5"
       d="M1 0v16h16v16h16v16h16v16h16"
     />
   </svg>
