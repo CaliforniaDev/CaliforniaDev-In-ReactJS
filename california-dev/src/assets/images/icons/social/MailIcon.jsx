@@ -1,4 +1,4 @@
-export const MailFavicon = () => {
+export const MailIcon = () => {
   return (
     <figure>
       <svg
