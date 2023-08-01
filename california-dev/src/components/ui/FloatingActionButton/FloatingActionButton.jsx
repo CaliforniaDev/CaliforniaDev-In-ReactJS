@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import {useTheme} from "context/ThemeContext";
 
 import { FabContainer, FabButton, FabMenu } from "./Fab.styles";
 import { CogIcon } from "assets/images/icons/misc/CogIcon";
-export const FloatingActionButton = ({ toggleTheme }) => {
+export const FloatingActionButton = () => {
+  const { toggleTheme } = useTheme();
   const [expanded, setExpanded] = useState(false);
 
   const handleClick = () => setExpanded((prevState) => !prevState);
