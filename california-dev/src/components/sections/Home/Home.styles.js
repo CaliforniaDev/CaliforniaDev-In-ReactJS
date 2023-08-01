@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section(
-  ({ theme: { palette, elevation, typography, media, profileImg }, svgPosition }) => {
+  ({ theme: { palette, elevation, typography, media, profileImg } }) => {
     return css`
       display: flex;
       flex-direction: column;
@@ -25,7 +25,6 @@ export const StyledSection = styled.section(
         display: flex;
         align-items: center;
         gap: 1.6rem;
-    
       }
       .social-links {
         display: flex;
@@ -38,6 +37,10 @@ export const StyledSection = styled.section(
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        max-width: 1440px; //! CHeck this
+        max-height: 100vh;// ! Check this
+        margin: 0 auto; // ! Check this
+        gap: 3.2rem; //! Check this
 
         padding: ${media.padding.LARGE};
 
@@ -47,16 +50,18 @@ export const StyledSection = styled.section(
           gap: 1.6rem;
         }
         header {
+          position: relative;
           width: 46rem;
         }
 
         #photo-wrapper {
           display: flex;
-          position relative;
+          position: relative;
           width: 36.8rem;
           height: 44.8rem;
         }
         .profile-img {
+            z-index: 1; // !Check this
             display: block;
             width: inherit;
             height: inherit;
@@ -74,7 +79,6 @@ export const StyledSection = styled.section(
             width: inherit;
             height: inherit;
             border: 2px solid ${palette.primary};
-
             left: -20px;
             top: -20px;
           }
@@ -100,12 +104,10 @@ export const StyledSection = styled.section(
             top: -55px;
             left: -55px;
           }
-
           .bottom-right {
             bottom: -55px;
             right: -55px;
           }
-
            #topRightPattern circle {
             fill: ${palette.secondary};
           }
@@ -117,22 +119,19 @@ export const StyledSection = styled.section(
             position: absolute;
           }
           .zigzag-svg.secondary {
- 
-            left: 756px;
-            top: 340px;
+            right: -140px;
+            top: 216px;
             path { stroke: ${palette.secondary};}
           }
           .zigzag-svg.primary {
-            top: 150px;
-            right: 70px;
+            top: 16px;
+            right: -56px; 
             transform: rotate(-45deg);
             path {stroke: ${palette.primary};}
-            z-index: 1;
           }
-
           .zigzag-svg.small {
             top: 24px;
-            path {stroke: ${palette.secondary};}
+            path {stroke: ${palette.primary};}
             pointer-events: none;
             
           }

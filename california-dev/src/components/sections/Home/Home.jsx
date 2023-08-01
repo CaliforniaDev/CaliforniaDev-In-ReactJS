@@ -4,8 +4,16 @@ import MediaQuery from "react-responsive";
 
 import { Button } from "components/ui/Button";
 import { IconButton } from "components/ui/IconButton";
-import { GitHubIcon, InstagramIcon, MailIcon, } from "assets/images/icons/social";
-import { DotPattern, ZigZagPattern, SmallZigZagSvg, } from "assets/images/shapes";
+import {
+  GitHubIcon,
+  InstagramIcon,
+  MailIcon,
+} from "assets/images/icons/social";
+import {
+  DotPattern,
+  ZigZagPattern,
+  SmallZigZagSvg,
+} from "assets/images/shapes";
 
 import pdfResume from "assets/docs/resume.pdf";
 
@@ -86,6 +94,7 @@ const Header = () => {
           make me an asset to any team.
         </p>
       </MediaQuery>
+      <ZigZagPattern className="zigzag-svg secondary new" />
     </header>
   );
 };
@@ -101,17 +110,9 @@ const ProfileImage = () => {
         className="profile-img"
       ></span>
       <span className="outline-frame"></span>
+      <ZigZagPattern className="zigzag-svg primary" />
       <span className="filled-frame"></span>
     </figure>
-  );
-};
-
-const BackgroundShapes = () => {
-  return (
-    <div>
-      <ZigZagPattern className="zigzag-svg primary" />
-      <ZigZagPattern className="zigzag-svg secondary" />
-    </div>
   );
 };
 
@@ -150,7 +151,6 @@ export const Home = () => {
           </div>
         </div>
       </article>
-      <BackgroundShapes />
       <ProfileImage />
     </StyledSection>
   );
