@@ -1,17 +1,13 @@
-import {
-  Nav,
-  NavLinksWrapper,
-  NavLink,
-  ThemeIconContainer,
-} from "./NavRail.styles";
+import { Nav, NavLinksWrapper, NavLink } from "./NavRail.styles";
 import { navItemsData } from "./utils/navConfig";
 import { Logo } from "assets/images/logo";
 import { ThemeIcon } from "assets/images/icons/navigation";
 import { useNavRail } from "./hooks/useNavRail";
+import { IconButton } from "components/ui/IconButton";
 
 import { useEffect } from "react";
 
-export const NavRail = () => {
+export const NavRail = ({ toggleTheme }) => {
   const {
     activeAnchor,
     pressedAnchor,
@@ -27,7 +23,7 @@ export const NavRail = () => {
     if (homeIndex !== -1) {
       handleNavLinkClick("home-section", homeIndex);
     }
-  }, []);
+  }, [handleNavLinkClick]);
 
   return (
     <Nav>
@@ -49,9 +45,12 @@ export const NavRail = () => {
           </NavLink>
         ))}
       </NavLinksWrapper>
-      <ThemeIconContainer>
-        <ThemeIcon className="theme-icon" />
-      </ThemeIconContainer>
+      <IconButton
+        icon={<ThemeIcon className="theme-icon" />}
+        className="themeToggle"
+        variant="outlined"
+        onClick={toggleTheme}
+      />
     </Nav>
   );
 };

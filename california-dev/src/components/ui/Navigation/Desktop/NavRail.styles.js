@@ -20,6 +20,15 @@ export const Nav = styled.nav(({ theme: { palette, media } }) => {
       width: 3.8rem;
       height: 4rem;
     }
+    .themeToggle {
+      width: 48px;
+      height: 48px;
+    }
+    .theme-icon {
+      path {
+        fill: ${palette.onSurfaceVariant};
+      }
+    }
   `;
 });
 
@@ -41,7 +50,7 @@ export const NavLink = styled.a(
       display: flex;
       width: 4.8rem;
       height: 4.8rem;
-      padding: 4px ;
+      padding: 4px;
       justify-content: center;
       align-items: center;
       outline: none;
@@ -107,20 +116,20 @@ export const NavLink = styled.a(
   }
 );
 
-export const ThemeIconContainer = styled.div(({ theme: { palette } }) => {
-  return css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid ${palette.outline};
-    border-radius: 100%;
-    min-width: 4.8rem;
-    min-height: 4.8rem;
+// export const ThemeButton = styled.button(({ theme: { palette } }) => {
+//   return css`
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border: 1px solid ${palette.outline};
+//     border-radius: 100%;
+//     min-width: 4.8rem;
+//     min-height: 4.8rem;
 
-    .theme-icon {
-      path {
-        fill: ${palette.onSurfaceVariant};
-      }
-    }
-  `;
-});
+//     .theme-icon {
+//       path {
+//         fill: ${palette.onSurfaceVariant};
+//       }
+//     }
+//   `;
+// });
