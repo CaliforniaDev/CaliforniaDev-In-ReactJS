@@ -32,6 +32,10 @@ export const StyledSection = styled.section(
         gap: 1.6rem;
       }
 
+      .corner-svg, .zigzag-svg {
+        display: none;
+      }
+
       ${media.DESKTOP`
         display: flex;
         flex-direction: row;
@@ -95,6 +99,7 @@ export const StyledSection = styled.section(
           }
 
         .corner-svg {
+            display: block;
             position: absolute;
             width: 108px;
             height: 108px;
@@ -116,6 +121,7 @@ export const StyledSection = styled.section(
           }
 
           .zigzag-svg {
+            display: block;
             position: absolute;
           }
           .zigzag-svg.secondary {
