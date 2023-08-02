@@ -69,7 +69,7 @@ export const FilledBtn = styled(DefaultIconBtn)(
           opacity: 1;
         }
       }
-      &:focus {
+      &:focus-visible {
         ${elevation.shadow.level0};
 
         &::after {
@@ -104,7 +104,7 @@ export const TonalBtn = styled(DefaultIconBtn)(
           opacity: 1;
         }
       }
-      &:focus {
+      &:focus-visible {
         ${elevation.shadow.level0};
         &::after {
           background-color: ${state.onSecondaryContainer.focus};
@@ -138,7 +138,7 @@ export const OutlinedBtn = styled(DefaultIconBtn)(
         background-color: ${state.primary.hover};
         opacity: 1;
       }
-      &:focus {
+      &:focus-visible {
         border-color: ${palette.primary};
         &::after {
           background-color: ${state.primary.focus};
