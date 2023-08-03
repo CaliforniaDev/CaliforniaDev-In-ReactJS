@@ -53,6 +53,6 @@ IconButton.propTypes = {
     IconButtonVariants.OUTLINED,
     IconButtonVariants.DEFAULT,
   ]).isRequired,
-  icon: PropTypes.node.isRequired,
+  icon: PropTypes.node,
   children: PropTypes.node,
 };
