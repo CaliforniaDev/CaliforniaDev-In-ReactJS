@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const Nav = styled.nav(({ theme: { palette, media } }) => {
+export const Nav = styled.nav(({ theme: { palette, media, mode } }) => {
   return css`
     display: flex;
     flex-direction: column;
@@ -23,11 +23,24 @@ export const Nav = styled.nav(({ theme: { palette, media } }) => {
     .themeToggle {
       width: 48px;
       height: 48px;
+      position: relative;
+      border-width: 1.5px;
     }
     .theme-icon {
+      position: absolute;
+      transition: opacity 0.3s ease-in-out, transform .3s cubic-bezier(.2,0,0,1);
+      opacity: 0;
       path {
         fill: ${palette.onSurfaceVariant};
       }
+    }
+    .sun { // if mode is dark, then sun is visible
+      transform: ${mode === "dark" ? "translateY(0)" : "translateY(48px)"};
+      opacity: ${mode === "dark" ? 1 : 0};
+    }
+    .moon { // if mode is light, then moon is visible
+      transform: ${mode === "light" ? "translateY(0)" : "translateY(-48px)"};
+      opacity: ${mode === "light" ? 1 : 0};
     }
   `;
 });

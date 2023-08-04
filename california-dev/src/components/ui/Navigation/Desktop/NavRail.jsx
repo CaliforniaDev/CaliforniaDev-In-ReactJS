@@ -1,13 +1,15 @@
 import { Nav, NavLinksWrapper, NavLink } from "./NavRail.styles";
 import { navItemsData } from "./utils/navConfig";
 import { Logo } from "assets/images/logo";
-import { ThemeIcon } from "assets/images/icons/navigation";
 import { useNavRail } from "./hooks/useNavRail";
 import { IconButton } from "components/ui/IconButton";
+import { SunIcon, MoonIcon } from "assets/images/icons/navigation";
 
 import { useEffect } from "react";
+import { useTheme } from "context/ThemeContext";
 
-export const NavRail = ({ toggleTheme }) => {
+export const NavRail = () => {
+  const { toggleTheme } = useTheme();
   const {
     activeAnchor,
     pressedAnchor,
@@ -46,11 +48,13 @@ export const NavRail = ({ toggleTheme }) => {
         ))}
       </NavLinksWrapper>
       <IconButton
-        icon={<ThemeIcon className="theme-icon" />}
         className="themeToggle"
         variant="outlined"
         onClick={toggleTheme}
-      />
+      >
+        <MoonIcon className="theme-icon moon" />
+        <SunIcon className="theme-icon sun" />
+      </IconButton>
     </Nav>
   );
 };
