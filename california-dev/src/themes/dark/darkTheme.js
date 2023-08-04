@@ -6,6 +6,7 @@ import { media } from "../utils/mediaQueries";
 import profileImg from "assets/images/profile/profile-dark_no-bg.png";
 
 export const darkTheme = {
+  mode: "dark",
   palette,
   elevation,
   typography,
