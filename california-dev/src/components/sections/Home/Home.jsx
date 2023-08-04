@@ -19,7 +19,7 @@ import pdfResume from "assets/docs/resume.pdf";
 
 import { StyledSection } from "./Home.styles";
 
-const INITIAL_X_POSITION = -260;
+const INITIAL_X_POSITION = -85;
 const INITIAL_ROTATE_DEGREE = -45;
 const TRANSITION_DURATION = 0.5;
 
@@ -60,14 +60,13 @@ const socialMediaData = [
 const SocialMediaLink = ({ icon, href, onHover }) => (
   <IconButton
     variant="tonal"
-    icon={icon}
     href={href}
     onMouseEnter={onHover}
     onFocus={onHover}
-    draggable="false"
-  />
+  >
+    {icon}
+  </IconButton>
 );
-
 const Header = () => {
   return (
     <header>
@@ -128,7 +127,7 @@ export const Home = () => {
   ));
 
   const svgPosition = socialMediaData.find((link) => link.name === hoveredIcon)
-    ?.position || { x: -260 };
+    ?.position || { x: INITIAL_X_POSITION };
 
   return (
     <StyledSection id="home-section">

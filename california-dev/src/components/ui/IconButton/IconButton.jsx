@@ -1,4 +1,4 @@
-import React, { forwardRef, isValidElement } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import {
   FilledBtn,
@@ -23,25 +23,16 @@ const IconButtonComponents = {
   [IconButtonVariants.DEFAULT]: DefaultIconBtn,
 };
 
-export const IconButton = forwardRef(
-  ({ variant, icon, children, ...props }, ref) => {
-    const buttonIcon = children || icon;
-
-    if (!buttonIcon || !isValidElement(buttonIcon)) {
-      console.warn(
-        "Please provide a valid SVG or image for this IconButton component."
-      );
-      return null;
-    }
-
-    const IconButtonComponent = IconButtonComponents[variant] || DefaultIconBtn;
-    return (
-      <TargetAreaWrapper className="target-area" ref={ref}>
-        <IconButtonComponent {...props}>{buttonIcon}</IconButtonComponent>
-      </TargetAreaWrapper>
-    );
-  }
-);
+export const IconButton = forwardRef(({ variant, children, ...props }, ref) => {
+  // Use the provided variant, or use the default
+  const IconButtonComponent = IconButtonComponents[variant] || DefaultIconBtn;
+  return (
+    // Wrap the button in a div to provide a "target area" for the tooltip
+    <TargetAreaWrapper className="target-area" ref={ref}>
+      <IconButtonComponent {...props}>{children}</IconButtonComponent>
+    </TargetAreaWrapper>
+  );
+});
 IconButton.defaultProps = {
   variant: IconButtonVariants.DEFAULT,
 };
@@ -53,6 +44,5 @@ IconButton.propTypes = {
     IconButtonVariants.OUTLINED,
     IconButtonVariants.DEFAULT,
   ]).isRequired,
-  icon: PropTypes.node,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
