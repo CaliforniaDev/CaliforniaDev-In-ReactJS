@@ -70,7 +70,7 @@ const SocialMediaLink = ({ icon, href, onHover }) => (
 const Header = () => {
   return (
     <header>
-      <h2 className="headline">Hi There! Im,</h2>
+      <h2 className="headline">👋🏽 Hi There! Im,</h2>
       <h1 className="display">
         <span className="primary-color">LEO</span> DANIELS
       </h1>
@@ -87,10 +87,7 @@ const Header = () => {
           focus on delivering exceptional user experiences. I am always looking
           for new and exciting ways to innovate, and I commit to staying
           up-to-date with the latest technologies and best practices in the
-          industry. Whether I am working on a small project or a large-scale
-          application, I am dedicated to delivering the best possible results.
-          My passion for frontend development and my ability to adapt quickly
-          make me an asset to any team.
+          industry. 
         </p>
       </MediaQuery>
       <ZigZagPattern className="zigzag-svg secondary new" />
