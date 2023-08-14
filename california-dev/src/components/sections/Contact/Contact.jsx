@@ -1,7 +1,12 @@
-import { ContactSection, RadioButtonGroup } from "./Contact.styles";
+import { ContactSection, RadioButtonFieldset } from "./Contact.styles";
 import { TextField } from "components/ui/TextField";
 import { Button } from "components/ui/Button";
 import { RadioButton } from "components/ui/RadioButton";
+import {
+  DotPattern,
+  ZigZagPattern,
+  EclipsePattern,
+} from "assets/images/shapes";
 
 export const Contact = () => {
   function handleSubmit(event) {
@@ -10,24 +15,46 @@ export const Contact = () => {
   }
   return (
     <ContactSection id="contact-us-section">
-      <h2>Contact Us</h2>
-      <h3>
-        Any question or remarks? <span>Just write us a message below!</span>
-      </h3>
+      <div className="decoration-container">
+        <DotPattern className="dots-svg" />
+        <ZigZagPattern className="zigzag-svg" />
+        <EclipsePattern className="eclipse-svg" />
+        <DotPattern className="dots-svg" />
+      </div>
       <form onSubmit={handleSubmit} className="contact-form">
-        <TextField type="text" label="First Name" />
-        <TextField type="text" label="Last Name" />
-        <TextField type="text" label="Email" />
-        <TextField type="text" label="Phone Number" />
+        <header>
+          <h2>Contact Us</h2>
+          <p className="contact-subtext">
+            Any question or remarks? <span>Just write us a message below!</span>
+          </p>
+        </header>
+        <fieldset className="field-grid">
+          <TextField type="text" label="First Name" />
+          <TextField type="text" label="Last Name" />
+          <TextField type="text" label="Email" />
+          <TextField type="text" label="Phone Number" />
+        </fieldset>
 
-        <h3>Select Subject?</h3>
-        <RadioButtonGroup>
-          <RadioButton label="Hiring Inquiry" name="inquiryType" value="hiring"/>
+        <RadioButtonFieldset>
+          <legend>Select Subject?</legend>
+          <RadioButton
+            label="Hiring Inquiry"
+            name="inquiryType"
+            value="hiring"
+          />
           <RadioButton label="Feedback" name="inquiryType" value="feedback" />
-          <RadioButton label="Collaboration Opportunities" name="inquiryType" value="collaboration" />
-          <RadioButton label="Technical Support" name="inquiryType" value="technical" />
-        </RadioButtonGroup>
-        
+          <RadioButton
+            label="Collaboration Opportunities"
+            name="inquiryType"
+            value="collaboration"
+          />
+          <RadioButton
+            label="Technical Support"
+            name="inquiryType"
+            value="technical"
+          />
+        </RadioButtonFieldset>
+
         <TextField
           multiline
           className="form-message"
