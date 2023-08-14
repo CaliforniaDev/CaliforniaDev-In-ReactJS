@@ -26,19 +26,17 @@ export const RadioInput = styled.input(
 export const RadioLabel = styled.label(
   ({ theme: { palette, typography } }) => css`
     position: relative;
-    padding-left: 30px; // Adjust this value as needed
+    padding-left: 40px; // Adjust this value as needed
     cursor: pointer;
 
     span {
       position: absolute;
-      top: 0;
       left: 0;
       height: 20px; // Adjust this value as needed
       width: 20px; // Adjust this value as needed
       border: 2px solid ${(props) => props.theme.palette.onSurfaceVariant};
       border-radius: 50%;
       transition: border-color 0.3s ease-in-out;
-
       &:after {
         transition: background-color 0.3s ease-in-out;
       }
