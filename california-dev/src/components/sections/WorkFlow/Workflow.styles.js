@@ -78,7 +78,7 @@ export const Article = styled.article(
 
     .zigzag-svg {
       position: absolute;
-      opacity: 0.75;
+      opacity: 0.6;
       right: 540px;
       bottom: 80px;
       path {
