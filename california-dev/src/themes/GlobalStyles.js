@@ -40,7 +40,7 @@ export const GlobalStyles = createGlobalStyle((props) => {
     label {
       font-family: "Roboto", sans-serif;
     }
-    
+
     ul {
       font-size: 1.6rem;
     }
@@ -71,6 +71,12 @@ export const GlobalStyles = createGlobalStyle((props) => {
     p {
       max-width: 75ch;
       ${typography.body.large};
+    }
+
+    fieldset {
+      border: none; /* removes default border */
+      padding: 0; /* removes default padding */
+      margin: 0; /* removes default margin */
     }
   `;
 });
