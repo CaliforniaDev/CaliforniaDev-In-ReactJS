@@ -98,8 +98,8 @@ const Header = () => {
 const ProfileImage = () => {
   return (
     <figure id="photo-wrapper">
-      <DotPattern className="corner-svg top-left" id="topRightPattern" />
-      <DotPattern className="corner-svg bottom-right" id="bottomRightPattern" />
+      <DotPattern className="corner-svg top-left" />
+      <DotPattern className="corner-svg bottom-right" />
       <span
         aria-label="Photo of Leo."
         role="img"

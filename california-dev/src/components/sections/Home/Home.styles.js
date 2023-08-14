@@ -101,23 +101,21 @@ export const StyledSection = styled.section(
         .corner-svg {
             display: block;
             position: absolute;
-            width: 108px;
-            height: 108px;
           }
 
           .top-left {
-            top: -55px;
-            left: -55px;
+            top: -61px;
+            left: -61px;
+            circle {
+              fill: ${palette.primary};
+            }
           }
           .bottom-right {
-            bottom: -55px;
-            right: -55px;
-          }
-           #topRightPattern circle {
-            fill: ${palette.secondary};
-          }
-          #bottomRightPattern circle {
-            fill: ${palette.primary};
+            bottom: -61px;
+            right: -61px;
+            circle {
+              fill: ${palette.secondary};
+            }
           }
 
           .zigzag-svg {
