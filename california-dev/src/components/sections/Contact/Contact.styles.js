@@ -6,7 +6,7 @@ export const ContactSection = styled.section(
     flex-direction: column;
     align-items: center;
     text-align: left;
-    padding: 40px ${media.padding.SMALL};
+    padding: 64px ${media.padding.SMALL};
 
     fieldset {
       border: none; /* removes default border */
@@ -64,18 +64,45 @@ export const ContactSection = styled.section(
 
       .decoration-container {
         display: block;
+        overflow: hidden;
         position: relative;
         align-self: stretch;
         width: 200px;
         background-color: ${palette.primary};
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
+        
         .dots-svg circle { fill: ${palette.onPrimary}; }
         .eclipse-svg circle { stroke: ${palette.onPrimary}; }
         .zigzag-svg path { stroke: ${palette.onPrimary}; }
+
+        .dots-svg, .eclipse-svg, .zigzag-svg {
+          position: absolute;
+        }
+        .dots-svg.top {
+          top: -2px;
+          left: -2px;
+          opacity: 0.75;
+        }
+        .dots-svg.bottom {
+          bottom: -2px;
+          right: -2px;
+          opacity: 0.75;
+        }
+        .eclipse-svg {
+          top: 60%;
+          left: 40%;
+          opacity: 0.6;
+        }
+        .zigzag-svg {
+          top: 25%;
+          left: -10px;
+          opacity: 0.6;
+        }
+
       }
-    `} // End of DESKTOP media query
-  `// End of styles
+    `}// End of DESKTOP media query
+  ` // End of styles
 );
 
 export const RadioButtonFieldset = styled.fieldset(

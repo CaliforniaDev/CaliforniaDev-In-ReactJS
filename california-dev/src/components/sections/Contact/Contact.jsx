@@ -16,10 +16,10 @@ export const Contact = () => {
   return (
     <ContactSection id="contact-us-section">
       <div className="decoration-container">
-        <DotPattern className="dots-svg" />
+        <DotPattern className="dots-svg top" />
         <ZigZagPattern className="zigzag-svg" />
         <EclipsePattern className="eclipse-svg" />
-        <DotPattern className="dots-svg" />
+        <DotPattern className="dots-svg bottom" />
       </div>
       <form onSubmit={handleSubmit} className="contact-form">
         <header>
