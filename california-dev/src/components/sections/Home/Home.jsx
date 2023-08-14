@@ -75,19 +75,18 @@ const Header = () => {
         <span className="primary-color">LEO</span> DANIELS
       </h1>
       <p>
-        As a <span className="accent-color">Frontend Developer</span>, I am
-        dedicated to creating interactive and engaging web applications.
+        As a <span className="accent-color">Frontend Developer</span>, my
+        dedication lies in creating interactive and engaging web applications.
       </p>
       <br />
       {/* DESKTOP 992px */}
       <MediaQuery minWidth={`${992 / 16}em`}>
         <p>
-          With my unique blend of creativity and technical expertise, I
-          specialize in crafting intuitive and user-friendly web apps, with a
-          focus on delivering exceptional user experiences. I am always looking
-          for new and exciting ways to innovate, and I commit to staying
-          up-to-date with the latest technologies and best practices in the
-          industry. 
+          With a unique blend of creativity and technical expertise, my
+          specialization involves crafting intuitive and user-friendly web apps
+          that focus on delivering exceptional user experiences. Always on the
+          hunt for new and exciting ways to innovate, I'm committed to keeping
+          up with the latest technologies and industry best practices
         </p>
       </MediaQuery>
       <ZigZagPattern className="zigzag-svg secondary new" />
