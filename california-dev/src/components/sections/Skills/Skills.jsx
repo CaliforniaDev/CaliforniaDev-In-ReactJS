@@ -26,7 +26,7 @@ export const Skills = () => {
 
   return (
     <Section id="skills-section">
-      <h2>Skills & Technical Proficiencies</h2>
+      <h2>-Skills & Technical Proficiencies-</h2>
       <div className="flex-wrapper">
         {iconComponents.map((icon, index) => (
           <div className="skills-card" key={index}>

@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 const afterPseudoElementStyling = css`
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -10,7 +10,9 @@ const afterPseudoElementStyling = css`
     bottom: 0;
     opacity: 0;
     pointer-events: none;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      opacity 0.3s ease;
   }
 `;
 
@@ -31,17 +33,19 @@ export const Input = styled.input(
   ({ theme: { palette, typography }, isFocused, multiline }) => css`
     width: 100%;
     padding: 2.4rem 1.6rem 0.8rem 1.6rem;
-    height: ${multiline ? "168px" : "56px"};
+    height: ${multiline ? '168px' : '56px'};
     border: none;
-    border-bottom: ${isFocused ? "2px" : "1px"} solid
+    border-bottom: ${isFocused ? '2px' : '1px'} solid
       ${palette.onSurfaceVariant};
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     background-color: ${palette.surfaceVariant};
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    transition:
+      background-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out,
       border 0.3s ease-in-out;
     color: ${palette.onSurface};
-   
+
     caret-color: ${palette.primary};
 
     ${typography.body.large}
@@ -54,13 +58,13 @@ export const Input = styled.input(
 );
 
 export const Label = styled.label(
-  ({ theme: { palette, typography}, isFocused, isPopulated }) => {
+  ({ theme: { palette, typography }, isFocused, isPopulated }) => {
     return css`
       position: absolute;
       left: 16px;
       right: 16px;
       text-align: left;
-      padding-top: ${isFocused || isPopulated ? "8px" : "16px"};
+      padding-top: ${isFocused || isPopulated ? '8px' : '16px'};
       font-size: ${isFocused || isPopulated
         ? typography.body.small
         : typography.body.large};

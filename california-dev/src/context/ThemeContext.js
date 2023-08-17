@@ -1,11 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import { createContext, useContext, useEffect, useState } from 'react';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-import { useMedia } from "use-media";
+import { useMedia } from 'use-media';
 
-import { GlobalStyles, StylesReset } from "../themes/GlobalStyles";
-import { lightTheme } from "../themes/light/lightTheme";
-import { darkTheme } from "../themes/dark/darkTheme";
+import { GlobalStyles, StylesReset } from '../themes/GlobalStyles';
+import { lightTheme } from '../themes/light/lightTheme';
+import { darkTheme } from '../themes/dark/darkTheme';
 
 /**
  * This context will be used to pass the current theme
@@ -21,21 +21,21 @@ export const ThemeContext = createContext();
 export const ThemeContextProvider = ({ children }) => {
   const [stylesloaded, setStylesloaded] = useState(false);
   const [themeMode, setThemeMode] = useState(
-    localStorage.getItem("themeMode") === "dark" ? "dark" : "light"
+    localStorage.getItem('themeMode') === 'dark' ? 'dark' : 'light'
   );
 
-  const perfersDarkMode = useMedia("(prefers-color-scheme: dark)");
+  const perfersDarkMode = useMedia('(prefers-color-scheme: dark)');
 
   useEffect(() => {
-    setThemeMode(perfersDarkMode ? "dark" : "light");
+    setThemeMode(perfersDarkMode ? 'dark' : 'light');
   }, [perfersDarkMode]);
 
   useEffect(() => {
-    localStorage.setItem("themeMode", themeMode);
+    localStorage.setItem('themeMode', themeMode);
   }, [themeMode]);
 
   const toggleTheme = () => {
-    setThemeMode(themeMode === "dark" ? "light" : "dark");
+    setThemeMode(themeMode === 'dark' ? 'light' : 'dark');
     return [themeMode, toggleTheme];
   };
 
@@ -46,7 +46,9 @@ export const ThemeContextProvider = ({ children }) => {
   return (
     <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
       {stylesloaded && (
-        <StyledThemeProvider theme={themeMode === "light" ? lightTheme : darkTheme} >
+        <StyledThemeProvider
+          theme={themeMode === 'light' ? lightTheme : darkTheme}
+        >
           <GlobalStyles preferredColorScheme={themeMode} />
           <StylesReset />
           {children}
@@ -59,8 +61,8 @@ export const ThemeContextProvider = ({ children }) => {
 export const useTheme = () => useContext(ThemeContext);
 
 export const breakpoints = {
-  sm: "576px",
-  md: "768px",
-  lg: "992px",
-  xl: "1200px",
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
 };

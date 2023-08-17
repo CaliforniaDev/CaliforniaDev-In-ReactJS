@@ -1,5 +1,9 @@
-import { Section, Article } from "./Workflow.styles";
-import { DotPattern, ZigZagPattern, EclipsePattern } from "assets/images/shapes";
+import { Section, Article } from './Workflow.styles';
+import {
+  DotPattern,
+  ZigZagPattern,
+  EclipsePattern,
+} from 'assets/images/shapes';
 
 export const Workflow = () => {
   return (

@@ -1,4 +1,4 @@
-import { StyledDiv, InputWrapper, StyledInput } from "./SandboxStyles";
+import { StyledDiv, InputWrapper, StyledInput } from './SandboxStyles';
 const SandBox = () => {
   return (
     <div>

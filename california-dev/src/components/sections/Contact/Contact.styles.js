@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const ContactSection = styled.section(
   ({ theme: { palette, typography, media } }) => css`

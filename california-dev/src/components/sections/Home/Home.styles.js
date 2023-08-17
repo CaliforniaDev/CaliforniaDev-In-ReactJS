@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const StyledSection = styled.section(
   ({ theme: { palette, elevation, typography, media, profileImg } }) => {
@@ -32,7 +32,8 @@ export const StyledSection = styled.section(
         gap: 1.6rem;
       }
 
-      .corner-svg, .zigzag-svg {
+      .corner-svg,
+      .zigzag-svg {
         display: none;
       }
 

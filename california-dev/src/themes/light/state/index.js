@@ -1,1 +1,1 @@
-export { state } from "./state-config";
+export { state } from './state-config';

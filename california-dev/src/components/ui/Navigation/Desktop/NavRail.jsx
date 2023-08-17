@@ -1,12 +1,12 @@
-import { Nav, NavLinksWrapper, NavLink } from "./NavRail.styles";
-import { navItemsData } from "./utils/navConfig";
-import { Logo } from "assets/images/logo";
-import { useNavRail } from "./hooks/useNavRail";
-import { IconButton } from "components/ui/IconButton";
-import { SunIcon, MoonIcon } from "assets/images/icons/navigation";
+import { Nav, NavLinksWrapper, NavLink } from './NavRail.styles';
+import { navItemsData } from './utils/navConfig';
+import { Logo } from 'assets/images/logo';
+import { useNavRail } from './hooks/useNavRail';
+import { IconButton } from 'components/ui/IconButton';
+import { SunIcon, MoonIcon } from 'assets/images/icons/navigation';
 
-import { useEffect } from "react";
-import { useTheme } from "context/ThemeContext";
+import { useEffect } from 'react';
+import { useTheme } from 'context/ThemeContext';
 
 export const NavRail = () => {
   const { toggleTheme } = useTheme();
@@ -21,9 +21,9 @@ export const NavRail = () => {
 
   useEffect(() => {
     // Home is Active by default on page load
-    const homeIndex = navItemsData.findIndex(({ id }) => id === "home-section");
+    const homeIndex = navItemsData.findIndex(({ id }) => id === 'home-section');
     if (homeIndex !== -1) {
-      handleNavLinkClick("home-section", homeIndex);
+      handleNavLinkClick('home-section', homeIndex);
     }
   }, [handleNavLinkClick]);
 
@@ -33,7 +33,7 @@ export const NavRail = () => {
       <NavLinksWrapper>
         {navItemsData.map(({ Icon, name, id }, index) => (
           <NavLink
-            ref={(el) => (navLinksRefs.current[index] = el)}
+            ref={el => (navLinksRefs.current[index] = el)}
             key={id}
             href={`#${id}`}
             isActive={activeAnchor === id}

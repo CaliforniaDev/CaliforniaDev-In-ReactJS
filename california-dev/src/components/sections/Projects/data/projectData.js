@@ -1,18 +1,17 @@
-import MemoryGameImage from "assets/images/projects/MemoryGame.png";
-import CupKayzImage from "assets/images/projects/CupKayz.png";
+import MemoryGameImage from 'assets/images/projects/MemoryGame.png';
+import CupKayzImage from 'assets/images/projects/CupKayz.png';
 
 export const projectData = {
   MemoryGame: {
-    id: "memory-game-project",
-    title: "Memory Game",
+    id: 'memory-game-project',
+    title: 'Memory Game',
     imageSrc: MemoryGameImage,
     description: [`A simple memory game built with React`],
-    
   },
 
   CupKayz: {
-    id: "cup-kayz-project",
-    title: "CupKayz",
+    id: 'cup-kayz-project',
+    title: 'CupKayz',
     imageSrc: CupKayzImage,
     description: [
       `As a skilled web developer, I built a 
@@ -28,6 +27,5 @@ export const projectData = {
       without reliance on any libraries. This approach helped me to have 
       a better control and maintainability of the final solution.`,
     ],
-    
   },
 };

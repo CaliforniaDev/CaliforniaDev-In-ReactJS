@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Section = styled.section(
   ({ theme: { palette, typography, media } }) => css`
@@ -54,8 +54,6 @@ export const Article = styled.article(
   ({ theme: { palette } }) => css`
     display: flex;
     position: relative;
-
-   
 
     .dots-svg {
       position: absolute;
