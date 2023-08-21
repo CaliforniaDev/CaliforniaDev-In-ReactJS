@@ -1,5 +1,6 @@
 {
   "printWidth": 80,
+  "proseWrap": "always",
   "tabWidth": 2,
   "useTabs": false,
   "semi": true,
@@ -7,5 +8,11 @@
   "trailingComma": "es5",
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "overrides": [
+    {
+      "files": "*.svg",
+      "options": { "parser": "html" }
+    }
+  ]
 }
