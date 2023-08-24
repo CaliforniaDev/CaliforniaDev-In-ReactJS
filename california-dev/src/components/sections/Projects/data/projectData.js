@@ -1,18 +1,19 @@
-import MemoryGameImage from 'assets/images/projects/MemoryGame.png';
-import CupKayzImage from 'assets/images/projects/CupKayz.png';
+import {
+  CupKayz,
+  SplitShifts,
+  NybbleBox,
+  memoryGameSrc,
+} from 'assets/images/projects';
 
-export const projectData = {
-  MemoryGame: {
-    id: 'memory-game-project',
-    title: 'Memory Game',
-    imageSrc: MemoryGameImage,
-    description: [`A simple memory game built with React`],
-  },
-
-  CupKayz: {
+export const projectData = [
+  {
     id: 'cup-kayz-project',
     title: 'CupKayz',
-    imageSrc: CupKayzImage,
+    projectType: 'E-commerce Website',
+    imageComponent: CupKayz,
+    src: null,
+    backgroundColor: '#778b7c',
+
     description: [
       `As a skilled web developer, I built a 
       responsive e-commerce web application that can be 
@@ -28,4 +29,31 @@ export const projectData = {
       a better control and maintainability of the final solution.`,
     ],
   },
-};
+  {
+    id: 'nybble-box-project',
+    title: 'NybbleBox',
+    projectType: 'Landing Page',
+    imageComponent: NybbleBox,
+    src: null,
+    backgroundColor: "#0d0d0d",
+    
+  },
+
+  {
+    id: 'memory-game-project',
+    title: 'Memory Game',
+    projectType: 'React App',
+    imageComponent: null,
+    src: memoryGameSrc,
+    backgroundColor: null,
+    description: [`A simple memory game built with React`],
+  },
+  {
+    id: 'split-shifts-project',
+    title: 'SplitShifts',
+    projectType: 'Schedule Management Web App',
+    imageComponent: SplitShifts,
+    src: null,
+    backgroundColor: '#d7756b',
+  },
+];
