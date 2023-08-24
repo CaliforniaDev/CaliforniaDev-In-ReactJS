@@ -38,6 +38,6 @@ Card.propTypes = {
 
 Card.defaultProps = {
   ImageComponent: null,
-  imageSrc: null,
+  src: null,
   backgroundColor: null,
 };
