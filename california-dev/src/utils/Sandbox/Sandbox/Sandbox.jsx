@@ -1,5 +1,6 @@
 import { StyledDiv, InputWrapper, StyledInput } from './SandboxStyles';
-const SandBox = () => {
+
+export const Sandbox = () => {
   return (
     <div>
       <StyledDiv>
@@ -11,5 +12,3 @@ const SandBox = () => {
     </div>
   );
 };
-
-export default SandBox;
