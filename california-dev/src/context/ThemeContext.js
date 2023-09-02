@@ -24,11 +24,11 @@ export const ThemeContextProvider = ({ children }) => {
     localStorage.getItem('themeMode') === 'dark' ? 'dark' : 'light'
   );
 
-  const perfersDarkMode = useMedia('(prefers-color-scheme: dark)');
+  const prefersDarkMode = useMedia('(prefers-color-scheme: dark)');
 
   useEffect(() => {
-    setThemeMode(perfersDarkMode ? 'dark' : 'light');
-  }, [perfersDarkMode]);
+    setThemeMode(prefersDarkMode ? 'dark' : 'light');
+  }, [prefersDarkMode]);
 
   useEffect(() => {
     localStorage.setItem('themeMode', themeMode);
