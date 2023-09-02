@@ -8,7 +8,16 @@ const BREAKPOINTS = {
   LARGE: 1200,
   DESKTOP: 992,
   TABLET: 768,
+  tabletSmall: 600,
   PHONE: 576,
+};
+
+const BREAKPOINTS_NEW = {
+  large: `${1200 / 16}em`,
+  desktop: `${992 / 16}em`,
+  tablet: `${768 / 16}em`,
+  tabletSmall: `${600 / 16}em`,
+  phone: `${576 / 16}em`,
 };
 
 const PADDING_SIZES = {
@@ -44,3 +53,5 @@ media.padding = Object.keys(PADDING_SIZES).reduce((acc, label) => {
   acc[label] = PADDING_SIZES[label];
   return acc;
 }, {});
+
+media.device = BREAKPOINTS_NEW;
