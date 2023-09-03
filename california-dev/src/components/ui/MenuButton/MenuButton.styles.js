@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const ButtonWrapper = styled.button(({ theme: { palette } }) => {
   return css`
     display: flex;
     flex-direction: column;
-  
+
     align-items: flex-end;
     width: 3.2rem;
     height: 2.4rem;
@@ -30,4 +30,4 @@ export const Line = styled.span(({ theme: { palette }, width }) => {
     background: ${palette.primary.main};
     transition: width 0.3s ease-in-out;
   `;
-} )
+});

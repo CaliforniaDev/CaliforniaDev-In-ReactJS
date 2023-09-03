@@ -1,11 +1,12 @@
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle, css } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle((props) => {
+export const GlobalStyles = createGlobalStyle(props => {
   const { palette, typography } = props.theme;
   const { preferredColorScheme } = props;
   return css`
     :root {
       --nav-rail-width: 8rem;
+      --desktop-max-width: 1440px;
     }
 
     .visually-hidden {
@@ -38,7 +39,7 @@ export const GlobalStyles = createGlobalStyle((props) => {
 
     span,
     label {
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     ul {
@@ -106,5 +107,11 @@ img, picture, svg, video {
 
 input, textarea, button, select {
   font: inherit;
+}
+
+ul, ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 `;

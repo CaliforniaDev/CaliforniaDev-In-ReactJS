@@ -1,5 +1,5 @@
-import React from "react";
-import { ButtonWrapper, Line } from "./MenuButton.styles";
+import React from 'react';
+import { ButtonWrapper, Line } from './MenuButton.styles';
 export const MenuButton = () => {
   return (
     <ButtonWrapper>

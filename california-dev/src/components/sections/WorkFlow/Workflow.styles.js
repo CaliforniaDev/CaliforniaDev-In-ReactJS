@@ -1,24 +1,34 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Section = styled.section(
   ({ theme: { palette, typography, media } }) => css`
     display: flex;
-    flex-direction: column;
     justify-content: center;
     position: relative;
     background: ${palette.primary};
     color: ${palette.onPrimary};
-    padding: 4rem 2.4rem;
-    gap: 3.2rem;
+    padding: 4rem ${media.padding.SMALL};
+
+    svg {
+      display: none;
+    }
+  
+    .content-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      max-width: 1440px;
+    }
 
     h2 {
       ${typography.headline.small};
     }
 
     ${media.TABLET`
-      height: 67.2rem;
-      padding-left: ${media.padding.SMALL};
-      padding-right: ${media.padding.SMALL};
+      svg {
+        display: block;
+      }
       h2 {
         ${typography.display.medium};
       }
@@ -38,9 +48,7 @@ export const Section = styled.section(
     `}
 
     ${media.DESKTOP`
-      padding-left: ${media.padding.LARGE};
-      padding-right: ${media.padding.LARGE};
-
+      padding: 6.4rem ${media.padding.LARGE};
       h2 {
         ${typography.display.large};
       }
@@ -54,8 +62,6 @@ export const Article = styled.article(
   ({ theme: { palette } }) => css`
     display: flex;
     position: relative;
-
-   
 
     .dots-svg {
       position: absolute;

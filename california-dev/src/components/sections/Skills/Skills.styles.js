@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Section = styled.section(
   ({ theme: { palette, typography, elevation, media } }) => {

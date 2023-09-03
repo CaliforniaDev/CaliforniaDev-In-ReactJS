@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Nav = styled.nav(({ theme: { palette, media, mode } }) => {
   return css`
@@ -28,19 +28,23 @@ export const Nav = styled.nav(({ theme: { palette, media, mode } }) => {
     }
     .theme-icon {
       position: absolute;
-      transition: opacity 0.3s ease-in-out, transform .3s cubic-bezier(.2,0,0,1);
+      transition:
+        opacity 0.3s ease-in-out,
+        transform 0.3s cubic-bezier(0.2, 0, 0, 1);
       opacity: 0;
       path {
         fill: ${palette.onSurfaceVariant};
       }
     }
-    .sun { // if mode is dark, then sun is visible
-      transform: ${mode === "dark" ? "translateY(0)" : "translateY(48px)"};
-      opacity: ${mode === "dark" ? 1 : 0};
+    .sun {
+      // if mode is dark, then sun is visible
+      transform: ${mode === 'dark' ? 'translateY(0)' : 'translateY(48px)'};
+      opacity: ${mode === 'dark' ? 1 : 0};
     }
-    .moon { // if mode is light, then moon is visible
-      transform: ${mode === "light" ? "translateY(0)" : "translateY(-48px)"};
-      opacity: ${mode === "light" ? 1 : 0};
+    .moon {
+      // if mode is light, then moon is visible
+      transform: ${mode === 'light' ? 'translateY(0)' : 'translateY(-48px)'};
+      opacity: ${mode === 'light' ? 1 : 0};
     }
   `;
 });
@@ -71,7 +75,7 @@ export const NavLink = styled.a(
       &:hover .nav-icon,
       &:focus-visible .nav-icon {
         transform: scale(1.1);
-        ${isPressed && "transform: scale(0.9);"}
+        ${isPressed && 'transform: scale(0.9);'}
       }
 
       .nav-icon {
@@ -86,7 +90,7 @@ export const NavLink = styled.a(
 
       &::before,
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         bottom: 0;
@@ -95,7 +99,10 @@ export const NavLink = styled.a(
         height: 4rem;
         border-radius: 50%;
         transform: scale(0);
-        transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+        transition:
+          transform 0.3s,
+          opacity 0.3s,
+          background-color 0.3s;
       }
 
       /* Hover */
@@ -122,7 +129,7 @@ export const NavLink = styled.a(
       &::after {
         z-index: -2;
         background: ${palette.secondaryContainer};
-        transform: ${isActive ? "scale(1)" : "scale(0)"};
+        transform: ${isActive ? 'scale(1)' : 'scale(0)'};
         opacity: ${isActive ? 1 : 0};
       }
     `;

@@ -1,23 +1,23 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 export const typography = {
   display: {
     large: css`
-      font-family: "Josefin Sans", sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-style: normal;
       font-weight: 450;
       font-size: 5.7rem;
       line-height: 6.4rem;
     `,
     medium: css`
-      font-family: "Josefin Sans", sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-style: normal;
       font-weight: 450;
       font-size: 4.5rem;
       line-height: 5.2rem;
     `,
     small: css`
-      font-family: "Josefin Sans", sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-style: normal;
       font-weight: 450;
       font-size: 3.6rem;
@@ -25,21 +25,21 @@ export const typography = {
   },
   headline: {
     large: css`
-      font-family: "Josefin Sans", sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-style: normal;
       font-weight: 450;
       font-size: 3.2rem;
       line-height: 4rem;
     `,
     medium: css`
-      font-family: "Josefin Sans", sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-style: normal;
       font-weight: 450;
       font-size: 2.8rem;
       line-height: 3.6rem;
     `,
     small: css`
-      font-family: "Josefin Sans", sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-style: normal;
       font-weight: 450;
       font-size: 2.4rem;
@@ -48,14 +48,14 @@ export const typography = {
   },
   title: {
     large: css`
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 2.2rem;
       line-height: 2.8rem;
     `,
     medium: css`
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 1.8rem;
@@ -63,7 +63,7 @@ export const typography = {
       letter-spacing: 0.015rem;
     `,
     small: css`
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 1.4rem;
@@ -73,7 +73,7 @@ export const typography = {
   },
   label: {
     large: css`
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 1.4rem;
@@ -81,7 +81,7 @@ export const typography = {
       letter-spacing: 0.01rem;
     `,
     medium: css`
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 1.2rem;
@@ -89,7 +89,7 @@ export const typography = {
       letter-spacing: 0.05rem;
     `,
     small: css`
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 1.1rem;
@@ -99,7 +99,7 @@ export const typography = {
   },
   body: {
     large: css`
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 1.6rem;
@@ -107,7 +107,7 @@ export const typography = {
       letter-spacing: 0.05rem;
     `,
     medium: css`
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 1.4rem;
@@ -115,7 +115,7 @@ export const typography = {
       letter-spacing: 0.025rem;
     `,
     small: css`
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 1.2rem;

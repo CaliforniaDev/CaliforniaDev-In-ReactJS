@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import { hexToRgba } from "./hexToRgba";
+import { css } from 'styled-components';
+import { hexToRgba } from './hexToRgba';
 
 // These utility functions generate CSS for background and box-shadow styles
 const generateSurfaceStyles = (surface, surfaceTint, levelOpacity) => {

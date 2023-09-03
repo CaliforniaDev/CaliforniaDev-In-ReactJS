@@ -1,1 +1,1 @@
-export * from "./MainBody";
+export * from './MainBody';

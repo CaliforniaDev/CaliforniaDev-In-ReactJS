@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import MediaQuery from "react-responsive";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import MediaQuery from 'react-responsive';
 
-import { Button } from "components/ui/Button";
-import { IconButton } from "components/ui/IconButton";
+import { Button } from 'components/ui/Button';
+import { IconButton } from 'components/ui/IconButton';
 import {
   GitHubIcon,
   InstagramIcon,
   MailIcon,
-} from "assets/images/icons/social";
+} from 'assets/images/icons/social';
 import {
   DotPattern,
   ZigZagPattern,
   SmallZigZagSvg,
-} from "assets/images/shapes";
+} from 'assets/images/shapes';
 
-import pdfResume from "assets/docs/resume.pdf";
+import pdfResume from 'assets/docs/resume.pdf';
 
-import { StyledSection } from "./Home.styles";
+import { StyledSection } from './Home.styles';
 
 const INITIAL_X_POSITION = -85;
 const INITIAL_ROTATE_DEGREE = -45;
@@ -28,7 +28,7 @@ const MovingSmallZigZagSvg = ({ coordinates }) => {
     <motion.div
       initial={{ x: INITIAL_X_POSITION, rotate: INITIAL_ROTATE_DEGREE }}
       animate={{ x: coordinates.x }}
-      transition={{ duration: TRANSITION_DURATION, ease: "easeInOut" }}
+      transition={{ duration: TRANSITION_DURATION, ease: 'easeInOut' }}
       className="zigzag-svg small"
     >
       <SmallZigZagSvg />
@@ -38,21 +38,21 @@ const MovingSmallZigZagSvg = ({ coordinates }) => {
 
 const socialMediaData = [
   {
-    name: "github",
+    name: 'github',
     icon: <GitHubIcon />,
-    href: "https://github.com/CaliforniaDev",
+    href: 'https://github.com/CaliforniaDev',
     position: { x: 4 },
   },
   {
-    name: "instagram",
+    name: 'instagram',
     icon: <InstagramIcon />,
-    href: "https://www.instagram.com/leo.thedeveloper/",
+    href: 'https://www.instagram.com/leo.thedeveloper/',
     position: { x: 68 },
   },
   {
-    name: "mail",
+    name: 'mail',
     icon: <MailIcon />,
-    href: "mailto:leodaniels@californiadev.com",
+    href: 'mailto:leodaniels@californiadev.com',
     position: { x: 132 },
   },
 ];
@@ -114,7 +114,7 @@ const ProfileImage = () => {
 export const Home = () => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
-  const socialMediaLinkElements = socialMediaData.map((social) => (
+  const socialMediaLinkElements = socialMediaData.map(social => (
     <SocialMediaLink
       key={social.name}
       {...social}
@@ -122,7 +122,7 @@ export const Home = () => {
     />
   ));
 
-  const svgPosition = socialMediaData.find((link) => link.name === hoveredIcon)
+  const svgPosition = socialMediaData.find(link => link.name === hoveredIcon)
     ?.position || { x: INITIAL_X_POSITION };
 
   return (

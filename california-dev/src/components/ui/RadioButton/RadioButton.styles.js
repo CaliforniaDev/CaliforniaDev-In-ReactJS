@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const RadioInput = styled.input(
   ({ theme: { palette } }) => css`
@@ -8,7 +8,7 @@ export const RadioInput = styled.input(
       border-color: ${palette.primary};
 
       &:after {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 50%;
@@ -34,7 +34,7 @@ export const RadioLabel = styled.label(
       left: 0;
       height: 20px; // Adjust this value as needed
       width: 20px; // Adjust this value as needed
-      border: 2px solid ${(props) => props.theme.palette.onSurfaceVariant};
+      border: 2px solid ${props => props.theme.palette.onSurfaceVariant};
       border-radius: 50%;
       transition: border-color 0.3s ease-in-out;
       &:after {

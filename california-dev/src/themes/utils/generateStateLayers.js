@@ -1,4 +1,4 @@
-import { hexToRgba } from "./hexToRgba";
+import { hexToRgba } from './hexToRgba';
 
 /**
  * Generates state layers for a given color palette.
@@ -10,7 +10,7 @@ import { hexToRgba } from "./hexToRgba";
 
 function generateStateLayers(palette, stateTypes, opacity) {
   if (!palette || !stateTypes || !opacity) {
-    throw new Error("Missing parameters");
+    throw new Error('Missing parameters');
   }
 
   // Get an array of the state types
