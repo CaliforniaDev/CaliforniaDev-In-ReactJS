@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import { StateLayer } from '../StateLayer';
 import {
   DefaultBtn,
   ElevatedBtn,
@@ -5,7 +7,6 @@ import {
   TonalBtn,
   OutlinedBtn,
 } from './Button.styles';
-
 // ENUMS representing different button style variants
 const ButtonVariants = {
   FILLED: 'filled',
@@ -44,5 +45,16 @@ export function Button({ variant, text, children, ...props }) {
   // Select the appropriate button component based on the variant prop, using DefaultBtn as a fallback
   const ButtonComponent = ButtonComponents[variant] || DefaultBtn;
 
-  return <ButtonComponent {...props}>{buttonLabel}</ButtonComponent>;
+  return (
+    <ButtonComponent {...props}>
+      <StateLayer className="state-layer" />
+      <span className="button-label">{buttonLabel}</span>
+    </ButtonComponent>
+  );
 }
+
+Button.propTypes = {
+  variant: PropTypes.oneOf(Object.values(ButtonVariants)),
+  text: PropTypes.string,
+  children: PropTypes.node,
+};
