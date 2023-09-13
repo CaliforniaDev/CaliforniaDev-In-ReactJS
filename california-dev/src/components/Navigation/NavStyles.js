@@ -5,7 +5,7 @@ export const Nav = styled.nav(({ theme: { palette, elevation } }) => {
     height: 8rem;
     padding: 2rem 2.4rem;
     background: ${palette.surface};
-    ${elevation.shadow.level1};
+    box-shadow: ${elevation.level1};
 
     #wrapper {
       display: flex;
