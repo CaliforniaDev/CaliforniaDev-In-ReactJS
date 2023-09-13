@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 
-
 export const StyledListContainer = styled.li(
-  ({ theme: { palette, elevation, state, media }, bg }) => css`
+  ({ theme: { palette, elevation, media }, bg }) => css`
     position: relative;
     flex-basis: 100%;
     border-radius: 12px;
@@ -10,16 +9,15 @@ export const StyledListContainer = styled.li(
     flex-shrink: 1;
     flex-grow: 0;
     color: ${palette.onSurfaceVariant};
-    ${elevation.surface.level1};
-    ${elevation.shadow.level1};
+    background-color: ${palette.surfaceContainerLow};
+    box-shadow: ${elevation.level1};
+    cursor: pointer;
 
-    /**
-    *! possible change surface theming to reduce complexity
-     */
     &:hover {
-      cursor: pointer;
-      ${elevation.surface.level2};
-      ${elevation.shadow.level2}; 
+      box-shadow: ${elevation.level2};
+      .state-layer {
+        background-color: ${palette.onSurface};
+      }
     }
 
     .image-wrapper {
