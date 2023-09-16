@@ -73,7 +73,7 @@ export const StyledSection = styled.section(
             background-size: cover;
             background-position-x: center;
             background-image: url(${profileImg});
-            ${elevation.shadow.level5};
+            box-shadow: ${elevation.level5};
 
             z-index: 1;
           }

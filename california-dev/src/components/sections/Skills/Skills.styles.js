@@ -37,8 +37,8 @@ export const Section = styled.section(
         aspect-ratio: 0.8/ 1;
         border-radius: 12px;
         padding: 24px;
-        ${elevation.surface.level1};
-        ${elevation.shadow.level1};
+        background-color: ${palette.surfaceContainerLow};
+        box-shadow: ${elevation.level1};
 
         .skills-card__text {
           padding-top: 12px;

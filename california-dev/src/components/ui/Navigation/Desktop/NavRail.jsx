@@ -7,6 +7,7 @@ import { SunIcon, MoonIcon } from 'assets/images/icons/navigation';
 
 import { useEffect } from 'react';
 import { useTheme } from 'context/ThemeContext';
+import {StateLayer} from 'components/ui/StateLayer';
 
 export const NavRail = () => {
   const { toggleTheme } = useTheme();
@@ -42,13 +43,15 @@ export const NavRail = () => {
             onMouseUp={handleMouseUp}
             onClick={() => handleNavLinkClick(id, index)}
           >
+            <StateLayer className="active-indicator" />
+            <StateLayer className="state-layer" />
             <Icon className="nav-icon" aria-hidden="true" alt={name} />
             <span className="visually-hidden">{name}</span>
           </NavLink>
         ))}
       </NavLinksWrapper>
       <IconButton
-        className="themeToggle"
+        className="theme-toggle-btn"
         variant="outlined"
         onClick={toggleTheme}
       >

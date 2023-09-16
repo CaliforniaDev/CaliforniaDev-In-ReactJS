@@ -16,6 +16,7 @@ function createDynamicButton(component) {
       href,
       target: href ? target || '_blank' : undefined,
       rel: href ? rel || 'noopener noreferrer' : undefined,
+      role: href ? 'button' : undefined
     };
   })`
     text-decoration: none;

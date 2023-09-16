@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { StyledListContainer } from './Card.styles';
+import { StateLayer } from '../StateLayer';
 
 export const Card = ({
   title,
@@ -17,6 +18,7 @@ export const Card = ({
 
   return (
     <StyledListContainer bg={backgroundColor} {...props}>
+      <StateLayer className="state-layer" />
       <article>
         <figure className="image-wrapper">{renderImage()}</figure>
         <div className="card-info">
