@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { Input, InputField, Label } from './TextField.styles';
 
-export const TextField = ({ label, type, multiline, ...props }) => {
-  const [text, setText] = useState('');
+export const TextField = ({
+  label = 'Your label',
+  type = 'text',
+  multiline = false,
+  value,
+  onChange,
+  id,
+  ...props
+}) => {
   const [isFocused, setIsFocused] = useState(false);
-
-  function handleChange(event) {
-    setText(event.target.value);
-    console.log(text);
-  }
-
   function handleFocus() {
     setIsFocused(true);
   }
@@ -21,20 +22,21 @@ export const TextField = ({ label, type, multiline, ...props }) => {
   const InputOrTextarea = multiline ? 'textarea' : 'input';
 
   return (
-    <InputField>
+    <InputField isFocused={isFocused}>
       <Input
         as={InputOrTextarea}
-        type={type || 'text'}
-        value={text}
-        onChange={handleChange}
+        type={type}
+        value={value}
+        onChange={onChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
         isFocused={isFocused}
         multiline={multiline}
         {...props}
       />
-      <Label isFocused={isFocused} isPopulated={text !== ''}>
-        {label || 'Your Label'}
+
+      <Label htmlFor={id} isFocused={isFocused} isPopulated={value !== ''}>
+        {label}
       </Label>
     </InputField>
   );
