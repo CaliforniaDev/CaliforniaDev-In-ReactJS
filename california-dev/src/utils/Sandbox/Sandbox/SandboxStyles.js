@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const StyledDiv = styled.div(
   ({ theme: { palette, typography, state } }) => {
@@ -11,7 +11,7 @@ export const StyledDiv = styled.div(
       transition: all 0.3s ease-in-out;
 
       ::after {
-        content: "";
+        content: '';
         position: absolute;
         opacity: 0;
         transition: 0.2s ease-in-out;
@@ -31,7 +31,7 @@ export const InputWrapper = styled.div(
       display: block; // or use "block" if you want it to take up the full line
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;

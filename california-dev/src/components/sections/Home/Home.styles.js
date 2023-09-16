@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const StyledSection = styled.section(
   ({ theme: { palette, elevation, typography, media, profileImg } }) => {
@@ -32,21 +32,20 @@ export const StyledSection = styled.section(
         gap: 1.6rem;
       }
 
-      .corner-svg, .zigzag-svg {
+      .corner-svg,
+      .zigzag-svg {
         display: none;
       }
 
       ${media.DESKTOP`
-        display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         max-width: 1440px; //! CHeck this
-        max-height: 100vh;// ! Check this
-        margin: 0 auto; // ! Check this
+    
         gap: 3.2rem; //! Check this
-
         padding: ${media.padding.LARGE};
+        min-height: auto;
 
         article {
           display: flex;
@@ -74,7 +73,7 @@ export const StyledSection = styled.section(
             background-size: cover;
             background-position-x: center;
             background-image: url(${profileImg});
-            ${elevation.shadow.level5};
+            box-shadow: ${elevation.level5};
 
             z-index: 1;
           }

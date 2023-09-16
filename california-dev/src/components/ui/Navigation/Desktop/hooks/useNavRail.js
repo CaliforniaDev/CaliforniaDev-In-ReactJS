@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export const useNavRail = () => {
   const [activeAnchor, setActiveAnchor] = useState(null);
@@ -9,14 +9,14 @@ export const useNavRail = () => {
     const handleGlobalMouseUp = () => {
       setPressedAnchor(null);
     };
-    window.addEventListener("mouseup", handleGlobalMouseUp);
+    window.addEventListener('mouseup', handleGlobalMouseUp);
 
     return () => {
-      window.removeEventListener("mouseup", handleGlobalMouseUp);
+      window.removeEventListener('mouseup', handleGlobalMouseUp);
     };
   }, []);
 
-  const handleMouseDown = useCallback((id) => {
+  const handleMouseDown = useCallback(id => {
     setPressedAnchor(id);
   }, []);
 
@@ -27,7 +27,7 @@ export const useNavRail = () => {
   const handleNavLinkClick = useCallback(
     (id, index) => {
       setActiveAnchor(id);
-      navLinksRefs.current[index].scrollIntoView({ behavior: "smooth" });
+      navLinksRefs.current[index].scrollIntoView({ behavior: 'smooth' });
     },
     [navLinksRefs]
   );

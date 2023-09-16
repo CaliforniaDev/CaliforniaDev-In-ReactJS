@@ -1,12 +1,13 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Section = styled.section(
-  ({ theme: { palette, typography, elevation } }) => {
+  ({ theme: { palette, typography, elevation, media } }) => {
+    console.log(media.padding);
     return css`
       display: flex;
       flex-direction: column;
       color: ${palette.onBackground};
-      padding: 4rem 2.4rem;
+      padding: 40px ${media.padding.SMALL};
       gap: 1.6rem;
 
       h2 {
@@ -16,34 +17,55 @@ export const Section = styled.section(
         ${typography.title.large};
       }
 
-      .grid-wrapper {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-        gap: 1.6rem;
+      .flex-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: -8px;
+
+        > div {
+          flex-grow: 0;
+          flex-basis: calc(25% - 16px);
+          max-width: calc(25% - 16px);
+          margin: 8px;
+        }
       }
 
       .skills-card {
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-width: 8rem;
         aspect-ratio: 0.8/ 1;
-        border-radius: 1.2rem;
-        padding: 2.4rem 2.4rem;
-        ${elevation.surface.level1};
-        ${elevation.shadow.level1};
+        border-radius: 12px;
+        padding: 24px;
+        background-color: ${palette.surfaceContainerLow};
+        box-shadow: ${elevation.level1};
 
         .skills-card__text {
-          padding-top: 1.2rem;
+          padding-top: 12px;
           ${typography.title.small};
         }
       }
 
-      .skills-card__icon  {
+      .skills-card__icon {
+        // this className is hardcoded in the svg file
         .github-icon__path {
           fill: ${palette.onSurface};
         }
       }
-    `;
+      ${media.DESKTOP`
+        padding: 136px ${media.padding.LARGE};
+
+        h2 {
+          ${typography.headline.large};
+        }
+        .flex-wrapper > div {
+          flex-basis: calc(16.5% - 16px); 
+          max-width: calc(16.5% - 16px); 
+        }
+        .skills-card {
+  
+        }
+      `}
+    `; // End of css return
   }
 );

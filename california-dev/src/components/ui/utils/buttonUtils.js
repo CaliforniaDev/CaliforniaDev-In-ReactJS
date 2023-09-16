@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 /**
  * Applies dynamic attributes to the given component.
  * If the component has an href prop, it should be rendered as an <a> tag,
@@ -9,13 +9,14 @@ import styled from "styled-components";
  */
 
 function createDynamicButton(component) {
-  const DynamicButton = styled(component).attrs((props) => {
-    const { href, target, rel} = props;
+  const DynamicButton = styled(component).attrs(props => {
+    const { href, target, rel } = props;
     return {
-      as: href ? "a" : "button",
+      as: href ? 'a' : 'button',
       href,
-      target: href ? target || "_blank" : undefined,
-      rel: href ? rel || "noopener noreferrer" : undefined,
+      target: href ? target || '_blank' : undefined,
+      rel: href ? rel || 'noopener noreferrer' : undefined,
+      role: href ? 'button' : undefined
     };
   })`
     text-decoration: none;

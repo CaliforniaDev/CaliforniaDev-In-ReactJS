@@ -1,23 +1,29 @@
-
-
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 // This code creates a media object that can be used to create media queries
 // for different screen sizes. It also creates a padding property that can be
 // used to set padding values in different components.
 
-
 const BREAKPOINTS = {
   LARGE: 1200,
   DESKTOP: 992,
   TABLET: 768,
+  tabletSmall: 600,
   PHONE: 576,
 };
 
+const BREAKPOINTS_NEW = {
+  large: `${1200 / 16}em`,
+  desktop: `${992 / 16}em`,
+  tablet: `${768 / 16}em`,
+  tabletSmall: `${600 / 16}em`,
+  phone: `${576 / 16}em`,
+};
+
 const PADDING_SIZES = {
-  SMALL: "2.4rem", //24px
-  MEDIUM: "10.4rem", //104px
-  LARGE: "12.8rem", //128px
+  SMALL: '2.4rem', //24px
+  MEDIUM: '10.4rem', //104px
+  LARGE: '12.8rem', //128px
 };
 
 // 3. Create a media object
@@ -47,3 +53,5 @@ media.padding = Object.keys(PADDING_SIZES).reduce((acc, label) => {
   acc[label] = PADDING_SIZES[label];
   return acc;
 }, {});
+
+media.device = BREAKPOINTS_NEW;

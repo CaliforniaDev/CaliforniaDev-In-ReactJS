@@ -1,19 +1,20 @@
-import React, { forwardRef } from "react";
-import PropTypes from "prop-types";
+import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
+import {StateLayer} from 'components/ui/StateLayer';
 import {
   FilledBtn,
   TonalBtn,
   OutlinedBtn,
   DefaultIconBtn,
   TargetAreaWrapper,
-} from "./IconButton.styles";
+} from './IconButton.styles';
 
 //ENUMS
 const IconButtonVariants = {
-  FILLED: "filled",
-  TONAL: "tonal",
-  OUTLINED: "outlined",
-  DEFAULT: "default",
+  FILLED: 'filled',
+  TONAL: 'tonal',
+  OUTLINED: 'outlined',
+  DEFAULT: 'default',
 };
 
 const IconButtonComponents = {
@@ -29,7 +30,10 @@ export const IconButton = forwardRef(({ variant, children, ...props }, ref) => {
   return (
     // Wrap the button in a div to provide a "target area" for the tooltip
     <TargetAreaWrapper className="target-area" ref={ref}>
-      <IconButtonComponent {...props}>{children}</IconButtonComponent>
+      <IconButtonComponent {...props}>
+        <StateLayer className="state-layer" />
+        <span className="icon-wrapper">{children}</span>
+        </IconButtonComponent>
     </TargetAreaWrapper>
   );
 });

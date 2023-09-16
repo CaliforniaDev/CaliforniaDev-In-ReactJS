@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -22,7 +22,10 @@ class ErrorBoundary extends React.Component {
       return (
         <div>
           <h1>Something went wrong.</h1>
-          <p>Please try refreshing the page, or contact support if the problem persists.</p>
+          <p>
+            Please try refreshing the page, or contact support if the problem
+            persists.
+          </p>
         </div>
       );
     }

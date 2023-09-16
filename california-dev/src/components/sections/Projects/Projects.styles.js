@@ -1,13 +1,17 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
+import { useTheme } from 'context/ThemeContext';
 
 export const ProjectSection = styled.section(
-  ({ theme: { palette, typography } }) => {
+  ({ theme: { palette, typography, media }, themeMode }) => {
     return css`
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(312px, 1fr));
+      --vertical-padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      margin-inline: auto;
       color: ${palette.onBackground};
-      padding: 4rem 2.4rem;
+      padding: var(--vertical-padding) ${media.padding.SMALL};
       gap: 1.6rem;
+      max-width: var(--desktop-max-width);
 
       h2 {
         ${typography.headline.small};
@@ -15,67 +19,37 @@ export const ProjectSection = styled.section(
       h3 {
         ${typography.title.large};
       }
-    `;
-  }
-);
-export const CardContainer = styled.div(
-  ({ theme: { palette, elevation } }) => {
-    return css`
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-width: 312px;
-      min-height: 272px;
-      border-radius: 12px;
-      overflow: hidden;
-      color: ${palette.onSurfaceVariant};
-      ${elevation.surface.level1};
-      ${elevation.shadow.level1};
 
-      .card-image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 12px;
-        min-height: 200px;
-        position: relative;
-        background-color: ${palette.surfaceVariant};
-
-        #memory-game-project {
-          transform: translateX(5px);
-          width: 216px;
-        }
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+        gap: 1.6rem;
       }
 
-      .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+      #nybble-box-project figure {
+        background-color: ${themeMode === 'light'
+          ? palette.surfaceVariant
+          : null};
       }
-      .card-content-wrapper {
+      .split-shifts {
+        background-color: #d7756b !important;
+      }
+      .card__info {
         padding: 1.6rem;
-        p {
-          padding-top: 1.6rem;
-          padding-bottom: 1.6rem;
-        }
       }
 
-      .card-icon {
-        transform: rotate(0deg);
-        transition: transform 0.3s ease-in-out;
-        .path {
-          fill: ${palette.secondary};
-        }
+      @media (min-width: ${media.device.tablet}) {
+        padding: var(--vertical-padding) ${media.padding.SMALL};
       }
-        .card-icon.open {
-          transform: rotate(180deg);
-        }
 
-      .card-action-buttons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 0.8rem;
+      @media (min-width: ${media.device.desktop}) {
+        padding: var(--vertical-padding) ${media.padding.LARGE};
+        h2 {
+          ${typography.headline.large};
+        }
+        .card-container {
+          grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
+        }
       }
     `;
   }

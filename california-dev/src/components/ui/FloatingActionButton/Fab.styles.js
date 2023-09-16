@@ -1,63 +1,79 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const FabContainer = styled.div`
   position: fixed;
   bottom: 16px;
   right: 16px;
-  z-index: 1000;
+  border-radius: 1.6rem;
 `;
 
 export const FabMenu = styled.div`
-  display: ${({ expanded }) => (expanded ? "flex" : "none")};
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
   position: absolute;
   bottom: 0;
   right: 0;
-  border-radius: 1.6rem;
+
+  display: ${({ expanded }) => (expanded ? 'flex' : 'none')};
+  width: ${({ expanded, size }) => (expanded ? size : '0')};
+  height: ${({ expanded, size }) => (expanded ? size : '0')};
   padding: 8px;
-  width: ${({ expanded, size }) => (expanded ? size : "0")};
-  height: ${({ expanded, size }) => (expanded ? size : "0")};
-  overflow: hidden;
-  transition: width 0.3s, height 0.3s;
+  border-radius: 1.6rem;
+
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  pointer-events: none;
 `;
 
 export const FabButton = styled.button(
-  ({ theme: { palette, elevation, state }, expanded, size }) => {
+  ({ theme: { palette, elevation }, expanded, size }) => {
+    const CONTENT_COLOR = palette.onSecondaryContainer;
+    /** Main component styles */
     return css`
+      position: relative;
+      width: ${expanded ? size : '5.6rem'};
+      height: ${expanded ? size : '5.6rem'};
+
+      border: none;
+      border-radius: 1.6rem;
+      overflow: hidden;
+
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
-      z-index: 1;
-      width: ${expanded ? size : "5.6rem"};
-      height: ${expanded ? size : "5.6rem"};
-      border-radius: 1.6rem;
-      border: none;
+
+      background: ${palette.secondaryContainer};
+      box-shadow: ${elevation.level3};
+      opacity: 0.8;
+
       cursor: pointer;
       outline-color: transparent;
-      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
-        width 0.3s, height 0.3s;
-      background: ${palette.secondaryContainer};
-      opacity: 0.8;
-      ${elevation.shadow.level3};
 
-      #vector {
-        fill: ${palette.onSecondaryContainer};
+      transition:
+        width 0.3s,
+        height 0.3s,
+        box-shadow 0.3s ease-in-out,
+        background-color 0.3s ease-in-out;
+
+      .icon {
+        position: relative;
+        pointer-events: none;
+        path {
+          fill: ${CONTENT_COLOR};
+        }
+      }
+      /** State layer inherits content color */
+      .state-layer {
+        background-color: ${CONTENT_COLOR};
       }
       &:hover {
-        ${state.onSecondaryContainer.hover};
-        ${elevation.shadow.level4};
+        box-shadow: ${elevation.level4};
       }
       &:focus-visible {
-        outline: none;
-        ${elevation.shadow.level3};
-        ${state.onSecondaryContainer.focus};
+        box-shadow: ${elevation.level3};
       }
       &:active {
-        ${elevation.shadow.level3};
-        ${state.onSecondaryContainer.pressed};
+        box-shadow: ${elevation.level3};
       }
     `;
   }

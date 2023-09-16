@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { createDynamicButton } from "../utils/buttonUtils";
+import styled, { css } from 'styled-components';
+import { createDynamicButton } from '../utils/buttonUtils';
 
 // Default Button Styling
 const defaultButtonStyling = ({ palette, typography }) => css`
@@ -14,7 +14,9 @@ const defaultButtonStyling = ({ palette, typography }) => css`
   cursor: pointer;
   color: ${palette.onTertiary};
   background-color: ${palette.tertiary};
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
   ${typography.label.large}
@@ -24,167 +26,132 @@ const defaultButtonStyling = ({ palette, typography }) => css`
 `;
 
 // ::after Pseudo-element Transition Styling for Button STATE-OVERLAY-COLOR
-const afterPseudoElementStyling = css`
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-    pointer-events: none;
-    opacity: 0;
-  }
-`;
 
 export const DefaultBtn = createDynamicButton(
   styled.button(
     ({ theme }) => css`
       ${defaultButtonStyling(theme)}
-      ${afterPseudoElementStyling}
+
+      .button-label {
+        position: relative;
+        pointer-events: none;
+      }
+      .state-layer {
+        background-color: ${theme.palette.tertiary};
+      }
     `
   )
 );
 
-export const ElevatedBtn = styled(DefaultBtn)(
-  ({ theme: { palette, elevation, state } }) => {
-    return css`
-      color: ${palette.primary};
-      ${elevation.surface.level1};
-      ${elevation.shadow.level1};
+export const ElevatedBtn = styled(DefaultBtn)(({
+  theme: { palette, elevation },
+}) => {
+  const CONTENT_COLOR = palette.primary;
 
-      &:hover {
-        ${elevation.surface.level2};
-        ${elevation.shadow.level2};
+  /** Main component styles */
+  return css`
+    color: ${CONTENT_COLOR};
+    background-color: ${palette.surfaceContainerLow};
+    box-shadow: ${elevation.level1};
 
-        &::after {
-          background-color: ${state.primary.hover};
-          opacity: 1;
-        }
-      }
+    /* Nested class style - inherits color from parent component */
+    .state-layer {
+      background-color: ${CONTENT_COLOR};
+    }
+    /** Hover state */
+    &:hover {
+      box-shadow: ${elevation.level2};
+    }
 
-      &:focus-visible {
-        ${elevation.surface.level1};
-        ${elevation.shadow.level1};
-        outline: 2px solid ${state.primary.focus};
+    /** Focus state */
+    &:focus-visible {
+      box-shadow: ${elevation.level1};
+    }
+    /** Active state */
 
-        &::after {
-          background-color: ${state.primary.focus};
-          opacity: 1;
-        }
-      }
+    &:active {
+      box-shadow: ${elevation.level1};
+    }
+  `;
+});
 
-      &:active {
-        ${elevation.surface.level1};
-        ${elevation.shadow.level1};
+export const FilledBtn = styled(DefaultBtn)(({
+  theme: { palette, elevation },
+}) => {
+  const CONTENT_COLOR = palette.onPrimary;
 
-        &::after {
-          background-color: ${state.primary.pressed};
-          opacity: 1;
-        }
-      }
-    `;
-  }
-);
+  return css`
+    /** Main component styles */
+    color: ${CONTENT_COLOR};
+    background-color: ${palette.primary};
+    box-shadow: ${elevation.level0};
 
-export const FilledBtn = styled(DefaultBtn)(
-  ({ theme: { palette, elevation, state } }) => {
-    return css`
-      color: ${palette.onPrimary};
-      background-color: ${palette.primary};
-      ${elevation.shadow.level0};
+    /** Nested class style - inherit color from parent component */
+    .state-layer {
+      background-color: ${CONTENT_COLOR};
+    }
+    /** Hover state */
+    &:hover {
+      box-shadow: ${elevation.level1};
+    }
+    /** Focus state */
+    &:focus-visible {
+      box-shadow: ${elevation.level0};
+    }
+    /** Active state */
+    &:active {
+      box-shadow: ${elevation.level0};
+    }
+  `;
+});
 
-      &:hover {
-        ${elevation.shadow.level1};
+export const TonalBtn = styled(DefaultBtn)(({ theme: { palette, elevation } }) => {
+  const CONTENT_COLOR = palette.onSecondaryContainer;
+  return css`
+    /** Main component styles */
+    color: ${CONTENT_COLOR};
+    background: ${palette.secondaryContainer};
+    box-shadow: ${elevation.level0};
 
-        &::after {
-          background-color: ${state.onPrimary.hover};
-          opacity: 1;
-        }
-      }
-      &:focus-visible {
-        ${elevation.shadow.level0};
+    /** Nested class style - inherit color from parent component */
+    .state-layer {
+      background-color: ${CONTENT_COLOR};
+    }
+    /** Hover state */
+    &:hover {
+      box-shadow: ${elevation.level1};
+    }
+    /** Focus state */
+    &:focus-visible {
+      box-shadow: ${elevation.level0};
+    }
+    /** Active state */
+    &:active {
+      box-shadow: ${elevation.level0};
+    }
+  `;
+});
 
-        &::after {
-          background-color: ${state.onPrimary.focus};
-          opacity: 1;
-        }
-      }
-      &:active {
-        ${elevation.shadow.level0};
-
-        &::after {
-          background-color: ${state.onPrimary.pressed};
-          opacity: 1;
-        }
-      }
-    `;
-  }
-);
-
-export const TonalBtn = styled(DefaultBtn)(
-  ({ theme: { palette, elevation, state } }) => {
-    return css`
-      color: ${palette.onSecondaryContainer};
-      background: ${palette.secondaryContainer};
-      ${elevation.shadow.level0};
-      &:hover {
-        ${elevation.shadow.level1};
-
-        &::after {
-          background-color: ${state.onSecondaryContainer.hover};
-          opacity: 1;
-        }
-      }
-      &:focus-visible {
-        ${elevation.shadow.level0};
-
-        &::after {
-          background-color: ${state.onSecondaryContainer.focus};
-          opacity: 1;
-        }
-      }
-      &:active {
-        ${elevation.shadow.level0};
-
-        &::after {
-          background-color: ${state.onSecondaryContainer.pressed};
-          opacity: 1;
-        }
-      }
-    `;
-  }
-);
-
-export const OutlinedBtn = styled(DefaultBtn)(
-  ({ theme: { palette, elevation, state } }) => {
-    return css`
-      background: transparent;
-      border-width: 0.1rem;
-      border-style: solid;
-      color: ${palette.primary};
+export const OutlinedBtn = styled(DefaultBtn)(({ theme: { palette } }) => {
+  const CONTENT_COLOR = palette.primary;
+  return css`
+    /** Main component styles */
+    background: transparent;
+    border-width: 0.1rem;
+    border-style: solid;
+    color: ${CONTENT_COLOR};
+    border-color: ${palette.outline};
+    /** Nested class style - inherit color from parent component */
+    .state-layer {
+      background-color: ${CONTENT_COLOR};
+    }
+    /** Focus state */
+    &:focus-visible {
+      border-color: ${palette.primary};
+    }
+    /** Active state */
+    &:active {
       border-color: ${palette.outline};
-      ${elevation.level0};
-      &:hover::after {
-        background-color: ${state.primary.hover};
-        opacity: 1;
-      }
-      &:focus-visible {
-        border-color: ${palette.primary};
-        &::after {
-          background-color: ${state.primary.focus};
-          opacity: 1;
-        }
-      }
-      &:active {
-        border-color: ${palette.outline};
-
-        &::after {
-          background-color: ${state.primary.pressed};
-          opacity: 1;
-        }
-      }
-    `;
-  }
-);
+    }
+  `;
+});

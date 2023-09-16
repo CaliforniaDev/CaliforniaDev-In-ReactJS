@@ -1,17 +1,17 @@
-import { ContactSection, RadioButtonFieldset } from "./Contact.styles";
-import { TextField } from "components/ui/TextField";
-import { Button } from "components/ui/Button";
-import { RadioButton } from "components/ui/RadioButton";
+import { ContactSection, RadioButtonFieldset } from './Contact.styles';
+import { TextField } from 'components/ui/TextField';
+import { Button } from 'components/ui/Button';
+import { RadioButton } from 'components/ui/RadioButton';
 import {
   DotPattern,
   ZigZagPattern,
   EclipsePattern,
-} from "assets/images/shapes";
+} from 'assets/images/shapes';
 
 export const Contact = () => {
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Form submitted!");
+    console.log('Form submitted!');
   }
   return (
     <ContactSection id="contact-us-section">

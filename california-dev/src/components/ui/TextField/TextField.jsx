@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Input, InputField, Label } from "./TextField.styles";
+import { useState } from 'react';
+import { Input, InputField, Label } from './TextField.styles';
 
 export const TextField = ({ label, type, multiline, ...props }) => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
   function handleChange(event) {
@@ -18,13 +18,13 @@ export const TextField = ({ label, type, multiline, ...props }) => {
     setIsFocused(false);
   }
 
-  const InputOrTextarea = multiline ? "textarea" : "input";
+  const InputOrTextarea = multiline ? 'textarea' : 'input';
 
   return (
     <InputField>
       <Input
         as={InputOrTextarea}
-        type={type || "text"}
+        type={type || 'text'}
         value={text}
         onChange={handleChange}
         onFocus={handleFocus}
@@ -33,8 +33,8 @@ export const TextField = ({ label, type, multiline, ...props }) => {
         multiline={multiline}
         {...props}
       />
-      <Label isFocused={isFocused} isPopulated={text !== ""}>
-        {label || "Your Label"}
+      <Label isFocused={isFocused} isPopulated={text !== ''}>
+        {label || 'Your Label'}
       </Label>
     </InputField>
   );

@@ -1,18 +1,19 @@
+import PropTypes from 'prop-types';
+import { StateLayer } from '../StateLayer';
 import {
   DefaultBtn,
   ElevatedBtn,
   FilledBtn,
   TonalBtn,
   OutlinedBtn,
-} from "./Button.styles";
-
+} from './Button.styles';
 // ENUMS representing different button style variants
 const ButtonVariants = {
-  FILLED: "filled",
-  ELEVATED: "elevated",
-  TONAL: "tonal",
-  OUTLINED: "outlined",
-  DEFAULT: "default",
+  FILLED: 'filled',
+  ELEVATED: 'elevated',
+  TONAL: 'tonal',
+  OUTLINED: 'outlined',
+  DEFAULT: 'default',
 };
 
 // Mapping object to link button style variants with their respective styled components
@@ -38,11 +39,22 @@ export function Button({ variant, text, children, ...props }) {
 
   // Warn if no label is provided for the button
   if (!buttonLabel) {
-    console.warn("Please provide a label for this Button component.");
+    console.warn('Please provide a label for this Button component.');
   }
 
   // Select the appropriate button component based on the variant prop, using DefaultBtn as a fallback
   const ButtonComponent = ButtonComponents[variant] || DefaultBtn;
 
-  return <ButtonComponent {...props}>{buttonLabel}</ButtonComponent>;
+  return (
+    <ButtonComponent {...props}>
+      <StateLayer className="state-layer" />
+      <span className="button-label">{buttonLabel}</span>
+    </ButtonComponent>
+  );
 }
+
+Button.propTypes = {
+  variant: PropTypes.oneOf(Object.values(ButtonVariants)),
+  text: PropTypes.string,
+  children: PropTypes.node,
+};
