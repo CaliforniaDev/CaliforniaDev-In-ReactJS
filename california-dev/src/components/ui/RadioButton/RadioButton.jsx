@@ -1,11 +1,11 @@
 import { RadioLabel, RadioInput } from './RadioButton.styles';
 //! Fix state styling like hover states and so forth.
-export const RadioButton = ({ label, name, value, ...props }) => {
+export const RadioButton = ({ label = "Your label", name, value, id, checked, ...props }) => {
   return (
-    <RadioLabel>
-      {label || 'Label'}
-      <RadioInput type="radio" name={name} value={value} {...props} />
-      <span></span>
+    <RadioLabel htmlFor={id}>
+      {label}
+      <RadioInput type="radio" id={id} name={name} value={value} checked={checked} {...props} />
+      <span />
     </RadioLabel>
   );
 };
