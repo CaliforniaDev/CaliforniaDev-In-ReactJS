@@ -1,61 +1,43 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import MediaQuery from 'react-responsive';
+import { motion } from 'framer-motion';
 
+// UI Components
 import { Button } from 'components/ui/Button';
 import { IconButton } from 'components/ui/IconButton';
-import {
-  GitHubIcon,
-  InstagramIcon,
-  MailIcon,
-} from 'assets/images/icons/social';
+
+// svg decorations
 import {
   DotPattern,
   ZigZagPattern,
   SmallZigZagSvg,
 } from 'assets/images/shapes';
 
+// Assets
 import pdfResume from 'assets/docs/resume.pdf';
 
-import { StyledSection } from './Home.styles';
+// Constants and Data
+import {
+  INITIAL_X_POSITION as initialXPos,
+  INITIAL_ROTATE_DEGREE as initialRotateDeg,
+  TRANSITION_DURATION as transitionDuration,
+  socialMediaData,
+} from './data/homeData';
 
-const INITIAL_X_POSITION = -85;
-const INITIAL_ROTATE_DEGREE = -45;
-const TRANSITION_DURATION = 0.5;
+import { StyledSection } from './Home.styles';
 
 const MovingSmallZigZagSvg = ({ coordinates }) => {
   return (
     <motion.div
-      initial={{ x: INITIAL_X_POSITION, rotate: INITIAL_ROTATE_DEGREE }}
+      initial={{ x: initialXPos, rotate: initialRotateDeg }}
       animate={{ x: coordinates.x }}
-      transition={{ duration: TRANSITION_DURATION, ease: 'easeInOut' }}
+      transition={{ duration: transitionDuration, ease: 'easeInOut' }}
       className="zigzag-svg small"
     >
       <SmallZigZagSvg />
     </motion.div>
   );
 };
-
-const socialMediaData = [
-  {
-    name: 'github',
-    icon: <GitHubIcon />,
-    href: 'https://github.com/CaliforniaDev',
-    position: { x: 4 },
-  },
-  {
-    name: 'instagram',
-    icon: <InstagramIcon />,
-    href: 'https://www.instagram.com/leo.thedeveloper/',
-    position: { x: 68 },
-  },
-  {
-    name: 'mail',
-    icon: <MailIcon />,
-    href: 'mailto:leodaniels@californiadev.com',
-    position: { x: 132 },
-  },
-];
 
 const SocialMediaLink = ({ icon, href, onHover }) => (
   <IconButton
@@ -123,7 +105,7 @@ export const Home = () => {
   ));
 
   const svgPosition = socialMediaData.find(link => link.name === hoveredIcon)
-    ?.position || { x: INITIAL_X_POSITION };
+    ?.position || { x: initialXPos };
 
   return (
     <StyledSection id="home-section">
@@ -136,6 +118,7 @@ export const Home = () => {
             text="Resume"
             href={pdfResume}
             draggable="false"
+            aria-label="my resume"
           />
           <div
             className="social-links"
