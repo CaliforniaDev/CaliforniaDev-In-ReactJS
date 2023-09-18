@@ -40,9 +40,7 @@ export const StyledSection = styled.section(
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin-inline: auto;
-        max-width: var(--desktop-max-width);
-        gap: 3.2rem; 
+        gap: 3.2rem;
         padding: ${media.padding.LARGE};
         min-height: auto;
 
@@ -61,6 +59,18 @@ export const StyledSection = styled.section(
           position: relative;
           width: 36.8rem;
           height: 44.8rem;
+        }
+        .super-wrapper {
+          position: relative;
+          border: 1px solid cyan;
+        }
+        .content-container {
+          position: relative;
+          width: 100%;
+          display: flex;
+          margin-inline: auto;
+          max-width: var(--desktop-max-width);
+          padding: 61px 61px 61px 0; // * 61px is the size of the corner svg
         }
         .profile-img {
           z-index: 1; // !Check this

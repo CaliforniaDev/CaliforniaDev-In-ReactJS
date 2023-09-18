@@ -11,7 +11,6 @@ export const ProjectSection = styled.section(
       color: ${palette.onBackground};
       padding: var(--vertical-padding) ${media.padding.SMALL};
       gap: 1.6rem;
-      max-width: var(--desktop-max-width);
 
       h2 {
         ${typography.headline.small};
@@ -46,6 +45,11 @@ export const ProjectSection = styled.section(
         padding: var(--vertical-padding) ${media.padding.LARGE};
         h2 {
           ${typography.headline.large};
+        }
+        .content-container {
+          width: 100%;
+          max-width: var(--desktop-max-width);
+          margin: auto;
         }
         .card-container {
           grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));

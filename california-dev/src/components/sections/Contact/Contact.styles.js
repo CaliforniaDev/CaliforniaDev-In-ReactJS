@@ -7,11 +7,9 @@ export const ContactSection = styled.section(
     align-items: center;
     text-align: left;
     padding: 64px ${media.padding.SMALL};
-
-    fieldset {
-      border: none; /* removes default border */
-      padding: 0; /* removes default padding */
-      margin: 0; /* removes default margin */
+    
+    .content-container {
+      width: 100%;
     }
     h2 {
       ${typography.display.small};
@@ -50,10 +48,15 @@ export const ContactSection = styled.section(
     ${media.DESKTOP`
       padding: 64px ${media.padding.LARGE};
       flex-direction: row;
-      gap: 16px;
 
       h2 {
         ${typography.display.large};
+      }
+      .content-container {
+        display: flex;
+        max-width: var(--desktop-max-width);
+        margin: auto;
+        gap: 16px;
       }
       .contact-subtext {
         ${typography.headline.small};

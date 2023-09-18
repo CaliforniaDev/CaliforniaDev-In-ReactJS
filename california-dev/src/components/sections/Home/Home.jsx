@@ -78,18 +78,19 @@ const Header = () => {
 
 const ProfileImage = () => {
   return (
-    <figure id="photo-wrapper">
-      <DotPattern className="corner-svg top-left" />
-      <DotPattern className="corner-svg bottom-right" />
-      <span
-        aria-label="Photo of Leo."
-        role="img"
-        className="profile-img"
-      ></span>
-      <span className="outline-frame"></span>
-      <ZigZagPattern className="zigzag-svg primary" />
-      <span className="filled-frame"></span>
-    </figure>
+   
+      <figure id="photo-wrapper">
+        <DotPattern className="corner-svg top-left" />
+        <DotPattern className="corner-svg bottom-right" />
+        <span
+          aria-label="Photo of Leo."
+          role="img"
+          className="profile-img"
+        ></span>
+        <span className="outline-frame"></span>
+        <ZigZagPattern className="zigzag-svg primary" />
+        <span className="filled-frame"></span>
+      </figure>
   );
 };
 
@@ -109,27 +110,28 @@ export const Home = () => {
 
   return (
     <StyledSection id="home-section">
-      <article>
-        <Header />
-
-        <div className="link-items-container">
-          <Button
-            variant="elevated"
-            text="Resume"
-            href={pdfResume}
-            draggable="false"
-            aria-label="my resume"
-          />
-          <div
-            className="social-links"
-            onMouseLeave={() => setHoveredIcon(null)}
-          >
-            {socialMediaLinkElements}
-            <MovingSmallZigZagSvg coordinates={svgPosition} />
+      <div className="content-container">
+        <article className="content-container">
+          <Header />
+          <div className="link-items-container">
+            <Button
+              variant="elevated"
+              text="Resume"
+              href={pdfResume}
+              draggable="false"
+              aria-label="my resume"
+            />
+            <div
+              className="social-links"
+              onMouseLeave={() => setHoveredIcon(null)}
+            >
+              {socialMediaLinkElements}
+              <MovingSmallZigZagSvg coordinates={svgPosition} />
+            </div>
           </div>
-        </div>
-      </article>
-      <ProfileImage />
+        </article>
+        <ProfileImage />
+      </div>
     </StyledSection>
   );
 };

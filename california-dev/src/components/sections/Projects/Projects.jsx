@@ -23,13 +23,15 @@ export const Projects = () => {
   };
   return (
     <ProjectSection themeMode={themeMode} id="projects-section" aria-label="Recent Projects">
-      <h2 id="projects-heading">-Recent Projects-</h2>
-      <ul
-        className="card-container"
-        aria-labelledby="projects-heading"
-      >
-        {renderProjects()}
-      </ul>
+      <div className="content-container">
+        <h2 id="projects-heading">-Recent Projects-</h2>
+        <ul
+          className="card-container"
+          aria-labelledby="projects-heading"
+        >
+          {renderProjects()}
+        </ul>
+      </div>
     </ProjectSection>
   );
 };

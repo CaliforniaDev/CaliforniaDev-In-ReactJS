@@ -12,7 +12,7 @@ export const Section = styled.section(
     svg {
       display: none;
     }
-  
+
     .content-container {
       width: 100%;
       display: flex;
@@ -47,14 +47,15 @@ export const Section = styled.section(
 
     `}
 
-    ${media.DESKTOP`
+    @media (min-width: ${media.device.desktop}) {
+      .content-container {
+        max-width: var(--desktop-max-width);
+      }
       padding: 6.4rem ${media.padding.LARGE};
       h2 {
         ${typography.display.large};
       }
-
-      
-    `}
+    }
   `
 );
 

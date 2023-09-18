@@ -26,14 +26,16 @@ export const Skills = () => {
 
   return (
     <Section id="skills-section">
-      <h2>-Skills & Technical Proficiencies-</h2>
-      <div className="flex-wrapper">
-        {iconComponents.map((icon, index) => (
-          <div className="skills-card" key={index}>
-            <icon.IconComponent className="skills-card__icon" />
-            <p className="skills-card__text">{icon.title}</p>
-          </div>
-        ))}
+      <div className="content-container">
+        <h2>-Skills & Technical Proficiencies-</h2>
+        <div className="flex-wrapper">
+          {iconComponents.map((icon, index) => (
+            <div className="skills-card" key={index}>
+              <icon.IconComponent className="skills-card__icon" />
+              <p className="skills-card__text">{icon.title}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </Section>
   );

@@ -58,6 +58,10 @@ export const Section = styled.section(
         h2 {
           ${typography.headline.large};
         }
+        .content-container {
+          margin: auto;
+          max-width: var(--desktop-max-width);
+        }
         .flex-wrapper > div {
           flex-basis: calc(16.5% - 16px); 
           max-width: calc(16.5% - 16px); 
