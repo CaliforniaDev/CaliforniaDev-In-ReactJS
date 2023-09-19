@@ -53,6 +53,8 @@
     "@babel/eslint-parser": "^7.21.3",
     "@babel/plugin-syntax-flow": "7.22.5",
     "@babel/plugin-transform-react-jsx": "7.22.15",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
     "@rollup/plugin-terser": "^0.4.1",
     "@testing-library/dom": "9.3.3",
     "eslint": "^8.47.0",
