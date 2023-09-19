@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { useTheme } from 'context/ThemeContext';
 
 export const ProjectSection = styled.section(
   ({ theme: { palette, typography, media }, themeMode }) => {
