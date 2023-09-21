@@ -1,3 +1,8 @@
+import PropTypes from 'prop-types';
+
+import { useEffect, useMemo } from 'react';
+import { useTheme } from 'context/ThemeContext';
+
 import { Nav, NavLinksWrapper, NavLink } from './NavRail.styles';
 import { navItemsData } from './utils/navConfig';
 import { Logo } from 'assets/images/logo';
@@ -5,12 +10,11 @@ import { useNavRail } from './hooks/useNavRail';
 import { IconButton } from 'components/ui/IconButton';
 import { SunIcon, MoonIcon } from 'assets/images/icons/navigation';
 
-import { useEffect } from 'react';
-import { useTheme } from 'context/ThemeContext';
-import {StateLayer} from 'components/ui/StateLayer';
+import { StateLayer } from 'components/ui/StateLayer';
 
-export const NavRail = () => {
+export const NavRail = ({ showIcons = true, iconSet = 'main' }) => {
   const { toggleTheme } = useTheme();
+
   const {
     activeAnchor,
     pressedAnchor,
@@ -20,19 +24,23 @@ export const NavRail = () => {
     handleNavLinkClick,
   } = useNavRail();
 
+  const navItems = useMemo(() => {
+    return [...navItemsData[iconSet]];
+  }, [iconSet]);
+
   useEffect(() => {
     // Home is Active by default on page load
-    const homeIndex = navItemsData.findIndex(({ id }) => id === 'home-section');
+    const homeIndex = navItems.findIndex(({ id }) => id === 'home-section');
     if (homeIndex !== -1) {
       handleNavLinkClick('home-section', homeIndex);
     }
-  }, [handleNavLinkClick]);
+  }, [handleNavLinkClick, navItems]);
 
   return (
     <Nav>
       <Logo className="logo" />
       <NavLinksWrapper>
-        {navItemsData.map(({ Icon, name, id }, index) => (
+        {navItems.map(({ Icon, name, id }, index) => (
           <NavLink
             ref={el => (navLinksRefs.current[index] = el)}
             key={id}
@@ -45,7 +53,9 @@ export const NavRail = () => {
           >
             <StateLayer className="active-indicator" />
             <StateLayer className="state-layer" />
-            <Icon className="nav-icon" aria-hidden="true" alt={name} />
+            {showIcons && (
+              <Icon className="nav-icon" aria-hidden="true" alt={name} />
+            )}
             <span className="visually-hidden">{name}</span>
           </NavLink>
         ))}
@@ -60,4 +70,9 @@ export const NavRail = () => {
       </IconButton>
     </Nav>
   );
+};
+
+NavRail.propTypes = {
+  showIcons: PropTypes.bool,
+  iconSet: PropTypes.oneOf(['main', 'projectDetails']),
 };
