@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useTheme } from 'context/ThemeContext';
 
 import { Nav, NavLinksWrapper, NavLink } from './NavRail.styles';
@@ -45,9 +46,13 @@ export const NavRail = ({
 
   return (
     <Nav className="nav" {...props}>
-      <Logo className="logo" />
+      
+      <Link to="/">
+        <Logo className="logo" />
+      </Link>
+
       <NavLinksWrapper className="nav__links-wrapper">
-        {navItems.map(({ Icon, name, id }, index) => (
+        {navItems.map(({ Icon, name, id, route }, index) => (
           <NavLink
             ref={el => (navLinksRefs.current[index] = el)}
             key={id}
@@ -57,7 +62,7 @@ export const NavRail = ({
             isPressed={pressedAnchor === id}
             onMouseDown={() => handleMouseDown(id)}
             onMouseUp={handleMouseUp}
-            onClick={() => handleNavLinkClick(id, index)}
+            onClick={() => handleNavLinkClick(id, index, route)}
           >
             <StateLayer className="active-indicator" />
             <StateLayer className="state-layer" />
