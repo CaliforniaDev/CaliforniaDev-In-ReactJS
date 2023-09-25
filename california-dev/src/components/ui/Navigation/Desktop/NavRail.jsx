@@ -12,9 +12,15 @@ import { SunIcon, MoonIcon } from 'assets/images/icons/navigation';
 
 import { StateLayer } from 'components/ui/StateLayer';
 
-export const NavRail = ({ showIcons = true, iconSet = 'main' }) => {
+export const NavRail = ({
+  iconSet,
+  defaultActiveSection = 'home',
+  ...props
+}) => {
+  // Using theme context to toggle theme
   const { toggleTheme } = useTheme();
 
+  // Using custom hook to manage navigation rail states
   const {
     activeAnchor,
     pressedAnchor,
@@ -24,27 +30,29 @@ export const NavRail = ({ showIcons = true, iconSet = 'main' }) => {
     handleNavLinkClick,
   } = useNavRail();
 
+  // useMemo for optimization, to avoid unnecessary re-renders
   const navItems = useMemo(() => {
-    return [...navItemsData[iconSet]];
+    return iconSet ? [...navItemsData[iconSet]] : [];
   }, [iconSet]);
 
+  // useEffect to set the default active section on page load
   useEffect(() => {
     // Home is Active by default on page load
-    const homeIndex = navItems.findIndex(({ id }) => id === 'home-section');
-    if (homeIndex !== -1) {
-      handleNavLinkClick('home-section', homeIndex);
-    }
-  }, [handleNavLinkClick, navItems]);
+    const index = navItems.findIndex(({ id }) => id === defaultActiveSection);
+    if (index === -1) return;
+    handleNavLinkClick(defaultActiveSection, index);
+  }, [handleNavLinkClick, navItems, defaultActiveSection]);
 
   return (
-    <Nav>
+    <Nav className="nav" {...props}>
       <Logo className="logo" />
-      <NavLinksWrapper>
+      <NavLinksWrapper className="nav__links-wrapper">
         {navItems.map(({ Icon, name, id }, index) => (
           <NavLink
             ref={el => (navLinksRefs.current[index] = el)}
             key={id}
             href={`#${id}`}
+            className="nav__link"
             isActive={activeAnchor === id}
             isPressed={pressedAnchor === id}
             onMouseDown={() => handleMouseDown(id)}
@@ -53,9 +61,7 @@ export const NavRail = ({ showIcons = true, iconSet = 'main' }) => {
           >
             <StateLayer className="active-indicator" />
             <StateLayer className="state-layer" />
-            {showIcons && (
-              <Icon className="nav-icon" aria-hidden="true" alt={name} />
-            )}
+            <Icon className="nav-icon" aria-hidden="true" alt={name} />
             <span className="visually-hidden">{name}</span>
           </NavLink>
         ))}
@@ -72,7 +78,7 @@ export const NavRail = ({ showIcons = true, iconSet = 'main' }) => {
   );
 };
 
+// TODO: Update PropTypes to reflect the latest changes in your props
 NavRail.propTypes = {
-  showIcons: PropTypes.bool,
   iconSet: PropTypes.oneOf(['main', 'projectDetails']),
 };

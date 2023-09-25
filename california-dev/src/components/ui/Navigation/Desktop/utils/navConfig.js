@@ -8,7 +8,7 @@ import {
 
 export const navItemsData = {
   main: [
-    { Icon: HomeIcon, id: 'home-section', name: 'Home' },
+    { Icon: HomeIcon, id: 'home', name: 'Home' },
     { Icon: ChartIcon, id: 'workflow-section', name: 'Workflow' },
     { Icon: ImagesIcon, id: 'projects-section', name: 'Projects' },
     { Icon: LightBulbIcon, id: 'skills-section', name: 'Skills' },
