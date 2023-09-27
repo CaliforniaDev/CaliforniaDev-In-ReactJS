@@ -6,7 +6,8 @@ export const Section = styled.section(
     return css`
       display: flex;
       flex-direction: column;
-      color: ${palette.onBackground};
+      color: ${palette.onSurface};
+      background-color: ${palette.surface};
       padding: 40px ${media.padding.SMALL};
       gap: 1.6rem;
 

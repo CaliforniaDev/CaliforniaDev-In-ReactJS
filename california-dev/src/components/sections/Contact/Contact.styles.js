@@ -7,6 +7,7 @@ export const ContactSection = styled.section(
     align-items: center;
     text-align: left;
     padding: 64px ${media.padding.SMALL};
+    background-color: ${palette.surface};
     
     .content-container {
       width: 100%;
