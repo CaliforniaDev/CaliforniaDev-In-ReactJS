@@ -4,18 +4,30 @@ export const ProjectSection = styled.section(
   ({ theme: { palette, typography, media }, themeMode }) => {
     return css`
       --vertical-padding: 4rem;
+      --background-color: ${themeMode === 'light'
+        ? palette.surfaceDim
+        : palette.surfaceBright};
+
       display: flex;
       flex-direction: column;
       margin-inline: auto;
-      color: ${palette.onBackground};
+
       padding: var(--vertical-padding) ${media.padding.SMALL};
       gap: 1.6rem;
+
+      background-color: var(--background-color);
+      color: ${palette.onBackground};
 
       h2 {
         ${typography.headline.small};
       }
       h3 {
         ${typography.title.large};
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
       }
 
       .card-container {
