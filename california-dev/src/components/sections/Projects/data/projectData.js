@@ -5,6 +5,8 @@ import {
   memoryGameSrc,
 } from 'assets/images/projects';
 
+import cupkayzHomeScreen from 'assets/images/projects/cupkayz-webpage/cupkayz_home-screen@3x.png';
+
 export const projectData = [
   {
     id: 'cup-kayz-project',
@@ -13,6 +15,7 @@ export const projectData = [
     imageComponent: CupKayz,
     src: null,
     backgroundColor: '#778b7c',
+    detailedImgSrc: cupkayzHomeScreen,
 
     description: [
       `As a skilled web developer, I built a 
