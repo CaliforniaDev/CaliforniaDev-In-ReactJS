@@ -9,20 +9,19 @@ import { Card } from 'components/ui/Card/Card';
 export const Projects = () => {
   const { themeMode } = useTheme();
 
-  const renderProjects = () => {
-    return projectData.map(project => (
-      <Link to={`/projects/${project.id}`} key={project.id}>
-        <Card
-          id={project.id}
-          title={project.title}
-          projectType={project.projectType}
-          ImageComponent={project.imageComponent}
-          src={project.src}
-          backgroundColor={project.backgroundColor}
-        />
-      </Link>
-    ));
-  };
+  const projectsList = projectData.map(project => (
+    <Link to={`/projects/${project.id}`} key={project.id}>
+      <Card
+        id={project.id}
+        title={project.title}
+        projectType={project.projectType}
+        ImageComponent={project.imageComponent}
+        src={project.src}
+        backgroundColor={project.backgroundColor}
+      />
+    </Link>
+  ));
+
   return (
     <ProjectSection
       themeMode={themeMode}
@@ -32,7 +31,7 @@ export const Projects = () => {
       <div className="content-container">
         <h2 id="projects-heading">-Recent Projects-</h2>
         <ul className="card-container" aria-labelledby="projects-heading">
-          {renderProjects()}
+          {projectsList}
         </ul>
       </div>
     </ProjectSection>
