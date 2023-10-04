@@ -58,7 +58,7 @@ export const typography = {
       font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 500;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       line-height: 2.4rem;
       letter-spacing: 0.015rem;
     `,

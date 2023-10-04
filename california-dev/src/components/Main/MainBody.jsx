@@ -15,7 +15,11 @@ export function MainBody() {
 
   return (
     <MainContainer>
-      {isTabletOrLarger ? <NavRail /> : <Nav />}
+      {isTabletOrLarger ? (
+        <NavRail defaultRoute="/#home-section" iconSet="main" />
+      ) : (
+        <Nav />
+      )}
       <Home />
       <Workflow />
       <Projects />
