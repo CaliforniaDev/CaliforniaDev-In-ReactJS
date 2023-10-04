@@ -27,7 +27,6 @@ export const GlobalStyles = createGlobalStyle(props => {
       box-sizing: border-box;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
-      scroll-behavior: smooth;
       background-color: ${palette.surfaceDim};
       color: ${palette.onSurface};
       color-scheme: ${preferredColorScheme};
