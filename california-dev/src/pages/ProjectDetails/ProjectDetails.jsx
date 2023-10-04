@@ -8,7 +8,10 @@ import { Button } from 'components/ui/Button';
 import { ProjectContainer } from './ProjectDetails.styles';
 import { projectData } from 'components/sections/Projects/data/projectData';
 
+import { useScrollToTop } from 'hooks/useScrollToTop';
+
 export function ProjectDetails() {
+  useScrollToTop();
   const { id } = useParams();
   const project = projectData.find(project => project.id === id);
   const isTabletOrLarger = useMediaQuery({
