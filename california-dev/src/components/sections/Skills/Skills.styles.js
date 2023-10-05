@@ -13,6 +13,7 @@ export const Section = styled.section(
 
       h2 {
         ${typography.headline.small};
+        margin-bottom: 8px;
       }
       h3 {
         ${typography.title.large};

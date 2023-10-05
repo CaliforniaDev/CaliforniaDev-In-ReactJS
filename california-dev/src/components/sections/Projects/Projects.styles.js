@@ -20,6 +20,7 @@ export const ProjectSection = styled.section(
 
       h2 {
         ${typography.headline.small};
+        margin-bottom: 16px;
       }
       h3 {
         ${typography.title.large};
