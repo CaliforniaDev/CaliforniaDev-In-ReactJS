@@ -65,7 +65,7 @@ export const NavLinksWrapper = styled.div`
 `;
 
 export const NavLink = styled.a(
-  ({ theme: { palette }, isActive, isPressed }) => {
+  ({ theme: { palette }, $isActive, $isPressed }) => {
     return css`
       position: relative;
 
@@ -81,7 +81,7 @@ export const NavLink = styled.a(
       &:hover .nav-icon,
       &:focus-visible .nav-icon {
         transform: scale(1.1);
-        ${isPressed && 'transform: scale(0.9);'}
+        ${$isPressed && 'transform: scale(0.9);'}
       }
 
       .nav-icon {
@@ -92,7 +92,7 @@ export const NavLink = styled.a(
 
       /* Icon changes color when active indicator is visible */
       .nav-icon path {
-        fill: ${isActive
+        fill: ${$isActive
           ? palette.onSecondaryContainer
           : palette.onSurfaceVariant};
       }
@@ -111,7 +111,7 @@ export const NavLink = styled.a(
       }
       /* State Layer changes color if active indicator is visible */
       .state-layer {
-        background-color: ${isActive
+        background-color: ${$isActive
           ? palette.onSurface
           : palette.onSurfaceVariant};
       }
@@ -119,8 +119,8 @@ export const NavLink = styled.a(
       /* Active Indicator */
       .active-indicator {
         background: ${palette.secondaryContainer};
-        opacity: ${isActive ? 1 : 0};
-        transform: ${isActive ? 'scale(1)' : 'scale(0)'};
+        opacity: ${$isActive ? 1 : 0};
+        transform: ${$isActive ? 'scale(1)' : 'scale(0)'};
       }
       /* Hover */
       &:hover {

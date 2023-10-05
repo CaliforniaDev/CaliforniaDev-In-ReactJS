@@ -24,7 +24,7 @@ export const Projects = () => {
 
   return (
     <ProjectSection
-      themeMode={themeMode}
+      $themeMode={themeMode}
       id="projects-section"
       aria-label="Recent Projects"
     >

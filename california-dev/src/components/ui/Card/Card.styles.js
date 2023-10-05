@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const StyledListContainer = styled.li(
-  ({ theme: { palette, elevation, media }, bg }) => css`
+  ({ theme: { palette, elevation, media }, $bg }) => css`
     position: relative;
     flex-basis: 100%;
     border-radius: 12px;
@@ -26,7 +26,7 @@ export const StyledListContainer = styled.li(
       align-items: center;
       overflow: hidden;
       height: 15em;
-      background-color: ${bg ? bg : palette.surfaceVariant};
+      background-color: ${$bg ? $bg : palette.surfaceVariant};
       padding: 24px;
     }
     img,

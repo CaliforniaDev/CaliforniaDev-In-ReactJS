@@ -17,7 +17,7 @@ export const Card = ({
   };
 
   return (
-    <StyledListContainer bg={backgroundColor} {...props}>
+    <StyledListContainer $bg={backgroundColor} {...props}>
       <StateLayer className="state-layer" />
       <article>
         <figure className="image-wrapper">{renderImage()}</figure>

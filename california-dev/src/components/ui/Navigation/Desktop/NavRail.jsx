@@ -65,8 +65,8 @@ export const NavRail = ({
               key={id}
               href={`${route}`}
               className="nav__link"
-              isActive={activeAnchor === id}
-              isPressed={pressedAnchor === id}
+              $isActive={activeAnchor === id}
+              $isPressed={pressedAnchor === id}
               onMouseDown={() => handleMouseDown(id)}
               onMouseUp={handleMouseUp}
               onClick={event => handleNavLinkClick(event, id, route, index)}

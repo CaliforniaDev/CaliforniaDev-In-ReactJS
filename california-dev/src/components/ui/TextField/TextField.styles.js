@@ -36,15 +36,15 @@ export const InputField = styled.div(({ theme: { palette } }) => {
 });
 
 export const Input = styled.input(
-  ({ theme: { palette, typography }, isFocused, multiline }) => css`
+  ({ theme: { palette, typography }, $isFocused, $multiline }) => css`
     width: 100%;
     position: relative;
-    height: ${multiline ? '168px' : '56px'};
+    height: ${$multiline ? '168px' : '56px'};
     padding: 2.4rem 1.6rem 0.8rem 1.6rem;
 
     border: none;
     /** During Focus State border style changes */
-    border-bottom: ${isFocused ? '2px' : '1px'} solid ${palette.onSurfaceVariant}; 
+    border-bottom: ${$isFocused ? '2px' : '1px'} solid ${palette.onSurfaceVariant}; 
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     
@@ -68,18 +68,18 @@ export const Input = styled.input(
 );
 
 export const Label = styled.label(
-  ({ theme: { palette, typography }, isFocused, isPopulated }) => {
+  ({ theme: { palette, typography }, $isFocused, $isPopulated }) => {
     return css`
       position: absolute;
       z-index: 1;
       left: 16px;
       right: 16px;
       text-align: left;
-      padding-top: ${isFocused || isPopulated ? '8px' : '16px'};
-      font-size: ${isFocused || isPopulated
+      padding-top: ${$isFocused || $isPopulated ? '8px' : '16px'};
+      font-size: ${$isFocused || $isPopulated
         ? typography.body.small
         : typography.body.large};
-      color: ${isFocused ? palette.primary : palette.onSurfaceVariant};
+      color: ${$isFocused ? palette.primary : palette.onSurfaceVariant};
       transition: all 0.3s ease-in-out;
       pointer-events: none;
     `;

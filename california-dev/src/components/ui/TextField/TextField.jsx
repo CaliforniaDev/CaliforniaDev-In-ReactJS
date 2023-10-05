@@ -22,7 +22,7 @@ export const TextField = ({
   const InputOrTextarea = multiline ? 'textarea' : 'input';
 
   return (
-    <InputField isFocused={isFocused}>
+    <InputField $isFocused={isFocused}>
       <Input
         as={InputOrTextarea}
         type={type}
@@ -30,12 +30,12 @@ export const TextField = ({
         onChange={onChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        isFocused={isFocused}
-        multiline={multiline}
+        $isFocused={isFocused}
+        $multiline={multiline}
         {...props}
       />
 
-      <Label htmlFor={id} isFocused={isFocused} isPopulated={value !== ''}>
+      <Label htmlFor={id} $isFocused={isFocused} $isPopulated={value !== ''}>
         {label}
       </Label>
     </InputField>

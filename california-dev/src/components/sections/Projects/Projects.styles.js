@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 export const ProjectSection = styled.section(
-  ({ theme: { palette, typography, media }, themeMode }) => {
+  ({ theme: { palette, typography, media }, $themeMode }) => {
     return css`
       --vertical-padding: 4rem;
-      --background-color: ${themeMode === 'light'
+      --background-color: ${$themeMode === 'light'
         ? palette.surfaceDim
         : palette.surfaceBright};
 
@@ -37,7 +37,7 @@ export const ProjectSection = styled.section(
       }
 
       #nybble-box-project figure {
-        background-color: ${themeMode === 'light'
+        background-color: ${$themeMode === 'light'
           ? palette.surfaceVariant
           : null};
       }
