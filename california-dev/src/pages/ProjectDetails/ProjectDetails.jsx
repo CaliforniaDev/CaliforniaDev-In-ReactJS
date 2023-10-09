@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
@@ -29,30 +30,44 @@ export function ProjectDetails() {
       )}
       <div className="content-container">
         <header>
-          <p className="category">- E-Commerce Web App -</p>
+          <p className="category">- {project.projectType} -</p>
           <h1>{project.title}</h1>
         </header>
         <div className="project-info">
-          <p className="project-info__description">{project.description}</p>
+          <div className="div-wrapper">
+            {project.description &&
+              project.description.map((paragraph, index) => (
+                <React.Fragment key={index}>
+                  <p className="project-info__description">{paragraph}</p>
+                </React.Fragment>
+              ))}
+          </div>
 
           <ul className="project-meta">
             <li className="project-meta__item">
               <div>
                 <h3 className="project-meta__title">Client</h3>
-                <p>Karla Mendez</p>
+                <p>{project.client}</p>
               </div>
-              <Button text="Open Project" variant="tonal"/>
+              <Button text="Open Project" variant="tonal" />
             </li>
 
             <li className="project-meta__item">
               <div>
                 <h3 className="project-meta__title">Technologies</h3>
-                <p>HTML, CSS, Figma, React JS, </p>
+                <p>
+                  {project.techStack &&
+                    project.techStack.map((item, index) => {
+                      // Check if last item in array
+                      return index === project.techStack.length - 1
+                        ? item
+                        : `${item}, `;
+                    })}
+                </p>
               </div>
               <Button text="Code Source" variant="outlined" />
             </li>
           </ul>
-
         </div>
         <figure className="image-container">
           <img src={project.detailedImgSrc} alt={project.title} />
