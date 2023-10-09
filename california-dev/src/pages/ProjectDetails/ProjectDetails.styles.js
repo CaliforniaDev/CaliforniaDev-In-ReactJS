@@ -7,16 +7,21 @@ export const ProjectContainer = styled.div(
     header {
       display: block;
       width: 100%;
-      margin-bottom: 24px;
+      margin-bottom: 2.4rem;
     }
 
     h1 {
-      ${typography.display.large}
-      margin-bottom: 16px;
+      ${typography.hero.large}
     }
 
     p {
       ${typography.body.large}
+    }
+    .project-info__description {
+      margin-bottom: 1.6rem;
+    }
+    .project-info__description:last-of-type {
+      margin-bottom: 0;
     }
 
     .content-container {
@@ -25,14 +30,14 @@ export const ProjectContainer = styled.div(
     .category {
       color: ${palette.tertiary};
       margin-bottom: 8px;
-      ${typography.body.small}
+      ${typography.body.medium}
     }
 
     .project-meta {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      padding-top: 24px;
+      padding: 24px 0;
 
       .project-meta__item {
         display: flex;
@@ -54,8 +59,8 @@ export const ProjectContainer = styled.div(
     .image-container {
       border-radius: 12px;
       overflow: hidden;
-     
-      box-shadow: ${elevation.level5}; 
+
+      box-shadow: ${elevation.level5};
       img {
         width: 100%;
       }
