@@ -11,10 +11,12 @@ export const projectData = [
   {
     id: 'cup-kayz-project',
     title: 'CupKayz',
+    client: 'Karla Mendez',
     projectType: 'E-commerce Website',
     imageComponent: CupKayz,
     src: null,
     backgroundColor: '#778b7c',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Adobe XD'],
     detailedImgSrc: cupkayzHomeScreen,
 
     description: [
@@ -35,27 +37,40 @@ export const projectData = [
   {
     id: 'nybble-box-project',
     title: 'NybbleBox',
+    client: 'Personal Project',
     projectType: 'Landing Page',
     imageComponent: NybbleBox,
     src: null,
-    backgroundColor: "#0d0d0d",
-    
+    techStack: ['WordPress'],
+    backgroundColor: '#0d0d0d',
   },
 
   {
     id: 'memory-game-project',
     title: 'Memory Game',
+    client: 'Personal Project',
     projectType: 'React App',
     imageComponent: null,
     src: memoryGameSrc,
     backgroundColor: null,
+    techStack: ['HTML', 'CSS', 'JavaScript', 'React',],
     description: [`A simple memory game built with React`],
   },
   {
     id: 'split-shifts-project',
     title: 'SplitShifts',
+    client: 'BW Security Services Inc.',
     projectType: 'Schedule Management Web App',
     imageComponent: SplitShifts,
+    techStack: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React',
+      'Node.js',
+      'Express',
+      'MongoDB',
+    ],
     src: null,
     backgroundColor: '#d7756b',
   },
