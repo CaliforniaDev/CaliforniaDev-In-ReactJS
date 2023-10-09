@@ -56,21 +56,23 @@ const Header = () => {
       <h1 className="display">
         <span className="primary-color">LEO</span> DANIELS
       </h1>
-      <p>
-        As a <span className="accent-color">Frontend Developer</span>, my
-        dedication lies in creating interactive and engaging web applications.
-      </p>
-      <br />
-      {/* DESKTOP 992px */}
-      <MediaQuery minWidth={`${992 / 16}em`}>
+      <div className="text-wrapper">
         <p>
-          With a unique blend of creativity and technical expertise, my
-          specialization involves crafting intuitive and user-friendly web apps
-          that focus on delivering exceptional user experiences. Always on the
-          hunt for new and exciting ways to innovate, I'm committed to keeping
-          up with the latest technologies and industry best practices
+          As a <span className="accent-color">Frontend Developer</span>, my
+          dedication lies in creating interactive and engaging web applications.
         </p>
-      </MediaQuery>
+        <br />
+        {/* DESKTOP 992px */}
+        {/* <MediaQuery minWidth={`${992 / 16}em`}> */}
+          <p>
+            With a unique blend of creativity and technical expertise, my
+            specialization involves crafting intuitive and user-friendly web apps
+            that focus on delivering exceptional user experiences. Always on the
+            hunt for new and exciting ways to innovate, I'm committed to keeping
+            up with the latest technologies and industry best practices
+          </p>
+      </div>
+      {/* </MediaQuery> */}
       <ZigZagPattern className="zigzag-svg secondary new" />
     </header>
   );
@@ -120,6 +122,7 @@ export const Home = () => {
               href={pdfResume}
               draggable="false"
               aria-label="my resume"
+              className="resume-btn"
             />
             <div
               className="social-links"

@@ -5,8 +5,9 @@ export const StyledSection = styled.section(
     return css`
       display: flex;
       flex-direction: column;
-      min-height: calc(100vh - 80px - 40px);
+
       padding: 4rem ${media.padding.SMALL};
+      align-items: center;
 
       .display {
         ${typography.display.medium}
@@ -20,11 +21,18 @@ export const StyledSection = styled.section(
       .accent-color {
         color: ${palette.secondary};
       }
+      .text-wrapper {
+        margin-bottom: 2.4rem;
+      }
 
       .link-items-container {
         display: flex;
         align-items: center;
         gap: 1.6rem;
+        justify-content: space-between;
+      }
+      .resume-btn {
+        width: 100%;
       }
       .social-links {
         display: flex;
@@ -35,6 +43,14 @@ export const StyledSection = styled.section(
       .corner-svg,
       .zigzag-svg {
         display: none;
+      }
+      @media (min-width: ${media.device.tablet}) {
+        .link-items-container {
+          justify-content: flex-start;
+        }
+        .resume-btn {
+          width: auto;
+        }
       }
       @media (min-width: ${media.device.desktop}) {
         flex-direction: row;
@@ -59,10 +75,6 @@ export const StyledSection = styled.section(
           position: relative;
           width: 36.8rem;
           height: 44.8rem;
-        }
-        .super-wrapper {
-          position: relative;
-          border: 1px solid cyan;
         }
         .content-container {
           position: relative;
@@ -152,7 +164,10 @@ export const StyledSection = styled.section(
           }
           pointer-events: none;
         }
-      }
+        .text-wrapper {
+          margin-bottom: 0;
+        }
+      } // end of desktop media query
     `;
   }
 );
