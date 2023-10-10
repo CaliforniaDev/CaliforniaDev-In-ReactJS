@@ -6,6 +6,7 @@ import {
 } from 'assets/images/projects';
 
 import cupkayzHomeScreen from 'assets/images/projects/cupkayz-webpage/cupkayz_home-screen@3x.png';
+import memoryGamePreview from 'assets/images/projects/memory-game/memory-game@3x.png';
 
 export const projectData = [
   {
@@ -14,7 +15,6 @@ export const projectData = [
     client: 'Karla Mendez',
     projectType: 'E-commerce Website',
     imageComponent: CupKayz,
-    src: null,
     backgroundColor: '#778b7c',
     techStack: ['HTML', 'CSS', 'JavaScript', 'Adobe XD'],
     detailedImgSrc: cupkayzHomeScreen,
@@ -52,9 +52,28 @@ export const projectData = [
     projectType: 'React App',
     imageComponent: null,
     src: memoryGameSrc,
+    detailedImgSrc: memoryGamePreview,
+    repository: 'https://github.com/CaliforniaDev/React-Memory-Game',
+    livePreview: 'https://californiadev.github.io/React-Memory-Game/',
     backgroundColor: null,
-    techStack: ['HTML', 'CSS', 'JavaScript', 'React',],
-    description: [`A simple memory game built with React`],
+    techStack: ['HTML', 'CSS', 'JavaScript', 'React'],
+    description: [
+      `The React Memory Game is an interactive web-based game designed to 
+      challenge players' memory skills. Built using ReactJS, the game offers 
+      a dynamic and engaging user experience, complete with a real-time scoreboard, 
+      multiple levels, and a game-over screen.`,
+
+      `The game leverages custom React hooks to encapsulate game logic, 
+      card management, and scoring, making the codebase modular and easier to maintain. 
+      Styled-components are used for component-level styling, enhancing reusability and maintainability. 
+      The project also employs Error Boundaries for graceful error handling.`,
+
+      `Key features include a dynamic game board that adjusts according to the level, 
+      a real-time scoreboard, a game-over screen with performance metrics, an instruction 
+      modal for new players, and a loading screen for initial data loading. The codebase follows 
+      industry best practices, including componentization and centralized theming for easier UI updates 
+      and a consistent look and feel.`,
+    ],
   },
   {
     id: 'split-shifts-project',

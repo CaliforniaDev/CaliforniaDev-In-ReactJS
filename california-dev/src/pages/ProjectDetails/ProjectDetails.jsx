@@ -42,14 +42,19 @@ export function ProjectDetails() {
                 </React.Fragment>
               ))}
           </div>
-
           <ul className="project-meta">
             <li className="project-meta__item">
               <div>
                 <h3 className="project-meta__title">Client</h3>
                 <p>{project.client}</p>
               </div>
-              <Button text="Open Project" variant="tonal" />
+              <Button
+                text="Open Project"
+                variant="tonal"
+                href={project.livePreview}
+                aria-label="Open live project"
+                draggable="false"
+              />
             </li>
 
             <li className="project-meta__item">
@@ -65,12 +70,18 @@ export function ProjectDetails() {
                     })}
                 </p>
               </div>
-              <Button text="Code Source" variant="outlined" />
+              <Button
+                text="Code Source"
+                variant="outlined"
+                href={project.repository}
+                aria-label="Open project repository"
+                draggable="false"
+              />
             </li>
           </ul>
         </div>
         <figure className="image-container">
-          <img src={project.detailedImgSrc} alt={project.title} />
+          <img src={project.detailedImgSrc} alt={project.title}  />
         </figure>
       </div>
     </ProjectContainer>
