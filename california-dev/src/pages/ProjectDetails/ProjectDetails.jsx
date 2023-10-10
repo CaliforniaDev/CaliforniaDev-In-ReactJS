@@ -11,23 +11,35 @@ import { projectData } from 'components/sections/Projects/data/projectData';
 
 import { useScrollToTop } from 'hooks/useScrollToTop';
 
+const TABLET_MIN_WIDTH_EM_UNIT = 768 / 16;
+
+const renderNavigation = isTabletOrLarger => {
+  return isTabletOrLarger ? (
+    <NavRail className="nav-rail" iconSet="projectDetails" />
+  ) : (
+    <Nav />
+  );
+};
+
+const renderTechStack = techStack => {
+  return techStack.map((item, index) => {
+    return index === techStack.length - 1 ? item : `${item} • `;
+  });
+};
+
 export function ProjectDetails() {
   useScrollToTop();
   const { id } = useParams();
   const project = projectData.find(project => project.id === id);
   const isTabletOrLarger = useMediaQuery({
-    query: `(min-width: ${768 / 16}em)`,
+    query: `(min-width: ${TABLET_MIN_WIDTH_EM_UNIT}em)`,
   });
 
   if (!project) return <h1>404</h1>;
 
   return (
     <ProjectContainer>
-      {isTabletOrLarger ? (
-        <NavRail className="nav-rail" iconSet="projectDetails" />
-      ) : (
-        <Nav />
-      )}
+      {renderNavigation(isTabletOrLarger)}
       <div className="content-container">
         <header>
           <p className="category">- {project.projectType} -</p>
@@ -35,12 +47,11 @@ export function ProjectDetails() {
         </header>
         <div className="project-info">
           <div className="div-wrapper">
-            {project.description &&
-              project.description.map((paragraph, index) => (
-                <React.Fragment key={index}>
-                  <p className="project-info__description">{paragraph}</p>
-                </React.Fragment>
-              ))}
+            {project.description?.map((paragraph, index) => (
+              <p key={index} className="project-info__description">
+                {paragraph}
+              </p>
+            ))}
           </div>
           <ul className="project-meta">
             <li className="project-meta__item">
@@ -60,15 +71,7 @@ export function ProjectDetails() {
             <li className="project-meta__item">
               <div>
                 <h3 className="project-meta__title">Technologies</h3>
-                <p>
-                  {project.techStack &&
-                    project.techStack.map((item, index) => {
-                      // Check if last item in array
-                      return index === project.techStack.length - 1
-                        ? item
-                        : `${item}, `;
-                    })}
-                </p>
+                <p>{renderTechStack(project.techStack)}</p>
               </div>
               <Button
                 text="Code Source"
@@ -81,7 +84,7 @@ export function ProjectDetails() {
           </ul>
         </div>
         <figure className="image-container">
-          <img src={project.detailedImgSrc} alt={project.title}  />
+          <img src={project.detailedImgSrc} alt={project.title} />
         </figure>
       </div>
     </ProjectContainer>
