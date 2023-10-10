@@ -21,20 +21,37 @@ export const useValidation = (initialState, validate) => {
     const { name, value } = event.target;
     setFormData(prevData => ({ ...prevData, [name]: value }));
   };
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     // Perform validation on form data
     const errors = validate(formData);
     // Update error state
     setFormErrors(errors);
-    console.log(formErrors);
     // If errors exist, exit function (don't submit form)
     if (Object.keys(errors).length) {
       console.log('Form has errors');
       return;
     }
-    // TODO: Implement form submission here
-    console.log('Form submitted');
+
+    try {
+      const response = await fetch('/contactFormHandler.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+      if (!response.ok) {
+        throw new Error('Form submission failed!');
+      }
+
+      const data = await response.text();
+      console.log('Server response:', data);
+      setFormData(initialState);
+    } catch (error) {
+      console.log('Error submitting form:', error.message);
+    }
+    // End promise chain
   };
   return { formData, formErrors, handleChange, handleSubmit };
 };
