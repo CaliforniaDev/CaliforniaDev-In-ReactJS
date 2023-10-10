@@ -38,15 +38,17 @@ export const ProjectContainer = styled.div(
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       padding: 24px 0;
+      align-items: end;
 
       .project-meta__item {
+        align-self: end;
         display: flex;
         flex-direction: column;
-        border: 1.5px solid ${palette.surfaceVariant};
-        border-radius: 12px;
+        border-top: 2px solid ${palette.surfaceVariant};
         gap: 16px;
         width: 100%;
         max-height: 180px;
+        height: 180px;
         justify-content: space-between;
         padding: 12px;
       }
