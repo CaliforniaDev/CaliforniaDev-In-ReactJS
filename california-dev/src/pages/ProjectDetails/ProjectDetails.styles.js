@@ -3,7 +3,12 @@ import styled, { css } from 'styled-components';
 export const ProjectContainer = styled.div(
   ({ theme: { palette, elevation, typography, media }, $bg }) => css`
     color: ${palette.onSurface};
-    background-color: ${palette.surface};
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    word-wrap: break-word;
+
     header {
       display: block;
       width: 100%;
@@ -17,6 +22,9 @@ export const ProjectContainer = styled.div(
     p {
       ${typography.body.large}
     }
+    .mobile-nav {
+      width: 100%;
+    }
     .project-info__description {
       margin-bottom: 1.6rem;
     }
@@ -25,6 +33,7 @@ export const ProjectContainer = styled.div(
     }
 
     .content-container {
+      max-width: 1440px;
       padding: 64px 24px;
     }
     .category {
@@ -44,7 +53,7 @@ export const ProjectContainer = styled.div(
         align-self: end;
         display: flex;
         flex-direction: column;
-        border-top: 2px solid ${palette.surfaceVariant};
+        border-top: 1.5px solid ${palette.outline};
         gap: 16px;
         width: 100%;
         max-height: 180px;
