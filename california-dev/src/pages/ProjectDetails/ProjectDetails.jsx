@@ -13,21 +13,53 @@ import { useScrollToTop } from 'hooks/useScrollToTop';
 
 const TABLET_MIN_WIDTH_EM_UNIT = 768 / 16;
 
-const renderNavigation = isTabletOrLarger => {
+function renderNavigation(isTabletOrLarger) {
   return isTabletOrLarger ? (
     <NavRail className="nav-rail" iconSet="projectDetails" />
   ) : (
-    <Nav />
+    <Nav className="mobile-nav" />
   );
-};
+}
 
-const renderTechStack = techStack => {
+function renderTechStack(techStack) {
   return techStack.map((item, index) => {
     return index === techStack.length - 1 ? item : `${item} • `;
   });
-};
+}
 
-export function ProjectDetails() {
+const ProjectMeta = ({ project }) => (
+  <ul className="project-meta">
+    <li className="project-meta__item">
+      <div>
+        <h3 className="project-meta__title">Client</h3>
+        <p>{project.client}</p>
+      </div>
+      <Button
+        text="Open Project"
+        variant="tonal"
+        href={project.livePreview}
+        aria-label="Open live project"
+        draggable="false"
+      />
+    </li>
+
+    <li className="project-meta__item">
+      <div>
+        <h3 className="project-meta__title">Technologies</h3>
+        <p>{renderTechStack(project.techStack)}</p>
+      </div>
+      <Button
+        text="Code Source"
+        variant="outlined"
+        href={project.repository}
+        aria-label="Open project repository"
+        draggable="false"
+      />
+    </li>
+  </ul>
+);
+
+export const ProjectDetails = () => {
   useScrollToTop();
   const { id } = useParams();
   const project = projectData.find(project => project.id === id);
@@ -53,35 +85,7 @@ export function ProjectDetails() {
               </p>
             ))}
           </div>
-          <ul className="project-meta">
-            <li className="project-meta__item">
-              <div>
-                <h3 className="project-meta__title">Client</h3>
-                <p>{project.client}</p>
-              </div>
-              <Button
-                text="Open Project"
-                variant="tonal"
-                href={project.livePreview}
-                aria-label="Open live project"
-                draggable="false"
-              />
-            </li>
-
-            <li className="project-meta__item">
-              <div>
-                <h3 className="project-meta__title">Technologies</h3>
-                <p>{renderTechStack(project.techStack)}</p>
-              </div>
-              <Button
-                text="Code Source"
-                variant="outlined"
-                href={project.repository}
-                aria-label="Open project repository"
-                draggable="false"
-              />
-            </li>
-          </ul>
+          <ProjectMeta project={project} />
         </div>
         <figure className="image-container">
           <img src={project.detailedImgSrc} alt={project.title} />
@@ -89,4 +93,4 @@ export function ProjectDetails() {
       </div>
     </ProjectContainer>
   );
-}
+};
