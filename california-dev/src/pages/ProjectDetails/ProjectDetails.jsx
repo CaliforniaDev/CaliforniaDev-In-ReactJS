@@ -92,7 +92,7 @@ export const ProjectDetails = () => {
           <ProjectMeta project={project} />
         </div>
         <figure className="image-container">
-          <img src={project.detailedImgSrc} alt={project.title} />
+          <img src={project.previewImage} alt={project.title} />
         </figure>
       </div>
     </ProjectContainer>

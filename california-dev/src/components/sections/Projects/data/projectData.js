@@ -5,9 +5,9 @@ import {
   memoryGameSrc,
 } from 'assets/images/projects';
 
-import cupkayzHomeScreen from 'assets/images/projects/cupkayz-webpage/cupkayz_home-screen@3x.png';
-import memoryGamePreview from 'assets/images/projects/memory-game/memory-game@3x.png';
-import nybbleBoxPreview from 'assets/images/projects/nybblebox/nybblebox-webpage@3x.png';
+import cupkayzPreview from 'assets/images/projects/cupkayz-webpage/cupkayz_home-screen@2x.png';
+import memoryGamePreview from 'assets/images/projects/memory-game/memory-game@2x.png';
+import nybbleBoxPreview from 'assets/images/projects/nybblebox/nybblebox-webpage@1x.png';
 
 class Project {
   constructor({
@@ -15,23 +15,23 @@ class Project {
     title,
     client,
     projectType,
-    imageComponent,
-    src,
-    detailedImgSrc,
+    svgThumbnail, 
+    staticThumbnail,
+    thumbnailBackground,
+    previewImage,
     techStack,
     description,
     repository,
     livePreview,
-    backgroundColor,
   }) {
     this.id = id;
     this.title = title;
     this.client = client;
     this.projectType = projectType;
-    this.imageComponent = imageComponent;
-    this.src = src;
-    this.backgroundColor = backgroundColor;
-    this.detailedImgSrc = detailedImgSrc;
+    this.svgThumbnail = svgThumbnail;
+    this.staticThumbnail = staticThumbnail;
+    this.thumbnailBackground = thumbnailBackground;
+    this.previewImage = previewImage;
     this.techStack = techStack;
     this.repository = repository;
     this.livePreview = livePreview;
@@ -44,9 +44,10 @@ const cupKayzProject = new Project({
   title: 'CupKayz',
   client: 'Karla Mendez',
   projectType: 'Ecommerce Website',
-  imageComponent: CupKayz,
-  backgroundColor: '#778b7c',
-  detailedImgSrc: cupkayzHomeScreen,
+  svgThumbnail: CupKayz,
+  staticThumbnail: null,
+  thumbnailBackground: '#778b7c',
+  previewImage: cupkayzPreview,
   techStack: ['HTML', 'CSS', 'JavaScript', 'Adobe XD'],
   repository: 'https://github.com/CaliforniaDev/CupkayzV2.0',
   livePreview: 'https://californiadev.github.io/CupkayzV2.0/',
@@ -78,9 +79,10 @@ const nybbleBoxProject = new Project({
   title: 'NybbleBox',
   client: 'Personal Project',
   projectType: 'Landing Page',
-  imageComponent: NybbleBox,
-  backgroundColor: '#0d0d0d',
-  detailedImgSrc: nybbleBoxPreview,
+  svgThumbnail: NybbleBox,
+  staticThumbnail: null,
+  thumbnailBackground: '#0d0d0d',
+  previewImage: nybbleBoxPreview,
   techStack: ['WordPress'],
   repository: null,
   livePreview: 'http://nybblebox.com/',
@@ -110,10 +112,10 @@ const memoryGameProject = new Project({
   title: 'Memory Game',
   client: 'Personal Project',
   projectType: 'React App',
-  imageComponent: null, // svgThumbnail,
-  src: memoryGameSrc, // change the key name to staticThumbnail
-  backgroundColor: null,
-  detailedImgSrc: memoryGamePreview,
+  svgThumbnail: null, 
+  staticThumbnail: memoryGameSrc, 
+  thumbnailBackground: null,
+  previewImage: memoryGamePreview,
   techStack: ['HTML', 'CSS', 'JavaScript', 'React'],
   repository: 'https://github.com/CaliforniaDev/React-Memory-Game',
   livePreview: 'https://californiadev.github.io/React-Memory-Game/',
@@ -141,10 +143,10 @@ const splitShiftsProject = new Project({
   title: 'SplitShifts',
   client: 'BW Security Services Inc.',
   projectType: 'Schedule Management Web App',
-  imageComponent: SplitShifts, // svgThumbnail,
-  src: null, // change the key name to staticThumbnail
-  backgroundColor: '#d7756b',
-  detailedImgSrc: null,
+  svgThumbnail: SplitShifts, // svgThumbnail,
+  staticThumbnail: null, // change the key name to staticThumbnail
+  thumbnailBackground: '#d7756b',
+  previewImage: null,
   techStack: [
     'HTML',
     'CSS',

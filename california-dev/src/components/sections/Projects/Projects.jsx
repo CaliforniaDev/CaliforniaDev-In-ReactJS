@@ -15,9 +15,9 @@ export const Projects = () => {
         id={project.id}
         title={project.title}
         projectType={project.projectType}
-        ImageComponent={project.imageComponent}
-        src={project.src}
-        backgroundColor={project.backgroundColor}
+        ImageComponent={project.svgThumbnail}
+        src={project.staticThumbnail}
+        backgroundColor={project.thumbnailBackground}
       />
     </Link>
   ));
