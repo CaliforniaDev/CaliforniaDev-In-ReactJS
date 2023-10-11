@@ -1,13 +1,11 @@
 import {
-  CupKayz,
-  SplitShifts,
-  NybbleBox,
-  memoryGameSrc,
-} from 'assets/images/projects';
+  CupKayzSVG,
+  SplitShiftsSVG,
+  NybbleBoxSVG,
+  memoryGamePNG,
+} from 'assets/images/projects/thumbnail';
 
-import cupkayzPreview from 'assets/images/projects/cupkayz-webpage/cupkayz_home-screen@2x.png';
-import memoryGamePreview from 'assets/images/projects/memory-game/memory-game@2x.png';
-import nybbleBoxPreview from 'assets/images/projects/nybblebox/nybblebox-webpage@1x.png';
+import { cupkayzPreview, memoryGamePreview, nybbleBoxPreview } from 'assets/images/projects/preview';
 
 class Project {
   constructor({
@@ -44,7 +42,7 @@ const cupKayzProject = new Project({
   title: 'CupKayz',
   client: 'Karla Mendez',
   projectType: 'Ecommerce Website',
-  svgThumbnail: CupKayz,
+  svgThumbnail: CupKayzSVG,
   staticThumbnail: null,
   thumbnailBackground: '#778b7c',
   previewImage: cupkayzPreview,
@@ -79,7 +77,7 @@ const nybbleBoxProject = new Project({
   title: 'NybbleBox',
   client: 'Personal Project',
   projectType: 'Landing Page',
-  svgThumbnail: NybbleBox,
+  svgThumbnail: NybbleBoxSVG,
   staticThumbnail: null,
   thumbnailBackground: '#0d0d0d',
   previewImage: nybbleBoxPreview,
@@ -113,7 +111,7 @@ const memoryGameProject = new Project({
   client: 'Personal Project',
   projectType: 'React App',
   svgThumbnail: null, 
-  staticThumbnail: memoryGameSrc, 
+  staticThumbnail: memoryGamePNG, 
   thumbnailBackground: null,
   previewImage: memoryGamePreview,
   techStack: ['HTML', 'CSS', 'JavaScript', 'React'],
@@ -143,7 +141,7 @@ const splitShiftsProject = new Project({
   title: 'SplitShifts',
   client: 'BW Security Services Inc.',
   projectType: 'Schedule Management Web App',
-  svgThumbnail: SplitShifts, // svgThumbnail,
+  svgThumbnail: SplitShiftsSVG, // svgThumbnail,
   staticThumbnail: null, // change the key name to staticThumbnail
   thumbnailBackground: '#d7756b',
   previewImage: null,
