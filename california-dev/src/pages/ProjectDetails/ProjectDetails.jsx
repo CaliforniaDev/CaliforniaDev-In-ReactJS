@@ -34,13 +34,15 @@ const ProjectMeta = ({ project }) => (
         <h3 className="project-meta__title">Client</h3>
         <p>{project.client}</p>
       </div>
-      <Button
-        text="Open Project"
-        variant="tonal"
-        href={project.livePreview}
-        aria-label="Open live project"
-        draggable="false"
-      />
+      {project.livePreview && (
+        <Button
+          text="Open Project"
+          variant="tonal"
+          href={project.livePreview}
+          aria-label="Open live project"
+          draggable="false"
+        />
+      )}
     </li>
 
     <li className="project-meta__item">
@@ -48,13 +50,15 @@ const ProjectMeta = ({ project }) => (
         <h3 className="project-meta__title">Technologies</h3>
         <p>{renderTechStack(project.techStack)}</p>
       </div>
-      <Button
-        text="Code Source"
-        variant="outlined"
-        href={project.repository}
-        aria-label="Open project repository"
-        draggable="false"
-      />
+      {project.repository && (
+        <Button
+          text="Code Source"
+          variant="outlined"
+          href={project.repository}
+          aria-label="Open project repository"
+          draggable="false"
+        />
+      )}
     </li>
   </ul>
 );
