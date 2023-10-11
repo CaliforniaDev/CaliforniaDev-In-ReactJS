@@ -13,7 +13,7 @@ export const projectData = [
     id: 'cup-kayz-project',
     title: 'CupKayz',
     client: 'Karla Mendez',
-    projectType: 'E-commerce Website',
+    projectType: 'Ecommerce Website',
     imageComponent: CupKayz,
     backgroundColor: '#778b7c',
     techStack: ['HTML', 'CSS', 'JavaScript', 'Adobe XD'],
@@ -21,7 +21,7 @@ export const projectData = [
 
     description: [
       `As a skilled web developer, I built a 
-      responsive e-commerce web application that can be 
+      responsive ecommerce web application that can be 
       used on various devices. To improve delivery service, 
       I integrated the Google Maps API for map locations, 
       and added the Autocomplete feature for address input for 
