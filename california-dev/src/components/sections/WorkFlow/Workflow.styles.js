@@ -19,6 +19,7 @@ export const Section = styled.section(
       flex-direction: column;
       gap: 2.4rem;
       max-width: 1440px;
+      overflow: hidden;
     }
 
     h2 {
