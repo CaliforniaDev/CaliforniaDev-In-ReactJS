@@ -64,13 +64,13 @@ const Header = () => {
         <br />
         {/* DESKTOP 992px */}
         {/* <MediaQuery minWidth={`${992 / 16}em`}> */}
-          <p>
-            With a unique blend of creativity and technical expertise, my
-            specialization involves crafting intuitive and user-friendly web apps
-            that focus on delivering exceptional user experiences. Always on the
-            hunt for new and exciting ways to innovate, I'm committed to keeping
-            up with the latest technologies and industry best practices
-          </p>
+        <p>
+          With a unique blend of creativity and technical expertise, my
+          specialization involves crafting intuitive and user-friendly web apps
+          that focus on delivering exceptional user experiences. Always on the
+          hunt for new and exciting ways to innovate, I'm committed to keeping
+          up with the latest technologies and industry best practices
+        </p>
       </div>
       {/* </MediaQuery> */}
       <ZigZagPattern className="zigzag-svg secondary new" />
@@ -80,23 +80,22 @@ const Header = () => {
 
 const ProfileImage = () => {
   return (
-   
-      <figure id="photo-wrapper">
-        <DotPattern className="corner-svg top-left" />
-        <DotPattern className="corner-svg bottom-right" />
-        <span
-          aria-label="Photo of Leo."
-          role="img"
-          className="profile-img"
-        ></span>
-        <span className="outline-frame"></span>
-        <ZigZagPattern className="zigzag-svg primary" />
-        <span className="filled-frame"></span>
-      </figure>
+    <figure id="photo-wrapper">
+      <DotPattern className="corner-svg top-left" />
+      <DotPattern className="corner-svg bottom-right" />
+      <span
+        aria-label="Photo of Leo."
+        role="img"
+        className="profile-img"
+      ></span>
+      <span className="outline-frame"></span>
+      <ZigZagPattern className="zigzag-svg primary" />
+      <span className="filled-frame"></span>
+    </figure>
   );
 };
 
-export const Home = () => {
+export const Home = React.forwardRef((props, ref) => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
   const socialMediaLinkElements = socialMediaData.map(social => (
@@ -111,7 +110,7 @@ export const Home = () => {
     ?.position || { x: initialXPos };
 
   return (
-    <StyledSection id="home-section">
+    <StyledSection ref={ref} id="home-section">
       <div className="content-container">
         <article className="content-container">
           <Header />
@@ -137,4 +136,4 @@ export const Home = () => {
       </div>
     </StyledSection>
   );
-};
+});
