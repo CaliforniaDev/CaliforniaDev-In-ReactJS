@@ -13,23 +13,65 @@ export const useNavRail = () => {
   const location = useLocation();
   const [activeAnchor, setActiveAnchor] = useState(location.hash);
   const [pressedAnchor, setPressedAnchor] = useState(null);
+  const [isProgrammaticScroll, setIsProgrammaticScroll] = useState(false);
+  const defaultRoute = '/#home-section';
 
-  // Update the active anchor when the location hash changes and on load
+  /**
+   * Handles default route and scroll behavior on component mount or route change.
+   */
   useEffect(() => {
+    const { pathname, hash } = location;
+    // Check if there is no hash in the URL if so, navigate to the default route
+    if (pathname === '/' && !hash && defaultRoute) {
+      return navigate(defaultRoute);
+    }
+    // Scroll to the target element if a hash is present
+    if (hash && isProgrammaticScroll) {
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+  }, [defaultRoute, navigate, location, isProgrammaticScroll]);
+
+  /**
+   * Updates the active anchor when location hash changes.
+   */
+  const handleActiveAnchorUpdate = () => {
     setActiveAnchor(location.hash);
-  }, [location.hash]);
+  };
+  useEffect(handleActiveAnchorUpdate, [location.hash]);
 
-  // Add an event listener to track when the mouse button is released
-  useEffect(() => {
+  /**
+   * Resets programmatic scroll flag.
+   * This effect cleans itself up by canceling the timer.
+   */
+  const handleProgrammaticScroll = () => {
+    if (isProgrammaticScroll) {
+      const timer = setTimeout(() => {
+        // Reset after each link click
+        setIsProgrammaticScroll(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  };
+  useEffect(handleProgrammaticScroll, [isProgrammaticScroll]);
+
+  /**
+   * Manages global mouse events to reset pressedAnchor state.
+   * This effect cleans itself up by removing the event listener.
+   */
+  const handleGlobalMouseEvents = () => {
     const handleGlobalMouseUp = () => {
       setPressedAnchor(null);
     };
     window.addEventListener('mouseup', handleGlobalMouseUp);
-
     return () => {
       window.removeEventListener('mouseup', handleGlobalMouseUp);
     };
-  }, []);
+  };
+  useEffect(handleGlobalMouseEvents, []);
 
   const handleMouseDown = useCallback(id => {
     setPressedAnchor(id);
@@ -40,23 +82,26 @@ export const useNavRail = () => {
   }, []);
 
   /**
-   * Handles the logic for clicking a navigation link.
-   * - Prevents the default link behavior if the target element is present on the current page.
-   * - Scrolls smoothly to the target element if present.
-   * - Navigates to the provided route otherwise.
-   * @param {Event} event - The click event object
-   * @param {string} id - The ID of the target element
-   * @param {string} route - The route to navigate to if the target element is not present
+   * Handles link click events.
+   * Manages smooth scrolling and route navigation based on the link target.
+   * It also sets the programmatic scroll flag to true, indicating that the
+   * next scroll operation is initiated programmatically and not by the user.
+   *
+   * @param {Event} event - The click event object.
+   * @param {string} id - The ID of the target element.
+   * @param {string} route - The route to navigate to if the target element is not present.
    */
-  
+
   const handleNavLinkClick = useCallback(
     (event, id, route) => {
-      const targetElement = document.querySelector(id);
-      if (targetElement) {
-        event.preventDefault();
-        setActiveAnchor(id);
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-        return;
+      setIsProgrammaticScroll(true);
+      if (id) {
+        const targetElement = document.querySelector(id);
+        if (targetElement) {
+          event.preventDefault();
+          setActiveAnchor(id);
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
       }
       return navigate(route);
     },
@@ -69,5 +114,6 @@ export const useNavRail = () => {
     handleMouseDown,
     handleMouseUp,
     handleNavLinkClick,
+    isProgrammaticScroll,
   };
 };
