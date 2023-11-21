@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { useEffect, useMemo } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useTheme } from 'context/ThemeContext';
 
@@ -14,22 +14,26 @@ import { SunIcon, MoonIcon } from 'assets/images/icons/navigation';
 import { StateLayer } from 'components/ui/StateLayer';
 
 /**
- * NavRail component: Represents the navigation bar with interactive links and theme toggling functionality.
- * @param {string} iconSet - Defines which set of icons to use (e.g., main or projectDetails)
- * @param {string} defaultRoute - The default route to navigate to when the page initially loads
- * @param {Object} props - Additional props to pass to the Nav component
- * @returns {JSX.Element} The rendered NavRail component
+ * NavRail component.
+ *
+ * Represents the navigation bar with interactive links and theme toggling functionality.
+ *
+ * @param {string} iconSet - Defines which set of icons to use (e.g., 'main' or 'projectDetails').
+ * @param {string} defaultRoute - The default route to navigate to when the page initially loads.
+ * @param {string} isInView - Flag indicating the current section in view.
+ * @param {Object} props - Additional props to pass to the Nav component.
+ * @returns {JSX.Element} The rendered NavRail component.
  */
 
 export const NavRail = ({
   iconSet,
   defaultRoute = '#home-section',
+  isInView,
   ...props
 }) => {
   // Hooks
-  const { toggleTheme } = useTheme();
-  const location = useLocation();
-  const navigate = useNavigate();
+  const { toggleTheme } = useTheme(); // Manages theme states.
+  const navigate = useNavigate(); // Navigational utility.
   const {
     activeAnchor,
     pressedAnchor,
@@ -37,19 +41,26 @@ export const NavRail = ({
     handleMouseDown,
     handleMouseUp,
     handleNavLinkClick,
-  } = useNavRail();
+    isProgrammaticScroll,
+  } = useNavRail(); // Custom hook to manage NavRail state and behaviors.
 
   // Get the list of navigation items based on the provided icon set
-  const navItems = useMemo(() => {
-    return iconSet ? [...navItemsData[iconSet]] : [];
-  }, [iconSet]);
+  const navItems = navItemsData[iconSet] || [];
 
-  // Ensure the default section is active when the page initially loads
-  useEffect(() => {
-    const { pathname, hash } = location;
-    if (pathname === '/' && !hash) navigate(defaultRoute);
-    return;
-  }, [defaultRoute, navigate, location]);
+  /**
+   * Updates the router based on user scrolling behavior.
+   */
+  const updateRouterOnUserScroll = () => {
+    if (isInView && !isProgrammaticScroll) {
+      const hashRoute = `/${isInView}`;
+      navigate(hashRoute);
+    }
+  };
+  useEffect(updateRouterOnUserScroll, [
+    isInView,
+    isProgrammaticScroll,
+    navigate,
+  ]);
 
   return (
     <Nav className="nav" {...props}>
@@ -58,7 +69,7 @@ export const NavRail = ({
       </Link>
 
       <NavLinksWrapper className="nav__links-wrapper">
-        {navItems.map(function ({ Icon, name, id, route }, index) {
+        {navItems.map(({ Icon, name, id, route }, index) => {
           return (
             <NavLink
               ref={el => (navLinksRefs.current[index] = el)}
@@ -91,7 +102,9 @@ export const NavRail = ({
   );
 };
 
-// TODO: Update PropTypes to reflect the latest changes in your props
+
 NavRail.propTypes = {
   iconSet: PropTypes.oneOf(['main', 'projectDetails']),
+  defaultRoute: PropTypes.string,
+  isInView: PropTypes.string,
 };
