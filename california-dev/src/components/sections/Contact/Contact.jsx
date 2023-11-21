@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useValidation } from 'hooks/useValidation';
 import { validateContactForm } from './utils/validateContactForm';
 
@@ -33,7 +35,7 @@ const FormHeader = () => {
   );
 };
 
-export const Contact = () => {
+export const Contact = React.forwardRef((props, ref) => {
   const initialState = {
     firstName: '',
     lastName: '',
@@ -43,9 +45,12 @@ export const Contact = () => {
     message: '',
   };
 
-  const { formData, formErrors, handleChange, handleSubmit } = useValidation(initialState, validateContactForm);
+  const { formData, formErrors, handleChange, handleSubmit } = useValidation(
+    initialState,
+    validateContactForm
+  );
   return (
-    <ContactSection id="contact-us-section">
+    <ContactSection ref={ref} id="contact-us-section">
       <div className="content-container">
         <SVGDecoration />
         <form onSubmit={handleSubmit} className="contact-form">
@@ -142,4 +147,4 @@ export const Contact = () => {
       </div>
     </ContactSection>
   );
-};
+});

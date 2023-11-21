@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const StyledListContainer = styled.li(
+export const StyledCard = styled.div(
   ({ theme: { palette, elevation, media }, $bg }) => css`
     position: relative;
     flex-basis: 100%;

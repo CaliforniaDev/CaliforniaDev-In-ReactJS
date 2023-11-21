@@ -48,7 +48,7 @@ export function Button({ variant, text, children, ...props }) {
   return (
     <ButtonComponent {...props}>
       <StateLayer className="state-layer" />
-      <span className="button-label">{buttonLabel}</span>
+      <div className="button-label">{buttonLabel}</div>
     </ButtonComponent>
   );
 }

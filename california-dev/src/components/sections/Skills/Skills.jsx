@@ -1,4 +1,5 @@
-import { Section } from "./Skills.styles";
+import React from 'react';
+import { Section } from './Skills.styles';
 import {
   HtmlIcon,
   CssIcon,
@@ -9,23 +10,23 @@ import {
   JavascriptIcon,
   PhotoshopIcon,
   ReactIcon,
-} from "assets/images/tools/";
+} from 'assets/images/tools/';
 
-export const Skills = () => {
+export const Skills = React.forwardRef((props, ref) => {
   const iconComponents = [
-    { IconComponent: HtmlIcon, title: "HTML" },
-    { IconComponent: CssIcon, title: "CSS" },
-    { IconComponent: FigmaIcon, title: "Figma" },
-    { IconComponent: AdobeIllustrator, title: "Illustrator" },
-    { IconComponent: GitIcon, title: "Git" },
-    { IconComponent: GithubIcon, title: "GitHub" },
-    { IconComponent: JavascriptIcon, title: "JavaScript" },
-    { IconComponent: PhotoshopIcon, title: "Photoshop" },
-    { IconComponent: ReactIcon, title: "React" },
+    { IconComponent: HtmlIcon, title: 'HTML' },
+    { IconComponent: CssIcon, title: 'CSS' },
+    { IconComponent: FigmaIcon, title: 'Figma' },
+    { IconComponent: AdobeIllustrator, title: 'Illustrator' },
+    { IconComponent: GitIcon, title: 'Git' },
+    { IconComponent: GithubIcon, title: 'GitHub' },
+    { IconComponent: JavascriptIcon, title: 'JavaScript' },
+    { IconComponent: PhotoshopIcon, title: 'Photoshop' },
+    { IconComponent: ReactIcon, title: 'React' },
   ];
 
   return (
-    <Section id="skills-section">
+    <Section ref={ref} id="skills-section">
       <div className="content-container">
         <h2>-Skills & Technical Proficiencies-</h2>
         <div className="flex-wrapper">
@@ -39,4 +40,4 @@ export const Skills = () => {
       </div>
     </Section>
   );
-};
+});

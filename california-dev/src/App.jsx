@@ -30,9 +30,8 @@ const router = createBrowserRouter(routes);
 function App() {
   return (
     <ThemeContextProvider>
-      <RouterProvider router={router}>
-        <FloatingActionButton />
-      </RouterProvider>
+      <RouterProvider router={router} />
+      <FloatingActionButton />
     </ThemeContextProvider>
   );
 }
