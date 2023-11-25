@@ -6,6 +6,7 @@ export const GlobalStyles = createGlobalStyle(props => {
   return css`
     :root {
       --nav-rail-width: 8rem;
+      --mobile-nav-height: 8rem;
       --desktop-max-width: 1440px;
     }
 
