@@ -2,14 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { motion, useInView } from 'framer-motion';
 import { motionVariants as variants } from 'components/ui/utils/motionVariants';
+import { useScrollInfo } from 'context/ScrollContext';
 
 import { Home } from '../sections/Home';
 import { Workflow } from '../sections/WorkFlow';
 import { Projects } from '../sections/Projects';
 import { Skills } from '../sections/Skills';
 import { Contact } from '../sections/Contact';
-import { Nav } from 'components/Navigation/Nav';
-import { NavRail } from 'components/ui/Navigation/Desktop/NavRail';
+import { MobileNav } from 'components/ui/Navigation/Mobile';
+import { NavRail } from 'components/ui/Navigation/Desktop/';
 
 //Styled Components
 import { MainContainer } from './styles';
@@ -22,6 +23,7 @@ export function MainBody() {
   // States
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(null);
+  const { scrollYProgress, scrollRef } = useScrollInfo();
 
   // References to sections
   const homeRef = useRef(null);
@@ -65,7 +67,7 @@ export function MainBody() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoaded(true);
-    }, LOADING_DELAY );
+    }, LOADING_DELAY);
   }, []);
 
   const isTabletOrLarger = useMediaQuery({
@@ -86,9 +88,14 @@ export function MainBody() {
             iconSet="main"
           />
         ) : (
-          <Nav />
+          <MobileNav scrollYProgress={scrollYProgress} />
         )}
-        <Home ref={homeRef} />
+
+        {/*** this div tracks the scroll position to make changes to the mobile nav */}
+        <motion.div ref={scrollRef} id="mobile-scroll-ref">
+          <Home ref={homeRef} />
+        </motion.div>
+
         <Workflow ref={workflowRef} />
         <Projects ref={projectsRef} />
         <Skills ref={skillsRef} />
