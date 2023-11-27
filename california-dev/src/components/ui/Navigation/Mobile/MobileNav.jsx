@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { useMemo } from 'react';
 import { useTheme } from 'context/ThemeContext';
 import { useMobileNav } from './hooks/useMobileNav';
 
@@ -14,6 +15,7 @@ import { NavMenu } from './NavMenu';
 //Styles and Utilities
 import { Nav, ThemeButton, TargetArea } from './MobileNav.styles';
 import { MoonIcon, SunIcon } from 'assets/images/icons/navigation';
+
 
 export const MobileNav = ({ scrollYProgress, ...props }) => {
   const { toggleTheme } = useTheme();
@@ -62,22 +64,22 @@ export const MobileNav = ({ scrollYProgress, ...props }) => {
     },
   };
 
-  function changeDisplayAttr() {
+  const changeDisplayAttr = useMemo(() => {
     if (logoOpacity === 0 || isFab === true) return 'none';
     return 'block';
-  }
-  function isFabOrNav() {
+  }, [logoOpacity, isFab]);
+
+  const isFabOrNav = useMemo(() => {
     if (isFab === true) return 'fab fixed';
     if (isFab === false) return 'top-nav fixed';
-  }
-
+  }, [isFab]);
   return (
     <Nav
       $isFab={isFab}
       $isOpen={isMenuOpen}
       initial={false}
       animate={isMenuOpen ? 'open' : 'closed'}
-      className={isFabOrNav()}
+      className={isFabOrNav}
       style={{ width }}
       layout
       {...props}
@@ -86,11 +88,12 @@ export const MobileNav = ({ scrollYProgress, ...props }) => {
         variants={logoVariants}
         className="logo-wrapper"
         style={{
-          opacity: logoOpacity,
-          display: changeDisplayAttr(),
+          display: changeDisplayAttr,
         }}
       >
-        <Logo className="nav__logo nav-item" alt="logo image" />
+        <span style={{ opacity: logoOpacity }} className="opacity-on-scroll">
+          <Logo className="nav__logo nav-item" alt="logo image" />
+        </span>
       </motion.div>
 
       <ThemeButton
