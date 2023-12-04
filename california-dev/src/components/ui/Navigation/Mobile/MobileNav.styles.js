@@ -2,16 +2,21 @@ import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import { hexToRgba } from 'themes/utils/hexToRgba';
 
+// Styled navigation bar with dynamic styles based on navigation type (FAB or top-nav)
 export const Nav = styled(motion.nav)(({
-  $isFab,
+  $isFab, // Determines if navigation is in FAB style
   theme: { palette, elevation, typography },
 }) => {
-  const NAV_BG = hexToRgba(palette.surface, 0.8); /** Default background */
-  const CONTENT_COLOR = palette.onSurface;
+  // Define default and FAB-specific colors
+  const NAV_BG = hexToRgba(palette.surface, 0.8); // Default navigation background
+  const CONTENT_COLOR = palette.onSurface; // Default text color
+  const FAB_BG = hexToRgba(palette.secondaryContainer, 0.8); // FAB background color
+  const FAB_CONTENT_COLOR = palette.onSecondaryContainer; // FAB text color
+  const STATE_COLOR = palette.onSecondaryContainer; // State layer color for pseudo states
+
+  // Determine menu background color based on FAB state
   const MENU_BG = $isFab ? hexToRgba(palette.secondaryContainer, 0.8) : NAV_BG;
-  const FAB_BG = hexToRgba(palette.secondaryContainer, 0.8);
-  const FAB_CONTENT_COLOR = palette.onSecondaryContainer;
-  const STATE_COLOR = palette.onSecondaryContainer;
+
   return css`
     height: 8rem;
     min-width: 80px;
@@ -28,6 +33,7 @@ export const Nav = styled(motion.nav)(({
       opacity 0.3s ease,
       box-shadow 0.3s ease-in-out;
 
+    // Styling for fixed navigation bar at the top of the viewport
     &.fixed {
       position: fixed;
       z-index: 1;
@@ -36,6 +42,7 @@ export const Nav = styled(motion.nav)(({
       width: 100%;
     }
 
+    // Styling for FAB navigation bar
     &.fab {
       position: fixed;
       top: unset;
@@ -59,6 +66,7 @@ export const Nav = styled(motion.nav)(({
         right: 0;
       }
 
+      // Clickable area for MenuToggle
       .target-area {
         background-color: ${FAB_BG};
       }
@@ -78,6 +86,7 @@ export const Nav = styled(motion.nav)(({
       }
     }
 
+    // Hover effect on icons in top navigation bar
     &.top-nav > .target-area {
       &:hover {
         svg path {
@@ -131,6 +140,7 @@ export const Nav = styled(motion.nav)(({
   `;
 });
 
+// Styled button for the menu toggle in navigation bar
 export const MenuToggle = styled(motion.button)(({ theme: { palette } }) => {
   return css`
     position: absolute;
@@ -150,6 +160,8 @@ export const MenuToggle = styled(motion.button)(({ theme: { palette } }) => {
 
     cursor: pointer;
     pointer-events: none;
+
+    // Styling for SVG path in the toggle button
     svg path {
       transition: stroke 0.3s ease;
       stroke: ${palette.onSecondaryContainer};
@@ -157,6 +169,7 @@ export const MenuToggle = styled(motion.button)(({ theme: { palette } }) => {
   `;
 });
 
+// Styled button for toggling the theme (dark/light mode)
 export const ThemeButton = styled(motion.button)(({
   theme: { palette, mode },
 }) => {
@@ -179,7 +192,6 @@ export const ThemeButton = styled(motion.button)(({
     cursor: pointer;
     overflow: hidden;
 
-    /* background-color: ${palette.tertiary}; */
     svg path {
       fill: ${CONTENT_COLOR};
     }
@@ -201,14 +213,14 @@ export const ThemeButton = styled(motion.button)(({
         fill: ${CONTENT_COLOR};
       }
     }
-
+    // Dynamic styles for sun/moon icons based on theme mode
     .theme-icon.sun {
-      // if mode is dark, then sun is visible
+      // Sun icon visibility in dark mode
       transform: ${mode === 'dark' ? 'translateY(0)' : 'translateY(48px)'};
       opacity: ${mode === 'dark' ? 1 : 0};
     }
     .theme-icon.moon {
-      // if mode is light, then moon is visible
+      // Moon icon visibility in light mode
       transform: ${mode === 'light' ? 'translateY(0)' : 'translateY(-48px)'};
       opacity: ${mode === 'light' ? 1 : 0};
     }
@@ -219,6 +231,7 @@ export const ThemeButton = styled(motion.button)(({
   `;
 });
 
+// Styled area for target interaction in navigation bar
 export const TargetArea = styled.div(({ theme: { palette } }) => {
   return css`
     position: absolute;
@@ -240,17 +253,3 @@ export const TargetArea = styled.div(({ theme: { palette } }) => {
     overflow: hidden;
   `;
 });
-
-// .menu-background {
-//   position: fixed;
-//   display: flex;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   width: 100vw;
-//   opacity: 1;
-//   background-color: ${BG};
-//   backdrop-filter: blur(10px);
-//   transform: translateZ(0);
-//   -webkit-backdrop-filter: blur(10px);
-// }
