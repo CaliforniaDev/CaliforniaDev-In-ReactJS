@@ -13,6 +13,8 @@ import { SunIcon, MoonIcon } from 'assets/images/icons/navigation';
 
 import { StateLayer } from 'components/ui/StateLayer';
 
+import { useNavContext } from 'context/NavigationContext';
+
 /**
  * NavRail component.
  *
@@ -34,15 +36,19 @@ export const NavRail = ({
   // Hooks
   const { toggleTheme } = useTheme(); // Manages theme states.
   const navigate = useNavigate(); // Navigational utility.
-  const {
-    activeAnchor,
-    pressedAnchor,
-    navLinksRefs,
-    handleMouseDown,
-    handleMouseUp,
-    handleNavLinkClick,
-    isProgrammaticScroll,
-  } = useNavRail(); // Custom hook to manage NavRail state and behaviors.
+  // const {
+  //   activeAnchor,//
+  //   pressedAnchor,//
+  //   navLinksRefs,
+  //   handleMouseDown,//
+  //   handleMouseUp,//
+  //   handleNavLinkClick,//
+  //   isProgrammaticScroll,//
+  // } = useNavRail(); // Custom hook to manage NavRail state and behaviors.
+
+  const { activeAnchor, pressedAnchor, isProgrammaticScroll } = useNavContext();
+
+  const { handleMouseDown, handleMouseUp, handleNavLinkClick } = useNavRail();
 
   // Get the list of navigation items based on the provided icon set
   const navItems = navItemsData[iconSet] || [];
@@ -72,7 +78,6 @@ export const NavRail = ({
         {navItems.map(({ Icon, name, id, route }, index) => {
           return (
             <NavLink
-              ref={el => (navLinksRefs.current[index] = el)}
               key={id}
               href={`${route}`}
               className="nav__link"
@@ -101,7 +106,6 @@ export const NavRail = ({
     </Nav>
   );
 };
-
 
 NavRail.propTypes = {
   iconSet: PropTypes.oneOf(['main', 'projectDetails']),
