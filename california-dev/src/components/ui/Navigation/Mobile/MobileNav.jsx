@@ -1,6 +1,9 @@
+import { useEffect } from 'react';
+import { useNavContext } from 'context/NavigationContext';
 import { motion } from 'framer-motion';
 import { useTheme } from 'context/ThemeContext';
 import { useMobileNav } from './hooks/useMobileNav';
+import { useNavMotionEvents } from './hooks/useNavMotionEvents';
 
 //Assets
 import { Logo } from 'assets/images/logo/Logo';
@@ -55,17 +58,32 @@ const themeButtonAnimationVariants = {
   },
 };
 
-export const MobileNav = ({ scrollYProgress, ...props }) => {
+export const MobileNav = () => {
   const { toggleTheme } = useTheme();
+  const { isMenuOpen } = useNavContext();
+  const { handleMenuToggle } = useMobileNav();
+  const { width, logoOpacity, isFab } = useNavMotionEvents();
 
-  const { width, logoOpacity, isFab, isMenuOpen, handleMenuToggle } =
-    useMobileNav(scrollYProgress);
+  useEffect(() => {
+    if (isMenuOpen) {
+      // Disable scrolling
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Enable scrolling
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+
 
   // Determine the display style for the logo <span> wrapper
   const displayStyle = logoOpacity === 0 || isFab ? 'none' : 'block';
 
   // Determine the class for the nav based on isFab
-  const navClass = isFab ? 'fab fixed' : 'top-nav fixed';
+  const navClass = isFab ? 'fab fixed mobile-nav' : 'top-nav fixed mobile-nav';
   return (
     <Nav
       $isFab={isFab}
@@ -74,7 +92,6 @@ export const MobileNav = ({ scrollYProgress, ...props }) => {
       className={navClass}
       style={{ width }}
       layout
-      {...props}
     >
       <motion.div
         variants={logoAnimationVariants}
@@ -84,7 +101,7 @@ export const MobileNav = ({ scrollYProgress, ...props }) => {
         }}
       >
         <span style={{ opacity: logoOpacity }} className="opacity-on-scroll">
-          <Logo className="nav__logo nav-item" alt="logo image" />
+          <Logo idSuffix="mobile" className="nav__logo nav-item" alt="logo image" />
         </span>
       </motion.div>
 
