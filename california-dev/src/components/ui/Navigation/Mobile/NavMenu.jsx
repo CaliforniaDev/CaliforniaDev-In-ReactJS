@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { navItemsData } from '../Desktop/utils/navConfig';
-import { SunIcon, MoonIcon } from 'assets/images/icons/navigation';
+
+import { useMobileNav } from './hooks/useMobileNav';
 
 const variants = {
   menu: {
@@ -36,9 +37,12 @@ const variants = {
   },
 };
 
-const menuItems = () => {
+const MenuItems = () => {
   const navItems = navItemsData.main;
-  return navItems.map(({ name, id, route }, index) => {
+
+  const { handleMenuLinkClick } = useMobileNav();
+
+  return navItems.map(({ name, id, route }) => {
     return (
       <motion.li
         variants={variants.items}
@@ -46,7 +50,11 @@ const menuItems = () => {
         whileHover={{ scale: 1.1, marginLeft: '20px' }}
         whileTap={{ scale: 0.95, marginLeft: '0px' }}
       >
-        <a href={route} className="nav-link">
+        <a
+          href={route}
+          className="nav-link"
+          onClick={event => handleMenuLinkClick(event, id, route)}
+        >
           {name}
         </a>
       </motion.li>
@@ -55,10 +63,9 @@ const menuItems = () => {
 };
 
 export const NavMenu = ({ className }) => {
-
   return (
     <motion.ul className={className} variants={variants.menu}>
-      {menuItems()}
+      {MenuItems()}
     </motion.ul>
   );
 };
