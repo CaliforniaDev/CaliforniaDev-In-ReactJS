@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { NavigationProvider } from 'context/NavigationContext';
 import { useMediaQuery } from 'react-responsive';
 import { motion, useInView } from 'framer-motion';
 import { motionVariants as variants } from 'components/ui/utils/motionVariants';
@@ -23,7 +24,7 @@ export function MainBody() {
   // States
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(null);
-  const { scrollYProgress, scrollRef } = useScrollInfo();
+  const { scrollRef } = useScrollInfo();
 
   // References to sections
   const homeRef = useRef(null);
@@ -65,14 +66,9 @@ export function MainBody() {
 
   // Delayed opacity for loading animation
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, LOADING_DELAY);
+    const timer = setTimeout(() => setIsLoaded(true), LOADING_DELAY);
+    return () => clearTimeout(timer);
   }, []);
-
-  const isTabletOrLarger = useMediaQuery({
-    query: `(min-width: ${MEDIA_BREAKPOINT}em)`,
-  });
 
   return (
     <motion.div
@@ -81,15 +77,14 @@ export function MainBody() {
       animate={isLoaded && 'visible'}
     >
       <MainContainer>
-        {isTabletOrLarger ? (
+        <NavigationProvider>
           <NavRail
             defaultRoute="/#home-section"
             isInView={isInView}
             iconSet="main"
           />
-        ) : (
-          <MobileNav scrollYProgress={scrollYProgress} />
-        )}
+          <MobileNav />
+        </NavigationProvider>
 
         {/*** this div tracks the scroll position to make changes to the mobile nav */}
         <motion.div ref={scrollRef} id="mobile-scroll-ref">
