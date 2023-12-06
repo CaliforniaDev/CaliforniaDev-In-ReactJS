@@ -3,7 +3,6 @@ import { useNavContext } from 'context/NavigationContext';
 import { motion } from 'framer-motion';
 import { useTheme } from 'context/ThemeContext';
 import { useMobileNav } from './hooks/useMobileNav';
-import { useNavMotionEvents } from './hooks/useNavMotionEvents';
 
 //Assets
 import { Logo } from 'assets/images/logo/Logo';
@@ -58,11 +57,10 @@ const themeButtonAnimationVariants = {
   },
 };
 
-export const MobileNav = () => {
+export const MobileNav = ({ navItemSet }) => {
   const { toggleTheme } = useTheme();
   const { isMenuOpen } = useNavContext();
   const { handleMenuToggle } = useMobileNav();
-  const { width, logoOpacity, isFab } = useNavMotionEvents();
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -77,32 +75,21 @@ export const MobileNav = () => {
     };
   }, [isMenuOpen]);
 
-
-
   // Determine the display style for the logo <span> wrapper
-  const displayStyle = logoOpacity === 0 || isFab ? 'none' : 'block';
 
   // Determine the class for the nav based on isFab
-  const navClass = isFab ? 'fab fixed mobile-nav' : 'top-nav fixed mobile-nav';
   return (
     <Nav
-      $isFab={isFab}
       initial={false}
       animate={isMenuOpen ? 'open' : 'closed'}
-      className={navClass}
-      style={{ width }}
-      layout
+      className="mobile-nav fixed"
     >
-      <motion.div
-        variants={logoAnimationVariants}
-        className="logo-wrapper"
-        style={{
-          display: displayStyle,
-        }}
-      >
-        <span style={{ opacity: logoOpacity }} className="opacity-on-scroll">
-          <Logo idSuffix="mobile" className="nav__logo nav-item" alt="logo image" />
-        </span>
+      <motion.div variants={logoAnimationVariants} className="logo-wrapper">
+        <Logo
+          idSuffix="mobile"
+          className="nav__logo nav-item"
+          alt="logo image"
+        />
       </motion.div>
 
       <ThemeButton
@@ -125,10 +112,9 @@ export const MobileNav = () => {
         onClick={handleMenuToggle}
       >
         <MenuToggle className="menu-toggle" />
-        <StateLayer className="state-layer" />
       </TargetArea>
 
-      <NavMenu className="nav-menu" />
+      <NavMenu className="nav-menu" navItemSet={navItemSet} />
     </Nav>
   );
 };
