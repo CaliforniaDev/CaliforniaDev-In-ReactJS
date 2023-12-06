@@ -74,6 +74,11 @@ export const GlobalStyles = createGlobalStyle(props => {
       ${typography.body.large};
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     fieldset {
       border: none; /* removes default border */
       padding: 0; /* removes default padding */
