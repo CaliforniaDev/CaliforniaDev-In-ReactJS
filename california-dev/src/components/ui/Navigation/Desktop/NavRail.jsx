@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from 'context/ThemeContext';
 
 import { Nav, NavLinksWrapper, NavLink } from './NavRail.styles';
-import { navItemsData } from './utils/navConfig';
+import { navItemsData } from '../utils/navConfig';
 import { Logo } from 'assets/images/logo';
 import { useNavRail } from './hooks/useNavRail';
 import { IconButton } from 'components/ui/IconButton';
@@ -21,17 +21,13 @@ import { useNavContext } from 'context/NavigationContext';
  * Represents the navigation bar with interactive links and theme toggling functionality.
  *
  * @param {string} iconSet - Defines which set of icons to use (e.g., 'main' or 'projectDetails').
- * @param {string} defaultRoute - The default route to navigate to when the page initially loads.
  * @param {string} isInView - Flag indicating the current section in view.
- * @param {Object} props - Additional props to pass to the Nav component.
  * @returns {JSX.Element} The rendered NavRail component.
  */
 
 export const NavRail = ({
-  iconSet,
-  defaultRoute = '#home-section',
+  navItemSet,
   isInView,
-  ...props
 }) => {
   // Hooks
   const { toggleTheme } = useTheme(); // Manages theme states.
@@ -51,7 +47,7 @@ export const NavRail = ({
   const { handleMouseDown, handleMouseUp, handleNavLinkClick } = useNavRail();
 
   // Get the list of navigation items based on the provided icon set
-  const navItems = navItemsData[iconSet] || [];
+  const navItems = navItemsData[navItemSet] || [];
 
   /**
    * Updates the router based on user scrolling behavior.
@@ -69,7 +65,7 @@ export const NavRail = ({
   ]);
 
   return (
-    <Nav className="nav" {...props}>
+    <Nav className="nav">
       <Link to="/">
         <Logo className="logo" />
       </Link>
@@ -109,6 +105,5 @@ export const NavRail = ({
 
 NavRail.propTypes = {
   iconSet: PropTypes.oneOf(['main', 'projectDetails']),
-  defaultRoute: PropTypes.string,
   isInView: PropTypes.string,
 };
