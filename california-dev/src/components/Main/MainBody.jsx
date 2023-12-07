@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { NavigationProvider } from 'context/NavigationContext';
 import { useMediaQuery } from 'react-responsive';
 import { motion, useInView } from 'framer-motion';
 import { motionVariants as variants } from 'components/ui/utils/motionVariants';
+import { useFadeInOnLoad } from 'hooks/useFadeInOnLoad';
 
 import { Home } from '../sections/Home';
 import { Workflow } from '../sections/WorkFlow';
 import { Projects } from '../sections/Projects';
 import { Skills } from '../sections/Skills';
 import { Contact } from '../sections/Contact';
-import { Nav } from 'components/Navigation/Nav';
-import { NavRail } from 'components/ui/Navigation/Desktop/NavRail';
+import { MobileNav } from 'components/ui/Navigation/Mobile';
+import { NavRail } from 'components/ui/Navigation/Desktop/';
 
 //Styled Components
 import { MainContainer } from './styles';
@@ -20,8 +22,8 @@ const IN_VIEW_THRESHOLD = 0.7;
 
 export function MainBody() {
   // States
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(null);
+  const isLoaded = useFadeInOnLoad(LOADING_DELAY);
 
   // References to sections
   const homeRef = useRef(null);
@@ -61,39 +63,34 @@ export function MainBody() {
     }
   }, [homeInView, workflowInView, projectsInView, skillsInView, contactInView]);
 
-  // Delayed opacity for loading animation
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, LOADING_DELAY );
-  }, []);
-
   const isTabletOrLarger = useMediaQuery({
     query: `(min-width: ${MEDIA_BREAKPOINT}em)`,
   });
 
   return (
-    <motion.div
-      variants={variants.fadeIn}
-      initial="hidden"
-      animate={isLoaded && 'visible'}
-    >
-      <MainContainer>
+    <MainContainer>
+      <NavigationProvider>
         {isTabletOrLarger ? (
           <NavRail
             defaultRoute="/#home-section"
             isInView={isInView}
-            iconSet="main"
+            navItemSet="main"
           />
         ) : (
-          <Nav />
+          <MobileNav navItemSet="main" />
         )}
+      </NavigationProvider>
+      <motion.div
+        variants={variants.fadeIn}
+        initial="hidden"
+        animate={isLoaded && 'visible'}
+      >
         <Home ref={homeRef} />
         <Workflow ref={workflowRef} />
         <Projects ref={projectsRef} />
         <Skills ref={skillsRef} />
         <Contact ref={contactRef} />
-      </MainContainer>
-    </motion.div>
+      </motion.div>
+    </MainContainer>
   );
 }

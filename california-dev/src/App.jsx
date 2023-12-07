@@ -1,10 +1,14 @@
-import { ThemeContextProvider } from 'context/ThemeContext';
-import { MainBody } from 'components/Main';
-import { FloatingActionButton } from 'components/ui/FloatingActionButton/FloatingActionButton';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Sandbox } from 'utils/Sandbox/Sandbox';
-import { ProjectDetails } from 'pages/ProjectDetails';
+import { ThemeContextProvider } from 'context/ThemeContext';
+import { ScrollProvider } from 'context/ScrollContext';
 
+import { FloatingActionButton } from 'components/ui/FloatingActionButton/FloatingActionButton';
+
+
+import { MainBody } from 'components/Main';
+import { ProjectDetails } from 'pages/ProjectDetails';
+import { Sandbox } from 'utils/Sandbox/Sandbox';
+import { TestEnvironment } from 'utils/Sandbox/TestEnvironment';
 // Define routes using route objects
 const routes = [
   {
@@ -14,6 +18,10 @@ const routes = [
   {
     path: '/sandbox',
     element: <Sandbox />,
+  },
+  {
+    path: '/test',
+    element: <TestEnvironment />,
   },
   {
     path: '/projects/:id',
@@ -30,8 +38,10 @@ const router = createBrowserRouter(routes);
 function App() {
   return (
     <ThemeContextProvider>
-      <RouterProvider router={router} />
-      <FloatingActionButton />
+      <ScrollProvider>
+        <RouterProvider router={router} />
+        {/* <FloatingActionButton /> */}
+      </ScrollProvider>
     </ThemeContextProvider>
   );
 }
