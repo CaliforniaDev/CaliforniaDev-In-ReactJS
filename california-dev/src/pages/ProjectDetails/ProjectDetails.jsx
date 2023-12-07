@@ -72,6 +72,7 @@ export const ProjectDetails = () => {
   const isLoaded = useFadeInOnLoad(500);
   const { id } = useParams();
   const project = projectData.find(project => project.id === id);
+  
   const isTabletOrLarger = useMediaQuery({
     query: `(min-width: ${TABLET_MIN_WIDTH_EM_UNIT}em)`,
   });
