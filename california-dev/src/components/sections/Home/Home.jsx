@@ -118,7 +118,7 @@ export const Home = React.forwardRef((props, ref) => {
             <Button
               variant="elevated"
               text="Resume"
-              href={pdfResume}
+              // href={pdfResume}
               draggable="false"
               aria-label="my resume"
               className="resume-btn"
