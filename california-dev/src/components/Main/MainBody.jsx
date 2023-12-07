@@ -3,7 +3,7 @@ import { NavigationProvider } from 'context/NavigationContext';
 import { useMediaQuery } from 'react-responsive';
 import { motion, useInView } from 'framer-motion';
 import { motionVariants as variants } from 'components/ui/utils/motionVariants';
-import { useScrollInfo } from 'context/ScrollContext';
+import { useFadeInOnLoad } from 'hooks/useFadeInOnLoad';
 
 import { Home } from '../sections/Home';
 import { Workflow } from '../sections/WorkFlow';
@@ -22,9 +22,8 @@ const IN_VIEW_THRESHOLD = 0.7;
 
 export function MainBody() {
   // States
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(null);
-  const { scrollRef } = useScrollInfo();
+  const isLoaded = useFadeInOnLoad(LOADING_DELAY);
 
   // References to sections
   const homeRef = useRef(null);
@@ -64,38 +63,34 @@ export function MainBody() {
     }
   }, [homeInView, workflowInView, projectsInView, skillsInView, contactInView]);
 
-  // Delayed opacity for loading animation
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), LOADING_DELAY);
-    return () => clearTimeout(timer);
-  }, []);
+  const isTabletOrLarger = useMediaQuery({
+    query: `(min-width: ${MEDIA_BREAKPOINT}em)`,
+  });
 
   return (
-    <motion.div
-      variants={variants.fadeIn}
-      initial="hidden"
-      animate={isLoaded && 'visible'}
-    >
-      <MainContainer>
-        <NavigationProvider>
+    <MainContainer>
+      <NavigationProvider>
+        {isTabletOrLarger ? (
           <NavRail
             defaultRoute="/#home-section"
             isInView={isInView}
-            iconSet="main"
+            navItemSet="main"
           />
-          <MobileNav />
-        </NavigationProvider>
-
-        {/*** this div tracks the scroll position to make changes to the mobile nav */}
-        <motion.div ref={scrollRef} id="mobile-scroll-ref">
-          <Home ref={homeRef} />
-        </motion.div>
-
+        ) : (
+          <MobileNav navItemSet="main" />
+        )}
+      </NavigationProvider>
+      <motion.div
+        variants={variants.fadeIn}
+        initial="hidden"
+        animate={isLoaded && 'visible'}
+      >
+        <Home ref={homeRef} />
         <Workflow ref={workflowRef} />
         <Projects ref={projectsRef} />
         <Skills ref={skillsRef} />
         <Contact ref={contactRef} />
-      </MainContainer>
-    </motion.div>
+      </motion.div>
+    </MainContainer>
   );
 }
