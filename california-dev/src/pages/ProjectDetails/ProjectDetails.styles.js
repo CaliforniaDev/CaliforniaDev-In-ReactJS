@@ -9,6 +9,7 @@ export const ProjectContainer = styled.div(
     margin-top: var(--mobile-nav-height);
 
     word-wrap: break-word;
+    border: 10px solid cyan;
 
     header {
       display: block;
@@ -17,7 +18,7 @@ export const ProjectContainer = styled.div(
     }
 
     h1 {
-      ${typography.hero.large}
+      ${typography.display.large}
     }
 
     p {
@@ -35,6 +36,7 @@ export const ProjectContainer = styled.div(
 
     .content-container {
       max-width: 1440px;
+      width: 100%;
       padding: 64px 24px;
     }
     .category {
@@ -45,7 +47,7 @@ export const ProjectContainer = styled.div(
 
     .project-meta {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 16px;
       padding: 24px 0;
       align-items: end;
@@ -89,9 +91,19 @@ export const ProjectContainer = styled.div(
       display: none;
     }
 
+    @media (min-width: ${media.device.tabletSmall}) {
+      .project-meta {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (min-width: ${media.device.tablet}) {
       margin-left: var(--nav-rail-width);
       margin-top: 0;
+
+      h1 {
+        ${typography.hero.large}
+      }
       .nav {
         display: flex;
       }
