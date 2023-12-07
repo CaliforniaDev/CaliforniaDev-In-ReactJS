@@ -5,7 +5,6 @@ export const StyledSection = styled.section(
     return css`
       display: flex;
       flex-direction: column;
-      margin-top: var(--mobile-nav-height);
 
       padding: 4rem ${media.padding.SMALL};
       align-items: center;
