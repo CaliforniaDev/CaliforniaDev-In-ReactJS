@@ -9,7 +9,6 @@ export const Nav = styled(motion.nav)(({
   const CONTENT_COLOR = palette.onSurface; // Default text color
 
   return css`
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,13 +66,7 @@ export const Nav = styled(motion.nav)(({
       -webkit-backdrop-filter: blur(10px); /* Safari 9.0 and up */
     }
 
-    ul,
-    li {
-      padding: 0;
-      margin: 0;
-    }
-
-    li {
+    .list-item {
       display: flex;
       align-items: center;
       margin-bottom: 24px;
@@ -83,6 +76,10 @@ export const Nav = styled(motion.nav)(({
 
       &:hover {
         color: ${palette.primary};
+      }
+
+      &.active {
+        color: ${palette.secondary};
       }
     }
   `;
@@ -175,5 +172,3 @@ export const ThemeButton = styled(motion.button)(({
     }
   `;
 });
-
-

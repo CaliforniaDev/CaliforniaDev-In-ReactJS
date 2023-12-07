@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { navItemsData } from '../utils/navConfig';
 
 import { useMobileNav } from './hooks/useMobileNav';
+import { useNavContext } from 'context/NavigationContext';
 
 const variants = {
   menu: {
@@ -37,14 +38,18 @@ const variants = {
   },
 };
 
-const MenuItems = (navItemSet) => {
+const MenuItems = navItemSet => {
   const navItems = navItemsData[navItemSet] || [];
 
   const { handleMenuLinkClick } = useMobileNav();
+  const { activeAnchor } = useNavContext();
 
   return navItems.map(({ name, id, route }) => {
+    const isActive = activeAnchor === id;
+    const className = isActive ? 'list-item active' : 'list-item';
     return (
       <motion.li
+        className={className}
         variants={variants.items}
         key={id}
         whileHover={{ scale: 1.1, marginLeft: '20px' }}
