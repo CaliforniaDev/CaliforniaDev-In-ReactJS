@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { navItemsData } from '../Desktop/utils/navConfig';
+import { navItemsData } from '../utils/navConfig';
 
 import { useMobileNav } from './hooks/useMobileNav';
 
@@ -37,8 +37,8 @@ const variants = {
   },
 };
 
-const MenuItems = () => {
-  const navItems = navItemsData.main;
+const MenuItems = (navItemSet) => {
+  const navItems = navItemsData[navItemSet] || [];
 
   const { handleMenuLinkClick } = useMobileNav();
 
@@ -62,10 +62,10 @@ const MenuItems = () => {
   });
 };
 
-export const NavMenu = ({ className }) => {
+export const NavMenu = ({ className, navItemSet }) => {
   return (
     <motion.ul className={className} variants={variants.menu}>
-      {MenuItems()}
+      {MenuItems(navItemSet)}
     </motion.ul>
   );
 };
