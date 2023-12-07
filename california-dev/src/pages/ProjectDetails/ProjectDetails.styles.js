@@ -6,6 +6,7 @@ export const ProjectContainer = styled.div(
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: var(--mobile-nav-height);
 
     word-wrap: break-word;
 
@@ -84,8 +85,19 @@ export const ProjectContainer = styled.div(
     }
     // styles for NavRail.styles.js
 
+    .nav {
+      display: none;
+    }
+
     @media (min-width: ${media.device.tablet}) {
       margin-left: var(--nav-rail-width);
+      margin-top: 0;
+      .nav {
+        display: flex;
+      }
+      .mobile-nav {
+        display: none;
+      }
     }
 
     @media (min-width: ${media.device.desktop}) {
