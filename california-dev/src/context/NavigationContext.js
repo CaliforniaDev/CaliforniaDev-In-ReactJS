@@ -24,7 +24,6 @@ export const NavigationProvider = ({ children }) => {
   const [pressedAnchor, setPressedAnchor] = useState(null);
   const [isProgrammaticScroll, setIsProgrammaticScroll] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [logoDisplay, setLogoDisplay] = useState('none');
   const navigate = useNavigate();
   const location = useLocation();
   const defaultRoute = '/#home-section';
@@ -88,12 +87,10 @@ export const NavigationProvider = ({ children }) => {
     pressedAnchor,
     isMenuOpen,
     isProgrammaticScroll,
-    logoDisplay,
     setPressedAnchor,
     setActiveAnchor,
     setIsMenuOpen,
     setIsProgrammaticScroll,
-    setLogoDisplay,
   };
 
   return (
