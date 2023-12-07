@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { ThemeContextProvider } from 'context/ThemeContext';
 import { ScrollProvider } from 'context/ScrollContext';
 
@@ -33,7 +33,8 @@ const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes);
+// const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 
 function App() {
   return (
