@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/CaliforniaDev-In-ReactJS/static/js/main.092b1221.js",
+    "main.js": "/CaliforniaDev-In-ReactJS/static/js/main.58c595f0.js",
     "static/js/496.5f496fab.chunk.js": "/CaliforniaDev-In-ReactJS/static/js/496.5f496fab.chunk.js",
     "static/media/cupkayz_home-screen@2x.png": "/CaliforniaDev-In-ReactJS/static/media/cupkayz_home-screen@2x.ac9765865fdedb419194.png",
     "static/media/nybblebox-webpage@1x.png": "/CaliforniaDev-In-ReactJS/static/media/nybblebox-webpage@1x.5bbdb2844b12f4713915.png",
@@ -13,10 +13,10 @@
     "static/media/cupkayz-logo.svg": "/CaliforniaDev-In-ReactJS/static/media/cupkayz-logo.56ba5bf474872bba37f61487962b1610.svg",
     "static/media/nybblebox-logo.svg": "/CaliforniaDev-In-ReactJS/static/media/nybblebox-logo.8ff50e0ae8793146f834dc49f6d515b1.svg",
     "index.html": "/CaliforniaDev-In-ReactJS/index.html",
-    "main.092b1221.js.map": "/CaliforniaDev-In-ReactJS/static/js/main.092b1221.js.map",
+    "main.58c595f0.js.map": "/CaliforniaDev-In-ReactJS/static/js/main.58c595f0.js.map",
     "496.5f496fab.chunk.js.map": "/CaliforniaDev-In-ReactJS/static/js/496.5f496fab.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.092b1221.js"
+    "static/js/main.58c595f0.js"
   ]
 }
