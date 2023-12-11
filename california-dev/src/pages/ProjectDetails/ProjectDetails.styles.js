@@ -9,7 +9,6 @@ export const ProjectContainer = styled.div(
     margin-top: var(--mobile-nav-height);
 
     word-wrap: break-word;
-    border: 10px solid cyan;
 
     header {
       display: block;
