@@ -1,5 +1,6 @@
 import React from 'react';
 import { Section } from './Skills.styles';
+import { motion } from 'framer-motion';
 import {
   HtmlIcon,
   CssIcon,
@@ -11,6 +12,33 @@ import {
   PhotoshopIcon,
   ReactIcon,
 } from 'assets/images/tools/';
+
+// Framer motion variants
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0,
+      staggerChildren: 0.1,
+      when: 'beforeChildren',
+    },
+  },
+};
+
+// Framer motion variants
+const itemVariants = {
+  hidden: { opacity: 0, y: 100 },
+  visible: { opacity: 1, y: 0 },
+  transition: {
+    type: 'spring',
+    stiffness: 100,
+    mass: 0.3,
+    delay: 2,
+  },
+};
 
 export const Skills = React.forwardRef((props, ref) => {
   const iconComponents = [
@@ -27,17 +55,27 @@ export const Skills = React.forwardRef((props, ref) => {
 
   return (
     <Section ref={ref} id="skills-section">
-      <div className="content-container">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ threshold: 0.5, once: true }}
+        className="content-container"
+      >
         <h2>-Skills & Technical Proficiencies-</h2>
         <div className="flex-wrapper">
           {iconComponents.map((icon, index) => (
-            <div className="skills-card" key={index}>
+            <motion.div
+              variants={itemVariants}
+              className="skills-card"
+              key={index}
+            >
               <icon.IconComponent className="skills-card__icon" />
               <p className="skills-card__text">{icon.title}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 });
