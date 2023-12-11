@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { motion } from 'framer-motion';
+import { motionVariants as variants } from 'components/ui/utils/motionVariants';
+
 import { useValidation } from 'hooks/useValidation';
 import { validateContactForm } from './utils/validateContactForm';
 
@@ -51,7 +54,13 @@ export const Contact = React.forwardRef((props, ref) => {
   );
   return (
     <ContactSection ref={ref} id="contact-us-section">
-      <div className="content-container">
+      <motion.div
+        variants={variants.fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="content-container"
+      >
         <SVGDecoration />
         <form onSubmit={handleSubmit} className="contact-form">
           <FormHeader />
@@ -144,7 +153,7 @@ export const Contact = React.forwardRef((props, ref) => {
             text="Submit"
           />
         </form>
-      </div>
+      </motion.div>
     </ContactSection>
   );
 });
