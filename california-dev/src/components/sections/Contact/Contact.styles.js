@@ -46,8 +46,8 @@ export const ContactSection = styled.section(
       display: none;
     }
 
-    ${media.DESKTOP`
-      padding: 64px ${media.padding.LARGE};
+    @media (min-width: ${media.device.desktop}) {
+      padding: ${media.padding.LARGE};
       flex-direction: row;
 
       h2 {
@@ -75,12 +75,20 @@ export const ContactSection = styled.section(
         background-color: ${palette.primary};
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
-        
-        .dots-svg circle { fill: ${palette.onPrimary}; }
-        .eclipse-svg circle { stroke: ${palette.onPrimary}; }
-        .zigzag-svg path { stroke: ${palette.onPrimary}; }
 
-        .dots-svg, .eclipse-svg, .zigzag-svg {
+        .dots-svg circle {
+          fill: ${palette.onPrimary};
+        }
+        .eclipse-svg circle {
+          stroke: ${palette.onPrimary};
+        }
+        .zigzag-svg path {
+          stroke: ${palette.onPrimary};
+        }
+
+        .dots-svg,
+        .eclipse-svg,
+        .zigzag-svg {
           position: absolute;
         }
         .dots-svg.top {
@@ -103,9 +111,8 @@ export const ContactSection = styled.section(
           left: -10px;
           opacity: 0.6;
         }
-
       }
-    `}// End of DESKTOP media query
+    } // End of DESKTOP media query
   ` // End of styles
 );
 
