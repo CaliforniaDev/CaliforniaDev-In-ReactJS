@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle(props => {
       --nav-rail-width: 8rem;
       --mobile-nav-height: 8rem;
       --desktop-max-width: 1440px;
+      --app-height: 100%;
     }
 
     .visually-hidden {
@@ -83,6 +84,12 @@ export const GlobalStyles = createGlobalStyle(props => {
       border: none; /* removes default border */
       padding: 0; /* removes default padding */
       margin: 0; /* removes default margin */
+    }
+
+    .full-height-element {
+      height: 100vh; /* Fallback */
+      height: 100dvh; /* Viewport Height */
+      height: var(--app-height);
     }
   `;
 });
