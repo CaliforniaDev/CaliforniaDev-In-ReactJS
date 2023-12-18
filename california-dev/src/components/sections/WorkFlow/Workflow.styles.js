@@ -21,23 +21,36 @@ export const Section = styled.section(
       max-width: 1440px;
       overflow: hidden;
     }
-
     h2 {
       ${typography.headline.small};
     }
+    p {
+      ${typography.body.large};
+    }
 
-    ${media.TABLET`
+    @media (min-width: ${media.device.tablet}) {
+      h2 {
+        ${typography.display.small};
+      }
+      .body-text {
+        max-width: 100%;
+      }
+    }
+
+    @media (min-width: ${media.device.tabletLarge}) {
       svg {
         display: block;
       }
+
       h2 {
         ${typography.display.medium};
       }
+
       .content-wrapper {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        max-width: 46rem;
+        max-width: 50rem;
         text-align: left;
         word-break: keep-all;
       }
@@ -45,16 +58,20 @@ export const Section = styled.section(
         display: flex;
         justify-content: flex-end;
       }
-
-    `}
+    }
 
     @media (min-width: ${media.device.desktop}) {
       .content-container {
         max-width: var(--desktop-max-width);
       }
-      padding: 6.4rem ${media.padding.LARGE};
+      padding: ${media.padding.LARGE};
       h2 {
         ${typography.display.large};
+      }
+
+      .body-text {
+        ${typography.body.xlarge};
+        max-width: 100%;
       }
     }
   `
@@ -74,7 +91,7 @@ export const Article = styled.article(
     }
 
     .dots-svg.first-article {
-      left: 1000px;
+      right: 0;
       top: 50%;
       transform: translateY(-50%);
     }
