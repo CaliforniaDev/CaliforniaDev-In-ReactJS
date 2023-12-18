@@ -22,7 +22,7 @@ export const Workflow = React.forwardRef((props, ref) => {
         <Article>
           <div className="content-wrapper">
             <h2>UI / UX Design</h2>
-            <p>
+            <p className="body-text">
               During the initial design process, both low-fidelity wire-frames
               and interactive hi-fidelity prototypes are produced using Figma.
               Each design undergoes extensive design research and development of
@@ -37,7 +37,7 @@ export const Workflow = React.forwardRef((props, ref) => {
         <Article className="flex-end">
           <div className="content-wrapper">
             <h2>Engineering</h2>
-            <p>
+            <p className="body-text">
               After completing the prototype, the next step is to plan the
               optimal software architecture for the project. All code is written
               with an emphasis on cleanliness, responsiveness, and testing, to
