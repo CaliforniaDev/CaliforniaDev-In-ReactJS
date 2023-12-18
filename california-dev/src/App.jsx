@@ -1,8 +1,8 @@
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeContextProvider } from 'context/ThemeContext';
 import { ScrollProvider } from 'context/ScrollContext';
+import { useViewportHeight } from 'hooks/useViewportHeight';
 
-import { FloatingActionButton } from 'components/ui/FloatingActionButton/FloatingActionButton';
 
 
 import { MainBody } from 'components/Main';
@@ -33,15 +33,14 @@ const routes = [
   },
 ];
 
-// const router = createBrowserRouter(routes);
-const router = createHashRouter(routes);
+const router = createBrowserRouter(routes);
 
 function App() {
+  useViewportHeight();
   return (
     <ThemeContextProvider>
       <ScrollProvider>
         <RouterProvider router={router} />
-        {/* <FloatingActionButton /> */}
       </ScrollProvider>
     </ThemeContextProvider>
   );
