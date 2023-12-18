@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useNavContext } from 'context/NavigationContext';
 import { motion } from 'framer-motion';
 import { useTheme } from 'context/ThemeContext';
@@ -57,10 +58,23 @@ const themeButtonAnimationVariants = {
   },
 };
 
-export const MobileNav = ({ navItemSet }) => {
+export const MobileNav = ({ navItemSet, isInView }) => {
+  const navigate = useNavigate();
   const { toggleTheme } = useTheme();
-  const { isMenuOpen } = useNavContext();
+  const { isMenuOpen, isProgrammaticScroll } = useNavContext();
   const { handleMenuToggle } = useMobileNav();
+
+  const updateRouterOnUserScroll = () => {
+    if (isInView && !isProgrammaticScroll) {
+      const hashRoute = `/${isInView}`;
+      navigate(hashRoute);
+    }
+  };
+  useEffect(updateRouterOnUserScroll, [
+    isInView,
+    isProgrammaticScroll,
+    navigate,
+  ]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -75,9 +89,6 @@ export const MobileNav = ({ navItemSet }) => {
     };
   }, [isMenuOpen]);
 
-  // Determine the display style for the logo <span> wrapper
-
-  // Determine the class for the nav based on isFab
   return (
     <Nav
       initial={false}
