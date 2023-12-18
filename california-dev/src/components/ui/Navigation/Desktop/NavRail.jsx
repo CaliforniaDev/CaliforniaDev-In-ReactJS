@@ -32,15 +32,7 @@ export const NavRail = ({
   // Hooks
   const { toggleTheme } = useTheme(); // Manages theme states.
   const navigate = useNavigate(); // Navigational utility.
-  // const {
-  //   activeAnchor,//
-  //   pressedAnchor,//
-  //   navLinksRefs,
-  //   handleMouseDown,//
-  //   handleMouseUp,//
-  //   handleNavLinkClick,//
-  //   isProgrammaticScroll,//
-  // } = useNavRail(); // Custom hook to manage NavRail state and behaviors.
+
 
   const { activeAnchor, pressedAnchor, isProgrammaticScroll } = useNavContext();
 
@@ -65,7 +57,7 @@ export const NavRail = ({
   ]);
 
   return (
-    <Nav className="nav">
+    <Nav className="nav full-height-element">
       <Link to="/">
         <Logo className="logo" />
       </Link>
