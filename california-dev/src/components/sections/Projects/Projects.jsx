@@ -79,3 +79,5 @@ export const Projects = React.forwardRef((props, ref) => {
     </ProjectSection>
   );
 });
+
+Projects.displayName = 'Projects';

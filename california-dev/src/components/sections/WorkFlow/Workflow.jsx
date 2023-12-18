@@ -55,3 +55,5 @@ export const Workflow = React.forwardRef((props, ref) => {
     </Section>
   );
 });
+
+Workflow.displayName = 'Workflow';

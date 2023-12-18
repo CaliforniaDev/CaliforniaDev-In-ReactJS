@@ -81,3 +81,5 @@ export const Skills = React.forwardRef((props, ref) => {
     </Section>
   );
 });
+
+Skills.displayName = 'Skills';

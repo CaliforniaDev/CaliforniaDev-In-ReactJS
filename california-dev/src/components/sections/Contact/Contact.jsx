@@ -157,3 +157,5 @@ export const Contact = React.forwardRef((props, ref) => {
     </ContactSection>
   );
 });
+
+Contact.displayName = 'Contact';

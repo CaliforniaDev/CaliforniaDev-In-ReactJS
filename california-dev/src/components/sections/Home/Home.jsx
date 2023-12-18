@@ -133,3 +133,5 @@ export const Home = React.forwardRef((props, ref) => {
     </StyledSection>
   );
 });
+
+Home.displayName = 'Home';
