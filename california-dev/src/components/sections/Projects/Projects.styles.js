@@ -54,7 +54,7 @@ export const ProjectSection = styled.section(
       }
 
       @media (min-width: ${media.device.desktop}) {
-        padding: var(--vertical-padding) ${media.padding.LARGE};
+        padding: ${media.padding.LARGE};
         h2 {
           ${typography.headline.large};
         }
@@ -66,6 +66,9 @@ export const ProjectSection = styled.section(
         .card-container {
           grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
         }
+      }
+      @media (min-width: ${media.device.large}) {
+        padding: ${media.padding.XLARGE};
       }
     `;
   }
