@@ -53,6 +53,17 @@ export const Skills = React.forwardRef((props, ref) => {
     { IconComponent: ReactIcon, title: 'React' },
   ];
 
+  const skillsList = iconComponents.map((icon, index) => {
+    return (
+      <motion.li variants={itemVariants} key={index}>
+        <div className="card">
+          <icon.IconComponent className="card-icon" />
+          <p className='card-title'>{icon.title}</p>
+        </div>
+      </motion.li>
+    )
+  })
+
   return (
     <Section ref={ref} id="skills-section">
       <motion.div
@@ -62,19 +73,10 @@ export const Skills = React.forwardRef((props, ref) => {
         viewport={{ threshold: 0.5, once: true }}
         className="content-container"
       >
-        <h2>-Skills & Technical Proficiencies-</h2>
-        <div className="flex-wrapper">
-          {iconComponents.map((icon, index) => (
-            <motion.div
-              variants={itemVariants}
-              className="skills-card"
-              key={index}
-            >
-              <icon.IconComponent className="skills-card__icon" />
-              <p className="skills-card__text">{icon.title}</p>
-            </motion.div>
-          ))}
-        </div>
+        <h2 className="section-title">-Skills & Technical Proficiencies-</h2>
+        <ul className="grid-container">
+          {skillsList}
+        </ul>
       </motion.div>
     </Section>
   );
