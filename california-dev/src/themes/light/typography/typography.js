@@ -123,6 +123,14 @@ export const typography = {
     `,
   },
   body: {
+    xlarge: css`
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.8rem;
+      line-height: 2.6rem;
+      letter-spacing: 0.05rem;
+    `,
     large: css`
       font-family: 'Roboto', sans-serif;
       font-style: normal;
