@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import MediaQuery from 'react-responsive';
 import { motion } from 'framer-motion';
 
 // UI Components
@@ -14,7 +13,7 @@ import {
 } from 'assets/images/shapes';
 
 // Assets
-import pdfResume from 'assets/docs/resume.pdf';
+// import pdfResume from 'assets/docs/resume.pdf';
 
 // Constants and Data
 import {
@@ -62,8 +61,6 @@ const Header = () => {
           dedication lies in creating interactive and engaging web applications.
         </p>
         <br />
-        {/* DESKTOP 992px */}
-        {/* <MediaQuery minWidth={`${992 / 16}em`}> */}
         <p>
           With a unique blend of creativity and technical expertise, my
           specialization involves crafting intuitive and user-friendly web apps
@@ -72,7 +69,6 @@ const Header = () => {
           up with the latest technologies and industry best practices
         </p>
       </div>
-      {/* </MediaQuery> */}
       <ZigZagPattern className="zigzag-svg secondary new" />
     </header>
   );
@@ -112,7 +108,7 @@ export const Home = React.forwardRef((props, ref) => {
   return (
     <StyledSection ref={ref} id="home-section">
       <div className="content-container">
-        <article className="content-container">
+        <article>
           <Header />
           <div className="link-items-container">
             <Button
