@@ -12,7 +12,7 @@ export const Section = styled.section(
       
       .section-title {
         ${typography.headline.small};
-        margin-bottom: 8px;
+        margin-bottom: 16px;
       }
 
       .content-container {
