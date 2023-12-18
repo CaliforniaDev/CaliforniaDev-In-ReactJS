@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const Section = styled.section(
   ({ theme: { palette, typography, elevation, media } }) => {
-    console.log(media.padding);
     return css`
       display: flex;
       flex-direction: column;
@@ -10,68 +9,52 @@ export const Section = styled.section(
       background-color: ${palette.surface};
       padding: 40px ${media.padding.SMALL};
       gap: 1.6rem;
-
-      h2 {
+      
+      .section-title {
         ${typography.headline.small};
         margin-bottom: 8px;
       }
-      h3 {
-        ${typography.title.large};
+
+      .content-container {
+        max-width: var(--desktop-max-width);
+        width: 100%;
+        margin-inline: auto;
       }
-
-      .flex-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: -8px;
-
-        > div {
-          flex-grow: 0;
-          flex-basis: calc(25% - 16px);
-          max-width: calc(25% - 16px);
-          margin: 8px;
-        }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+        gap: 1.6rem;
       }
-
-      .skills-card {
+      .card {
+        background-color: ${palette.surfaceContainerLow};
+        box-shadow: ${elevation.level1};
+        border-radius: 12px;
+        padding: 24px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        aspect-ratio: 0.8/ 1;
-        border-radius: 12px;
-        padding: 24px;
-        background-color: ${palette.surfaceContainerLow};
-        box-shadow: ${elevation.level1};
-
-        .skills-card__text {
-          padding-top: 12px;
-          ${typography.title.small};
-        }
       }
 
-      .skills-card__icon {
+      .card-title {
+        padding-top: 12px;
+        ${typography.title.small};
+      }
+
+      .card-icon {
         // this className is hardcoded in the svg file
         .github-icon__path {
           fill: ${palette.onSurface};
         }
       }
-      ${media.DESKTOP`
-        padding: 136px ${media.padding.LARGE};
-
-        h2 {
+      @media (min-width: ${media.device.desktop}) {
+        padding: ${media.padding.LARGE};
+        .section-title {
           ${typography.headline.large};
         }
-        .content-container {
-          margin: auto;
-          max-width: var(--desktop-max-width);
+        .grid-container {
+          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
         }
-        .flex-wrapper > div {
-          flex-basis: calc(16.5% - 16px); 
-          max-width: calc(16.5% - 16px); 
-        }
-        .skills-card {
-  
-        }
-      `}
+      }
     `; // End of css return
   }
 );
