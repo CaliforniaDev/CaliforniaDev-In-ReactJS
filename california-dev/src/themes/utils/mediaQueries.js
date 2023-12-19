@@ -13,6 +13,7 @@ const BREAKPOINTS = {
 };
 
 const BREAKPOINTS_NEW = {
+  xlarge: `${1920 / 16}em`,
   large: `${1440 / 16}em`,
   desktop: `${1280 / 16}em`,
   tabletLarge: `${1024 / 16}em`,
