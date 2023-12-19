@@ -67,7 +67,7 @@ export const ProjectSection = styled.section(
           grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
         }
       }
-      @media (min-width: ${media.device.large}) {
+      @media (min-width: ${media.device.xlarge}) {
         padding: ${media.padding.XLARGE};
       }
     `;
