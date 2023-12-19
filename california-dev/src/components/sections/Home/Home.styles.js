@@ -95,8 +95,6 @@ export const StyledSection = styled.section(
           width: inherit;
           height: inherit;
           opacity: 0.8;
-          backdrop-filter: blur(100px);
-
           background-color: ${palette.secondary};
           right: -20px;
           bottom: -20px;
@@ -127,8 +125,8 @@ export const StyledSection = styled.section(
           position: absolute;
         }
         .zigzag-svg.secondary {
-          right: -140px;
-          top: 216px;
+          left: -80px;
+          top: 280px;
           path {
             stroke: ${palette.secondary};
           }
@@ -166,7 +164,7 @@ export const StyledSection = styled.section(
         }
         header {
           position: relative;
-          width: 60rem;
+          max-width: 60rem;
         }
 
         .content-container {
@@ -189,17 +187,23 @@ export const StyledSection = styled.section(
         }
 
         #photo-wrapper {
-          width: 36.8rem;
-          height: 44.8rem;
+          width: 30rem;
+          height: 38rem;
         }
+
+        .zigzag-svg.secondary {
+          left: -100px;
+          top: 400px;
+        }
+      }
+      @media (min-width: ${media.device.xlarge}) {
+        padding: ${media.padding.XLARGE};
       }
     `;
   }
 );
 
-
-
-        /* .content-container {
+/* .content-container {
           position: relative;
           width: 100%;
           display: flex;
