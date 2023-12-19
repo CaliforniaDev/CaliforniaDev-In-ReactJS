@@ -9,7 +9,7 @@ export const Section = styled.section(
       background-color: ${palette.surface};
       padding: 40px ${media.padding.SMALL};
       gap: 1.6rem;
-      
+
       .section-title {
         ${typography.headline.small};
         margin-bottom: 16px;
@@ -54,6 +54,9 @@ export const Section = styled.section(
         .grid-container {
           grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
         }
+      }
+      @media (min-width: ${media.device.xlarge}) {
+        padding: ${media.padding.XLARGE};
       }
     `; // End of css return
   }
