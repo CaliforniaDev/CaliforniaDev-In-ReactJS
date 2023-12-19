@@ -69,7 +69,6 @@ const Header = () => {
           up with the latest technologies and industry best practices
         </p>
       </div>
-      <ZigZagPattern className="zigzag-svg secondary new" />
     </header>
   );
 };
@@ -87,6 +86,7 @@ const ProfileImage = () => {
       <span className="outline-frame"></span>
       <ZigZagPattern className="zigzag-svg primary" />
       <span className="filled-frame"></span>
+      <ZigZagPattern className="zigzag-svg secondary" />
     </figure>
   );
 };
