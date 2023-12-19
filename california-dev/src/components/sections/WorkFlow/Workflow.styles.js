@@ -61,10 +61,11 @@ export const Section = styled.section(
     }
 
     @media (min-width: ${media.device.desktop}) {
+      padding: ${media.padding.LARGE};
       .content-container {
         max-width: var(--desktop-max-width);
       }
-      padding: ${media.padding.LARGE};
+
       h2 {
         ${typography.display.large};
       }
@@ -73,6 +74,9 @@ export const Section = styled.section(
         ${typography.body.xlarge};
         max-width: 100%;
       }
+    }
+    @media (min-width: ${media.device.xlarge}) {
+      padding: ${media.padding.XLARGE};
     }
   `
 );
