@@ -9,7 +9,7 @@ export const Section = styled.section(
       background-color: ${palette.surface};
       padding: 40px ${media.padding.SMALL};
       gap: 1.6rem;
-
+      
       .section-title {
         ${typography.headline.small};
         margin-bottom: 16px;
