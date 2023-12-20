@@ -20,6 +20,7 @@ export const ThemeContext = createContext();
 
 export const ThemeContextProvider = ({ children }) => {
   const [stylesloaded, setStylesloaded] = useState(false);
+  const [theme, setTheme] = useState(lightTheme);
   const [themeMode, setThemeMode] = useState(
     localStorage.getItem('themeMode') === 'dark' ? 'dark' : 'light'
   );
@@ -32,6 +33,7 @@ export const ThemeContextProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('themeMode', themeMode);
+    setTheme(themeMode === 'light' ? lightTheme : darkTheme);
   }, [themeMode]);
 
   const toggleTheme = () => {
@@ -44,7 +46,7 @@ export const ThemeContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, themeMode, toggleTheme }}>
       {stylesloaded && (
         <StyledThemeProvider
           theme={themeMode === 'light' ? lightTheme : darkTheme}
