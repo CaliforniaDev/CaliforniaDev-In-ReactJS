@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { motion } from 'framer-motion';
 import { motionVariants as variants } from 'components/ui/utils/motionVariants';
@@ -47,11 +47,37 @@ export const Contact = React.forwardRef((props, ref) => {
     inquiryType: '',
     message: '',
   };
-
   const { formData, formErrors, handleChange, handleSubmit } = useValidation(
     initialState,
     validateContactForm
   );
+  const firstNameRef = React.useRef(null);
+  const lastNameRef = React.useRef(null);
+  const emailRef = React.useRef(null);
+  const phoneNumberRef = React.useRef(null);
+  const radioFieldsetRef = React.useRef(null);
+  const messageRef = React.useRef(null);
+
+  const [selectedRadio, setSelectedRadio] = useState('');
+
+  function handleEnterKey(e, nextFieldRef, isRadioGroup = false) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (isRadioGroup) {
+        if (!selectedRadio) {
+          setSelectedRadio('firstRadioValue'); // Replace 'firstRadioValue' with the actual value of your first radio button
+        }
+        // Focus the first radio button in the group
+        const firstRadioButton = radioFieldsetRef.current?.querySelector(
+          'input[type="radio"]'
+        );
+        firstRadioButton?.focus();
+      } else {
+        nextFieldRef.current?.focus();
+      }
+    }
+  }
+
   return (
     <ContactSection ref={ref} id="contact-us-section">
       <motion.div
@@ -66,6 +92,7 @@ export const Contact = React.forwardRef((props, ref) => {
           <FormHeader />
           <fieldset className="field-grid">
             <TextField
+              ref={firstNameRef}
               type="text"
               name="firstName"
               label="First Name"
@@ -73,8 +100,10 @@ export const Contact = React.forwardRef((props, ref) => {
               error={formErrors.firstName}
               id="firstName"
               onChange={handleChange}
+              onKeyDown={e => handleEnterKey(e, lastNameRef)}
             />
             <TextField
+              ref={lastNameRef}
               type="text"
               name="lastName"
               label="Last Name"
@@ -82,8 +111,10 @@ export const Contact = React.forwardRef((props, ref) => {
               error={formErrors.lastName}
               id="lastName"
               onChange={handleChange}
+              onKeyDown={e => handleEnterKey(e, emailRef)}
             />
             <TextField
+              ref={emailRef}
               type="text"
               name="email"
               label="Email"
@@ -91,8 +122,10 @@ export const Contact = React.forwardRef((props, ref) => {
               error={formErrors.email}
               id="email"
               onChange={handleChange}
+              onKeyDown={e => handleEnterKey(e, phoneNumberRef)}
             />
             <TextField
+              ref={phoneNumberRef}
               type="text"
               name="phoneNumber"
               label="Phone Number"
@@ -100,9 +133,10 @@ export const Contact = React.forwardRef((props, ref) => {
               error={formErrors.phoneNumber}
               id="phoneNumber"
               onChange={handleChange}
+              onKeyDown={e => handleEnterKey(e, messageRef)}
             />
           </fieldset>
-          <RadioButtonFieldset>
+          <RadioButtonFieldset ref={radioFieldsetRef}>
             <legend>Select Subject?</legend>
             <RadioButton
               label="Hiring Inquiry"
@@ -139,12 +173,14 @@ export const Contact = React.forwardRef((props, ref) => {
           </RadioButtonFieldset>
           <TextField
             multiline
+            ref={messageRef}
             label="Write your message..."
             name="message"
             className="form-message"
             value={formData.message}
             id="message"
             onChange={handleChange}
+            onKeyDown={e => handleEnterKey(e, 'submit-button')}
           />
           <Button
             type="submit"
