@@ -113,6 +113,9 @@ export const ContactSection = styled.section(
         }
       }
     } // End of DESKTOP media query
+    @media (min-width: ${media.device.xlarge}) {
+      padding: ${media.padding.XLARGE};
+    }
   ` // End of styles
 );
 
@@ -121,7 +124,7 @@ export const RadioButtonFieldset = styled.fieldset(
     display: flex;
     flex-direction: column;
     text-align: left;
-    gap: 30px;
+    gap: 4rem;
     flex-wrap: wrap;
     ${typography.body.medium};
 
