@@ -1,15 +1,17 @@
-import { useState } from 'react';
+
+import React, { useState } from 'react';
 import { Input, InputField, Label } from './TextField.styles';
 
-export const TextField = ({
+export const TextField = React.forwardRef(({
   label = 'Your label',
   type = 'text',
   multiline = false,
   value,
   onChange,
   id,
+  onKeyDown,
   ...props
-}) => {
+}, ref) => {
   const [isFocused, setIsFocused] = useState(false);
   function handleFocus() {
     setIsFocused(true);
@@ -24,10 +26,12 @@ export const TextField = ({
   return (
     <InputField $isFocused={isFocused}>
       <Input
+        ref={ref}
         as={InputOrTextarea}
         type={type}
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
         onFocus={handleFocus}
         onBlur={handleBlur}
         $isFocused={isFocused}
@@ -40,4 +44,8 @@ export const TextField = ({
       </Label>
     </InputField>
   );
-};
+});
+
+TextField.displayName = 'TextField';
+
+
