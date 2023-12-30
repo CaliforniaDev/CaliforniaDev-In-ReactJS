@@ -3,8 +3,6 @@ import { ThemeContextProvider } from 'context/ThemeContext';
 import { ScrollProvider } from 'context/ScrollContext';
 import { useViewportHeight } from 'hooks/useViewportHeight';
 
-
-
 import { MainBody } from 'components/Main';
 import { ProjectDetails } from 'pages/ProjectDetails';
 import { Sandbox } from 'utils/Sandbox/Sandbox';
@@ -39,9 +37,7 @@ function App() {
   useViewportHeight();
   return (
     <ThemeContextProvider>
-      <ScrollProvider>
-        <RouterProvider router={router} />
-      </ScrollProvider>
+      <RouterProvider router={router} />
     </ThemeContextProvider>
   );
 }
