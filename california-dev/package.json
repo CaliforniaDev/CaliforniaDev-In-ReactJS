@@ -1,16 +1,17 @@
 {
   "name": "california-dev",
-  "homepage": "https://CaliforniaDev.github.io/CaliforniaDev-In-ReactJS",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.11.9",
+    "@sendgrid/mail": "^8.1.0",
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
     "chai": "^4.3.7",
+    "dotenv": "^16.3.1",
     "framer-motion": "^10.12.16",
     "gh-pages": "^6.1.0",
     "mocha": "^10.2.0",
