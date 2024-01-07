@@ -5,3 +5,8 @@
     command = "yarn build"
     functions = "netlify/functions"
     publish = "build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
