@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeContextProvider } from 'context/ThemeContext';
-import { ScrollProvider } from 'context/ScrollContext';
+// import { ScrollProvider } from 'context/ScrollContext';
 import { useViewportHeight } from 'hooks/useViewportHeight';
 
 import { MainBody } from 'components/Main';
