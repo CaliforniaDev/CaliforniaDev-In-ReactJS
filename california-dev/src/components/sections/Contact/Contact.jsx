@@ -82,6 +82,8 @@ export const Contact = React.forwardRef((props, ref) => {
         setButtonText('✔ Sent');
         setTimeout(resetForm, 3000);
       } catch (error) {
+        setButtonText('Error');
+        setTimeout(resetForm, 3000);
         console.error('Error submitting form:', error.message);
         // setSubmissionStatus('Error submitting form. Please try again later.');
       } finally {
