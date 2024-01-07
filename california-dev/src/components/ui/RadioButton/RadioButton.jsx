@@ -13,7 +13,7 @@ export const RadioButton = ({
 }) => {
   return (
     <RadioLabel ref={ref} htmlFor={id}>
-      <TargetWrapper isChecked={checked} isDisabled={disabled}>
+      <TargetWrapper $isChecked={checked} $isDisabled={disabled}>
         <StateLayer className="state-layer" />
         <RadioInput
           id={id}

@@ -26,6 +26,7 @@ export const TextField = React.forwardRef(({
   return (
     <InputField $isFocused={isFocused}>
       <Input
+        id={id}
         ref={ref}
         as={InputOrTextarea}
         type={type}
