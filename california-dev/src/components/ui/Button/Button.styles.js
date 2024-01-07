@@ -93,19 +93,31 @@ export const FilledBtn = styled(DefaultBtn)(({
     /** Hover state */
     &:hover {
       box-shadow: ${elevation.level1};
+      .state-layer {
+        opacity: 0.12;
+      }
     }
     /** Focus state */
     &:focus-visible {
       box-shadow: ${elevation.level0};
+      border: 2px solid ${palette.tertiary};
+      .state-layer {
+        opacity: 0.18;
+      }
     }
     /** Active state */
     &:active {
       box-shadow: ${elevation.level0};
+      .state-layer {
+        opacity: 0.26;
+      }
     }
   `;
 });
 
-export const TonalBtn = styled(DefaultBtn)(({ theme: { palette, elevation } }) => {
+export const TonalBtn = styled(DefaultBtn)(({
+  theme: { palette, elevation },
+}) => {
   const CONTENT_COLOR = palette.onSecondaryContainer;
   return css`
     /** Main component styles */
