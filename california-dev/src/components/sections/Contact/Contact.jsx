@@ -50,7 +50,7 @@ export const Contact = React.forwardRef((props, ref) => {
     handleValidation,
   } = useValidation(validateContactForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = useState(null);
+  // const [submissionStatus, setSubmissionStatus] = useState(null);
   const [buttonText, setButtonText] = useState('Submit');
 
   // Refs for input fields for controlled focus management
@@ -65,7 +65,7 @@ export const Contact = React.forwardRef((props, ref) => {
   const resetForm = () => {
     setFormData(initialFormState);
     setFormErrors({});
-    setSubmissionStatus(null);
+    // setSubmissionStatus(null);
     setButtonText('Submit');
   };
 
@@ -73,17 +73,17 @@ export const Contact = React.forwardRef((props, ref) => {
     event.preventDefault();
     if (handleValidation()) {
       setIsSubmitting(true);
-      setSubmissionStatus('Sending...');
+      // setSubmissionStatus('Sending...');
       setButtonText('Sending...');
       try {
         // Submit form data through Netlify function, triggering SendGrid email
         await submitContactForm(formData);
-        setSubmissionStatus('Message sent successfully!');
+        // setSubmissionStatus('Message sent successfully!');
         setButtonText('✔ Sent');
         setTimeout(resetForm, 3000);
       } catch (error) {
         console.error('Error submitting form:', error.message);
-        setSubmissionStatus('Error submitting form. Please try again later.');
+        // setSubmissionStatus('Error submitting form. Please try again later.');
       } finally {
         setIsSubmitting(false);
       }
