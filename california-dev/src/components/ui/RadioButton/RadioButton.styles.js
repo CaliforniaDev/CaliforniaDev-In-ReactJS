@@ -55,8 +55,8 @@ export const RadioInput = styled.input(({ theme: { palette } }) => {
 });
 
 export const TargetWrapper = styled.div(
-  ({ isDisabled, isChecked, theme: { palette } }) => {
-    const STATE_LAYER_COLOR = isChecked ? palette.primary : palette.onSurface;
+  ({ $isDisabled, $isChecked, theme: { palette } }) => {
+    const STATE_LAYER_COLOR = $isChecked ? palette.primary : palette.onSurface;
     return css`
       position: relative;
       width: 48px;
@@ -76,13 +76,13 @@ export const TargetWrapper = styled.div(
         left: 50%;
         transform: translate(-50%, -50%);
 
-        ${isDisabled &&
+        ${$isDisabled &&
         css`
           opacity: 0;
         `}
       }
 
-      ${!isDisabled &&
+      ${!$isDisabled &&
       css`
         &:hover .state-layer {
           opacity: 0.08;
