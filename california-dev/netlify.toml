@@ -2,4 +2,6 @@
   command = "yarn start"
   targetPort = 3000
   [build]
+    command = "yarn build"
     functions = "netlify/functions"
+    publish = "build"
