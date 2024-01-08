@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 import { useNavigate } from 'react-router-dom';
 import { useNavContext } from 'context/NavigationContext';
 import { motion } from 'framer-motion';
@@ -128,4 +130,15 @@ export const MobileNav = ({ navItemSet, isInView }) => {
       <NavMenu className="nav-menu" navItemSet={navItemSet} />
     </Nav>
   );
+};
+
+MobileNav.propTypes = {
+  navItemSet: PropTypes.oneOf(['main', 'projectDetails']),
+  isInView: PropTypes.oneOf([
+    '#home-section',
+    '#workflow-section',
+    '#projects-section',
+    '#skills-section',
+    '#contact-us-section',
+  ]),
 };
