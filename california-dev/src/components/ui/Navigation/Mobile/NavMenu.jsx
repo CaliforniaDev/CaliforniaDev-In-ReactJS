@@ -5,7 +5,6 @@ import { navItemsData } from '../utils/navConfig';
 
 import { useMobileNav } from './hooks/useMobileNav';
 import { useNavContext } from 'context/NavigationContext';
-import { useRefsContext } from 'context/RefsContext';
 
 const variants = {
   menu: {
@@ -45,11 +44,9 @@ const MenuItems = navItemSet => {
   const navItems = navItemsData[navItemSet] || [];
   const { handleNavigation } = useMobileNav();
   const { activeAnchor } = useNavContext();
-  const refs = useRefsContext();
 
   return navItems.map(({ name, id, route }) => {
     const isActive = activeAnchor === id;
-    const sectionRef = refs[id]
     const className = isActive ? 'list-item active' : 'list-item';
     return (
       <motion.li
@@ -59,12 +56,13 @@ const MenuItems = navItemSet => {
         whileHover={{ scale: 1.1, marginLeft: '20px' }}
         whileTap={{ scale: 0.95, marginLeft: '0px' }}
       >
-        <span
+        <a
+          href={route}
           className="nav-link"
-          onClick={event => handleNavigation(event, id, route, sectionRef)}
+          onClick={event => handleNavigation(event, id, route)}
         >
           {name}
-        </span>
+        </a>
       </motion.li>
     );
   });

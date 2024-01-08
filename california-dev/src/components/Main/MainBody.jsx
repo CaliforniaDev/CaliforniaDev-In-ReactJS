@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { RefsProvider } from 'context/RefsContext';
 import { NavigationProvider } from 'context/NavigationContext';
 import { useMediaQuery } from 'react-responsive';
 import { motion, useInView } from 'framer-motion';
@@ -34,14 +33,6 @@ export function MainBody() {
   const projectsRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
-
-  const sectionRefs = {
-    '#home-section': homeRef,
-    '#workflow-section': workflowRef,
-    '#projects-section': projectsRef,
-    '#skills-section': skillsRef,
-    '#contact-us-section': contactRef,
-  };
 
   // Framer Motion hooks to track section visibility
   const homeInView = useInView(homeRef, { amount: IN_VIEW_THRESHOLD });
@@ -90,9 +81,7 @@ export function MainBody() {
 
   return (
     <MainContainer>
-      <RefsProvider refs={sectionRefs}>
-        <NavigationProvider>{renderNavigation()}</NavigationProvider>
-      </RefsProvider>
+      <NavigationProvider>{renderNavigation()}</NavigationProvider>
       <motion.div
         variants={variants.fadeIn}
         initial="hidden"
