@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { RefsProvider } from 'context/RefsContext';
 import { NavigationProvider } from 'context/NavigationContext';
 import { useMediaQuery } from 'react-responsive';
 import { motion, useInView } from 'framer-motion';
@@ -17,13 +18,15 @@ import { NavRail } from 'components/ui/Navigation/Desktop/';
 import { MainContainer } from './styles';
 const LOADING_DELAY = 500;
 const MEDIA_BREAKPOINT = 768 / 16;
-
-const IN_VIEW_THRESHOLD = 0.4; // Skill section has a value of 1
+const IN_VIEW_THRESHOLD = 0.4;
 
 export function MainBody() {
   // States
   const [isInView, setIsInView] = useState(null);
   const isLoaded = useFadeInOnLoad(LOADING_DELAY);
+  const isTabletOrLarger = useMediaQuery({
+    query: `(min-width: ${MEDIA_BREAKPOINT}em)`,
+  });
 
   // References to sections
   const homeRef = useRef(null);
@@ -31,6 +34,14 @@ export function MainBody() {
   const projectsRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
+
+  const sectionRefs = {
+    '#home-section': homeRef,
+    '#workflow-section': workflowRef,
+    '#projects-section': projectsRef,
+    '#skills-section': skillsRef,
+    '#contact-us-section': contactRef,
+  };
 
   // Framer Motion hooks to track section visibility
   const homeInView = useInView(homeRef, { amount: IN_VIEW_THRESHOLD });
@@ -63,23 +74,25 @@ export function MainBody() {
     }
   }, [homeInView, workflowInView, projectsInView, skillsInView, contactInView]);
 
-  const isTabletOrLarger = useMediaQuery({
-    query: `(min-width: ${MEDIA_BREAKPOINT}em)`,
-  });
+  const renderNavigation = () => {
+    if (isTabletOrLarger) {
+      return (
+        <NavRail
+          defaultRoute="/#home-section"
+          isInView={isInView}
+          navItemSet="main"
+        />
+      );
+    } else {
+      return <MobileNav isInView={isInView} navItemSet="main" />;
+    }
+  };
 
   return (
     <MainContainer>
-      <NavigationProvider>
-        {isTabletOrLarger ? (
-          <NavRail
-            defaultRoute="/#home-section"
-            isInView={isInView}
-            navItemSet="main"
-          />
-        ) : (
-          <MobileNav isInView={isInView} navItemSet="main" />
-        )}
-      </NavigationProvider>
+      <RefsProvider refs={sectionRefs}>
+        <NavigationProvider>{renderNavigation()}</NavigationProvider>
+      </RefsProvider>
       <motion.div
         variants={variants.fadeIn}
         initial="hidden"
