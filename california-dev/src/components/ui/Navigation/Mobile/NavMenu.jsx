@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { motion } from 'framer-motion';
 import { navItemsData } from '../utils/navConfig';
 
@@ -73,4 +75,11 @@ export const NavMenu = ({ className, navItemSet }) => {
       {MenuItems(navItemSet)}
     </motion.ul>
   );
+};
+
+NavMenu.propTypes = {
+  navItemSet: PropTypes.oneOf(['main', 'projectDetails']),
+};
+MenuItems.propTypes = {
+  navItemSet: PropTypes.oneOf(['main', 'projectDetails']),
 };
