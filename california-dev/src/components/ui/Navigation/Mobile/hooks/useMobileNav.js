@@ -1,31 +1,38 @@
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useNavContext } from 'context/NavigationContext';
 
-export const useMobileNav = () => {
-  const { setIsMenuOpen,setActiveAnchor, setIsProgrammaticScroll } = useNavContext();
+export const useMobileNav = (navbarHeight = 80) => {
+  const { setIsMenuOpen, setActiveAnchor, setIsProgrammaticScroll } = useNavContext();
   const navigate = useNavigate();
 
-  const handleMenuLinkClick = (event, id, route) => {
-    setIsProgrammaticScroll(true);
-    if (id) {
-      const targetElement = document.querySelector(id);
-      if (targetElement) {
+  const handleMenuToggle = useCallback(() => {
+    setIsMenuOpen(prevState => !prevState);
+  }, [setIsMenuOpen]);
+
+  const handleNavigation = useCallback(
+    (event, id, route, sectionRef) => {
+      setIsProgrammaticScroll(true);
+      if (sectionRef.current) {
         event.preventDefault();
         handleMenuToggle();
+        sectionRef.current.style.scrollMargin = `${navbarHeight}px`;
+        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
         setActiveAnchor(id);
-        targetElement.scrollIntoView({ behavior: 'smooth' });
       }
-    }
-    
-    return navigate(route);
-  };
-
-  const handleMenuToggle = () => {
-    setIsMenuOpen(prevState => !prevState);
-  };
+      return navigate(route);
+    },
+    [
+      setActiveAnchor,
+      setIsProgrammaticScroll,
+      handleMenuToggle,
+      navbarHeight,
+      navigate,
+    ]
+  );
 
   return {
     handleMenuToggle,
-    handleMenuLinkClick,
+    handleNavigation,
   };
 };
