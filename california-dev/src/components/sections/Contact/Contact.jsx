@@ -32,9 +32,9 @@ const SVGDecoration = () => {
 const FormHeader = () => {
   return (
     <header>
-      <h2>Contact Us</h2>
+      <h2>Contact Me</h2>
       <p className="contact-subtext">
-        Any question or remarks? <span>Just write us a message below!</span>
+        Any question or remarks? <span>Just write me a message below!</span>
       </p>
     </header>
   );
