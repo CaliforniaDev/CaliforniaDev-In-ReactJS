@@ -148,6 +148,9 @@ export const StyledSection = styled.section(
           pointer-events: none;
         }
       }
+      @media (min-width: ${media.device.tablet}) {
+        margin-top: 0; // resets margin set up for scrollMargin 
+      }
       @media (min-width: ${media.device.tabletLarge}) {
         flex-direction: row;
         justify-content: space-between;
@@ -177,6 +180,7 @@ export const StyledSection = styled.section(
 
       @media (min-width: ${media.device.desktop}) {
         padding: ${media.padding.LARGE};
+       
         .display {
           ${typography.display.large}
         }
