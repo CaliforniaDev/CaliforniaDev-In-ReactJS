@@ -124,7 +124,6 @@ export const RadioButtonFieldset = styled.fieldset(
     display: flex;
     flex-direction: column;
     text-align: left;
-    gap: 4rem;
     flex-wrap: wrap;
     ${typography.body.medium};
 
@@ -137,6 +136,7 @@ export const RadioButtonFieldset = styled.fieldset(
 
     ${media.DESKTOP`
       flex-direction: row;
+      gap: 4rem;
     `}
   `
 );
