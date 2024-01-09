@@ -8,6 +8,7 @@ export const StyledSection = styled.section(
       padding: 4rem ${media.padding.SMALL};
       align-items: center;
       max-height: min-content;
+      margin-top: var(--mobile-nav-height);
 
       .display {
         ${typography.display.medium}
@@ -29,10 +30,10 @@ export const StyledSection = styled.section(
         display: flex;
         align-items: center;
         gap: 1.6rem;
-        justify-content: space-between;
       }
       .resume-btn {
         width: 100%;
+        max-width: 200px;
       }
       .social-links {
         display: flex;
