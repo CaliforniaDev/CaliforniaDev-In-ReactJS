@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { motion } from 'framer-motion';
 import { navItemsData } from '../utils/navConfig';
 
@@ -40,8 +42,7 @@ const variants = {
 
 const MenuItems = navItemSet => {
   const navItems = navItemsData[navItemSet] || [];
-
-  const { handleMenuLinkClick } = useMobileNav();
+  const { handleNavigation } = useMobileNav();
   const { activeAnchor } = useNavContext();
 
   return navItems.map(({ name, id, route }) => {
@@ -58,7 +59,7 @@ const MenuItems = navItemSet => {
         <a
           href={route}
           className="nav-link"
-          onClick={event => handleMenuLinkClick(event, id, route)}
+          onClick={event => handleNavigation(event, id, route)}
         >
           {name}
         </a>
@@ -73,4 +74,11 @@ export const NavMenu = ({ className, navItemSet }) => {
       {MenuItems(navItemSet)}
     </motion.ul>
   );
+};
+
+NavMenu.propTypes = {
+  navItemSet: PropTypes.oneOf(['main', 'projectDetails']),
+};
+MenuItems.propTypes = {
+  navItemSet: PropTypes.oneOf(['main', 'projectDetails']),
 };

@@ -14,16 +14,18 @@ import { MobileNav } from 'components/ui/Navigation/Mobile';
 import { NavRail } from 'components/ui/Navigation/Desktop/';
 
 //Styled Components
-import { MainContainer } from './styles';
+import { MainContainer } from './MainBody.styles';
 const LOADING_DELAY = 500;
 const MEDIA_BREAKPOINT = 768 / 16;
-
-const IN_VIEW_THRESHOLD = 0.4; // Skill section has a value of 1
+const IN_VIEW_THRESHOLD = 0.4;
 
 export function MainBody() {
   // States
   const [isInView, setIsInView] = useState(null);
   const isLoaded = useFadeInOnLoad(LOADING_DELAY);
+  const isTabletOrLarger = useMediaQuery({
+    query: `(min-width: ${MEDIA_BREAKPOINT}em)`,
+  });
 
   // References to sections
   const homeRef = useRef(null);
@@ -63,23 +65,23 @@ export function MainBody() {
     }
   }, [homeInView, workflowInView, projectsInView, skillsInView, contactInView]);
 
-  const isTabletOrLarger = useMediaQuery({
-    query: `(min-width: ${MEDIA_BREAKPOINT}em)`,
-  });
+  const renderNavigation = () => {
+    if (isTabletOrLarger) {
+      return (
+        <NavRail
+          defaultRoute="/#home-section"
+          isInView={isInView}
+          navItemSet="main"
+        />
+      );
+    } else {
+      return <MobileNav isInView={isInView} navItemSet="main" />;
+    }
+  };
 
   return (
     <MainContainer>
-      <NavigationProvider>
-        {isTabletOrLarger ? (
-          <NavRail
-            defaultRoute="/#home-section"
-            isInView={isInView}
-            navItemSet="main"
-          />
-        ) : (
-          <MobileNav isInView={isInView} navItemSet="main" />
-        )}
-      </NavigationProvider>
+      <NavigationProvider>{renderNavigation()}</NavigationProvider>
       <motion.div
         variants={variants.fadeIn}
         initial="hidden"
