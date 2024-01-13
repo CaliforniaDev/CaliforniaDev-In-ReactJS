@@ -5,7 +5,6 @@ export const useViewportHeight = () => {
     const updateAppHeight = () => {
       const appHeight = window.innerHeight + 'px';
       document.documentElement.style.setProperty('--app-height', appHeight);
-      console.log('appHeight: ', appHeight)
     };
 
     window.addEventListener('resize', updateAppHeight);
