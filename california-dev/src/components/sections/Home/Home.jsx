@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { useLoadingContext } from 'context/LoadingContext';
+import { useTheme } from 'context/ThemeContext';
+
 import { motion } from 'framer-motion';
+import { StyledSection } from './Home.styles';
 
 // UI Components
 import { Button } from 'components/ui/Button';
 import { IconButton } from 'components/ui/IconButton';
+import { Reveal } from 'components/utils/Reveal';
 
 // svg decorations
 import {
@@ -23,8 +28,6 @@ import {
   socialMediaData,
 } from './data/homeData';
 
-import { StyledSection } from './Home.styles';
-
 const MovingSmallZigZagSvg = ({ coordinates }) => {
   return (
     <motion.div
@@ -35,6 +38,19 @@ const MovingSmallZigZagSvg = ({ coordinates }) => {
     >
       <SmallZigZagSvg />
     </motion.div>
+  );
+};
+
+const RevealWrapper = ({ children }) => {
+  const isLoading = useLoadingContext();
+  const {
+    theme: { palette },
+  } = useTheme();
+  const slideColor = palette.secondary;
+  return (
+    <Reveal slideColor={slideColor} isLoading={isLoading}>
+      {children}
+    </Reveal>
   );
 };
 
@@ -51,23 +67,32 @@ const SocialMediaLink = ({ icon, href, onHover }) => (
 const Header = () => {
   return (
     <header>
-      <h2 className="headline">👋🏽 Hi There! Im,</h2>
-      <h1 className="display">
-        <span className="primary-color">LEO</span> DANIELS
-      </h1>
+      <RevealWrapper>
+        <h2 className="headline">👋🏽 Hi There! Im,</h2>
+      </RevealWrapper>
+      <RevealWrapper>
+        <h1 className="display">
+          <span className="primary-color">LEO</span> DANIELS
+        </h1>
+      </RevealWrapper>
       <div className="text-wrapper">
-        <p>
-          As a <span className="accent-color">Frontend Developer</span>, my
-          dedication lies in creating interactive and engaging web applications.
-        </p>
+        <RevealWrapper>
+          <p>
+            As a <span className="accent-color">Frontend Developer</span>, my
+            dedication lies in creating interactive and engaging web
+            applications.
+          </p>
+        </RevealWrapper>
         <br />
-        <p>
-          With a unique blend of creativity and technical expertise, my
-          specialization involves crafting intuitive and user-friendly web apps
-          that focus on delivering exceptional user experiences. Always on the
-          hunt for new and exciting ways to innovate, I'm committed to keeping
-          up with the latest technologies and industry best practices
-        </p>
+        <RevealWrapper>
+          <p>
+            With a unique blend of creativity and technical expertise, my
+            specialization involves crafting intuitive and user-friendly web
+            apps that focus on delivering exceptional user experiences. Always
+            on the hunt for new and exciting ways to innovate, I'm committed to
+            keeping up with the latest technologies and industry best practices
+          </p>
+        </RevealWrapper>
       </div>
     </header>
   );
@@ -110,20 +135,23 @@ export const Home = React.forwardRef((props, ref) => {
       <div className="content-container">
         <article>
           <Header />
+
           <div className="link-items-container">
-            <Button
-              variant="elevated"
-              text="Resume"
-              // href={pdfResume}
-              draggable="false"
-              aria-label="my resume"
-              className="resume-btn"
-            />
+            <RevealWrapper>
+              <Button
+                variant="elevated"
+                text="Resume"
+                // href={pdfResume}
+                draggable="false"
+                aria-label="my resume"
+                className="resume-btn"
+              />
+            </RevealWrapper>
             <div
               className="social-links"
               onMouseLeave={() => setHoveredIcon(null)}
             >
-              {socialMediaLinkElements}
+              <RevealWrapper>{socialMediaLinkElements}</RevealWrapper>
               <MovingSmallZigZagSvg coordinates={svgPosition} />
             </div>
           </div>
