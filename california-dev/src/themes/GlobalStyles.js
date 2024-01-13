@@ -9,6 +9,9 @@ export const GlobalStyles = createGlobalStyle(props => {
       --mobile-nav-height: 8rem;
       --desktop-max-width: 1440px;
       --app-height: 100%;
+      --color-primary: ${palette.primary};
+      --color-secondary: ${palette.secondary};
+      --color-tertiary: ${palette.tertiary};
     }
 
     .visually-hidden {

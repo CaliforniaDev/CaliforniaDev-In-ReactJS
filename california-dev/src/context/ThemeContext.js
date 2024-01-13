@@ -18,6 +18,16 @@ import { darkTheme } from '../themes/dark/darkTheme';
 
 export const ThemeContext = createContext();
 
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error(
+      'useTheme must be used within a ThemeContextProvider component'
+    );
+  }
+  return context;
+};
+
 export const ThemeContextProvider = ({ children }) => {
   const [stylesloaded, setStylesloaded] = useState(false);
   const [theme, setTheme] = useState(lightTheme);
@@ -59,8 +69,6 @@ export const ThemeContextProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-
-export const useTheme = () => useContext(ThemeContext);
 
 export const breakpoints = {
   sm: '576px',

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useParams } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { NavigationProvider } from 'context/NavigationContext';
+import { useLoadingContext } from 'context/LoadingContext';
 
 import { NavRail } from 'components/ui/Navigation/Desktop/NavRail';
 import { MobileNav } from 'components/ui/Navigation/Mobile';
@@ -11,7 +12,6 @@ import { ProjectContainer } from './ProjectDetails.styles';
 import { projectData } from 'components/sections/Projects/data/projectData';
 
 import { useScrollToTop } from 'hooks/useScrollToTop';
-import { useFadeInOnLoad } from 'hooks/useFadeInOnLoad';
 import { motionVariants as variants } from 'components/ui/utils/motionVariants';
 
 const TABLET_MIN_WIDTH_EM_UNIT = 768 / 16;
@@ -68,8 +68,7 @@ const ProjectMeta = ({ project }) => (
 
 export const ProjectDetails = () => {
   useScrollToTop();
-
-  const isLoaded = useFadeInOnLoad(500);
+  const isLoading = useLoadingContext();
   const { id } = useParams();
   const project = projectData.find(project => project.id === id);
   
@@ -88,7 +87,7 @@ export const ProjectDetails = () => {
       <motion.div
         variants={variants.fadeIn}
         initial="hidden"
-        animate={isLoaded && 'visible'}
+        animate={!isLoading && 'visible'}
         className="content-container"
       >
         <header>
@@ -106,7 +105,7 @@ export const ProjectDetails = () => {
           <ProjectMeta project={project} />
         </div>
         <figure className="image-container">
-          <img src={project.previewImage} alt={project.title} />
+          <img src={project.previewImage} alt={project.title} loading="lazy" />
         </figure>
       </motion.div>
     </ProjectContainer>

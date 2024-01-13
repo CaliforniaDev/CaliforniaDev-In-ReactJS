@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeContextProvider } from 'context/ThemeContext';
+import { LoadingProvider } from 'context/LoadingContext';
 // import { ScrollProvider } from 'context/ScrollContext';
 import { useViewportHeight } from 'hooks/useViewportHeight';
 
@@ -36,9 +37,11 @@ const router = createBrowserRouter(routes);
 function App() {
   useViewportHeight();
   return (
-    <ThemeContextProvider>
-      <RouterProvider router={router} />
-    </ThemeContextProvider>
+    <LoadingProvider delay={1500}>
+      <ThemeContextProvider>
+        <RouterProvider router={router} />
+      </ThemeContextProvider>
+    </LoadingProvider>
   );
 }
 

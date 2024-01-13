@@ -3,7 +3,7 @@ import { NavigationProvider } from 'context/NavigationContext';
 import { useMediaQuery } from 'react-responsive';
 import { motion, useInView } from 'framer-motion';
 import { motionVariants as variants } from 'components/ui/utils/motionVariants';
-import { useFadeInOnLoad } from 'hooks/useFadeInOnLoad';
+import { useLoadingContext } from 'context/LoadingContext';
 
 import { Home } from '../sections/Home';
 import { Workflow } from '../sections/WorkFlow';
@@ -15,14 +15,13 @@ import { NavRail } from 'components/ui/Navigation/Desktop/';
 
 //Styled Components
 import { MainContainer } from './MainBody.styles';
-const LOADING_DELAY = 500;
 const MEDIA_BREAKPOINT = 768 / 16;
 const IN_VIEW_THRESHOLD = 0.4;
 
 export function MainBody() {
   // States
   const [isInView, setIsInView] = useState(null);
-  const isLoaded = useFadeInOnLoad(LOADING_DELAY);
+  const isLoading = useLoadingContext();
   const isTabletOrLarger = useMediaQuery({
     query: `(min-width: ${MEDIA_BREAKPOINT}em)`,
   });
@@ -79,13 +78,15 @@ export function MainBody() {
     }
   };
 
+
   return (
     <MainContainer>
       <NavigationProvider>{renderNavigation()}</NavigationProvider>
       <motion.div
         variants={variants.fadeIn}
         initial="hidden"
-        animate={isLoaded && 'visible'}
+        animate={!isLoading && 'visible'}
+
       >
         <Home ref={homeRef} />
         <Workflow ref={workflowRef} />
