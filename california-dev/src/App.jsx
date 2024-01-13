@@ -4,7 +4,7 @@ import { LoadingProvider } from 'context/LoadingContext';
 // import { ScrollProvider } from 'context/ScrollContext';
 import { useViewportHeight } from 'hooks/useViewportHeight';
 
-import { MainBody } from 'components/Main';
+import { AppLayout } from 'components/AppLayout';
 import { ProjectDetails } from 'pages/ProjectDetails';
 import { Sandbox } from 'utils/Sandbox/Sandbox';
 import { TestEnvironment } from 'utils/Sandbox/TestEnvironment';
@@ -12,7 +12,7 @@ import { TestEnvironment } from 'utils/Sandbox/TestEnvironment';
 const routes = [
   {
     path: '/',
-    element: <MainBody />,
+    element: <AppLayout />,
   },
   {
     path: '/sandbox',

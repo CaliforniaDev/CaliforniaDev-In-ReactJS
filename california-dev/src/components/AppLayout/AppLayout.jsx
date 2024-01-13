@@ -14,11 +14,11 @@ import { MobileNav } from 'components/ui/Navigation/Mobile';
 import { NavRail } from 'components/ui/Navigation/Desktop/';
 
 //Styled Components
-import { MainContainer } from './MainBody.styles';
+import { MainContainer } from './AppLayout.styles';
 const MEDIA_BREAKPOINT = 768 / 16;
 const IN_VIEW_THRESHOLD = 0.4;
 
-export function MainBody() {
+export function AppLayout() {
   // States
   const [isInView, setIsInView] = useState(null);
   const isLoading = useLoadingContext();
