@@ -1,15 +1,25 @@
-
-
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useInView, useAnimation } from 'framer-motion';
 
-// PopInMotionParent
+/**
+ * File: PopInMotion.jsx
+ *
+ * This file contains two components used for creating 'pop in' animations with Framer Motion:
+ * - PopInMotionParent: Wraps children with a 'pop in' animation effect. Triggers when in view.
+ * - PopInMotionChild: Individual child component with its own animation sequence.
+ */
 
-// This component controls the 'pop in' animation for its children. It uses Framer Motion's useInView
-// hook to start the animation when the component comes into view. The 'isLoading' prop can be used to
-// delay the animation until data is loaded.
-
+/**
+ * PopInMotionParent
+ * Wraps children with a 'pop in' animation effect using Framer Motion.
+ * Triggers animation when the component is in view and not loading.
+ *
+ * Props:
+ * - children: React nodes to animate.
+ * - className: (optional) CSS class for styling.
+ * - isLoading: (optional) Delays animation until false.
+ */
 export const PopInMotionParent = ({ children, className, isLoading }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
@@ -48,11 +58,15 @@ export const PopInMotionParent = ({ children, className, isLoading }) => {
   );
 };
 
-// PopInMotionChild
-
-// This component represents a single child in the pop in animation sequence.
-// It defines its own 'hidden' and 'visible' states for the animation effect.
-
+/**
+ * PopInMotionChild
+ * Individual animated child for PopInMotionParent.
+ * Scales and rotates from hidden to visible state.
+ *
+ * Props:
+ * - children: Content to be animated.
+ * - className: (optional) CSS class for styling.
+ */
 export const PopInMotionChild = ({ children, className }) => {
   const variants = {
     hidden: { scale: 0 },
@@ -71,13 +85,13 @@ export const PopInMotionChild = ({ children, className }) => {
   );
 };
 
-PopInMotionParent.prototype = {
+PopInMotionParent.prototypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   isLoading: PropTypes.bool,
 };
 
-PopInMotionChild.prototype = {
+PopInMotionChild.prototypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   isLoading: PropTypes.bool,
