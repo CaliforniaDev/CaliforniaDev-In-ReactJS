@@ -88,7 +88,7 @@ export const Reveal = ({
   );
 };
 
-Reveal.propType = {
+Reveal.propTypes = {
   children: PropTypes.node,
   width: PropTypes.string,
   slideColor: PropTypes.string,
