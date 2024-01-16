@@ -52,6 +52,8 @@ export const Reveal = ({
   const riseAndAppearStyle = {
     position: 'relative',
     overflow: 'hidden',
+   
+  
   };
   const textRevealStyle = {
     position: 'absolute',
@@ -61,27 +63,28 @@ export const Reveal = ({
     right: 0,
   };
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{ ...riseAndAppearStyle, width }}
-    >
-      <motion.div
-        variants={variants.riseAndAppear}
-        initial="hidden"
-        animate={riseAndAppearControls}
+ 
+      <div
+        ref={ref}
+        className={className}
+        style={{ ...riseAndAppearStyle, width }}
       >
-        {children}
-      </motion.div>
+        <motion.div
+          variants={variants.riseAndAppear}
+          initial="hidden"
+          animate={riseAndAppearControls}
+        >
+          {children}
+        </motion.div>
+        {/* Text Reveal Animation */}
+        <motion.div
+          variants={variants.textReveal}
+          initial="hidden"
+          animate={textRevealControls}
+          style={{ ...textRevealStyle, background: slideColor }}
+        />
+      </div>
 
-      {/* Text Reveal Animation */}
-      <motion.div
-        variants={variants.textReveal}
-        initial="hidden"
-        animate={textRevealControls}
-        style={{ ...textRevealStyle, background: slideColor }}
-      />
-    </div>
   );
 };
 
