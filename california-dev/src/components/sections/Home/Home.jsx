@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoadingContext } from 'context/LoadingContext';
 import { useTheme } from 'context/ThemeContext';
+import { PopInMotionParent, PopInMotionChild } from 'components/utils/PopInMotion'; // prettier-ignore
 
 import { motion } from 'framer-motion';
 import { StyledSection } from './Home.styles';
@@ -117,14 +118,16 @@ const ProfileImage = () => {
 };
 
 export const Home = React.forwardRef((props, ref) => {
+  const isLoading = useLoadingContext();
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
   const socialMediaLinkElements = socialMediaData.map(social => (
-    <SocialMediaLink
-      key={social.name}
-      {...social}
-      onHover={() => setHoveredIcon(social.name)}
-    />
+    <PopInMotionChild key={social.name}>
+      <SocialMediaLink
+        {...social}
+        onHover={() => setHoveredIcon(social.name)}
+      />
+    </PopInMotionChild>
   ));
 
   const svgPosition = socialMediaData.find(link => link.name === hoveredIcon)
@@ -136,8 +139,11 @@ export const Home = React.forwardRef((props, ref) => {
         <article>
           <Header />
 
-          <div className="link-items-container">
-            <RevealWrapper>
+          <PopInMotionParent
+            isLoading={isLoading}
+            className="link-items-container"
+          >
+            <PopInMotionChild>
               <Button
                 variant="elevated"
                 text="Resume"
@@ -146,15 +152,16 @@ export const Home = React.forwardRef((props, ref) => {
                 aria-label="my resume"
                 className="resume-btn"
               />
-            </RevealWrapper>
+            </PopInMotionChild>
+
             <div
               className="social-links"
               onMouseLeave={() => setHoveredIcon(null)}
             >
-              <RevealWrapper>{socialMediaLinkElements}</RevealWrapper>
+              {socialMediaLinkElements}
               <MovingSmallZigZagSvg coordinates={svgPosition} />
             </div>
-          </div>
+          </PopInMotionParent>
         </article>
         <ProfileImage />
       </div>
