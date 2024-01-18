@@ -105,7 +105,7 @@ export const ProjectDetails = () => {
           <ProjectMeta project={project} />
         </div>
         <figure className="image-container">
-          <img src={project.previewImage} alt={project.title} loading="lazy" />
+          <img src={project.previewImage} alt={project.title} />
         </figure>
       </motion.div>
     </ProjectContainer>
