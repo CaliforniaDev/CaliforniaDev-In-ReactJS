@@ -70,16 +70,23 @@ export const PopInMotionParent = ({ children, className, isLoading }) => {
 export const PopInMotionChild = ({ children, className }) => {
   const variants = {
     hidden: { scale: 0 },
-    visible: { rotate: 360, scale: 1 },
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      mass: 1,
+    visible: {
+      rotate: 360,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        mass: 1,
+        damping: 12,
+      },
     },
   };
 
   return (
-    <motion.div className={className} variants={variants}>
+    <motion.div
+      className={className}
+      variants={variants}
+      
+    >
       {children}
     </motion.div>
   );
