@@ -30,12 +30,15 @@ export const Projects = React.forwardRef((props, ref) => {
   // Framer motion variants
   const item = {
     hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0 },
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      mass: 0.3,
-      delay: 2,
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        mass: 0.3,
+        damping: 5,
+      },
     },
   };
 
