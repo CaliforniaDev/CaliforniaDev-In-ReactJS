@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeContextProvider } from 'context/ThemeContext';
 import { LoadingProvider } from 'context/LoadingContext';
-// import { ScrollProvider } from 'context/ScrollContext';
 import { useViewportHeight } from 'hooks/useViewportHeight';
 
+import { IntroAnimation } from 'components/IntroAnimation';
 import { AppLayout } from 'components/AppLayout';
 import { ProjectDetails } from 'pages/ProjectDetails';
 import { Sandbox } from 'utils/Sandbox/Sandbox';
@@ -35,11 +36,16 @@ const routes = [
 const router = createBrowserRouter(routes);
 
 function App() {
+  const [introComplete, setIntroComplete] = useState(false);
+
   useViewportHeight();
   return (
-    <LoadingProvider delay={1500}>
+    <LoadingProvider delay={500}>
       <ThemeContextProvider>
-        <RouterProvider router={router} />
+        {!introComplete && (
+          <IntroAnimation onComplete={() => setIntroComplete(true)} />
+        )}
+        {introComplete && <RouterProvider router={router} />}
       </ThemeContextProvider>
     </LoadingProvider>
   );

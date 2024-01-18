@@ -9,6 +9,9 @@ export const Reveal = ({
   width = 'fit-content', // Width of the component
   isLoading = false,
   slideColor = 'var(--color-primary)',
+  riseDuration = 0.5, // Duration of the rise animation
+  riseDelay = 0.25, // Delay of the rise animation
+  textDuration = 0.75, // Duration of the text reveal animation
   className,
 }) => {
   const ref = useRef(null);
@@ -28,19 +31,29 @@ export const Reveal = ({
   const variants = {
     riseAndAppear: {
       hidden: { opacity: 0, y: 75 },
-      visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.25 } },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: riseDuration,
+          delay: riseDelay,
+          ease: 'easeIn',
+        },
+      },
     },
     textReveal: {
       hidden: { left: 0 },
       visible: {
         left: '100%',
-        transition: { duration: 0.75, ease: 'easeIn' },
+        transition: { duration: textDuration, ease: 'easeIn' },
       },
     },
   };
   const riseAndAppearStyle = {
     position: 'relative',
     overflow: 'hidden',
+   
+  
   };
   const textRevealStyle = {
     position: 'absolute',
@@ -50,34 +63,38 @@ export const Reveal = ({
     right: 0,
   };
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{ ...riseAndAppearStyle, width }}
-    >
-      <motion.div
-        variants={variants.riseAndAppear}
-        initial="hidden"
-        animate={riseAndAppearControls}
+ 
+      <div
+        ref={ref}
+        className={className}
+        style={{ ...riseAndAppearStyle, width }}
       >
-        {children}
-      </motion.div>
+        <motion.div
+          variants={variants.riseAndAppear}
+          initial="hidden"
+          animate={riseAndAppearControls}
+        >
+          {children}
+        </motion.div>
+        {/* Text Reveal Animation */}
+        <motion.div
+          variants={variants.textReveal}
+          initial="hidden"
+          animate={textRevealControls}
+          style={{ ...textRevealStyle, background: slideColor }}
+        />
+      </div>
 
-      {/* Text Reveal Animation */}
-      <motion.div
-        variants={variants.textReveal}
-        initial="hidden"
-        animate={textRevealControls}
-        style={{ ...textRevealStyle, background: slideColor }}
-      />
-    </div>
   );
 };
 
-Reveal.propType = {
+Reveal.propTypes = {
   children: PropTypes.node,
   width: PropTypes.string,
-  isLoading: PropTypes.bool,
   slideColor: PropTypes.string,
   className: PropTypes.string,
-}
+  textDuration: PropTypes.number,
+  riseDuration: PropTypes.number,
+  riseDelay: PropTypes.number,
+  isLoading: PropTypes.bool,
+};
