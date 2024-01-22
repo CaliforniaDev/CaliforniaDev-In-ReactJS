@@ -49,8 +49,9 @@ export const Contact = React.forwardRef((props, ref) => {
     handleChange,
     handleValidation,
   } = useValidation(validateContactForm);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [submissionStatus, setSubmissionStatus] = useState(null);
   const [buttonText, setButtonText] = useState('Submit');
 
   // Refs for input fields for controlled focus management
@@ -65,7 +66,7 @@ export const Contact = React.forwardRef((props, ref) => {
   const resetForm = () => {
     setFormData(initialFormState);
     setFormErrors({});
-    // setSubmissionStatus(null);
+    setSubmissionStatus(null);
     setButtonText('Submit');
   };
 
@@ -73,19 +74,17 @@ export const Contact = React.forwardRef((props, ref) => {
     event.preventDefault();
     if (handleValidation()) {
       setIsSubmitting(true);
-      // setSubmissionStatus('Sending...');
       setButtonText('Sending...');
       try {
         // Submit form data through Netlify function, triggering SendGrid email
         await submitContactForm(formData);
-        // setSubmissionStatus('Message sent successfully!');
         setButtonText('✔ Sent');
         setTimeout(resetForm, 3000);
       } catch (error) {
         setButtonText('Error');
         setTimeout(resetForm, 3000);
         console.error('Error submitting form:', error.message);
-        // setSubmissionStatus('Error submitting form. Please try again later.');
+        setSubmissionStatus('Error submitting form. Please try again later.');
       } finally {
         setIsSubmitting(false);
       }
@@ -117,9 +116,10 @@ export const Contact = React.forwardRef((props, ref) => {
               ref={firstNameRef}
               type="text"
               name="firstName"
-              label="First Name"
+              label="First name"
               value={formData.firstName}
-              $error={formErrors.firstName}
+              error={formErrors.firstName}
+              supportingText="*required"
               id="firstName"
               onChange={handleChange}
               onKeyDown={e => handleEnterKey(e, lastNameRef)}
@@ -129,9 +129,10 @@ export const Contact = React.forwardRef((props, ref) => {
               ref={lastNameRef}
               type="text"
               name="lastName"
-              label="Last Name"
+              label="Last name"
               value={formData.lastName}
-              $error={formErrors.lastName}
+              error={formErrors.lastName}
+              supportingText="*required"
               id="lastName"
               onChange={handleChange}
               onKeyDown={e => handleEnterKey(e, emailRef)}
@@ -143,7 +144,8 @@ export const Contact = React.forwardRef((props, ref) => {
               name="email"
               label="Email"
               value={formData.email}
-              $error={formErrors.email}
+              error={formErrors.email}
+              supportingText="*required"
               id="email"
               onChange={handleChange}
               onKeyDown={e => handleEnterKey(e, phoneNumberRef)}
@@ -153,9 +155,10 @@ export const Contact = React.forwardRef((props, ref) => {
               ref={phoneNumberRef}
               type="text"
               name="phoneNumber"
-              label="Phone Number"
+              label="Phone number"
               value={formData.phoneNumber}
-              $error={formErrors.phoneNumber}
+              error={formErrors.phoneNumber}
+              supportingText="(optional)"
               id="phoneNumber"
               onChange={handleChange}
               onKeyDown={e => handleEnterKey(e, messageRef)}
@@ -163,7 +166,7 @@ export const Contact = React.forwardRef((props, ref) => {
             />
           </fieldset>
           <RadioButtonFieldset ref={radioFieldsetRef}>
-            <legend>Select Subject?</legend>
+            <legend>Select Subject</legend>
             <RadioButton
               label="Hiring Inquiry"
               name="inquiryType"
@@ -200,21 +203,34 @@ export const Contact = React.forwardRef((props, ref) => {
           <TextField
             multiline
             ref={messageRef}
-            label="Write your message..."
+            label="Write your message here"
             name="message"
             className="form-message"
             value={formData.message}
+            error={formErrors.message}
+            supportingText="*required"
             id="message"
             onChange={handleChange}
             onKeyDown={e => handleEnterKey(e, submitRef)}
           />
-          <Button
-            type="submit"
-            className="submit-button"
-            variant="filled"
-            text={buttonText}
-            disabled={isSubmitting}
-          />
+          <div className="form-buttons">
+            <Button
+              type="submit"
+              className="submit-button"
+              variant="filled"
+              text={buttonText}
+              disabled={isSubmitting}
+            />
+            <Button
+              type="button"
+              className="reset-button"
+              variant="tonal"
+              text="Reset"
+              onClick={resetForm}
+            />
+          </div>
+          <p className='submission-status error'>{submissionStatus}</p>
+        
         </form>
       </motion.div>
     </ContactSection>

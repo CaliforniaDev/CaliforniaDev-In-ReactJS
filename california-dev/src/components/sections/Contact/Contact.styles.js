@@ -2,13 +2,14 @@ import styled, { css } from 'styled-components';
 
 export const ContactSection = styled.section(
   ({ theme: { palette, typography, media } }) => css`
+  position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: left;
     padding: 64px ${media.padding.SMALL};
     background-color: ${palette.surface};
-    
+
     .content-container {
       width: 100%;
     }
@@ -26,6 +27,7 @@ export const ContactSection = styled.section(
     }
 
     .contact-form {
+      position: relative;
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -37,17 +39,27 @@ export const ContactSection = styled.section(
       grid-template-columns: 1fr;
       gap: 16px;
     }
+    .form-buttons {
+      display: flex;
+      gap: 16px;
+      .reset-button {
+      }
+      button {
+        width: 100%;
+        border-radius: 4px;
+      }
+    }
 
-    .submit-button {
-      border-radius: 4px;
+    .submission-status.error {
+      position: absolute;
+      color: ${palette.error};
+      bottom: -32px;
     }
 
     .decoration-container {
       display: none;
     }
-
-    @media (min-width: ${media.device.desktop}) {
-      padding: ${media.padding.LARGE};
+    @media (min-width: ${media.device.tablet}) {
       flex-direction: row;
 
       h2 {
@@ -65,6 +77,9 @@ export const ContactSection = styled.section(
       .field-grid {
         grid-template-columns: 1fr 1fr;
       }
+    }
+    @media (min-width: ${media.device.desktop}) {
+      padding: ${media.padding.LARGE};
 
       .decoration-container {
         display: block;
@@ -112,11 +127,12 @@ export const ContactSection = styled.section(
           opacity: 0.6;
         }
       }
-    } // End of DESKTOP media query
+    }
+
     @media (min-width: ${media.device.xlarge}) {
       padding: ${media.padding.XLARGE};
     }
-  ` // End of styles
+  `
 );
 
 export const RadioButtonFieldset = styled.fieldset(
