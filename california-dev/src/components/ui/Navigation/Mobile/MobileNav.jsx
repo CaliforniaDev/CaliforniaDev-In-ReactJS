@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useNavContext } from 'context/NavigationContext';
 import { motion } from 'framer-motion';
 import { useTheme } from 'context/ThemeContext';
@@ -64,6 +64,7 @@ export const MobileNav = ({ navItemSet, isInView }) => {
   const navigate = useNavigate();
   const { toggleTheme } = useTheme();
   const { isMenuOpen, isProgrammaticScroll } = useNavContext();
+  const { handleNavigation } = useMobileNav();
   const { handleMenuToggle } = useMobileNav();
 
   const updateRouterOnUserScroll = () => {
@@ -91,6 +92,11 @@ export const MobileNav = ({ navItemSet, isInView }) => {
     };
   }, [isMenuOpen]);
 
+  const handleThemeButtonClick = () => {
+    toggleTheme();
+    handleMenuToggle();
+  };
+
   return (
     <Nav
       initial={false}
@@ -98,11 +104,16 @@ export const MobileNav = ({ navItemSet, isInView }) => {
       className="mobile-nav fixed"
     >
       <motion.div variants={logoAnimationVariants} className="logo-wrapper">
-        <Logo
-          idSuffix="mobile"
-          className="nav__logo nav-item"
-          alt="logo image"
-        />
+        <Link
+          to= '/'
+          onClick={event => handleNavigation(event)}
+        >
+          <Logo
+            idSuffix="mobile"
+            className="nav__logo nav-item"
+            alt="logo image"
+          />
+        </Link>
       </motion.div>
 
       <ThemeButton
@@ -110,7 +121,7 @@ export const MobileNav = ({ navItemSet, isInView }) => {
         initial="closed"
         animate={isMenuOpen ? 'open' : 'closed'}
         className="theme-btn"
-        onClick={toggleTheme}
+        onClick={handleThemeButtonClick}
       >
         <SunIcon className="theme-icon sun" size="24px" />
 
