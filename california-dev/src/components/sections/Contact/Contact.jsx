@@ -100,7 +100,7 @@ export const Contact = React.forwardRef((props, ref) => {
   };
 
   return (
-    <ContactSection ref={ref} id="contact-us-section">
+    <ContactSection ref={ref} id="contact-me-section">
       <motion.div
         variants={variants.fadeUp}
         initial="hidden"

@@ -35,9 +35,9 @@ export const navItemsData = {
     },
     {
       Icon: EmailIcon,
-      id: '#contact-us-section',
-      name: 'Contact Us',
-      route: '/#contact-us-section',
+      id: '#contact-me-section',
+      name: 'Contact Me',
+      route: '/#contact-me-section',
     },
   ],
   projectDetails: [

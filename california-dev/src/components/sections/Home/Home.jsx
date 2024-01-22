@@ -121,7 +121,7 @@ export const Home = React.forwardRef((props, ref) => {
 
   const handleClickedContact = (event) => {
     event.preventDefault();
-    const contactSection = document.getElementById('contact-us-section');
+    const contactSection = document.getElementById('contact-me-section');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -152,7 +152,7 @@ export const Home = React.forwardRef((props, ref) => {
               <Button
                 variant="filled"
                 text="Contact"
-                href="#contact-us-section"
+                href="#contact-me-section"
                 draggable="false"
                 aria-label="my resume"
                 className="resume-btn"

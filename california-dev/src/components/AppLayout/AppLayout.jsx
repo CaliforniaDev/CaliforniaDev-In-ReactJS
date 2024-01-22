@@ -56,7 +56,7 @@ export function AppLayout() {
         setIsInView('#skills-section');
         break;
       case contactInView:
-        setIsInView('#contact-us-section');
+        setIsInView('#contact-me-section');
         break;
       default:
         setIsInView(null);

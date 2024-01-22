@@ -150,6 +150,6 @@ MobileNav.propTypes = {
     '#workflow-section',
     '#projects-section',
     '#skills-section',
-    '#contact-us-section',
+    '#contact-me-section',
   ]),
 };
