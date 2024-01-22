@@ -136,10 +136,16 @@ export const TonalBtn = styled(DefaultBtn)(({
     /** Focus state */
     &:focus-visible {
       box-shadow: ${elevation.level0};
+      .state-layer {
+        opacity: 0.12;
+      }
     }
     /** Active state */
     &:active {
       box-shadow: ${elevation.level0};
+      .state-layer {
+        opacity: 0.12;
+      }
     }
   `;
 });
