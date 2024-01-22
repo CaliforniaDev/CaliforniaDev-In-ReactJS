@@ -5,7 +5,11 @@ import {
   memoryGamePNG,
 } from 'assets/images/projects/thumbnail';
 
-import { cupkayzPreview, memoryGamePreview, nybbleBoxPreview } from 'assets/images/projects/preview';
+import {
+  cupkayzPreview,
+  memoryGamePreview,
+  nybbleBoxPreview,
+} from 'assets/images/projects/preview';
 
 class Project {
   constructor({
@@ -13,7 +17,7 @@ class Project {
     title,
     client,
     projectType,
-    svgThumbnail, 
+    svgThumbnail,
     staticThumbnail,
     thumbnailBackground,
     previewImage,
@@ -110,8 +114,8 @@ const memoryGameProject = new Project({
   title: 'Memory Game',
   client: 'Personal Project',
   projectType: 'React App',
-  svgThumbnail: null, 
-  staticThumbnail: memoryGamePNG, 
+  svgThumbnail: null,
+  staticThumbnail: memoryGamePNG,
   thumbnailBackground: null,
   previewImage: memoryGamePreview,
   techStack: ['HTML', 'CSS', 'JavaScript', 'React'],
@@ -140,7 +144,7 @@ const splitShiftsProject = new Project({
   id: 'split-shifts-project',
   title: 'SplitShifts',
   client: 'BW Security Services Inc.',
-  projectType: 'Schedule Management Web App',
+  projectType: 'Schedule Management Web App (In Progress)',
   svgThumbnail: SplitShiftsSVG, // svgThumbnail,
   staticThumbnail: null, // change the key name to staticThumbnail
   thumbnailBackground: '#d7756b',
@@ -151,12 +155,29 @@ const splitShiftsProject = new Project({
     'JavaScript',
     'React',
     'Node.js',
-    'Express',
+    'Next JS',
     'MongoDB',
   ],
   repository: null,
   livePreview: null,
-  description: null,
+  description: [
+    `SplitShifts is a state-of-the-art scheduling application, expertly 
+    crafted to transform the way companies manage their employee work schedules. 
+    This project, still under construction, is a testament to my front-end development 
+    skills, showcasing my ability to create intuitive, user-friendly web applications.`,
+
+    `At the core of SplitShifts is a robust employee management system, designed for ease 
+    of use and efficiency. The app enables seamless addition and updating of employee details, 
+    ensuring that all necessary information is organized and easily accessible. This feature is 
+    crucial for businesses that operate across multiple locations, as it allows for the effective 
+    coordination of staff and schedules at each site.`,
+
+    `A distinguishing characteristic of SplitShifts is its advanced capability to handle split shifts. 
+    This functionality addresses the need for flexible scheduling options in modern workplaces, aiding 
+    businesses in optimizing workforce efficiency without overburdening employees. To enhance user engagement 
+    and operational fluidity, the app incorporates a real-time update and notification system. This ensures that 
+    all schedule changes and important announcements are communicated promptly, reducing the likelihood of miscommunication.`,
+  ],
 });
 
 export const projectData = [
