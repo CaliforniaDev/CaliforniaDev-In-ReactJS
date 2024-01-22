@@ -25,14 +25,10 @@ import { useNavContext } from 'context/NavigationContext';
  * @returns {JSX.Element} The rendered NavRail component.
  */
 
-export const NavRail = ({
-  navItemSet,
-  isInView,
-}) => {
+export const NavRail = ({ navItemSet, isInView }) => {
   // Hooks
   const { toggleTheme } = useTheme(); // Manages theme states.
   const navigate = useNavigate(); // Navigational utility.
-
 
   const { activeAnchor, pressedAnchor, isProgrammaticScroll } = useNavContext();
 
@@ -58,7 +54,7 @@ export const NavRail = ({
 
   return (
     <Nav className="nav full-height-element">
-      <Link to="/">
+      <Link to="/"  onClick={event => handleNavLinkClick(event)}>
         <Logo className="logo" />
       </Link>
 
