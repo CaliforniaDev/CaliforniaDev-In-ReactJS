@@ -18,8 +18,6 @@ import {
   SmallZigZagSvg,
 } from 'assets/images/shapes';
 
-// Assets
-// import pdfResume from 'assets/docs/resume.pdf';
 
 // Constants and Data
 import {
@@ -121,6 +119,13 @@ export const Home = React.forwardRef((props, ref) => {
   const isLoading = useLoadingContext();
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
+  const handleClickedContact = (event) => {
+    event.preventDefault();
+    const contactSection = document.getElementById('contact-us-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const socialMediaLinkElements = socialMediaData.map(social => (
     <PopInMotionChild key={social.name}>
       <SocialMediaLink
@@ -145,12 +150,13 @@ export const Home = React.forwardRef((props, ref) => {
           >
             <PopInMotionChild>
               <Button
-                variant="elevated"
-                text="Resume"
-                // href={pdfResume}
+                variant="filled"
+                text="Contact"
+                href="#contact-us-section"
                 draggable="false"
                 aria-label="my resume"
                 className="resume-btn"
+                onClick={handleClickedContact}
               />
             </PopInMotionChild>
 
