@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types';
-import { StyledListContainer } from './Card.styles';
+import { StyledCard } from './Card.styles';
 import { StateLayer } from '../StateLayer';
 
 export const Card = ({
@@ -17,7 +17,7 @@ export const Card = ({
   };
 
   return (
-    <StyledListContainer bg={backgroundColor} {...props}>
+    <StyledCard $bg={backgroundColor} {...props}>
       <StateLayer className="state-layer" />
       <article>
         <figure className="image-wrapper">{renderImage()}</figure>
@@ -26,7 +26,7 @@ export const Card = ({
           <p>{projectType}</p>
         </div>
       </article>
-    </StyledListContainer>
+    </StyledCard>
   );
 };
 

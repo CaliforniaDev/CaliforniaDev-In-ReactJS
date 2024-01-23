@@ -1,34 +1,38 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import MediaQuery from 'react-responsive';
+import { useLoadingContext } from 'context/LoadingContext';
+import { useTheme } from 'context/ThemeContext';
+import { PopInMotionParent, PopInMotionChild } from 'components/utils/PopInMotion'; // prettier-ignore
 
+import { motion } from 'framer-motion';
+import { StyledSection } from './Home.styles';
+
+// UI Components
 import { Button } from 'components/ui/Button';
 import { IconButton } from 'components/ui/IconButton';
-import {
-  GitHubIcon,
-  InstagramIcon,
-  MailIcon,
-} from 'assets/images/icons/social';
+import { Reveal } from 'components/utils/Reveal';
+
+// svg decorations
 import {
   DotPattern,
   ZigZagPattern,
   SmallZigZagSvg,
 } from 'assets/images/shapes';
 
-import pdfResume from 'assets/docs/resume.pdf';
 
-import { StyledSection } from './Home.styles';
-
-const INITIAL_X_POSITION = -85;
-const INITIAL_ROTATE_DEGREE = -45;
-const TRANSITION_DURATION = 0.5;
+// Constants and Data
+import {
+  INITIAL_X_POSITION as initialXPos,
+  INITIAL_ROTATE_DEGREE as initialRotateDeg,
+  TRANSITION_DURATION as transitionDuration,
+  socialMediaData,
+} from './data/homeData';
 
 const MovingSmallZigZagSvg = ({ coordinates }) => {
   return (
     <motion.div
-      initial={{ x: INITIAL_X_POSITION, rotate: INITIAL_ROTATE_DEGREE }}
+      initial={{ x: initialXPos, rotate: initialRotateDeg }}
       animate={{ x: coordinates.x }}
-      transition={{ duration: TRANSITION_DURATION, ease: 'easeInOut' }}
+      transition={{ duration: transitionDuration, ease: 'easeInOut' }}
       className="zigzag-svg small"
     >
       <SmallZigZagSvg />
@@ -36,26 +40,18 @@ const MovingSmallZigZagSvg = ({ coordinates }) => {
   );
 };
 
-const socialMediaData = [
-  {
-    name: 'github',
-    icon: <GitHubIcon />,
-    href: 'https://github.com/CaliforniaDev',
-    position: { x: 4 },
-  },
-  {
-    name: 'instagram',
-    icon: <InstagramIcon />,
-    href: 'https://www.instagram.com/leo.thedeveloper/',
-    position: { x: 68 },
-  },
-  {
-    name: 'mail',
-    icon: <MailIcon />,
-    href: 'mailto:leodaniels@californiadev.com',
-    position: { x: 132 },
-  },
-];
+const RevealWrapper = ({ children }) => {
+  const isLoading = useLoadingContext();
+  const {
+    theme: { palette },
+  } = useTheme();
+  const slideColor = palette.secondary;
+  return (
+    <Reveal slideColor={slideColor} isLoading={isLoading}>
+      {children}
+    </Reveal>
+  );
+};
 
 const SocialMediaLink = ({ icon, href, onHover }) => (
   <IconButton
@@ -70,26 +66,33 @@ const SocialMediaLink = ({ icon, href, onHover }) => (
 const Header = () => {
   return (
     <header>
-      <h2 className="headline">👋🏽 Hi There! Im,</h2>
-      <h1 className="display">
-        <span className="primary-color">LEO</span> DANIELS
-      </h1>
-      <p>
-        As a <span className="accent-color">Frontend Developer</span>, my
-        dedication lies in creating interactive and engaging web applications.
-      </p>
-      <br />
-      {/* DESKTOP 992px */}
-      <MediaQuery minWidth={`${992 / 16}em`}>
-        <p>
-          With a unique blend of creativity and technical expertise, my
-          specialization involves crafting intuitive and user-friendly web apps
-          that focus on delivering exceptional user experiences. Always on the
-          hunt for new and exciting ways to innovate, I'm committed to keeping
-          up with the latest technologies and industry best practices
-        </p>
-      </MediaQuery>
-      <ZigZagPattern className="zigzag-svg secondary new" />
+      <RevealWrapper>
+        <h2 className="headline">👋🏽 Hi There! Im,</h2>
+      </RevealWrapper>
+      <RevealWrapper>
+        <h1 className="display">
+          <span className="primary-color">LEO</span> DANIELS
+        </h1>
+      </RevealWrapper>
+      <div className="text-wrapper">
+        <RevealWrapper>
+          <p>
+            As a <span className="accent-color">Frontend Developer</span>, my
+            dedication lies in creating interactive and engaging web
+            applications.
+          </p>
+        </RevealWrapper>
+        <br />
+        <RevealWrapper>
+          <p>
+            With a unique blend of creativity and technical expertise, my
+            specialization involves crafting intuitive and user-friendly web
+            apps that focus on delivering exceptional user experiences. Always
+            on the hunt for new and exciting ways to innovate, I'm committed to
+            keeping up with the latest technologies and industry best practices
+          </p>
+        </RevealWrapper>
+      </div>
     </header>
   );
 };
@@ -107,46 +110,69 @@ const ProfileImage = () => {
       <span className="outline-frame"></span>
       <ZigZagPattern className="zigzag-svg primary" />
       <span className="filled-frame"></span>
+      <ZigZagPattern className="zigzag-svg secondary" />
     </figure>
   );
 };
 
-export const Home = () => {
+export const Home = React.forwardRef((props, ref) => {
+  const isLoading = useLoadingContext();
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
+  const handleClickedContact = (event) => {
+    event.preventDefault();
+    const contactSection = document.getElementById('contact-me-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const socialMediaLinkElements = socialMediaData.map(social => (
-    <SocialMediaLink
-      key={social.name}
-      {...social}
-      onHover={() => setHoveredIcon(social.name)}
-    />
+    <PopInMotionChild key={social.name}>
+      <SocialMediaLink
+        {...social}
+        onHover={() => setHoveredIcon(social.name)}
+      />
+    </PopInMotionChild>
   ));
 
   const svgPosition = socialMediaData.find(link => link.name === hoveredIcon)
-    ?.position || { x: INITIAL_X_POSITION };
+    ?.position || { x: initialXPos };
 
   return (
-    <StyledSection id="home-section">
-      <article>
-        <Header />
+    <StyledSection ref={ref} id="home-section">
+      <div className="content-container">
+        <article>
+          <Header />
 
-        <div className="link-items-container">
-          <Button
-            variant="elevated"
-            text="Resume"
-            href={pdfResume}
-            draggable="false"
-          />
-          <div
-            className="social-links"
-            onMouseLeave={() => setHoveredIcon(null)}
+          <PopInMotionParent
+            isLoading={isLoading}
+            className="link-items-container"
           >
-            {socialMediaLinkElements}
-            <MovingSmallZigZagSvg coordinates={svgPosition} />
-          </div>
-        </div>
-      </article>
-      <ProfileImage />
+            <PopInMotionChild>
+              <Button
+                variant="filled"
+                text="Contact"
+                href="#contact-me-section"
+                draggable="false"
+                aria-label="my resume"
+                className="resume-btn"
+                onClick={handleClickedContact}
+              />
+            </PopInMotionChild>
+
+            <div
+              className="social-links"
+              onMouseLeave={() => setHoveredIcon(null)}
+            >
+              {socialMediaLinkElements}
+              <MovingSmallZigZagSvg coordinates={svgPosition} />
+            </div>
+          </PopInMotionParent>
+        </article>
+        <ProfileImage />
+      </div>
     </StyledSection>
   );
-};
+});
+
+Home.displayName = 'Home';

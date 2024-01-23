@@ -1,40 +1,37 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useNavContext } from 'context/NavigationContext';
 
 export const useNavRail = () => {
-  const [activeAnchor, setActiveAnchor] = useState(null);
-  const [pressedAnchor, setPressedAnchor] = useState(null);
-  const navLinksRefs = useRef([]);
-
-  useEffect(() => {
-    const handleGlobalMouseUp = () => {
-      setPressedAnchor(null);
-    };
-    window.addEventListener('mouseup', handleGlobalMouseUp);
-
-    return () => {
-      window.removeEventListener('mouseup', handleGlobalMouseUp);
-    };
-  }, []);
+  const { setPressedAnchor, setActiveAnchor, setIsProgrammaticScroll } =
+    useNavContext();
+  const navigate = useNavigate();
 
   const handleMouseDown = useCallback(id => {
     setPressedAnchor(id);
-  }, []);
+  }, [setPressedAnchor]);
 
   const handleMouseUp = useCallback(() => {
     setPressedAnchor(null);
-  }, []);
+  }, [setPressedAnchor]);
 
   const handleNavLinkClick = useCallback(
-    (id, index) => {
-      setActiveAnchor(id);
-      navLinksRefs.current[index].scrollIntoView({ behavior: 'smooth' });
+    (event, id, route) => {
+      setIsProgrammaticScroll(true);
+      if (id) {
+        const targetElement = document.querySelector(id);
+        if (targetElement) {
+          event.preventDefault();
+          setActiveAnchor(id);
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      return navigate(route);
     },
-    [navLinksRefs]
+    [navigate, setActiveAnchor, setIsProgrammaticScroll]
   );
+
   return {
-    activeAnchor,
-    pressedAnchor,
-    navLinksRefs,
     handleMouseDown,
     handleMouseUp,
     handleNavLinkClick,

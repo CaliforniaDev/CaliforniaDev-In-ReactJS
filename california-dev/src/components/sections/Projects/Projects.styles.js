@@ -1,23 +1,35 @@
 import styled, { css } from 'styled-components';
-import { useTheme } from 'context/ThemeContext';
 
 export const ProjectSection = styled.section(
-  ({ theme: { palette, typography, media }, themeMode }) => {
+  ({ theme: { palette, typography, media }, $themeMode }) => {
     return css`
       --vertical-padding: 4rem;
+      --background-color: ${$themeMode === 'light'
+        ? palette.surfaceDim
+        : palette.surfaceBright};
+
       display: flex;
       flex-direction: column;
       margin-inline: auto;
-      color: ${palette.onBackground};
+
       padding: var(--vertical-padding) ${media.padding.SMALL};
       gap: 1.6rem;
       max-width: var(--desktop-max-width);
 
+      background-color: var(--background-color);
+      color: ${palette.onBackground};
+
       h2 {
         ${typography.headline.small};
+        margin-bottom: 16px;
       }
       h3 {
         ${typography.title.large};
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
       }
 
       .card-container {
@@ -27,7 +39,7 @@ export const ProjectSection = styled.section(
       }
 
       #nybble-box-project figure {
-        background-color: ${themeMode === 'light'
+        background-color: ${$themeMode === 'light'
           ? palette.surfaceVariant
           : null};
       }
@@ -43,13 +55,21 @@ export const ProjectSection = styled.section(
       }
 
       @media (min-width: ${media.device.desktop}) {
-        padding: var(--vertical-padding) ${media.padding.LARGE};
+        padding: ${media.padding.LARGE};
         h2 {
           ${typography.headline.large};
+        }
+        .content-container {
+          width: 100%;
+          max-width: var(--desktop-max-width);
+          margin: auto;
         }
         .card-container {
           grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
         }
+      }
+      @media (min-width: ${media.device.xlarge}) {
+        padding: ${media.padding.XLARGE};
       }
     `;
   }

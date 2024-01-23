@@ -33,7 +33,7 @@ const ButtonComponents = {
  * @param {Object} props - Additional props to be passed to the button component
  * @returns {React.ReactNode} - The styled button component with the specified label and variant
  */
-export function Button({ variant, text, children, ...props }) {
+export function Button({ variant, text, children, ref, ...props }) {
   // Use children or text as the button label, with children taking precedence
   const buttonLabel = children || text;
 
@@ -46,9 +46,9 @@ export function Button({ variant, text, children, ...props }) {
   const ButtonComponent = ButtonComponents[variant] || DefaultBtn;
 
   return (
-    <ButtonComponent {...props}>
+    <ButtonComponent ref={ref} {...props}>
       <StateLayer className="state-layer" />
-      <span className="button-label">{buttonLabel}</span>
+      <div className="button-label">{buttonLabel}</div>
     </ButtonComponent>
   );
 }

@@ -12,9 +12,9 @@ export const FabMenu = styled.div`
   bottom: 0;
   right: 0;
 
-  display: ${({ expanded }) => (expanded ? 'flex' : 'none')};
-  width: ${({ expanded, size }) => (expanded ? size : '0')};
-  height: ${({ expanded, size }) => (expanded ? size : '0')};
+  display: ${({ $expanded }) => ($expanded ? 'flex' : 'none')};
+  width: ${({ $expanded, size }) => ($expanded ? size : '0')};
+  height: ${({ $expanded, size }) => ($expanded ? size : '0')};
   padding: 8px;
   border-radius: 1.6rem;
 
@@ -26,13 +26,13 @@ export const FabMenu = styled.div`
 `;
 
 export const FabButton = styled.button(
-  ({ theme: { palette, elevation }, expanded, size }) => {
+  ({ theme: { palette, elevation }, $expanded, size }) => {
     const CONTENT_COLOR = palette.onSecondaryContainer;
     /** Main component styles */
     return css`
       position: relative;
-      width: ${expanded ? size : '5.6rem'};
-      height: ${expanded ? size : '5.6rem'};
+      width: ${$expanded ? size : '5.6rem'};
+      height: ${$expanded ? size : '5.6rem'};
 
       border: none;
       border-radius: 1.6rem;

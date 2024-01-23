@@ -12,9 +12,9 @@ export const FloatingActionButton = () => {
   const menuSize = '180px';
   return (
     <FabContainer className="container">
-      <FabButton size={menuSize} expanded={expanded} onClick={handleClick}>
+      <FabButton size={menuSize} $expanded={expanded} onClick={handleClick}>
         <StateLayer className="state-layer" />
-        <FabMenu size={menuSize} expanded={expanded}>
+        <FabMenu size={menuSize} $expanded={expanded}>
           <ul>
             <li onClick={toggleTheme}>Theme Mode</li>
           </ul>

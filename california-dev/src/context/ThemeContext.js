@@ -18,8 +18,19 @@ import { darkTheme } from '../themes/dark/darkTheme';
 
 export const ThemeContext = createContext();
 
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error(
+      'useTheme must be used within a ThemeContextProvider component'
+    );
+  }
+  return context;
+};
+
 export const ThemeContextProvider = ({ children }) => {
   const [stylesloaded, setStylesloaded] = useState(false);
+  const [theme, setTheme] = useState(lightTheme);
   const [themeMode, setThemeMode] = useState(
     localStorage.getItem('themeMode') === 'dark' ? 'dark' : 'light'
   );
@@ -32,6 +43,7 @@ export const ThemeContextProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('themeMode', themeMode);
+    setTheme(themeMode === 'light' ? lightTheme : darkTheme);
   }, [themeMode]);
 
   const toggleTheme = () => {
@@ -44,7 +56,7 @@ export const ThemeContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, themeMode, toggleTheme }}>
       {stylesloaded && (
         <StyledThemeProvider
           theme={themeMode === 'light' ? lightTheme : darkTheme}
@@ -57,8 +69,6 @@ export const ThemeContextProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-
-export const useTheme = () => useContext(ThemeContext);
 
 export const breakpoints = {
   sm: '576px',

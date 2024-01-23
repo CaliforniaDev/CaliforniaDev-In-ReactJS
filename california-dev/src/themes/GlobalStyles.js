@@ -6,7 +6,12 @@ export const GlobalStyles = createGlobalStyle(props => {
   return css`
     :root {
       --nav-rail-width: 8rem;
+      --mobile-nav-height: 8rem;
       --desktop-max-width: 1440px;
+      --app-height: 100%;
+      --color-primary: ${palette.primary};
+      --color-secondary: ${palette.secondary};
+      --color-tertiary: ${palette.tertiary};
     }
 
     .visually-hidden {
@@ -27,9 +32,8 @@ export const GlobalStyles = createGlobalStyle(props => {
       box-sizing: border-box;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
-      scroll-behavior: smooth;
-      background-color: ${palette.background};
-      color: ${palette.onBackground};
+      background-color: ${palette.surface};
+      color: ${palette.onSurface};
       color-scheme: ${preferredColorScheme};
       margin: 0;
       padding: 0;
@@ -74,10 +78,21 @@ export const GlobalStyles = createGlobalStyle(props => {
       ${typography.body.large};
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     fieldset {
       border: none; /* removes default border */
       padding: 0; /* removes default padding */
       margin: 0; /* removes default margin */
+    }
+
+    .full-height-element {
+      height: 100vh; /* Fallback */
+      height: 100dvh; /* Viewport Height */
+      height: var(--app-height);
     }
   `;
 });

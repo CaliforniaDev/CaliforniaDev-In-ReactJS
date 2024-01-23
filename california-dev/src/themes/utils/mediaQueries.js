@@ -13,17 +13,21 @@ const BREAKPOINTS = {
 };
 
 const BREAKPOINTS_NEW = {
-  large: `${1200 / 16}em`,
-  desktop: `${992 / 16}em`,
+  xlarge: `${1920 / 16}em`,
+  large: `${1440 / 16}em`,
+  desktop: `${1280 / 16}em`,
+  tabletLarge: `${1024 / 16}em`,
   tablet: `${768 / 16}em`,
   tabletSmall: `${600 / 16}em`,
   phone: `${576 / 16}em`,
+  phoneSmall: `${320 / 16}em`,
 };
 
 const PADDING_SIZES = {
   SMALL: '2.4rem', //24px
   MEDIUM: '10.4rem', //104px
   LARGE: '12.8rem', //128px
+  XLARGE: '16rem', //160px
 };
 
 // 3. Create a media object

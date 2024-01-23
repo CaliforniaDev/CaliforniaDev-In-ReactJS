@@ -12,10 +12,11 @@ export const StyledSpan = styled.span(({ theme: { palette } }) => {
 
     opacity: 0;
     background-color: inherit;
-    
+
     transition:
       background-color 0.3s ease,
-      opacity 0.3s ease;
+      opacity 0.3s ease,
+      box-shadow 0.3s ease-in-out;
 
     &:hover {
       opacity: 0.08;

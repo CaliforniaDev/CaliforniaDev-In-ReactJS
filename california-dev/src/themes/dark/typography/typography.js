@@ -1,6 +1,29 @@
 import { css } from 'styled-components';
 
 export const typography = {
+  hero: {
+    large: css`
+      font-family: 'Josefin Sans', sans-serif;
+      font-style: normal;
+      font-weight: 450;
+      font-size: 10.3rem;
+      line-height: 11.6rem;
+    `,
+    medium: css`
+      font-family: 'Josefin Sans', sans-serif;
+      font-style: normal;
+      font-weight: 450;
+      font-size: 9.1rem;
+      line-height: 10.4rem;
+    `,
+    small: css`
+      font-family: 'Josefin Sans', sans-serif;
+      font-style: normal;
+      font-weight: 450;
+      font-size: 8.1rem;
+      line-height: 9.2rem;
+    `,
+  },
   display: {
     large: css`
       font-family: 'Josefin Sans', sans-serif;
@@ -21,6 +44,7 @@ export const typography = {
       font-style: normal;
       font-weight: 450;
       font-size: 3.6rem;
+      line-height: 4.4rem;
     `,
   },
   headline: {
@@ -58,7 +82,7 @@ export const typography = {
       font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: 500;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       line-height: 2.4rem;
       letter-spacing: 0.015rem;
     `,
@@ -98,6 +122,14 @@ export const typography = {
     `,
   },
   body: {
+    xlarge: css`
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.8rem;
+      line-height: 2.6rem;
+      letter-spacing: 0.05rem;
+    `,
     large: css`
       font-family: 'Roboto', sans-serif;
       font-style: normal;
