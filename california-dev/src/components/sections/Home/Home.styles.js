@@ -45,27 +45,9 @@ export const StyledSection = styled.section(
       .zigzag-svg {
         display: none;
       }
-<<<<<<< HEAD
-
-      ${media.DESKTOP`
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1440px; //! CHeck this
-    
-        gap: 3.2rem; //! Check this
-        padding: ${media.padding.LARGE};
-        min-height: auto;
-
-        article {
-          display: flex;
-          flex-direction: column;
-          gap: 1.6rem;
-=======
       @media (min-width: ${media.device.tablet}) {
         .link-items-container {
           justify-content: flex-start;
->>>>>>> dev
         }
         .resume-btn {
           width: auto;
@@ -92,19 +74,11 @@ export const StyledSection = styled.section(
           width: inherit;
           height: inherit;
 
-<<<<<<< HEAD
-            background-color: ${palette.primary};
-            background-size: cover;
-            background-position-x: center;
-            background-image: url(${profileImg});
-            box-shadow: ${elevation.level5};
-=======
           background-color: ${palette.primary};
           background-size: cover;
           background-position-x: center;
           background-image: url(${profileImg});
           box-shadow: ${elevation.level5};
->>>>>>> dev
 
           z-index: 1;
         }
