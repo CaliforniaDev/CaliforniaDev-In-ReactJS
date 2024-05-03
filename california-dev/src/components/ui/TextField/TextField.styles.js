@@ -8,7 +8,6 @@ const afterPseudoElementStyling = css`
     left: 0;
     right: 0;
     bottom: 0;
-
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 
@@ -61,6 +60,7 @@ export const InputField = styled.div(({ theme: { palette } }) => {
     position: relative;
     display: block;
     width: 100%;
+    
     ${afterPseudoElementStyling}
     &:hover::after {
       background-color: ${palette.onSurface};

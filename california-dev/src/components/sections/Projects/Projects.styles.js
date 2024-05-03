@@ -14,6 +14,7 @@ export const ProjectSection = styled.section(
 
       padding: var(--vertical-padding) ${media.padding.SMALL};
       gap: 1.6rem;
+      max-width: var(--desktop-max-width);
 
       background-color: var(--background-color);
       color: ${palette.onBackground};

@@ -25,7 +25,6 @@ const Path = props => (
 export const MenuToggle = ({ toggle, className, size = 40 }) => (
   <Styled.MenuToggle className={className}>
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-      {/* <rect width={SIZE} height={SIZE} stroke="cyan" fill="transparent" /> */}
 
       {/* Variants for the top horizontal line */}
       <Path
