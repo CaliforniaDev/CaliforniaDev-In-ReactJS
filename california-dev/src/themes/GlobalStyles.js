@@ -39,6 +39,7 @@ export const GlobalStyles = createGlobalStyle(props => {
       padding: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
     }
 
     span,
