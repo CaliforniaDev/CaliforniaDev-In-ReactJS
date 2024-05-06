@@ -3,19 +3,21 @@ import styled, { css } from 'styled-components';
 export const StyledFooter = styled.footer(
   ({ theme: { palette, typography, media } }) => {
     return css`
+      display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       padding: ${media.padding.SMALL};
       color: ${palette.onSurfaceVariant};
       background-color: ${palette.surfaceVariant};
-
-      p, a {
+      p,
+      a {
         ${typography.body.large}
       }
       strong {
         ${typography.body.large}
         font-weight: bold;
         color: ${palette.primary};
-
       }
       li {
         margin-bottom: 0.8rem;
@@ -28,7 +30,6 @@ export const StyledFooter = styled.footer(
         align-items: center;
         height: 4rem;
         margin-bottom: 4rem;
-       
       }
       .logo-svg {
         height: 100%;
@@ -46,9 +47,11 @@ export const StyledFooter = styled.footer(
         }
       }
 
-     
+      .footer-wrapper {
+        width: 100%;
+        max-width: var(--desktop-max-width);
+      }
 
-      
       .copy-rights p {
         padding: 1.6rem 0;
         ${typography.body.small}
