@@ -10,6 +10,7 @@ import { Workflow } from '../sections/WorkFlow';
 import { Projects } from '../sections/Projects';
 import { Skills } from '../sections/Skills';
 import { Contact } from '../sections/Contact';
+import { Footer } from 'components/sections/Footer';
 import { MobileNav } from 'components/ui/Navigation/Mobile';
 import { NavRail } from 'components/ui/Navigation/Desktop/';
 
@@ -93,6 +94,7 @@ export function AppLayout() {
         <Projects ref={projectsRef} />
         <Skills ref={skillsRef} />
         <Contact ref={contactRef} />
+        <Footer />
       </motion.div>
     </MainContainer>
   );
