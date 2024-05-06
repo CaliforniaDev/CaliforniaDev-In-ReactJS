@@ -16,8 +16,7 @@ export const Footer = () => {
           <ul>
             <li className="link">
               <a
-                href="http://instagram.com/leo.thedeveloper"
-                target="_blank"
+                href="#home-section"
                 rel="noopener noreferrer"
               >
                 Home
@@ -25,8 +24,7 @@ export const Footer = () => {
             </li>
             <li className="link">
               <a
-                href="http://github.com/californiaDev"
-                target="_blank"
+                href="#workflow-section"
                 rel="noopener noreferrer"
               >
                 Workflow
@@ -34,8 +32,7 @@ export const Footer = () => {
             </li>
             <li className="link">
               <a
-                href="https://www.linkedin.com/in/leo-daniels/"
-                target="_blank"
+                href="#projects-section"
                 rel="noopener noreferrer"
               >
                 Latest Projects
@@ -43,8 +40,7 @@ export const Footer = () => {
             </li>
             <li className="link">
               <a
-                href="https://github.com/CaliforniaDev/CaliforniaDev-In-ReactJS"
-                target="_blank"
+                href="#skills-section"
                 rel="noopener noreferrer"
               >
                 Skills
@@ -52,8 +48,7 @@ export const Footer = () => {
             </li>
             <li className="link">
               <a
-                href="https://github.com/CaliforniaDev/CaliforniaDev-In-ReactJS"
-                target="_blank"
+                href="#contact-me-section"
                 rel="noopener noreferrer"
               >
                 Contact Me
