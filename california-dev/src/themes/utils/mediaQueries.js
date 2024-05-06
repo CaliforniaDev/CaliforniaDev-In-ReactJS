@@ -30,18 +30,18 @@ const PADDING_SIZES = {
   XLARGE: '16rem', //160px
 };
 
-// 3. Create a media object
+// Create a media object
 //    a. Use Object.keys() to get an array of breakpoint keys
 //    b. Use reduce() to iterate over the keys and create a property for each
 //       breakpoint in the media object
 export const media = Object.keys(BREAKPOINTS).reduce((acc, label) => {
-  // 4. Calculate the emSize of the breakpoint
+  // Calculate the emSize of the breakpoint
   const emSize = BREAKPOINTS[label] / 16;
-  // 5. Create a function to return a media query
+  // Create a function to return a media query
   acc[label] = (...args) => {
-    // 6. If the function is called with arguments
+    // If the function is called with arguments
     if (args.length > 0) {
-      // 7. Return a media query
+      // Return a media query
       return css`
         @media (min-width: ${emSize}em) {
           ${css(...args)};
@@ -52,7 +52,7 @@ export const media = Object.keys(BREAKPOINTS).reduce((acc, label) => {
   return acc;
 }, {});
 
-// 8. Add padding property to media object
+// Add padding property to media object
 media.padding = Object.keys(PADDING_SIZES).reduce((acc, label) => {
   acc[label] = PADDING_SIZES[label];
   return acc;
