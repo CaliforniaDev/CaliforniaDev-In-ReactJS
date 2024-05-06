@@ -30,6 +30,9 @@ const PADDING_SIZES = {
   XLARGE: '16rem', //160px
 };
 
+/**
+ * ! Utility This function is deprecated and will be removed in future versions.
+ */
 // Create a media object
 //    a. Use Object.keys() to get an array of breakpoint keys
 //    b. Use reduce() to iterate over the keys and create a property for each
@@ -52,7 +55,7 @@ export const media = Object.keys(BREAKPOINTS).reduce((acc, label) => {
   return acc;
 }, {});
 
-// Add padding property to media object
+// 8. Add padding property to media object
 media.padding = Object.keys(PADDING_SIZES).reduce((acc, label) => {
   acc[label] = PADDING_SIZES[label];
   return acc;
