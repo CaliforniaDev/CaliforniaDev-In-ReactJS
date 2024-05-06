@@ -11,6 +11,8 @@ import {
   JavascriptIcon,
   PhotoshopIcon,
   ReactIcon,
+  TypeScriptIcon,
+  NextIcon,
 } from 'assets/images/tools/';
 
 // Framer motion variants
@@ -46,11 +48,13 @@ export const Skills = React.forwardRef((props, ref) => {
     { IconComponent: CssIcon, title: 'CSS' },
     { IconComponent: FigmaIcon, title: 'Figma' },
     { IconComponent: AdobeIllustrator, title: 'Illustrator' },
+    { IconComponent: PhotoshopIcon, title: 'Photoshop' },
     { IconComponent: GitIcon, title: 'Git' },
     { IconComponent: GithubIcon, title: 'GitHub' },
     { IconComponent: JavascriptIcon, title: 'JavaScript' },
-    { IconComponent: PhotoshopIcon, title: 'Photoshop' },
+    { IconComponent: TypeScriptIcon, title: 'TypeScript' },
     { IconComponent: ReactIcon, title: 'React' },
+    { IconComponent: NextIcon, title: 'Next.js' },
   ];
 
   const skillsList = iconComponents.map((icon, index) => {

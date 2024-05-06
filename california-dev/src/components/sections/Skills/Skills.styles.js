@@ -41,10 +41,11 @@ export const Section = styled.section(
       }
 
       .card-icon {
-        // this className is hardcoded in the svg file
-        .github-icon__path {
+        // className is hardcoded in the svg file
+        .github-icon__path, .next-icon__path {
           fill: ${palette.onSurface};
         }
+   
       }
       @media (min-width: ${media.device.desktop}) {
         padding: ${media.padding.LARGE};
